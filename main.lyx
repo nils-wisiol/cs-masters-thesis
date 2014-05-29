@@ -9,7 +9,6 @@
 \usetikzlibrary{arrows,automata,shapes,chains,positioning}
 
 \usepackage{amsfonts}
-\usepackage{SIGACTNews}
 
 % redefine ensuremath to put a space behind it
 % this fixes broken LyX behavior that removes spaces behind it sometimes
@@ -730,78 +729,10 @@ Survey of Disjoint
 \end_inset
 
 -Pairs and Propositional Proof Systems 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-copyright
-\end_layout
-
-\end_inset
-
- C.
- Glaßer, A.
- Hughes, A.
- L.
- Selman, N.
- Wisiol, 2014
-\end_layout
-
-\end_inset
-
- 
 \end_layout
 
 \begin_layout Author
-C.
- Glaßer
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-University at Würzburg, Germany, 
-\family typewriter
-glasser@informatik.uni-wuerzburg.de
-\end_layout
-
-\end_inset
-
-, A.
- Hughes
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-University at Buffalo, New York, 
-\family typewriter
-ahughes6@buffalo.edu
-\end_layout
-
-\end_inset
-
-, A.
- L.
- Selman
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-University at Buffalo, New York, 
-\family typewriter
-selman@buffalo.edu
-\end_layout
-
-\end_inset
-
-, N.
- Wisiol
+Nils Wisiol
 \begin_inset Foot
 status open
 
@@ -809,74 +740,6 @@ status open
 University at Buffalo, New York, 
 \family typewriter
 mail@nils-wisiol.de
-\end_layout
-
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Graphics
-	filename pics/Christian.jpg
-	display false
-	height 45mm
-
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset Graphics
-	filename pics/Andrew.jpg
-	display false
-	height 45mm
-
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset Graphics
-	filename pics/Alan.jpg
-	display false
-	height 45mm
-
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset Graphics
-	filename pics/Nils.jpg
-	display false
-	height 45mm
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-SIGACTmaketitle
 \end_layout
 
 \end_inset
@@ -2012,7 +1875,7 @@ name "sec:Propositional-Proof-Systems"
 \end_layout
 
 \begin_layout Subsection
-Polynomially-bounded propositional proof systems and 
+Polynomially-bounded proof systems and 
 \begin_inset Formula $\NP=\coNP$
 \end_inset
 
@@ -2052,12 +1915,12 @@ There is a polynomially-bounded propositional proof system if and only if
 \end_layout
 
 \begin_layout Proof
-Let 
+Assume 
 \begin_inset Formula $\NP=\coNP$
 \end_inset
 
 .
- Then there is a 
+ Then there is an 
 \begin_inset Formula $\NP$
 \end_inset
 
@@ -2065,16 +1928,16 @@ Let
 \begin_inset Formula $M$
 \end_inset
 
- such that there is an accepting path 
+ such that for every tautology 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ there is an accepting path 
 \begin_inset Formula $w$
 \end_inset
 
  in the computation of 
 \begin_inset Formula $M$
-\end_inset
-
- for every tautology 
-\begin_inset Formula $\varphi$
 \end_inset
 
 .
@@ -2093,7 +1956,7 @@ f(\langle\varphi,w\rangle)=\begin{cases}
 
 \end_inset
 
-As 
+Since 
 \begin_inset Formula $f$
 \end_inset
 
@@ -2101,35 +1964,31 @@ As
 \begin_inset Formula $M$
 \end_inset
 
-, it is polynomial-time computable, and the fact that 
+, it is polynomial-time computable.
+ Also, 
 \begin_inset Formula $f$
 \end_inset
 
- only outputs tautologies together with the fact that there is a proof for
- every tautology makes 
+ only outputs tautologies.
+ Therefore, 
 \begin_inset Formula $f$
 \end_inset
 
- a proof system.
- Moreover, for every tautology 
-\begin_inset Formula $\varphi$
-\end_inset
-
- there is an accepting path 
-\begin_inset Formula $w$
-\end_inset
-
- in 
+ is a proof system.
+ As there is an accepting path in the computation of 
 \begin_inset Formula $M$
 \end_inset
 
- which is polynomially-bounded.
- Therefore, all proofs are polynomially length bounded.
+ for every tautology 
+\begin_inset Formula $\varphi$
+\end_inset
+
+, all tautologies have polynomial-length proofs.
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-this paragraph could be left out
+this paragraph could be left out or shortened
 \end_layout
 
 \end_inset
@@ -2138,11 +1997,12 @@ this paragraph could be left out
 \end_layout
 
 \begin_layout Proof
-To proof the converse, let 
+To prove the converse, suppose there is a polynomially-bounded proof system
+ 
 \begin_inset Formula $f$
 \end_inset
 
- by a polynomially-bounded proof system.
+.
  We will show that 
 \begin_inset Formula $\TAUT\in\NP$
 \end_inset
