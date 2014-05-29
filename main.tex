@@ -37,7 +37,6 @@
 \usetikzlibrary{arrows,automata,shapes,chains,positioning}
 
 \usepackage{amsfonts}
-\usepackage{SIGACTNews}
 
 % redefine ensuremath to put a space behind it
 % this fixes broken LyX behavior that removes spaces behind it sometimes
@@ -209,26 +208,14 @@
 \newcommand{\keyreturn}{return}
 
 
-\title{Survey of Disjoint $\NP$-Pairs and Propositional Proof Systems %
-\thanks{\copyright C. Glaßer, A. Hughes, A. L. Selman, N. Wisiol, 2014%
-} }
+\title{Survey of Disjoint $\NP$-Pairs and Propositional Proof Systems }
 
 
-\author{C. Glaßer%
-\thanks{University at Würzburg, Germany, \texttt{glasser@informatik.uni-wuerzburg.de}%
-}, A. Hughes%
-\thanks{University at Buffalo, New York, \texttt{ahughes6@buffalo.edu}%
-}, A. L. Selman%
-\thanks{University at Buffalo, New York, \texttt{selman@buffalo.edu}%
-}, N. Wisiol%
+\author{Nils Wisiol%
 \thanks{University at Buffalo, New York, \texttt{mail@nils-wisiol.de}%
-}\\
-\\
-\includegraphics[height=45mm,bb = 0 0 200 100, draft, type=eps]{pics/Christian.jpg}~\includegraphics[height=45mm,bb = 0 0 200 100, draft, type=eps]{pics/Andrew.jpg}~\includegraphics[height=45mm,bb = 0 0 200 100, draft, type=eps]{pics/Alan.jpg}~\includegraphics[height=45mm,bb = 0 0 200 100, draft, type=eps]{pics/Nils.jpg}}
+}}
 
 \maketitle
-\SIGACTmaketitle
-
 
 \section{Introduction}
 
@@ -446,7 +433,7 @@ if ESY does not hold, this implies the existence of complete pairs.
 \section{Propositional Proof Systems\label{sec:Propositional-Proof-Systems}}
 
 
-\subsection{Polynomially-bounded propositional proof systems and $\NP=\coNP$}
+\subsection{Polynomially-bounded proof systems and $\NP=\coNP$}
 
 Here will show that the existence of polynomially-bounded proof systems
 characterizes $\NP=\coNP$. The proof is due to Cook and Reckhow \cite{journals/jsyml/CookR79}.
@@ -454,42 +441,41 @@ characterizes $\NP=\coNP$. The proof is due to Cook and Reckhow \cite{journals/j
 \label{thm:poly-bounded-ps-iff-np-eq-conp}There is a polynomially-bounded
 propositional proof system if and only if $\NP=\coNP$.\end{thm}
 \begin{proof}
-Let $\NP=\coNP$. Then there is a $\NP$-machine $M$ such that there
-is an accepting path $w$ in the computation of $M$ for every tautology
-$\varphi$. This allows us to define a proof system $f$, in which
-all proofs are polynomially length bounded:
+Assume $\NP=\coNP$. Then there is an $\NP$-machine $M$ such that
+for every tautology $\varphi$ there is an accepting path $w$ in
+the computation of $M$. This allows us to define a proof system $f$,
+in which all proofs are polynomially length bounded:
 \[
 f(\langle\varphi,w\rangle)=\begin{cases}
 \varphi & \text{if \ensuremath{M}accepts \ensuremath{\varphi}on path \ensuremath{w}},\\
 \true & \text{otherwise}.
 \end{cases}
 \]
-As $f$ only considers one path in the computation of $M$, it is
-polynomial-time computable, and the fact that $f$ only outputs tautologies
-together with the fact that there is a proof for every tautology makes
-$f$ a proof system. Moreover, for every tautology $\varphi$ there
-is an accepting path $w$ in $M$ which is polynomially-bounded. Therefore,
-all proofs are polynomially length bounded.
+Since $f$ only considers one path in the computation of $M$, it
+is polynomial-time computable. Also, $f$ only outputs tautologies.
+Therefore, $f$ is a proof system. As there is an accepting path in
+the computation of $M$ for every tautology $\varphi$, all tautologies
+have polynomial-length proofs.
 
-To proof the converse, let $f$ by a polynomially-bounded proof system.
-We will show that $\TAUT\in\NP$, from which follows that $\NP=\coNP$.
-Let $M$ be a nondeterministic Turing machine such that on input $\varphi$,
-$M$ guesses a $f$-proof $w$ and calculates $f(\langle\varphi,w\rangle)$.
-The machine then accepts if and only if $f(\langle\varphi,w\rangle)=\varphi$.
-Hence, every accepted string is a tautology, and every tautology is
-accepted.
+To prove the converse, suppose there is a polynomially-bounded proof
+system $f$. Since the complement of $\TAUT$ is $\NP$-complete,
+it suffices to show $\TAUT\in\NP$. Let $M$ be a nondeterministic
+Turing machine such that on input $\varphi$, $M$ guesses a $f$-proof
+$w$ and calculates $f(\langle\varphi,w\rangle)$. The machine then
+accepts if and only if $f(\langle\varphi,w\rangle)=\varphi$. Hence,
+every accepted string is a tautology, and every tautology is accepted.
 \end{proof}
 To prove $\NP\neq\coNP$, that is, to prove there is no polynomially-bounded
 proof system, Cook and Reckhow introduced the notion of optimal proof
 systems. We call a proof system $f$ optimal, if $f$-proofs are the
 shortest proofs among all proof systems (with respect to a polynomial
-factor). If we could prove the existence of a optimal proof system
+factor). If we could prove the existence of an optimal proof system
 with proofs that are not within polynomial length, we could prove
 $\NP\neq\coNP$.
 
 However, it is unknown whether or not optimal proof systems with proofs
-of any length exist, which is why we are interested in necessary and
-sufficient conditions for that.  
+of any length exist, however a few necessary and sufficient conditions
+are known.  
 
 
 \subsection{Sufficient Conditions for the Existence}

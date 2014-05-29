@@ -2003,12 +2003,16 @@ To prove the converse, suppose there is a polynomially-bounded proof system
 \end_inset
 
 .
- We will show that 
-\begin_inset Formula $\TAUT\in\NP$
+ Since the complement of 
+\begin_inset Formula $\TAUT$
 \end_inset
 
-, from which follows that 
-\begin_inset Formula $\NP=\coNP$
+ is 
+\begin_inset Formula $\NP$
+\end_inset
+
+-complete, it suffices to show 
+\begin_inset Formula $\TAUT\in\NP$
 \end_inset
 
 .
@@ -2062,8 +2066,8 @@ To prove
 
 -proofs are the shortest proofs among all proof systems (with respect to
  a polynomial factor).
- If we could prove the existence of a optimal proof system with proofs that
- are not within polynomial length, we could prove 
+ If we could prove the existence of an optimal proof system with proofs
+ that are not within polynomial length, we could prove 
 \begin_inset Formula $\NP\neq\coNP$
 \end_inset
 
@@ -2072,8 +2076,8 @@ To prove
 
 \begin_layout Standard
 However, it is unknown whether or not optimal proof systems with proofs
- of any length exist, which is why we are interested in necessary and sufficient
- conditions for that.
+ of any length exist, however a few necessary and sufficient conditions
+ are known.
  
 \begin_inset Note Note
 status open
