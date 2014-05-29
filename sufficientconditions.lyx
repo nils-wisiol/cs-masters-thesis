@@ -1,0 +1,1930 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass amsart
+\begin_preamble
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows,automata,shapes,chains,positioning}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of operators
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Sym}{\operatorname{Sym}}
+{\mathrm{Sym\text{ }}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Aut}{\operatorname{Aut}}
+{\mathrm{Aut\text{ }}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Ker}{\operatorname{Ker}}
+{\mathrm{Ker}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Img}{\operatorname{Im}}
+{\mathrm{Im}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Sep}{\operatorname{Sep}}
+{\mathrm{Sep}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\powerset}{\operatorname{\mathcal{P}}}
+{\mathrm{\mathcal{P}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of function classes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\functionclass}[1]{\mathcal{#1}}
+{\mathcal{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\FP}{\functionclass{FP}}
+{\functionclass{FP}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of complexity classes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\complexityclass}[1]{\mathrm{#1}}
+{\mathrm{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\DTIME}{\complexityclass{DTIME}}
+{\complexityclass{DTIME}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NTIME}{\complexityclass{NTIME}}
+{\complexityclass{NTIME}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNTIME}{\complexityclass{coNTIME}}
+{\complexityclass{coNTIME}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\P}{\complexityclass P}
+{\complexityclass P}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NP}{\complexityclass{NP}}
+{\complexityclass{NP}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNP}{\complexityclass{coNP}}
+{\complexityclass{coNP}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\E}{\complexityclass E}
+{\complexityclass E}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NE}{\complexityclass{NE}}
+{\complexityclass{NE}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNE}{\complexityclass{coNE}}
+{\complexityclass{coNE}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\EE}{\complexityclass{EE}}
+{\complexityclass{EE}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NEE}{\complexityclass{NEE}}
+{\complexityclass{NEE}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNEE}{\complexityclass{coNEE}}
+{\complexityclass{coNEE}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\EEE}{\complexityclass{EEE}}
+{\complexityclass{EEE}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NEEE}{\complexityclass{NEEE}}
+{\complexityclass{NEEE}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNEEE}{\complexityclass{coNEEE}}
+{\complexityclass{coNEEE}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\EXP}{\complexityclass{EXP}}
+{\complexityclass{EXP}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NEXP}{\complexityclass{NEXP}}
+{\complexityclass{NEXP}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNEXP}{\complexityclass{coNEXP}}
+{\complexityclass{coNEXP}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\DisjNP}{\complexityclass{DisjNP}}
+{\complexityclass{DisjNP}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\degree}{\operatorname{d}}
+{\mathrm{d}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\GI}{\complexityclass{GI}}
+{\complexityclass{GI}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\GNI}{\complexityclass{GNI}}
+{\complexityclass{GNI}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\AM}{\complexityclass{AM}}
+{\complexityclass{AM}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coAM}{\complexityclass{coAM}}
+{\complexityclass{coAM}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of reductions (languages)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\redmo}{\leq_{m}^{p}}
+{\leq_{m}^{p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\equivmo}{\equiv_{m}^{p}}
+{\equiv_{m}^{p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\redmoneq}{<_{m}^{p}}
+{<_{m}^{p}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\redt}{\leq_{T}^{p}}
+{\leq_{T}^{p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\equivt}{\equiv_{T}^{p}}
+{\equiv_{T}^{p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\redtneq}{<_{T}^{p}}
+{<_{T}^{p}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of reductions (pairs)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\predmo}{\leq_{m}^{pp}}
+{\leq_{m}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pequivmo}{\equiv_{m}^{pp}}
+{\equiv_{m}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\predmoneq}{<_{m}^{pp}}
+{<_{m}^{pp}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\predsmo}{\leq_{sm}^{pp}}
+{\leq_{sm}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pequivsmo}{\equiv_{sm}^{pp}}
+{\equiv_{sm}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\predsmoneq}{<_{sm}^{pp}}
+{<_{sm}^{pp}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\predt}{\leq_{T}^{pp}}
+{\leq_{T}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pequivt}{\equiv_{T}^{pp}}
+{\equiv_{T}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\predtneq}{<_{T}^{pp}}
+{<_{T}^{pp}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\predunimo}{\leq_{um}^{pp}}
+{\leq_{um}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pequivunimo}{\equiv_{um}^{pp}}
+{\equiv_{um}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\predunimoneq}{<_{um}^{pp}}
+{<_{um}^{pp}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\predunit}{\leq_{uT}^{pp}}
+{\leq_{uT}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pequivunit}{\equiv_{uT}^{pp}}
+{\equiv_{uT}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\predunitneq}{<_{uT}^{pp}}
+{<_{uT}^{pp}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of simulations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\simp}{\leq_{p}}
+{\leq_{p}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of languages
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\lang}[1]{\mathrm{#1}}
+{\mathrm{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\SAT}{\lang{SAT}}
+{\lang{SAT}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\SATstar}{\lang{SAT}^{*}}
+{\lang{SAT}^{*}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\REF}{\lang{REF}}
+{\lang{REF}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\TAUT}{\lang{TAUT}}
+{\lang{TAUT}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\TALLY}{\lang{TALLY}}
+{\lang{TALLY}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+misc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\true}{\text{true}}
+{\text{true}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\false}{\text{false}}
+{\text{false}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+On Sufficient Conditions for P-optimal Proof Systems
+\end_layout
+
+\begin_layout Author
+Nils Wisiol
+\end_layout
+
+\begin_layout Abstract
+This paper weakens the known sufficient conditions for the existence of
+ p-optimal propositional proof systems.
+ In 1997, Meßner and Torán proved that 
+\begin_inset Formula $\EE=\NEE$
+\end_inset
+
+ is a sufficient condition for the existence of p-optimal proof systems.
+ We are adopting their proof to show weaker conditions for the existence
+ of p-optimal proof systems.
+\end_layout
+
+\begin_layout Section
+Introduction: Known Sufficient Conditions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\P=\NP$
+\end_inset
+
+ implies the existence of p-optimal proof systems trivially.
+ The conditions was weakened in the eighties by Krajíček and Pudlák, which
+ gave a proof that 
+\begin_inset Formula $\E=\NE$
+\end_inset
+
+ is already sufficient.
+ This result was improved further by Meßner and Torán, which showed that
+ 
+\begin_inset Formula $\EE=\NEE$
+\end_inset
+
+ is sufficient.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[->,>=stealth',shorten >=1pt,node distance=2.2cm,     
+  semithick, /tikz/initial text=]   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{every state}=[fill=none,draw=black,text=black]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (A0)                    {$
+\backslash
+NP=
+\backslash
+coNP$};   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (B0) [below of=A0] {$
+\backslash
+NE=
+\backslash
+coNE$}; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (C0) [below of=B0] {$
+\backslash
+NEE=
+\backslash
+coNEE$}; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (E0) [below of=C0,align=center]       {$
+\backslash
+exists$ an optimal
+\backslash
+
+\backslash
+proof system};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (A1) [right=2.2cm of A0] {$
+\backslash
+P=
+\backslash
+NP$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (B1) [below of=A1] {$
+\backslash
+E=
+\backslash
+NE$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (C1) [below of=B1] {$
+\backslash
+EE=
+\backslash
+NEE$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (E1) [below of=C1,align=center] {$
+\backslash
+exists$ an p-optimal
+\backslash
+
+\backslash
+proof system};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path[every node/.style={sloped,anchor=south,auto=false}]
+\end_layout
+
+\begin_layout Plain Layout
+
+ (A0) edge (B0)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (B0) edge (C0)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (C0) edge node[above] {
+\backslash
+cite{journals/eccc/ECCC-TR97-026}} (E0)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ (A1) edge (B1)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (B1) edge (C1)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (C1) edge node[above] {
+\backslash
+cite{journals/eccc/ECCC-TR97-026}} (E1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ (A0) edge [bend right=60] node[above] {easy} (E0)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (B0) edge [bend right=60] node[below] {
+\backslash
+cite{journals/jsyml/KrajicekP89}} (E0)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ (A1) edge [bend left=60] node[above] {easy} (E1)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (B1) edge [bend left=60] node[below] {
+\backslash
+cite{journals/jsyml/KrajicekP89}} (E1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ (A1) edge (A0)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (B1) edge (B0)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (C1) edge (C0)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (E1) edge (E0)
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Implication chart on assumptions that imply the existence of optimal and
+ p-optimal proof systems.
+ Assumptions become weaker from top going down.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To see that these conditions are in fact weaker, we can apply an easy padding
+ argument.
+ Assume 
+\begin_inset Formula $\P=\NP$
+\end_inset
+
+ and let 
+\begin_inset Formula $L\in\NE$
+\end_inset
+
+.
+ We say the 
+\emph on
+tally encoding
+\emph default
+ of 
+\begin_inset Formula $L$
+\end_inset
+
+ is 
+\begin_inset Formula $T(L)=\{0^{x}\mid x\in L\}$
+\end_inset
+
+, where every member of 
+\begin_inset Formula $x\in L$
+\end_inset
+
+ is represented by the tally notation of the number 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Since this gives us a exponential blow-up for all members of 
+\begin_inset Formula $L$
+\end_inset
+
+, 
+\begin_inset Formula $T(L)\in\NP=\P$
+\end_inset
+
+.
+ The same argument rolled back gives us 
+\begin_inset Formula $L\in\E$
+\end_inset
+
+.
+ An equivalent argument can be applied for 
+\begin_inset Formula $\EE$
+\end_inset
+
+, 
+\begin_inset Formula $\EEE$
+\end_inset
+
+ and so on.
+\end_layout
+
+\begin_layout Section
+Preliminaries
+\end_layout
+
+\begin_layout Standard
+We note 
+\emph on
+tetration
+\emph default
+ by 
+\begin_inset Formula $^{n}a$
+\end_inset
+
+ and define it's value to be 
+\begin_inset Formula 
+\[
+^{n}a=\underbrace{a^{a^{\iddots^{a}}}}_{\text{\ensuremath{n} times}}.
+\]
+
+\end_inset
+
+For this paper, tetration has the highest operator preference, therefore
+ 
+\begin_inset Formula $^{3}2^{n}=(^{3}2)^{n}$
+\end_inset
+
+.
+ By 
+\begin_inset Formula $\log^{n}$
+\end_inset
+
+ we denote
+\begin_inset Formula 
+\[
+\log^{n}a=\underbrace{\log\log...\text{\log}}_{\text{\ensuremath{n} times}}a.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Weaker Sufficient Conditions
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $M_{1},M_{2},M_{3},...$
+\end_inset
+
+ be an enumeration of deterministic Turing machines.
+ There is an universal Turing machine such that, for every 
+\begin_inset Formula $i$
+\end_inset
+
+, it can simulate 
+\begin_inset Formula $k$
+\end_inset
+
+ steps of 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+ in time 
+\begin_inset Formula $(ik)^{2}$
+\end_inset
+
+.
+ For any function 
+\begin_inset Formula $f$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{eqnarray*}
+T_{f} & = & \{0^{j}10^{i}\mid\text{for every word \ensuremath{w} of length at most \ensuremath{f(n)}, \ensuremath{n=j+1+i}:}\\
+ &  & \text{\ensuremath{M_{i}} stops on input \ensuremath{w} within \ensuremath{f(n)} steps \ensuremath{\implies}\ensuremath{M_{i}} outputs a tautology }\}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:Tf-complexity-class"
+
+\end_inset
+
+For any polynomial 
+\begin_inset Formula $p$
+\end_inset
+
+, 
+\begin_inset Formula $T_{p}\in\coNP$
+\end_inset
+
+.
+ For any super-polynomial function 
+\begin_inset Formula $f$
+\end_inset
+
+, 
+\begin_inset Formula $T_{f}\in\coNTIME(n^{2}f(n)^{2})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $f$
+\end_inset
+
+ be a monotone function.
+ We can write 
+\begin_inset Formula $T_{f}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\begin{eqnarray*}
+T_{f} & = & \{x\mid\forall_{w}\forall_{y}:R(w,y,x)\}\\
+R(w,y,x) & \iff & x=0^{i}10^{j}\in\powerset(0^{*}10^{*})\text{ and }\\
+ &  & \left[\text{\ensuremath{M_{i}(w)} halts within \ensuremath{f(n)} steps \ensuremath{\implies}\ensuremath{y} satisfies \ensuremath{M_{i}(w)}}\right]
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula $R$
+\end_inset
+
+ consists of three different assertions, which we will analyze separately.
+ Combining the truth value of the three assertions takes constant time.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $x=0^{i}10^{j}\in\powerset(0^{*}10^{*})$
+\end_inset
+
+ can, as every regular language, be decided in polynomial time.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\begin_inset Formula $M_{i}(w)$
+\end_inset
+
+ halts within 
+\begin_inset Formula $f(n)$
+\end_inset
+
+ steps can be decided in time 
+\begin_inset Formula $i^{2}f(n)^{2}\leq n^{2}f(n)^{2}$
+\end_inset
+
+.
+ Whether or not 
+\begin_inset Formula $y$
+\end_inset
+
+ is a satisfying assignment for 
+\begin_inset Formula $M_{i}(w)$
+\end_inset
+
+ can be decided in 
+\begin_inset Formula $|M_{i}(w)|\log|M_{i}(w)|$
+\end_inset
+
+ time.
+ Due to the runtime restriction, 
+\begin_inset Formula $|M_{i}(w)|\leq f(n)$
+\end_inset
+
+, which gives us an upper bound for checking runtime of 
+\begin_inset Formula $f(n)\log f(n)$
+\end_inset
+
+.
+ This runtime is always dominated by 
+\begin_inset Formula $n^{2}f(n)^{2}$
+\end_inset
+
+.
+ Therefore,
+\begin_inset Formula 
+\[
+R\in\P\cup\DTIME(n^{2}f(n)^{2}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $f$
+\end_inset
+
+ is a polynomial, we obtain 
+\begin_inset Formula $R\in P$
+\end_inset
+
+ and thus 
+\begin_inset Formula $T_{f}\in\coNP$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $f$
+\end_inset
+
+ is super-polynomial, 
+\begin_inset Formula $\DTIME(n^{2}f(n)^{2})\supseteq\P$
+\end_inset
+
+ and thus 
+\begin_inset Formula $T_{f}\in\coNTIME(n^{2}f(n)^{2})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:tetration-lemma"
+
+\end_inset
+
+For any 
+\begin_inset Formula $k,n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $({}^{k}2^{n})^{2}=2^{2\cdot{}^{k-1}2^{n}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $({}^{k}2^{n})^{2}=(2^{^{k-1}2^{n}})^{2}=2^{2\cdot{}^{k-1}2^{n}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We define the linear exponential time classes for 
+\begin_inset Formula $k\geq1$
+\end_inset
+
+ as
+\begin_inset Formula 
+\[
+\E^{k}=\DTIME(2^{O({}^{k-1}2^{n})})
+\]
+
+\end_inset
+
+and set 
+\begin_inset Formula $\E=\E^{1}=\DTIME(2^{O(n)})$
+\end_inset
+
+, 
+\begin_inset Formula $\EE=\E^{2}=\DTIME(2^{O(2^{n})})$
+\end_inset
+
+, 
+\begin_inset Formula $\EEE=\DTIME(2^{O(2^{2^{n}})})$
+\end_inset
+
+.
+ We also define 
+\begin_inset Formula $\NE^{k}=\NTIME(2^{O({}^{k-1}2^{n})})$
+\end_inset
+
+ and 
+\begin_inset Formula $\coNE^{k}=\overline{\NE^{k}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Corollary
+For 
+\begin_inset Formula $k\geq1$
+\end_inset
+
+, if 
+\begin_inset Formula $f(n)={}^{k}2^{n}$
+\end_inset
+
+, then 
+\begin_inset Formula $T_{f}\in\coNE^{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+By Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:Tf-complexity-class"
+
+\end_inset
+
+, for 
+\begin_inset Formula $f(n)={}^{k}2^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $T_{f}\in\coNTIME(n^{2}{}^{k}2^{n})$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $n^{2}{}^{k}2^{n}\in O(2^{2\cdot{}^{k-1}2^{n}})$
+\end_inset
+
+, we have 
+\begin_inset Formula $T_{f}\in\coNTIME(2^{2\cdot{}^{k-1}2^{n}})\subseteq\coNE^{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now assume 
+\begin_inset Formula $\powerset(0^{*}10^{*})\cap\coNTIME(n^{2}f(n)^{2})\subseteq\DTIME(f(n))$
+\end_inset
+
+ and let 
+\begin_inset Formula $h_{f}$
+\end_inset
+
+ be defined as
+\begin_inset Formula 
+\[
+h_{f}(z)=\begin{cases}
+M_{i}(w) & \text{if \ensuremath{z=\langle0^{j}10^{i},0^{s},w\rangle} and \ensuremath{s\geq f(l)} and \ensuremath{|w|\leq f(l)}, \ensuremath{l=i+j+1}}\\
+ & \text{and \ensuremath{M_{T_{f}}} accepts \ensuremath{0^{j}10^{i}} in at most \ensuremath{s} steps,}\\
+\true & \text{otherwise},
+\end{cases}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $M_{T_{f}}$
+\end_inset
+
+ is a deterministic machine with runtime 
+\begin_inset Formula $f(n)$
+\end_inset
+
+ on input length 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+For every polynomial-time computable strictly increasing function 
+\begin_inset Formula $f$
+\end_inset
+
+, if 
+\begin_inset Formula $\powerset(0^{*}10^{*})\cap\coNTIME(n^{2}f(n)^{2})\subseteq\DTIME(f(n))$
+\end_inset
+
+, then 
+\begin_inset Formula $h_{f}$
+\end_inset
+
+ is a propositional proof system.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $h_{f}$
+\end_inset
+
+ can be computed in polynomial time: 
+\begin_inset Formula $f(l)$
+\end_inset
+
+ can be computed in polynomial time by assumption, and the deterministic
+ machine 
+\begin_inset Formula $M_{T_{f}}$
+\end_inset
+
+ on input 
+\begin_inset Formula $0^{j}10^{i}$
+\end_inset
+
+ can be simulated in 
+\begin_inset Formula $O(s^{2})$
+\end_inset
+
+ steps.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $h_{f}$
+\end_inset
+
+ only outputs tautologies: If 
+\begin_inset Formula $M_{T_{f}}$
+\end_inset
+
+ accepts 
+\begin_inset Formula $0^{j}10^{i}$
+\end_inset
+
+, then 
+\begin_inset Formula $0^{j}10^{i}\in T_{f}$
+\end_inset
+
+ which means that 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+ outputs a tautology for every input of length at most 
+\begin_inset Formula $f(l)$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $|w|\leq f(l)$
+\end_inset
+
+, this is the case.
+\end_layout
+
+\begin_layout Proof
+There is a 
+\begin_inset Formula $h_{f}$
+\end_inset
+
+-proof for every tautology: Given tautology 
+\begin_inset Formula $t$
+\end_inset
+
+, there is a 
+\begin_inset Formula $k$
+\end_inset
+
+ such that machine 
+\begin_inset Formula $M_{k}$
+\end_inset
+
+ that always outputs 
+\begin_inset Formula $t$
+\end_inset
+
+ after 
+\begin_inset Formula $|t|$
+\end_inset
+
+ steps no matter the input.
+ Because of that, 
+\begin_inset Formula $0^{j}10^{k}\in T_{f}$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $f(j+k+1)\geq|t|$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $f$
+\end_inset
+
+ is strictly increasing, there is a 
+\begin_inset Formula $j$
+\end_inset
+
+ such that 
+\begin_inset Formula $0^{j}10^{k}\in T_{f}$
+\end_inset
+
+.
+ Therefore, 
+\begin_inset Formula $\langle0^{j}10^{k},0^{|t|},\varepsilon\rangle$
+\end_inset
+
+ is a 
+\begin_inset Formula $h_{f}$
+\end_inset
+
+-proof for 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+All conditions of the definition of 
+\begin_inset Formula $h_{f}$
+\end_inset
+
+ apply: 
+\begin_inset Formula $s=|t|\geq f(j+k+1)$
+\end_inset
+
+ by definition of 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ 
+\begin_inset Formula $|w|\leq f(l)$
+\end_inset
+
+ since 
+\begin_inset Formula $w=\varepsilon$
+\end_inset
+
+.
+ 
+\begin_inset Formula $M_{T_{f}}$
+\end_inset
+
+ accepts 
+\begin_inset Formula $0^{j}10^{k}$
+\end_inset
+
+ because 
+\begin_inset Formula $M_{k}$
+\end_inset
+
+ always accepts and outputs a 
+\begin_inset Formula $t$
+\end_inset
+
+ after 
+\begin_inset Formula $|t|$
+\end_inset
+
+ steps.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+For every polynomial-time computable strictly increasing super-poly
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+-
+\end_layout
+
+\end_inset
+
+nomial bijective function 
+\begin_inset Formula $f$
+\end_inset
+
+, 
+\begin_inset Formula $f^{-1}$
+\end_inset
+
+ being polynomial-time computable: If 
+\begin_inset Formula 
+\[
+\powerset(0^{*}10^{*})\cap\coNTIME(n^{2}f(n)^{2})\subseteq\DTIME(f(n)),
+\]
+
+\end_inset
+
+then 
+\begin_inset Formula $h_{f}$
+\end_inset
+
+ is p-optimal.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $g$
+\end_inset
+
+ be a proof system computed by the deterministic Turing transducer 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+ with time bound 
+\begin_inset Formula $n^{k}+k$
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Check definition for this time bound.
+\end_layout
+
+\end_inset
+
+ A 
+\begin_inset Formula $g$
+\end_inset
+
+-proof 
+\begin_inset Formula $w$
+\end_inset
+
+ is translated into a 
+\begin_inset Formula $h_{f}$
+\end_inset
+
+-proof 
+\begin_inset Formula 
+\begin{eqnarray*}
+w' & = & \langle0^{j}10^{i},0^{s},w\rangle,\\
+s & = & f(i+j+1),\\
+j & = & \max(0,\left\lceil f^{-1}(|w|^{k}+k)\right\rceil -i-1).
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+This satisfies the conditions of 
+\begin_inset Formula $h_{f}$
+\end_inset
+
+ and therefore outputs 
+\begin_inset Formula $M_{i}(w)$
+\end_inset
+
+: For the 
+\begin_inset Formula $s\geq f(i+j+1)$
+\end_inset
+
+ condition we have equality by definition.
+ 
+\begin_inset Formula $|w|\leq f(i+j+1)$
+\end_inset
+
+ holds by choice of 
+\begin_inset Formula $j:$
+\end_inset
+
+ if 
+\begin_inset Formula $j=0$
+\end_inset
+
+, then we have 
+\begin_inset Formula $\left\lceil f^{-1}(|w|^{k}+k)\right\rceil -i-1<0$
+\end_inset
+
+, which implies 
+\begin_inset Formula $|w|^{k}+k<f(i+1)$
+\end_inset
+
+ and thus 
+\begin_inset Formula $|w|<f(i+1)=f(i+j+1)$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $j>0$
+\end_inset
+
+, then 
+\begin_inset Formula $j=\left\lceil f^{-1}(|w|^{k}+k)\right\rceil -i-1$
+\end_inset
+
+ and we have 
+\begin_inset Formula $f(i+j+1)=f(\left\lceil f^{-1}(|w|^{k}+k)\right\rceil )\geq|w|^{k}+k\geq|w|$
+\end_inset
+
+.
+ 
+\begin_inset Formula $M_{T_{f}}$
+\end_inset
+
+ accepts 
+\begin_inset Formula $0^{j}10^{i}$
+\end_inset
+
+ in at most 
+\begin_inset Formula $s$
+\end_inset
+
+ steps: 
+\begin_inset Formula $0^{j}10^{i}$
+\end_inset
+
+ is in 
+\begin_inset Formula $T_{f}$
+\end_inset
+
+, since 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+ is a proof system and only outputs tautologies.
+ Since 
+\begin_inset Formula $T_{f}\in\powerset(0^{*}10^{*})\cap\coNTIME(n^{2}f(n)^{2})$
+\end_inset
+
+, by assumption, there is a machine 
+\begin_inset Formula $M_{T_{f}}$
+\end_inset
+
+ accepts within 
+\begin_inset Formula $s=f(i+j+1)$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ by assumption.
+ Therefore, we obtain 
+\begin_inset Formula $g(w)=h(w')$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+The mapping 
+\begin_inset Formula $w\mapsto\langle0^{j}10^{i},0^{s},w\rangle$
+\end_inset
+
+ as defined above is polynomial-time computable.
+ This is the case, if the length of 
+\begin_inset Formula $0^{s}$
+\end_inset
+
+ is polynomially bounded by 
+\begin_inset Formula $|w|$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $j=0$
+\end_inset
+
+, we have 
+\begin_inset Formula $s=f(i+1)$
+\end_inset
+
+, which is constant in 
+\begin_inset Formula $|w|$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $j=\left\lceil f^{-1}(|w|^{k}+k)\right\rceil -i-1$
+\end_inset
+
+, we have 
+\begin_inset Formula $s=f(i+j+1)=f(\left\lceil f^{-1}(|w|^{k}+k)\right\rceil )$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $f$
+\end_inset
+
+ is strictly increasing,
+\begin_inset Formula 
+\[
+f(\left\lceil f^{-1}(|w|^{k}+k)\right\rceil )\leq f(f^{-1}(|w|^{k}+k)+1)\leq f(f^{-1}(|w|^{k}+k+1))=|w|^{k}+k+1.
+\]
+
+\end_inset
+
+Therefore, we have 
+\begin_inset Formula $s\leq|w|^{k}+k+1$
+\end_inset
+
+ which is polynomial in 
+\begin_inset Formula $|w|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Therefore, 
+\begin_inset Formula $h_{f}$
+\end_inset
+
+ is a p-optimal proof system.
+\end_layout
+
+\begin_layout Conjecture
+For any 
+\begin_inset Formula $k$
+\end_inset
+
+, if 
+\begin_inset Formula $\powerset(0^{*}10^{*})\cap\coNE^{k}\subseteq\E^{k}$
+\end_inset
+
+, then 
+\begin_inset Formula $h_{f}$
+\end_inset
+
+ is a p-optimal proof system.
+\end_layout
+
+\begin_layout Standard
+If the conjecture holds, we obtain
+\begin_inset Formula 
+\begin{eqnarray*}
+ &  & \P=\NP\implies\E=\NE\implies\EE=\NEE\implies\\
+ &  & \implies\EEE=\NEEE\implies...\implies\exists\text{p-optimal proof system}.
+\end{eqnarray*}
+
+\end_inset
+
+To verify the conjecture, we must verify that 
+\begin_inset Formula $^{k}2^{n}$
+\end_inset
+
+ is in fact a polynomial-time computable strictly increasing super-polynomial
+ bijective function 
+\begin_inset Formula $f$
+\end_inset
+
+, and 
+\begin_inset Formula $f^{-1}$
+\end_inset
+
+ being polynomial-time computable.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "bibliography"
+options "amsalpha"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

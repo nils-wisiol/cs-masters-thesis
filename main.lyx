@@ -1,0 +1,3781 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows,automata,shapes,chains,positioning}
+
+\usepackage{amsfonts}
+\usepackage{SIGACTNews}
+
+% redefine ensuremath to put a space behind it
+% this fixes broken LyX behavior that removes spaces behind it sometimes
+\usepackage{xspace} % conditional spaceing
+\let\Oldensuremath\ensuremath
+\renewcommand{\ensuremath}[1]{\Oldensuremath{#1}\xspace}
+\end_preamble
+\options 11pt
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+algolyx
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of operators
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Sym}{\operatorname{Sym}}
+{\mathrm{Sym\text{ }}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Aut}{\operatorname{Aut}}
+{\mathrm{Aut\text{ }}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Ker}{\operatorname{Ker}}
+{\mathrm{Ker}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Img}{\operatorname{Im}}
+{\mathrm{Im}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Sep}{\operatorname{Sep}}
+{\mathrm{Sep}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\powerset}{\operatorname{\mathcal{P}}}
+{\mathrm{\mathcal{P}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of function classes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\functionclass}[1]{\mathcal{#1}}
+{\mathcal{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\FP}{\functionclass{FP}}
+{\functionclass{FP}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of complexity classes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\complexityclass}[1]{\mathrm{#1}}
+{\mathrm{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\DTIME}{\complexityclass{DTIME}}
+{\complexityclass{DTIME}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NTIME}{\complexityclass{NTIME}}
+{\complexityclass{NTIME}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNTIME}{\complexityclass{coNTIME}}
+{\complexityclass{coNTIME}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\P}{\complexityclass P}
+{\complexityclass P}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NP}{\complexityclass{NP}}
+{\complexityclass{NP}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNP}{\complexityclass{coNP}}
+{\complexityclass{coNP}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\UP}{\complexityclass{UP}}
+{\complexityclass{UP}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\E}{\complexityclass E}
+{\complexityclass E}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NE}{\complexityclass{NE}}
+{\complexityclass{NE}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNE}{\complexityclass{coNE}}
+{\complexityclass{coNE}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\EE}{\complexityclass{EE}}
+{\complexityclass{EE}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NEE}{\complexityclass{NEE}}
+{\complexityclass{NEE}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNEE}{\complexityclass{coNEE}}
+{\complexityclass{coNEE}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\EEE}{\complexityclass{EEE}}
+{\complexityclass{EEE}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NEEE}{\complexityclass{NEEE}}
+{\complexityclass{NEEE}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNEEE}{\complexityclass{coNEEE}}
+{\complexityclass{coNEEE}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\EXP}{\complexityclass{EXP}}
+{\complexityclass{EXP}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NEXP}{\complexityclass{NEXP}}
+{\complexityclass{NEXP}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNEXP}{\complexityclass{coNEXP}}
+{\complexityclass{coNEXP}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\DisjNP}{\complexityclass{DisjNP}}
+{\complexityclass{DisjNP}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\SPARSE}{\complexityclass{SPARSE}}
+{\complexityclass{SPARSE}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\degree}{\operatorname{d}}
+{\mathrm{d}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\GI}{\complexityclass{GI}}
+{\complexityclass{GI}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\GNI}{\complexityclass{GNI}}
+{\complexityclass{GNI}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\AM}{\complexityclass{AM}}
+{\complexityclass{AM}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coAM}{\complexityclass{coAM}}
+{\complexityclass{coAM}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of reductions (languages)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\redmo}{\leq_{m}^{p}}
+{\leq_{m}^{p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\equivmo}{\equiv_{m}^{p}}
+{\equiv_{m}^{p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\redmoneq}{<_{m}^{p}}
+{<_{m}^{p}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\redt}{\leq_{T}^{p}}
+{\leq_{T}^{p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\equivt}{\equiv_{T}^{p}}
+{\equiv_{T}^{p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\redtneq}{<_{T}^{p}}
+{<_{T}^{p}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of reductions (pairs)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\predmo}{\leq_{m}^{pp}}
+{\leq_{m}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pequivmo}{\equiv_{m}^{pp}}
+{\equiv_{m}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\predmoneq}{<_{m}^{pp}}
+{<_{m}^{pp}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\predsmo}{\leq_{sm}^{pp}}
+{\leq_{sm}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pequivsmo}{\equiv_{sm}^{pp}}
+{\equiv_{sm}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\predsmoneq}{<_{sm}^{pp}}
+{<_{sm}^{pp}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\predt}{\leq_{T}^{pp}}
+{\leq_{T}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pequivt}{\equiv_{T}^{pp}}
+{\equiv_{T}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\predtneq}{<_{T}^{pp}}
+{<_{T}^{pp}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\predunimo}{\leq_{um}^{pp}}
+{\leq_{um}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pequivunimo}{\equiv_{um}^{pp}}
+{\equiv_{um}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\predunimoneq}{<_{um}^{pp}}
+{<_{um}^{pp}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\predunit}{\leq_{uT}^{pp}}
+{\leq_{uT}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pequivunit}{\equiv_{uT}^{pp}}
+{\equiv_{uT}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\predunitneq}{<_{uT}^{pp}}
+{<_{uT}^{pp}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of simulations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\simp}{\leq_{p}}
+{\leq_{p}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of languages
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\lang}[1]{\mathrm{#1}}
+{\mathrm{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\SAT}{\lang{SAT}}
+{\lang{SAT}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\SATstar}{\lang{SAT}^{*}}
+{\lang{SAT}^{*}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\REF}{\lang{REF}}
+{\lang{REF}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\TAUT}{\lang{TAUT}}
+{\lang{TAUT}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\TALLY}{\lang{TALLY}}
+{\lang{TALLY}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+misc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\true}{\text{true}}
+{\text{true}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\false}{\text{false}}
+{\text{false}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Additional statements for algorithms 
+\begin_inset Newline newline
+\end_inset
+
+(Note: changes to lyxalgo.sty are needed every time a new statement is added.)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand{
+\backslash
+keyreturn}{return}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Survey of Disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-Pairs and Propositional Proof Systems 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+copyright
+\end_layout
+
+\end_inset
+
+ C.
+ Glaßer, A.
+ Hughes, A.
+ L.
+ Selman, N.
+ Wisiol, 2014
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Author
+C.
+ Glaßer
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+University at Würzburg, Germany, 
+\family typewriter
+glasser@informatik.uni-wuerzburg.de
+\end_layout
+
+\end_inset
+
+, A.
+ Hughes
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+University at Buffalo, New York, 
+\family typewriter
+ahughes6@buffalo.edu
+\end_layout
+
+\end_inset
+
+, A.
+ L.
+ Selman
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+University at Buffalo, New York, 
+\family typewriter
+selman@buffalo.edu
+\end_layout
+
+\end_inset
+
+, N.
+ Wisiol
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+University at Buffalo, New York, 
+\family typewriter
+mail@nils-wisiol.de
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename pics/Christian.jpg
+	display false
+	height 45mm
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Graphics
+	filename pics/Andrew.jpg
+	display false
+	height 45mm
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Graphics
+	filename pics/Alan.jpg
+	display false
+	height 45mm
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Graphics
+	filename pics/Nils.jpg
+	display false
+	height 45mm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SIGACTmaketitle
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+grad handbook: definition of the problem, its importance 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+History of NP-Pairs and Propositional Proof Systems
+\end_layout
+
+\begin_layout Standard
+CR79 program, ESY, ...
+ ?
+\end_layout
+
+\begin_layout Standard
+Razborov, ESY-Conjecture, Optimal Proof System for 
+\begin_inset Formula $\TAUT$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename implicationchart.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Known Implications for proof systems, disjoint pairs and the ESY conjecture
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+working draft, convert to LaTeX and check citations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Preliminaries
+\end_layout
+
+\begin_layout Subsection
+Disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-Pairs
+\end_layout
+
+\begin_layout Standard
+Disjoint NP-Pairs, Reductions
+\end_layout
+
+\begin_layout Standard
+ESY-conjectures, ESY-m implies ESY-tt implies ESY-T
+\end_layout
+
+\begin_layout Standard
+For two sets 
+\begin_inset Formula $A,B\in\NP$
+\end_inset
+
+ that are disjoint, we call 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ a 
+\emph on
+disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pair
+\emph default
+.
+ Following Grollmann and Selman 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/siamcomp/GrollmannS88"
+
+\end_inset
+
+, we use the following reductions of 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pairs, that naturally arise from the reductions of languages.
+\end_layout
+
+\begin_layout Definition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ is 
+\emph on
+many-one-reducible in polynomial time
+\emph default
+ to 
+\begin_inset Formula $(C,D)$
+\end_inset
+
+, 
+\begin_inset Formula $(A,B)\predmo(C,D)$
+\end_inset
+
+, if for every separator 
+\begin_inset Formula $T\in\Sep(C,D)$
+\end_inset
+
+, there exists a separator 
+\begin_inset Formula $S\in\Sep(A,B)$
+\end_inset
+
+ such that 
+\begin_inset Formula $S\redmo T$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ is 
+\emph on
+many-one-reducible in polynomial time
+\emph default
+ to 
+\begin_inset Formula $(C,D)$
+\end_inset
+
+, 
+\begin_inset Formula $(A,B)\predt(C,D)$
+\end_inset
+
+, if for every separator 
+\begin_inset Formula $T\in\Sep(C,D)$
+\end_inset
+
+, there exists a separator 
+\begin_inset Formula $S\in\Sep(A,B)$
+\end_inset
+
+ such that 
+\begin_inset Formula $S\redt T$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+1-invertible, many-one, smart Turing, Turing, truth-table, bounded-truth-table
+ reductions, strongly many-one reduction
+\end_layout
+
+\begin_layout Standard
+Analog to languages, we define completeness for disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pairs.
+\end_layout
+
+\begin_layout Definition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+A pair 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ is 
+\begin_inset Formula $\predmo$
+\end_inset
+
+-complete, if for every 
+\begin_inset Formula $(C,D)\in\DisjNP$
+\end_inset
+
+ we have 
+\begin_inset Formula $(C,D)\predmo(A,B)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+A pair 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ is 
+\begin_inset Formula $\predt$
+\end_inset
+
+-complete, if for every 
+\begin_inset Formula $(C,D)\in\DisjNP$
+\end_inset
+
+ we have 
+\begin_inset Formula $(C,D)\redt(A,B)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Proposition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $(A,B)\redt(C,D)$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $(A,B)\predunit(C,D)$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/siamcomp/GrollmannS88"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(A,B)\redmo(C,D)$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $(A,B)\predunimo(C,D)$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/eccc/ECCC-TR03-011"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+ESY-conjectures
+\end_layout
+
+\begin_layout Standard
+We state the original ESY-conjecture 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/iandc/EvenSY84"
+
+\end_inset
+
+ as well as the many-one version 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "conf/icalp/HughesPRS12"
+
+\end_inset
+
+ of it.
+ The many-one version of the conjecture was proven to be equivalent to 
+\begin_inset Formula $\NP\neq\coNP$
+\end_inset
+
+ by Glaßer et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/eccc/ECCC-TR03-011"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Conjecture
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+ESY
+\end_layout
+
+\end_inset
+
+ For every pair of disjoint sets in 
+\begin_inset Formula $\NP$
+\end_inset
+
+, there is a separator that is not Turing-hard for 
+\begin_inset Formula $\NP$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Conjecture
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+ESY-m
+\end_layout
+
+\end_inset
+
+ For every pair of disjoint sets in 
+\begin_inset Formula $\NP$
+\end_inset
+
+, there is a separator that is not many-one-hard for 
+\begin_inset Formula $\NP$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Propositional Proof Systems
+\end_layout
+
+\begin_layout Standard
+A propositional proof system is a fast method of verifying proofs.
+\end_layout
+
+\begin_layout Standard
+To give an example, we will have a look at the 
+\emph on
+resolution principle
+\emph default
+, which was introduced by Robinson 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/jacm/Robinson65"
+
+\end_inset
+
+.
+ Consider a boolean formula 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ in conjunctive normal form.
+ If 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is not satisfiable, the resolution principle provides a way to find a proof
+ for this fact.
+ To find a proof, the resolution principle iteratively combines two existing
+ clauses into a new and shorter clause with equivalent truth value.
+ Robinson showed that the resolution principle yields the empty clause eventuall
+y for any unsatisfiable formula, and any formula for which the principle
+ yields the empty clause is unsatisfiable:
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+Resolution Theorem 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/jacm/Robinson65"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:resolution-theorem"
+
+\end_inset
+
+ For a formula 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ in conjunctive normal form, the resolution principle yields the empty clause
+ if and only if 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is not satisfiable.
+\end_layout
+
+\begin_layout Standard
+As we can see from the way resolution works, there are exponentially many
+ options how to combine the clauses, and not every sequence of combinations
+ will yield the empty clause.
+ Hence, it is hard to find a sequence of combinations that derive the empty
+ clause.
+ By Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:resolution-theorem"
+
+\end_inset
+
+, this sequence exists if and only if the formula is unsatisfiable.
+ As opposed to finding a sequence, given a sequence of combinations, we
+ can easily check if this sequence derives the empty clause.
+\end_layout
+
+\begin_layout Standard
+Using formal terms, let 
+\begin_inset Formula $f$
+\end_inset
+
+ be defined by
+\begin_inset Formula 
+\[
+f(\langle\varphi,w\rangle)=\begin{cases}
+\neg\varphi & \text{if combination sequence \ensuremath{w}applied to \ensuremath{\varphi}yields the empty clause,}\\
+\perp & \text{otherwise.}
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Emphasize on mapping onto TAUT, in contrast to SAT
+\end_layout
+
+\end_inset
+
+Intuitively, 
+\begin_inset Formula $f$
+\end_inset
+
+ is polynomial-time computable.
+ By the Resolution Theorem, 
+\begin_inset Formula $f$
+\end_inset
+
+ only outputs tautologies, and for every tautology 
+\begin_inset Formula $\neg\varphi$
+\end_inset
+
+, there is an input 
+\begin_inset Formula $\langle\varphi,w\rangle$
+\end_inset
+
+ such that 
+\begin_inset Formula $f(\langle\varphi,w\rangle)=\neg\varphi$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Given a combination sequence 
+\begin_inset Formula $w$
+\end_inset
+
+ that yields the empty clause for 
+\begin_inset Formula $\varphi$
+\end_inset
+
+, the function 
+\begin_inset Formula $f$
+\end_inset
+
+ provides a fast way to verify 
+\begin_inset Formula $\neg\varphi$
+\end_inset
+
+ is a tautology.
+ We thus call 
+\begin_inset Formula $f$
+\end_inset
+
+ a propositional proof system, and we call 
+\begin_inset Formula $\langle\varphi,w\rangle$
+\end_inset
+
+ a 
+\begin_inset Formula $f$
+\end_inset
+
+-proof for 
+\begin_inset Formula $\neg\varphi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+A polynomial-time computable function
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+explicitly say if it is required to be total or if partial is okay
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $f$
+\end_inset
+
+ that is onto the set of tautologies is called a 
+\emph on
+propositional proof system
+\emph default
+ or 
+\emph on
+proof system
+\emph default
+.
+ For any 
+\begin_inset Formula $w$
+\end_inset
+
+, we say 
+\begin_inset Formula $w$
+\end_inset
+
+ is a 
+\emph on
+
+\begin_inset Formula $f$
+\end_inset
+
+-proof for 
+\begin_inset Formula $x$
+\end_inset
+
+
+\emph default
+ if 
+\begin_inset Formula $f(w)=x$
+\end_inset
+
+.
+ If there is a polynomial 
+\begin_inset Formula $p$
+\end_inset
+
+, such that for all 
+\begin_inset Formula $x$
+\end_inset
+
+, and all
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+really for all? Doesn't do just one short proof the deal?
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $f$
+\end_inset
+
+-proofs 
+\begin_inset Formula $w$
+\end_inset
+
+ of 
+\begin_inset Formula $x$
+\end_inset
+
+, we have 
+\begin_inset Formula $|w|\leq p(|x|)$
+\end_inset
+
+, then 
+\begin_inset Formula $f$
+\end_inset
+
+ is 
+\emph on
+polynomially-bounded
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Generalization to proof systems for any language.
+ (Only if needed.)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+add comment about length for a fixed tautology (which is not meaningful)
+\end_layout
+
+\end_inset
+
+Cook and Reckhow started a line of research 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/jsyml/CookR79"
+
+\end_inset
+
+ that tries to investigate what the length of the shortest proof of a propositio
+nal tautology relative to the length of the tautology is.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+restructure previous sentence
+\end_layout
+
+\end_inset
+
+ The interest in the length of the proof is motivated by the fact that the
+ existence of polynomial-length proofs for all tautologies characterizes
+ the question of whether 
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+.
+ (A fact we will prove in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Propositional-Proof-Systems"
+
+\end_inset
+
+.) However, no known proof system could be proven to have proofs with length
+ bounded by a polynomial.
+ To tackle the problem, Cook and Reckhow introduced the notion of simulation
+ of proof systems.
+\end_layout
+
+\begin_layout Definition
+Let 
+\begin_inset Formula $f$
+\end_inset
+
+ and 
+\begin_inset Formula $g$
+\end_inset
+
+ be proof systems.
+ We say 
+\begin_inset Formula $f$
+\end_inset
+
+ 
+\emph on
+simulates
+\emph default
+ 
+\begin_inset Formula $g$
+\end_inset
+
+, if there is a function 
+\begin_inset Formula $h$
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+maybe introduce the name 
+\begin_inset Quotes eld
+\end_inset
+
+translation function
+\begin_inset Quotes erd
+\end_inset
+
+ for 
+\begin_inset Formula $h$
+\end_inset
+
+?
+\end_layout
+
+\end_inset
+
+such that for all 
+\begin_inset Formula $w$
+\end_inset
+
+, it holds 
+\begin_inset Formula $f(h(w))=g(w)$
+\end_inset
+
+ and 
+\begin_inset Formula $|h(w)|\leq p(|w|)$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $h$
+\end_inset
+
+ is polynomial-time computable, we say 
+\begin_inset Formula $f$
+\end_inset
+
+ 
+\emph on
+p-simulates
+\emph default
+ 
+\begin_inset Formula $g$
+\end_inset
+
+.
+ A proof system that simulates (p-simulates) every other proof system is
+ called 
+\emph on
+optimal
+\emph default
+ (
+\emph on
+p-optimal
+\emph default
+).
+\end_layout
+
+\begin_layout Standard
+An more intuitive (and informal) way to give a definition for 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $f$
+\end_inset
+
+ simulates 
+\begin_inset Formula $g$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ is to say that for every tautology 
+\begin_inset Formula $\varphi$
+\end_inset
+
+, the 
+\begin_inset Formula $f$
+\end_inset
+
+-proof for 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is at most polynomially longer than the 
+\begin_inset Formula $g$
+\end_inset
+
+-proof of 
+\begin_inset Formula $\varphi$
+\end_inset
+
+.
+ An optimal proof system then has the shortest proofs for tautologies among
+ all proof systems, within a polynomial factor.
+\end_layout
+
+\begin_layout Standard
+However, it is not only unknown whether polynomially-bounded proof systems
+ exist, it is also unknown if optimal or even p-optimal proof systems exist.
+ To study the existence of optimal and p-optimal proof systems, we will
+ therefore study sufficient conditions and implications in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Propositional-Proof-Systems"
+
+\end_inset
+
+.
+ To become familiar with the notions, we present a strong sufficient condition
+ for the existence of optimal proof systems:
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:np-eq-conp-implies-optimalpps"
+
+\end_inset
+
+If 
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+, then there is an optimal proof system.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+introduce TAUT (somewhere)
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $N$
+\end_inset
+
+ be a 
+\begin_inset Formula $\NP$
+\end_inset
+
+-machine deciding 
+\begin_inset Formula $\TAUT\in\coNP$
+\end_inset
+
+.
+ We define 
+\begin_inset Formula $f$
+\end_inset
+
+ by 
+\begin_inset Formula 
+\[
+f(\langle i,x\rangle)=\begin{cases}
+x & \text{if \ensuremath{N}accepts \ensuremath{w}along path \ensuremath{i},}\\
+\perp & \text{otherwise}.
+\end{cases}
+\]
+
+\end_inset
+
+Notice, a proof system does not have to be a total function.
+ By definition, 
+\begin_inset Formula $f$
+\end_inset
+
+ outputs only tautologies, and for every tautology there is an accepting
+ path of 
+\begin_inset Formula $N$
+\end_inset
+
+, so 
+\begin_inset Formula $f$
+\end_inset
+
+ is onto 
+\begin_inset Formula $\TAUT$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+To see 
+\begin_inset Formula $f$
+\end_inset
+
+ is optimal, let 
+\begin_inset Formula $f'$
+\end_inset
+
+ be an arbitrary proof system.
+ There is a function 
+\begin_inset Formula $g$
+\end_inset
+
+ mapping each tautology 
+\begin_inset Formula $w$
+\end_inset
+
+ to an accepting path 
+\begin_inset Formula $i$
+\end_inset
+
+ of 
+\begin_inset Formula $N$
+\end_inset
+
+.
+ Notice, 
+\begin_inset Formula $g$
+\end_inset
+
+ might not by polynomial-time computable, but is polynomially length bounded.
+ Let now 
+\begin_inset Formula $w$
+\end_inset
+
+ be a 
+\begin_inset Formula $f'$
+\end_inset
+
+-proof for 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ With 
+\begin_inset Formula $g$
+\end_inset
+
+, we can translate 
+\begin_inset Formula $w$
+\end_inset
+
+ into 
+\begin_inset Formula $\langle g(w),f'(w)\rangle$
+\end_inset
+
+, which is a 
+\begin_inset Formula $f$
+\end_inset
+
+-proof for 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+As we will see in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Propositional-Proof-Systems"
+
+\end_inset
+
+, the existence of both optimal and p-optimal proof systems can be proven
+ under much weaker hypotheses.
+\end_layout
+
+\begin_layout Section
+Disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-Pairs
+\end_layout
+
+\begin_layout Subsection
+Characterization of 
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/eccc/ECCC-TR03-011"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:equiv-esymfails-np=conp-polyboundpps"
+
+\end_inset
+
+The following assertions are equivalent.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The ESY-m conjecture does not hold, that is, there exists a disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pair such that all separators are many-one-hard for 
+\begin_inset Formula $\NP$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Existence of Complete Pairs
+\end_layout
+
+\begin_layout Standard
+if ESY does not hold, this implies the existence of complete pairs.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Propositional Proof Systems
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Propositional-Proof-Systems"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Polynomially-bounded propositional proof systems and 
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here will show that the existence of polynomially-bounded proof systems
+ characterizes 
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+.
+ The proof is due to Cook and Reckhow 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/jsyml/CookR79"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:poly-bounded-ps-iff-np-eq-conp"
+
+\end_inset
+
+There is a polynomially-bounded propositional proof system if and only if
+ 
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+.
+ Then there is a 
+\begin_inset Formula $\NP$
+\end_inset
+
+-machine 
+\begin_inset Formula $M$
+\end_inset
+
+ such that there is an accepting path 
+\begin_inset Formula $w$
+\end_inset
+
+ in the computation of 
+\begin_inset Formula $M$
+\end_inset
+
+ for every tautology 
+\begin_inset Formula $\varphi$
+\end_inset
+
+.
+ This allows us to define a proof system 
+\begin_inset Formula $f$
+\end_inset
+
+, in which all proofs are polynomially length bounded:
+\begin_inset Formula 
+\[
+f(\langle\varphi,w\rangle)=\begin{cases}
+\varphi & \text{if \ensuremath{M}accepts \ensuremath{\varphi}on path \ensuremath{w}},\\
+\true & \text{otherwise}.
+\end{cases}
+\]
+
+\end_inset
+
+As 
+\begin_inset Formula $f$
+\end_inset
+
+ only considers one path in the computation of 
+\begin_inset Formula $M$
+\end_inset
+
+, it is polynomial-time computable, and the fact that 
+\begin_inset Formula $f$
+\end_inset
+
+ only outputs tautologies together with the fact that there is a proof for
+ every tautology makes 
+\begin_inset Formula $f$
+\end_inset
+
+ a proof system.
+ Moreover, for every tautology 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ there is an accepting path 
+\begin_inset Formula $w$
+\end_inset
+
+ in 
+\begin_inset Formula $M$
+\end_inset
+
+ which is polynomially-bounded.
+ Therefore, all proofs are polynomially length bounded.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+this paragraph could be left out
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+To proof the converse, let 
+\begin_inset Formula $f$
+\end_inset
+
+ by a polynomially-bounded proof system.
+ We will show that 
+\begin_inset Formula $\TAUT\in\NP$
+\end_inset
+
+, from which follows that 
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $M$
+\end_inset
+
+ be a nondeterministic Turing machine such that on input 
+\begin_inset Formula $\varphi$
+\end_inset
+
+, 
+\begin_inset Formula $M$
+\end_inset
+
+ guesses a 
+\begin_inset Formula $f$
+\end_inset
+
+-proof 
+\begin_inset Formula $w$
+\end_inset
+
+ and calculates 
+\begin_inset Formula $f(\langle\varphi,w\rangle)$
+\end_inset
+
+.
+ The machine then accepts if and only if 
+\begin_inset Formula $f(\langle\varphi,w\rangle)=\varphi$
+\end_inset
+
+.
+ Hence, every accepted string is a tautology, and every tautology is accepted.
+\end_layout
+
+\begin_layout Standard
+To prove 
+\begin_inset Formula $\NP\neq\coNP$
+\end_inset
+
+, that is, to prove there is no polynomially-bounded proof system, Cook
+ and Reckhow introduced the notion of optimal proof systems.
+ We call a proof system 
+\begin_inset Formula $f$
+\end_inset
+
+ optimal, if 
+\begin_inset Formula $f$
+\end_inset
+
+-proofs are the shortest proofs among all proof systems (with respect to
+ a polynomial factor).
+ If we could prove the existence of a optimal proof system with proofs that
+ are not within polynomial length, we could prove 
+\begin_inset Formula $\NP\neq\coNP$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+However, it is unknown whether or not optimal proof systems with proofs
+ of any length exist, which is why we are interested in necessary and sufficient
+ conditions for that.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+citation of oracles? Anything known for that?
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+Sufficient Conditions for the Existence
+\end_layout
+
+\begin_layout Standard
+To investigate further the question of whether optimal or even p-optimal
+ proof systems exist, first Krajíček and Pudlák 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/jsyml/KrajicekP89"
+
+\end_inset
+
+ and later Meßner and Torán prove sufficient conditions for the existence
+ of such proof systems.
+ The results reveal a symmetry for sufficient conditions for optimal and
+ p-optimal proof systems:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[->,>=stealth',shorten >=1pt,node distance=4.5cm,     
+  semithick, /tikz/initial text=]   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{every state}=[fill=none,draw=black,text=black]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (A0)               {$
+\backslash
+P=
+\backslash
+NP$};   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (B0) [right of=A0] {$
+\backslash
+E=
+\backslash
+NE$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (C0) [right of=B0] {$
+\backslash
+EE=
+\backslash
+NEE$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (D0) [right of=C0,align=center] {$
+\backslash
+exists$ an p-optimal
+\backslash
+
+\backslash
+proof system};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (A1) [below=1cm of A0] {$
+\backslash
+NP=
+\backslash
+coNP$};   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (B1) [right of=A1] {$
+\backslash
+NE=
+\backslash
+coNE$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (C1) [right of=B1] {$
+\backslash
+NEE=
+\backslash
+coNEE$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (D1) [right of=C1,align=center] {$
+\backslash
+exists$ an optimal
+\backslash
+
+\backslash
+proof system};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path[every node/.style={sloped,anchor=south,auto=false}]
+\end_layout
+
+\begin_layout Plain Layout
+
+ (A0) edge (B0)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (B0) edge (C0)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (C0) edge (D0)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ (A1) edge (B1)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (B1) edge (C1)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (C1) edge (D1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ (A0) edge (A1)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (B0) edge (B1)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (C0) edge (C1)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (D0) edge (D1)
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The symmetric structure of sufficient conditions for optimal and p-optimal
+ propositional proof systems.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We call a language 
+\begin_inset Formula $L$
+\end_inset
+
+ 
+\emph on
+almost-tally
+\emph default
+, if every string in 
+\begin_inset Formula $L$
+\end_inset
+
+ is of the form 
+\begin_inset Formula $0^{*}10^{*}$
+\end_inset
+
+.
+ By 
+\begin_inset Formula $\powerset(0^{*}10^{*})$
+\end_inset
+
+ we denote the class of all almost-tally languages.
+ Meßner and Torán use the notion of almost-tally languages to obtain an
+ even weaker sufficient condition than mentioned in the chart:
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:sufficient-cond-for-optimal-pps"
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If all almost-tally languages in 
+\begin_inset Formula $\coNEE$
+\end_inset
+
+ also belong to 
+\begin_inset Formula $\EE$
+\end_inset
+
+, then there exists a p-optimal propositional proof system.
+\end_layout
+
+\begin_layout Enumerate
+If all almost-tally languages in 
+\begin_inset Formula $\coNEE$
+\end_inset
+
+ also belong to 
+\begin_inset Formula $\NEE$
+\end_inset
+
+, then there exists an optimal propositional proof system.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+The proof is based on constructing the almost-tally language 
+\begin_inset Formula $T$
+\end_inset
+
+ which is, by definition, in 
+\begin_inset Formula $\coNEE$
+\end_inset
+
+.
+ By the hypothesis, we can then assume 
+\begin_inset Formula $T\in\EE$
+\end_inset
+
+ and 
+\begin_inset Formula $T\in\NEE$
+\end_inset
+
+ respectively and define a proof system based on 
+\begin_inset Formula $T$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For the proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:sufficient-cond-for-optimal-pps"
+
+\end_inset
+
+.1, please refer to the original paper by Meßner and Torán 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/eccc/ECCC-TR97-026"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+Proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:sufficient-cond-for-optimal-pps"
+
+\end_inset
+
+.2
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $M_{1},M_{2},...$
+\end_inset
+
+ be an enumeration of deterministic Turing machines such that there is a
+ universal Turing machine that can simulate 
+\begin_inset Formula $k$
+\end_inset
+
+ steps of 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+ in 
+\begin_inset Formula $(ik)^{2}$
+\end_inset
+
+ steps.
+ Define the almost-tally language 
+\begin_inset Formula 
+\begin{eqnarray*}
+T=\{0^{j}10^{i} & \mid & \text{for all words \ensuremath{w}of length at most \ensuremath{2^{2^{j+1+i}}}:}\\
+ &  & (\text{if \ensuremath{M_{i}}halts on \ensuremath{w}in at most \ensuremath{2^{2^{j+1+i}}}steps, then \ensuremath{M_{i}}outputs a tautology})\}.
+\end{eqnarray*}
+
+\end_inset
+
+To see that 
+\begin_inset Formula $T$
+\end_inset
+
+ is a 
+\begin_inset Formula $\coNEE$
+\end_inset
+
+-language, we rewrite 
+\begin_inset Formula $T$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\begin{eqnarray*}
+T=\{0^{j}10^{i} & \mid & \forall w,y\in\Sigma^{\leq2^{2^{j+1+i}}}:\\
+ &  & \left[M_{i}(w)\text{ halts in \ensuremath{2^{2^{j+1+i}}}steps }\implies(M_{i}(w)=\varphi\wedge\varphi(y)=\true)\right]\},
+\end{eqnarray*}
+
+\end_inset
+
+where the condition written in square brackets can be decided in deterministic
+ double-exponential time.
+ By the hypothesis, we thus have 
+\begin_inset Formula $T\in\NEE$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $N_{T}$
+\end_inset
+
+ denote the nondeterministic Turing machine deciding 
+\begin_inset Formula $T$
+\end_inset
+
+ in time 
+\begin_inset Formula $2^{c2^{n}}$
+\end_inset
+
+, 
+\begin_inset Formula $c\geq1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Based on 
+\begin_inset Formula $N_{T}$
+\end_inset
+
+, we will now define a proof system 
+\begin_inset Formula $f$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+f(\langle0^{j}10^{i},0^{s},\alpha,w\rangle)=\begin{cases}
+M_{i}(w) & \text{if for \ensuremath{l=j+1+i}all of the following requirements are met:}\\
+ & \text{(a) \ensuremath{s\geq2^{2^{l}}}},\\
+ & \text{(b) \ensuremath{|w|\leq2^{2^{l}}}},\\
+ & \text{\text{(c) \ensuremath{M_{i}}on input \ensuremath{w}halts in at most \ensuremath{2^{2^{l}}}steps},}\\
+ & \text{(d) \ensuremath{\alpha}is an accepting computation of \ensuremath{N_{T}}on input \ensuremath{0^{j}10^{i}}},\\
+\true & \text{otherwise.}
+\end{cases}
+\]
+
+\end_inset
+
+First, we will show that 
+\begin_inset Formula $f$
+\end_inset
+
+ is a proof system.
+ In both cases of the definition, 
+\begin_inset Formula $f$
+\end_inset
+
+ only outputs tautologies.
+ Also, for any given tautology 
+\begin_inset Formula $\varphi$
+\end_inset
+
+, there is a 
+\begin_inset Formula $k$
+\end_inset
+
+ such that 
+\begin_inset Formula $M_{k}$
+\end_inset
+
+ outputs 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ on any input with length at least 
+\begin_inset Formula $|\varphi|$
+\end_inset
+
+, and true for all shorter inputs.
+ Hence 
+\begin_inset Formula $10^{k}\in T$
+\end_inset
+
+.
+ Therefore, there is an 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ such that 
+\begin_inset Formula $\langle10^{k},0^{2^{2^{k+1}}},\alpha,0^{|\varphi|}\rangle$
+\end_inset
+
+ is a 
+\begin_inset Formula $f$
+\end_inset
+
+-proof for 
+\begin_inset Formula $\varphi$
+\end_inset
+
+.
+ This confirms 
+\begin_inset Formula $f(\Sigma^{*})=\TAUT$
+\end_inset
+
+.
+ As a last condition, we need to verify 
+\begin_inset Formula $f$
+\end_inset
+
+ is polynomial-time computable: a machine computing 
+\begin_inset Formula $f$
+\end_inset
+
+ first checks if 
+\begin_inset Formula $s\geq2^{2^{l}}$
+\end_inset
+
+.
+ If this is true, conditions (b), (c) and (d) can be verified in polynomial-time
+ in 
+\begin_inset Formula $|0^{s}|$
+\end_inset
+
+.
+ If the check exceeds the polynomial-time limit, condition (a) does not
+ hold and 
+\begin_inset Formula $\true$
+\end_inset
+
+ will be output.
+ Hence, 
+\begin_inset Formula $f$
+\end_inset
+
+ is polynomial-time computable.
+\end_layout
+
+\begin_layout Proof
+To demonstrate that 
+\begin_inset Formula $f$
+\end_inset
+
+ is an optimal proof system, let 
+\begin_inset Formula $g$
+\end_inset
+
+ be any other proof system.
+ For a given 
+\begin_inset Formula $g$
+\end_inset
+
+-proof 
+\begin_inset Formula $w$
+\end_inset
+
+, where 
+\begin_inset Formula $g$
+\end_inset
+
+ is computed by transducer 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+ with time bound 
+\begin_inset Formula $n^{k}+k$
+\end_inset
+
+, we will see that there is an 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\begin{eqnarray*}
+w' & = & \langle0^{j}10^{i},0^{s},\alpha,w\rangle,\text{ where}\\
+s & = & 2^{c2^{j+1+i}}\\
+j & = & \max(0,\left\lceil \log\log\left(|w|^{k}+k\right)\right\rceil -i-1)
+\end{eqnarray*}
+
+\end_inset
+
+is an 
+\begin_inset Formula $f$
+\end_inset
+
+-proof for the same tautology, because the string 
+\begin_inset Formula $w'$
+\end_inset
+
+ satisfies all conditions in the first case of the definition of 
+\begin_inset Formula $f$
+\end_inset
+
+, and therefore 
+\begin_inset Formula $f(w')=M_{i}(w)=g(w)$
+\end_inset
+
+: (a) is satisfied by the choice of 
+\begin_inset Formula $s$
+\end_inset
+
+, (b) holds by the choice of 
+\begin_inset Formula $j$
+\end_inset
+
+: We distinguish two cases.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\text{If }j>0, &  & 2^{2^{l}}=2^{2^{\left\lceil \log\log\left(|w|^{k}+k\right)\right\rceil }}\geq2^{2^{\log\log\left(|w|^{k}+k\right)}}=|w|^{k}+k\geq|w|.\\
+\text{If }j=0, &  & \left\lceil \log\log\left(|w|^{k}+k\right)\right\rceil -i-1\leq0\implies\left\lceil \log\log\left(|w|^{k}+k\right)\right\rceil \leq i+1\\
+ &  & \implies\log\log\left(|w|^{k}+k\right)\leq i+1\implies|w|^{k}+k\leq2^{2^{i+1}}=2^{2^{l}}\implies|w|\leq|w|^{k}+k\leq2^{2^{l}}.
+\end{eqnarray*}
+
+\end_inset
+
+Condition (c), again, holds by choice of 
+\begin_inset Formula $j$
+\end_inset
+
+: The runtime of 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+ on input 
+\begin_inset Formula $w$
+\end_inset
+
+ is bounded by 
+\begin_inset Formula $|w|^{k}+k$
+\end_inset
+
+, which is, as we have just seen, in both cases less or equal than 
+\begin_inset Formula $2^{2^{l}}$
+\end_inset
+
+.
+ For condition (d), remember that 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+ is computing a proof system and thus only outputs tautologies, which implies
+ 
+\begin_inset Formula $0^{j}10^{i}\in T$
+\end_inset
+
+.
+ Therefore, there is an 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ that is an accepting computation of 
+\begin_inset Formula $N_{T}$
+\end_inset
+
+ on input 
+\begin_inset Formula $0^{j}10^{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+It remains to show that 
+\begin_inset Formula $|w'|\leq p(|w|)$
+\end_inset
+
+.
+ To see this, it is sufficient to show that 
+\begin_inset Formula $j$
+\end_inset
+
+, 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $s$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ are polynomial in 
+\begin_inset Formula $|w|$
+\end_inset
+
+.
+ 
+\begin_inset Formula $j$
+\end_inset
+
+ is indeed double-logarithmic, and thus 
+\begin_inset Formula $s$
+\end_inset
+
+ is polynomial in 
+\begin_inset Formula $|w|$
+\end_inset
+
+.
+ The Gödel-number 
+\begin_inset Formula $i$
+\end_inset
+
+ is a constant in 
+\begin_inset Formula $|w|$
+\end_inset
+
+.
+ The computation path 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ has double-exponential length in 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+ and therefore polynomial in 
+\begin_inset Formula $|w|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Implications of the Existence
+\end_layout
+
+\begin_layout Standard
+In this section, we will see some evidence suggesting optimal proof systems
+ do not exist.
+ One of the implications given by optimal proof systems is the existence
+ of complete sets for 
+\begin_inset Formula $\NP\cap\SPARSE$
+\end_inset
+
+, a consequence which we tend to believe is not true.
+ This result is due to Köbler et al 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/iandc/KoblerMT03"
+
+\end_inset
+
+.
+ However our interest in this result goes beyond this evidence, as Buhrman
+ et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "conf/stacs/BuhrmanFFM00"
+
+\end_inset
+
+ showed that there is an oracle such that there are no complete sets for
+ 
+\begin_inset Formula $\NP\cap\SPARSE$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+insert forward reference
+\end_layout
+
+\end_inset
+
+, although oracles to which there are no optimal proof systems have been
+ known even before that 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/jsyml/KrajicekP89,journals/iandc/KoblerMT03"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+If there is an optimal proof system, then complete sets for 
+\begin_inset Formula $\NP\cap\SPARSE$
+\end_inset
+
+ exist.
+\end_layout
+
+\begin_layout Proof
+We define the set 
+\begin_inset Formula $SP$
+\end_inset
+
+, containing descriptions of non-deterministic Turing machines that have
+ runtime bounded by 
+\begin_inset Formula $l$
+\end_inset
+
+ and accept, up to a given length 
+\begin_inset Formula $n$
+\end_inset
+
+, only 
+\begin_inset Formula $l$
+\end_inset
+
+ different strings: 
+\begin_inset Formula 
+\begin{eqnarray*}
+ & SP=\{\langle N,0^{l},0^{n}\rangle\mid & \text{(1)}\, N\,\text{is a non-deterministic Turing machine}\\
+ &  & \text{\text{(2) there are at most \ensuremath{l}pairs \ensuremath{(x_{i},y_{i})}such that}}\\
+ &  & \qquad\text{(a) all \ensuremath{x_{i}}are different}\\
+ &  & \qquad\text{(b) all \ensuremath{y_{i}}are different }\\
+ &  & \qquad\text{(c) }|x_{i}|\leq n,|y_{i}|\leq l\\
+ &  & \qquad\text{(d) \ensuremath{N}accepts \ensuremath{x_{i}}on path \ensuremath{y_{i}}}\}
+\end{eqnarray*}
+
+\end_inset
+
+ 
+\begin_inset Formula $\overline{SP}$
+\end_inset
+
+ therefore holds all tuples 
+\begin_inset Formula $\langle N,0^{l},0^{n}\rangle$
+\end_inset
+
+ such that there exists 
+\begin_inset Formula $l+1$
+\end_inset
+
+ inputs 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ of length at most 
+\begin_inset Formula $n$
+\end_inset
+
+ that are accepted by 
+\begin_inset Formula $N$
+\end_inset
+
+, which proves that 
+\begin_inset Formula $SP\in\coNP$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+We will now define subsets of 
+\begin_inset Formula $SP$
+\end_inset
+
+ that can be decided in deterministic polynomial time.
+ Assume 
+\begin_inset Formula $M$
+\end_inset
+
+ is a non-deterministic Turing machine with polynomial runtime 
+\begin_inset Formula $q$
+\end_inset
+
+ such that for every 
+\begin_inset Formula $n$
+\end_inset
+
+, 
+\begin_inset Formula $M$
+\end_inset
+
+ accepts at most 
+\begin_inset Formula $q(n)$
+\end_inset
+
+ strings of length at most 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ That is, the language accepted by 
+\begin_inset Formula $M$
+\end_inset
+
+, 
+\begin_inset Formula $L(M)$
+\end_inset
+
+ is 
+\begin_inset Formula $q$
+\end_inset
+
+-sparse.
+ Note that the set 
+\begin_inset Formula $SP_{M}=\{\langle M,0^{q(n)},0^{n}\rangle\mid n\geq1\}$
+\end_inset
+
+ is a subset of 
+\begin_inset Formula $SP$
+\end_inset
+
+.
+ For every such 
+\begin_inset Formula $M$
+\end_inset
+
+, there is a deterministic polynomial-time Turing machine 
+\begin_inset Formula $T_{M}$
+\end_inset
+
+ that decides 
+\begin_inset Formula $SP_{M}$
+\end_inset
+
+: given an input 
+\begin_inset Formula $\langle N,0^{l},0^{n}\rangle$
+\end_inset
+
+, it checks whether 
+\begin_inset Formula $N=M$
+\end_inset
+
+ and 
+\begin_inset Formula $l=q(n)$
+\end_inset
+
+, where 
+\begin_inset Formula $M$
+\end_inset
+
+ and 
+\begin_inset Formula $q$
+\end_inset
+
+ are coded into 
+\begin_inset Formula $T_{M}$
+\end_inset
+
+'s program.
+ We will use 
+\begin_inset Formula $SP_{M}$
+\end_inset
+
+ later to show the completeness.
+\end_layout
+
+\begin_layout Proof
+We are going to define the set 
+\begin_inset Formula $S\in\NP\cap\SPARSE$
+\end_inset
+
+, and prove it is complete for that class.
+ The fact that there is an optimal proof system will yield the many-one
+ reduction.
+ So let 
+\begin_inset Formula $h$
+\end_inset
+
+ be an optimal proof system and let 
+\begin_inset Formula $SP$
+\end_inset
+
+ reduce to 
+\begin_inset Formula $TAUT$
+\end_inset
+
+ via 
+\begin_inset Formula $\gamma,$
+\end_inset
+
+ which gives us 
+\begin_inset Formula $z\in SP\iff\gamma(z)\in TAUT$
+\end_inset
+
+.
+ Then we define 
+\begin_inset Formula 
+\begin{eqnarray*}
+ & S=\{\langle0^{N},0^{j},x\rangle\mid & \text{(I) \ensuremath{N}is non-det. Turing machine}\\
+ &  & \text{(II) there exists \ensuremath{w}, \ensuremath{|w|\leq j}},\\
+ &  & \qquad\text{(a) }h(w)=\gamma(\langle N,0^{l},0^{|x|}\rangle),\\
+ &  & \qquad\text{(b) \ensuremath{N}accepts \ensuremath{x}in at most \ensuremath{l}steps}.\}
+\end{eqnarray*}
+
+\end_inset
+
+We can see 
+\begin_inset Formula $S$
+\end_inset
+
+ belongs to 
+\begin_inset Formula $\NP$
+\end_inset
+
+ because of the polynomial-time condition on the tuple.
+ To see 
+\begin_inset Formula $S$
+\end_inset
+
+ is sparse, first fix an 
+\begin_inset Formula $N$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ By condition (II)(b), every 
+\begin_inset Formula $x$
+\end_inset
+
+ such that 
+\begin_inset Formula $\langle0^{N},0^{j},x\rangle\in S$
+\end_inset
+
+ is accepted by 
+\begin_inset Formula $N$
+\end_inset
+
+ in at most 
+\begin_inset Formula $l$
+\end_inset
+
+ steps.
+ Since 
+\begin_inset Formula $\langle N,0^{l},0^{|x|}\rangle\in SP$
+\end_inset
+
+ by (II)(a), we have 
+\begin_inset Formula $N$
+\end_inset
+
+ only accepting at most 
+\begin_inset Formula $l$
+\end_inset
+
+ inputs of length at most 
+\begin_inset Formula $|x|$
+\end_inset
+
+.
+ For the fixed 
+\begin_inset Formula $N$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+ we thus have at most 
+\begin_inset Formula $l$
+\end_inset
+
+ tuples 
+\begin_inset Formula $\langle0^{N},0^{j},x\rangle\in S$
+\end_inset
+
+.
+ By condition (II)(a), we can relate this upper bound to the length of the
+ tuples: since 
+\begin_inset Formula $h$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ are both polynomial length bounded, 
+\begin_inset Formula $l$
+\end_inset
+
+ is bounded by some polynomial in 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ Therefore exist for any given 
+\begin_inset Formula $N$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+ only a in 
+\begin_inset Formula $j$
+\end_inset
+
+ polynomial number of tuples in 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ By the tally encoding of 
+\begin_inset Formula $N$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+, there exist only a polynomial number of different 
+\begin_inset Formula $N$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+ for any fixed length 
+\begin_inset Formula $k$
+\end_inset
+
+ of tuples in 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Now let's see how every set in 
+\begin_inset Formula $\NP\cap\SPARSE$
+\end_inset
+
+ many-one reduces to 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $S'$
+\end_inset
+
+ be a set in 
+\begin_inset Formula $\NP\cap\SPARSE$
+\end_inset
+
+ that is accepted by 
+\begin_inset Formula $M$
+\end_inset
+
+ in time 
+\begin_inset Formula $q$
+\end_inset
+
+.
+ As shown before, 
+\begin_inset Formula $SP_{M}$
+\end_inset
+
+ can then be decided in polynomial time.
+ This enables us to define a polynomial-time function 
+\begin_inset Formula 
+\[
+g_{M}(x)=\begin{cases}
+\gamma(x) & \text{if \ensuremath{x\in SP_{M},}}\\
+\perp & \text{otherwise}
+\end{cases}
+\]
+
+\end_inset
+
+with range 
+\begin_inset Formula $\TAUT$
+\end_inset
+
+.
+ That is, 
+\begin_inset Formula $g_{M}$
+\end_inset
+
+ is a proof system and thus simulated by the optimal proof system 
+\begin_inset Formula $h$
+\end_inset
+
+.
+ Hence, there exists a translation function 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ and a polynomial 
+\begin_inset Formula $r$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $g_{M}$
+\end_inset
+
+-proofs 
+\begin_inset Formula $x$
+\end_inset
+
+, we have 
+\begin_inset Formula $h(\lambda(x))=g_{M}(x)$
+\end_inset
+
+ and 
+\begin_inset Formula $|\lambda(x)|\leq r(|x|)$
+\end_inset
+
+.
+ We can thus reduce 
+\begin_inset Formula $S'$
+\end_inset
+
+ to 
+\begin_inset Formula $S$
+\end_inset
+
+ via the polynomial-time function 
+\begin_inset Formula $x\mapsto\langle0^{M},0^{r(|x|)},x\rangle$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+To prove this claim, assume 
+\begin_inset Formula $x\in S'$
+\end_inset
+
+.
+ By definition we have 
+\begin_inset Formula $z=\langle M,0^{q(|x|)},0^{|x|}\rangle\in SP_{M}$
+\end_inset
+
+.
+ Thus, 
+\begin_inset Formula $z$
+\end_inset
+
+ is a 
+\begin_inset Formula $g_{M}$
+\end_inset
+
+-proof for 
+\begin_inset Formula $\gamma(z)$
+\end_inset
+
+, and therefore 
+\begin_inset Formula $\lambda(z)$
+\end_inset
+
+ is an 
+\begin_inset Formula $h$
+\end_inset
+
+-proof for 
+\begin_inset Formula $\gamma(z)$
+\end_inset
+
+, so 
+\begin_inset Formula $w=\lambda(z)$
+\end_inset
+
+ satisfies condition (II)(a).
+ Condition (I) of 
+\begin_inset Formula $S$
+\end_inset
+
+ is fulfilled by definition.
+ For the length bound of (II), notice 
+\begin_inset Formula $|w|=|\lambda(z)|\leq r(|x|)=j$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\lambda(z)$
+\end_inset
+
+ is an 
+\begin_inset Formula $h$
+\end_inset
+
+-proof for 
+\begin_inset Formula $\gamma(z)$
+\end_inset
+
+, we have 
+\begin_inset Formula $z=\langle N,0^{l},0^{|x|}\rangle\in SP$
+\end_inset
+
+.
+ We thus know by definition of 
+\begin_inset Formula $SP$
+\end_inset
+
+ that 
+\begin_inset Formula $N$
+\end_inset
+
+ accepts inputs of length at most 
+\begin_inset Formula $|x|$
+\end_inset
+
+ in at most 
+\begin_inset Formula $l$
+\end_inset
+
+ steps.
+ This satisfies condition (II)(b).
+ Altogether, we have 
+\begin_inset Formula $\langle0^{M},0^{r(|x|)},x\rangle\in S$
+\end_inset
+
+.
+ The converse follows immediately from (II)(b).
+\end_layout
+
+\begin_layout Standard
+The technique of this proof can be generalized and extended to a lot of
+ promise classes, most interestingly 
+\begin_inset Formula $\UP$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Theorem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If there is an p-optimal proof system, then 
+\begin_inset Formula $\UP$
+\end_inset
+
+ has a many-one complete set.
+\end_layout
+
+\begin_layout Enumerate
+If there is an optimal proof system, then 
+\begin_inset Formula $\UP$
+\end_inset
+
+ has a complete set under non-uniform many-one reducibility.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+For the proof, we refer the reader to the work of Köbler, Meßner and Torán
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/iandc/KoblerMT03"
+
+\end_inset
+
+.
+ Among 
+\begin_inset Formula $\UP$
+\end_inset
+
+, it also contains results on 
+\end_layout
+
+\begin_layout Standard
+One of the most outstanding consequence of the existence of optimal proof
+ systems is the existence of complete 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pairs, first proven by Razborov in 1994.
+ The proof requires some preparation and is demonstrated in the next section.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Propositional Proof Systems and 
+\begin_inset Formula $\NP$
+\end_inset
+
+-Pairs
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+grad handbook: solution of the problem 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Canonical Pairs
+\end_layout
+
+\begin_layout Standard
+Simulation of Proof Systems and Reduction of Canonical Pairs
+\end_layout
+
+\begin_layout Standard
+Razborov
+\end_layout
+
+\begin_layout Section
+Relativized Worlds
+\end_layout
+
+\begin_layout Subsection
+No Optimal/p-Optimal Proof System
+\end_layout
+
+\begin_layout Standard
+Optimal: paper by Fortnow et al; p-optimal: paper by Meßner Torán 
+\end_layout
+
+\begin_layout Subsection
+Converse of Razborov does not Hold
+\end_layout
+
+\begin_layout Standard
+paper by Glaßer et al.
+ (GSSZ section 6)
+\end_layout
+
+\begin_layout Subsection
+ESY holds
+\end_layout
+
+\begin_layout Standard
+paper by GSSZ section 3
+\end_layout
+
+\begin_layout Subsection
+Separation of ESY refinements
+\end_layout
+
+\begin_layout Standard
+ask Andy (meeting with Lance: there is an oracle such that 
+\begin_inset Formula $\NP=\UP$
+\end_inset
+
+ and 
+\begin_inset Formula $\NP\neq\coNP$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+grad handbook: how much of the whole problem area was solved, suggestions
+ for future work 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Open Questions and Future Work
+\end_layout
+
+\begin_layout Enumerate
+Oracle for which converse of Razborov holds
+\end_layout
+
+\begin_layout Enumerate
+Oracle such that there is a optimal, but not a p-optimal proof system
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "bibliography"
+options "alpha"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
