@@ -1,4 +1,4 @@
 #!/bin/bash
 
-git commit -a -m 'Backup' --author="`whoami`"
+git commit -a -m 'Backup'
 
