@@ -8,4 +8,6 @@
 *.tex~
 *.toc
 *.lyx~
+\#*.lyx\#
+*.eps
 old files/
