@@ -435,19 +435,19 @@ if ESY does not hold, this implies the existence of complete pairs.
 
 \subsection{Polynomially-bounded proof systems and $\NP=\coNP$}
 
-Here will show that the existence of polynomially-bounded proof systems
-characterizes $\NP=\coNP$. The proof is due to Cook and Reckhow \cite{journals/jsyml/CookR79}.
+We will show that the existence of polynomially-bounded proof systems
+characterizes the statement $\NP=\coNP$. The proof is due to Cook
+and Reckhow \cite{journals/jsyml/CookR79}.
 \begin{thm}
 \label{thm:poly-bounded-ps-iff-np-eq-conp}There is a polynomially-bounded
 propositional proof system if and only if $\NP=\coNP$.\end{thm}
 \begin{proof}
-Assume $\NP=\coNP$. Then there is an $\NP$-machine $M$ such that
-for every tautology $\varphi$ there is an accepting path $w$ in
-the computation of $M$. This allows us to define a proof system $f$,
-in which all proofs are polynomially length bounded:
+Assume $\NP=\coNP$ and let $M$ be an $\NP$-machine accepting $\TAUT$.
+We define a proof system $f$, in which all proofs are polynomially
+length bounded:
 \[
 f(\langle\varphi,w\rangle)=\begin{cases}
-\varphi & \text{if \ensuremath{M}accepts \ensuremath{\varphi}on path \ensuremath{w}},\\
+\varphi & \text{if \ensuremath{w}is an accepting path of \ensuremath{M}on input \ensuremath{\varphi}},\\
 \true & \text{otherwise}.
 \end{cases}
 \]
@@ -460,25 +460,24 @@ have polynomial-length proofs.
 To prove the converse, suppose there is a polynomially-bounded proof
 system $f$. Since the complement of $\TAUT$ is $\NP$-complete,
 it suffices to show $\TAUT\in\NP$. Let $M$ be a nondeterministic
-Turing machine such that on input $\varphi$, $M$ guesses a $f$-proof
-$w$ and calculates $f(\langle\varphi,w\rangle)$. The machine then
-accepts if and only if $f(\langle\varphi,w\rangle)=\varphi$. Hence,
-every accepted string is a tautology, and every tautology is accepted.
+Turing machine such that on input $\varphi$, $M$ guesses an $f$-proof
+$w$ of polynomial length and calculates $f(w)$. The machine then
+accepts if and only if $f(w)=\varphi$. Hence, $M$ is an $\NP$-machine
+accepting $\TAUT$.
 \end{proof}
-To prove $\NP\neq\coNP$, that is, to prove there is no polynomially-bounded
-proof system, Cook and Reckhow introduced the notion of optimal proof
-systems. We call a proof system $f$ optimal, if $f$-proofs are the
-shortest proofs among all proof systems (with respect to a polynomial
-factor). If we could prove the existence of an optimal proof system
-with proofs that are not within polynomial length, we could prove
-$\NP\neq\coNP$.
+Cook and Reckhow introduced the notion of optimal proof systems in
+order to prove $\NP\neq\coNP$, that is, to prove there is no polynomially-bounded
+proof system. We call a proof system $f$ optimal, if $f$-proofs
+are the shortest proofs among all proof systems (with respect to a
+polynomial factor). Proving the existence of an optimal proof system
+with proofs that are not within polynomial length shows $\NP\neq\coNP$.
 
-However, it is unknown whether or not optimal proof systems with proofs
-of any length exist, however a few necessary and sufficient conditions
-are known.  
+The existence of both polynomially bounded and optimal proof systems
+is unknown. However, we are able to prove some necessary and sufficient
+conditions.  
 
 
-\subsection{Sufficient Conditions for the Existence}
+\subsection{Sufficient Conditions for the Existence of Optimal Proof Systems}
 
 To investigate further the question of whether optimal or even p-optimal
 proof systems exist, first Krají\v{c}ek and Pudlák \cite{journals/jsyml/KrajicekP89}
@@ -488,7 +487,7 @@ conditions for optimal and p-optimal proof systems:
 
 \begin{figure}[H]
 \begin{center}
-\begin{tikzpicture}[->,>=stealth',shorten >=1pt,node distance=4.5cm,       semithick, /tikz/initial text=]   
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,node distance=3.0cm,       semithick, /tikz/initial text=]   
 \tikzstyle{every state}=[fill=none,draw=black,text=black]
   
 \node (A0)               {$\P=\NP$};   
@@ -531,8 +530,8 @@ condition than mentioned in the chart:
 \begin{thm}
 \label{thm:sufficient-cond-for-optimal-pps}
 \begin{enumerate}
-\item If all almost-tally languages in $\coNEE$ also belong to $\EE$,
-then there exists a p-optimal propositional proof system.
+\item If all almost-tally languages in $\NEE$ also belong to $\EE$, then
+there exists a p-optimal propositional proof system.
 \item If all almost-tally languages in $\coNEE$ also belong to $\NEE$,
 then there exists an optimal propositional proof system.
 \end{enumerate}
@@ -546,9 +545,9 @@ For the proof of \ref{thm:sufficient-cond-for-optimal-pps}.1, please
 refer to the original paper by Meßner and Torán \cite{journals/eccc/ECCC-TR97-026}.
 \begin{proof}[Proof of \ref{thm:sufficient-cond-for-optimal-pps}.2]
 Let $M_{1},M_{2},...$ be an enumeration of deterministic Turing
-machines such that there is a universal Turing machine that can simulate
-$k$ steps of $M_{i}$ in $(ik)^{2}$ steps. Define the almost-tally
-language 
+transducers such that there is a universal Turing transducer that
+can simulate $k$ steps of $M_{i}$ in $(ik)^{2}$ steps. Define the
+almost-tally language 
 \begin{eqnarray*}
 T=\{0^{j}10^{i} & \mid & \text{for all words \ensuremath{w}of length at most \ensuremath{2^{2^{j+1+i}}}:}\\
  &  & (\text{if \ensuremath{M_{i}}halts on \ensuremath{w}in at most \ensuremath{2^{2^{j+1+i}}}steps, then \ensuremath{M_{i}}outputs a tautology})\}.
@@ -615,24 +614,25 @@ there is an $\alpha$ that is an accepting computation of $N_{T}$
 on input $0^{j}10^{i}$.
 
 It remains to show that $|w'|\leq p(|w|)$. To see this, it is sufficient
-to show that $j$, $i$, $s$ and $\alpha$ are polynomial in $|w|$.
-$j$ is indeed double-logarithmic, and thus $s$ is polynomial in
-$|w|$. The Gödel-number $i$ is a constant in $|w|$. The computation
-path $\alpha$ has double-exponential length in $i$ and $j$ and
-therefore polynomial in $|w|$.
+to show that $j$, $i$, $s$ and $|\alpha|$ are polynomially bounded
+in $|w|$. The Gödel-number $i$ is a constant in $|w|$. Parameter
+$j$ is indeed double-logarithmic, and thus $s$ is polynomially bounded
+in $|w|$. The computation path $\alpha$ has double-exponential length
+in $i$ and $j$ and is therefore polynomially bounded in $|w|$.
 \end{proof}
 
-\subsection{Implications of the Existence}
+\subsection{Implications of the Existence of Optimal Proof Systems}
 
 In this section, we will see some evidence suggesting optimal proof
 systems do not exist. One of the implications given by optimal proof
 systems is the existence of complete sets for $\NP\cap\SPARSE$, a
 consequence which we tend to believe is not true. This result is due
-to Köbler et al \cite{journals/iandc/KoblerMT03}. However our interest
-in this result goes beyond this evidence, as Buhrman et al. \cite{conf/stacs/BuhrmanFFM00}
-showed that there is an oracle such that there are no complete sets
-for $\NP\cap\SPARSE$, although oracles to which there are no optimal
-proof systems have been known even before that \cite{journals/jsyml/KrajicekP89,journals/iandc/KoblerMT03}.
+to Köbler, Meßner and Torán. \cite{journals/iandc/KoblerMT03}. However
+our interest in this result goes beyond this evidence, as Buhrman
+et al. \cite{conf/stacs/BuhrmanFFM00} showed that there is an oracle
+such that there are no complete sets for $\NP\cap\SPARSE$, although
+oracles relative to which there are no optimal proof systems have
+been known even before that \cite{journals/jsyml/KrajicekP89,journals/iandc/KoblerMT03}.
 \begin{thm}
 If there is an optimal proof system, then complete sets for $\NP\cap\SPARSE$
 exist.\end{thm}
@@ -643,21 +643,23 @@ a given length $n$, only $l$ different strings:
 \begin{eqnarray*}
  & SP=\{\langle N,0^{l},0^{n}\rangle\mid & \text{(1)}\, N\,\text{is a non-deterministic Turing machine}\\
  &  & \text{\text{(2) there are at most \ensuremath{l}pairs \ensuremath{(x_{i},y_{i})}such that}}\\
- &  & \qquad\text{(a) all \ensuremath{x_{i}}are different}\\
- &  & \qquad\text{(b) all \ensuremath{y_{i}}are different }\\
+ &  & \qquad\text{(a) all \ensuremath{x_{i}}are pairwise different}\\
+ &  & \qquad\text{(b) all \ensuremath{y_{i}}are pairwise different }\\
  &  & \qquad\text{(c) }|x_{i}|\leq n,|y_{i}|\leq l\\
  &  & \qquad\text{(d) \ensuremath{N}accepts \ensuremath{x_{i}}on path \ensuremath{y_{i}}}\}
 \end{eqnarray*}
- $\overline{SP}$ therefore holds all tuples $\langle N,0^{l},0^{n}\rangle$
-such that there exists $l+1$ inputs $x_{i}$ of length at most $n$
+A tuple $\langle N,0^{l},0^{n}\rangle$ does not belong to $SP$ if
+and only if there exist $l+1$ inputs $x_{i}$ of length at most $n$
 that are accepted by $N$, which proves that $SP\in\coNP$.
 
 We will now define subsets of $SP$ that can be decided in deterministic
 polynomial time. Assume $M$ is a non-deterministic Turing machine
 with polynomial runtime $q$ such that for every $n$, $M$ accepts
 at most $q(n)$ strings of length at most $n$. That is, the language
-accepted by $M$, $L(M)$ is $q$-sparse. Note that the set $SP_{M}=\{\langle M,0^{q(n)},0^{n}\rangle\mid n\geq1\}$
-is a subset of $SP$. For every such $M$, there is a deterministic
+accepted by $M$, $L(M)$ is $q$-sparse. Observe that the set $SP_{M}=\{\langle M,0^{q(n)},0^{n}\rangle\mid n\geq1\}$
+is a subset of $SP$, as there are at most $l=q(n)$ pairwise different
+inputs accepted by $M$ for each $n$ (see condition (2)(a) in the
+definition of $SP$). For every such $M$, there is a deterministic
 polynomial-time Turing machine $T_{M}$ that decides $SP_{M}$: given
 an input $\langle N,0^{l},0^{n}\rangle$, it checks whether $N=M$
 and $l=q(n)$, where $M$ and $q$ are coded into $T_{M}$'s program.

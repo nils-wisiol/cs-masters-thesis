@@ -1883,8 +1883,8 @@ Polynomially-bounded proof systems and
 \end_layout
 
 \begin_layout Standard
-Here will show that the existence of polynomially-bounded proof systems
- characterizes 
+We will show that the existence of polynomially-bounded proof systems characteri
+zes the statement 
 \begin_inset Formula $\NP=\coNP$
 \end_inset
 
@@ -1919,29 +1919,20 @@ Assume
 \begin_inset Formula $\NP=\coNP$
 \end_inset
 
-.
- Then there is an 
+ and let 
+\begin_inset Formula $M$
+\end_inset
+
+ be an 
 \begin_inset Formula $\NP$
 \end_inset
 
--machine 
-\begin_inset Formula $M$
-\end_inset
-
- such that for every tautology 
-\begin_inset Formula $\varphi$
-\end_inset
-
- there is an accepting path 
-\begin_inset Formula $w$
-\end_inset
-
- in the computation of 
-\begin_inset Formula $M$
+-machine accepting 
+\begin_inset Formula $\TAUT$
 \end_inset
 
 .
- This allows us to define a proof system 
+ We define a proof system 
 \begin_inset Formula $f$
 \end_inset
 
@@ -1949,7 +1940,7 @@ Assume
 \begin_inset Formula 
 \[
 f(\langle\varphi,w\rangle)=\begin{cases}
-\varphi & \text{if \ensuremath{M}accepts \ensuremath{\varphi}on path \ensuremath{w}},\\
+\varphi & \text{if \ensuremath{w} is an accepting path of \ensuremath{M} on input \ensuremath{\varphi}},\\
 \true & \text{otherwise}.
 \end{cases}
 \]
@@ -1984,16 +1975,6 @@ Since
 \end_inset
 
 , all tautologies have polynomial-length proofs.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-this paragraph could be left out or shortened
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Proof
@@ -2028,7 +2009,7 @@ To prove the converse, suppose there is a polynomially-bounded proof system
 \begin_inset Formula $M$
 \end_inset
 
- guesses a 
+ guesses an 
 \begin_inset Formula $f$
 \end_inset
 
@@ -2036,26 +2017,38 @@ To prove the converse, suppose there is a polynomially-bounded proof system
 \begin_inset Formula $w$
 \end_inset
 
- and calculates 
-\begin_inset Formula $f(\langle\varphi,w\rangle)$
+ of polynomial length and calculates 
+\begin_inset Formula $f(w)$
 \end_inset
 
 .
  The machine then accepts if and only if 
-\begin_inset Formula $f(\langle\varphi,w\rangle)=\varphi$
+\begin_inset Formula $f(w)=\varphi$
 \end_inset
 
 .
- Hence, every accepted string is a tautology, and every tautology is accepted.
+ Hence, 
+\begin_inset Formula $M$
+\end_inset
+
+ is an 
+\begin_inset Formula $\NP$
+\end_inset
+
+-machine accepting 
+\begin_inset Formula $\TAUT$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-To prove 
+Cook and Reckhow introduced the notion of optimal proof systems in order
+ to prove 
 \begin_inset Formula $\NP\neq\coNP$
 \end_inset
 
-, that is, to prove there is no polynomially-bounded proof system, Cook
- and Reckhow introduced the notion of optimal proof systems.
+, that is, to prove there is no polynomially-bounded proof system.
  We call a proof system 
 \begin_inset Formula $f$
 \end_inset
@@ -2066,8 +2059,8 @@ To prove
 
 -proofs are the shortest proofs among all proof systems (with respect to
  a polynomial factor).
- If we could prove the existence of an optimal proof system with proofs
- that are not within polynomial length, we could prove 
+ Proving the existence of an optimal proof system with proofs that are not
+ within polynomial length shows 
 \begin_inset Formula $\NP\neq\coNP$
 \end_inset
 
@@ -2075,9 +2068,18 @@ To prove
 \end_layout
 
 \begin_layout Standard
-However, it is unknown whether or not optimal proof systems with proofs
- of any length exist, however a few necessary and sufficient conditions
- are known.
+The existence of both polynomially bounded and optimal proof systems is
+ unknown.
+ However, we are able to prove some necessary and sufficient conditions.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+maybe rephrase
+\end_layout
+
+\end_inset
+
  
 \begin_inset Note Note
 status open
@@ -2092,7 +2094,7 @@ citation of oracles? Anything known for that?
 \end_layout
 
 \begin_layout Subsection
-Sufficient Conditions for the Existence
+Sufficient Conditions for the Existence of Optimal Proof Systems
 \end_layout
 
 \begin_layout Standard
@@ -2132,7 +2134,7 @@ begin{center}
 
 
 \backslash
-begin{tikzpicture}[->,>=stealth',shorten >=1pt,node distance=4.5cm,     
+begin{tikzpicture}[->,>=stealth',shorten >=1pt,node distance=3.0cm,     
   semithick, /tikz/initial text=]   
 \end_layout
 
@@ -2380,6 +2382,20 @@ almost-tally
  we denote the class of all almost-tally languages.
  Meßner and Torán use the notion of almost-tally languages to obtain an
  even weaker sufficient condition than mentioned in the chart:
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+is 
+\begin_inset Formula $\coNEE=\NEE$
+\end_inset
+
+ for tally languages?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Theorem
@@ -2395,7 +2411,7 @@ name "thm:sufficient-cond-for-optimal-pps"
 \begin_deeper
 \begin_layout Enumerate
 If all almost-tally languages in 
-\begin_inset Formula $\coNEE$
+\begin_inset Formula $\NEE$
 \end_inset
 
  also belong to 
@@ -2482,8 +2498,8 @@ Let
 \begin_inset Formula $M_{1},M_{2},...$
 \end_inset
 
- be an enumeration of deterministic Turing machines such that there is a
- universal Turing machine that can simulate 
+ be an enumeration of deterministic Turing transducers such that there is
+ a universal Turing transducer that can simulate 
 \begin_inset Formula $k$
 \end_inset
 
@@ -2810,23 +2826,10 @@ It remains to show that
 \end_inset
 
  and 
-\begin_inset Formula $\alpha$
+\begin_inset Formula $|\alpha|$
 \end_inset
 
- are polynomial in 
-\begin_inset Formula $|w|$
-\end_inset
-
-.
- 
-\begin_inset Formula $j$
-\end_inset
-
- is indeed double-logarithmic, and thus 
-\begin_inset Formula $s$
-\end_inset
-
- is polynomial in 
+ are polynomially bounded in 
 \begin_inset Formula $|w|$
 \end_inset
 
@@ -2836,6 +2839,19 @@ It remains to show that
 \end_inset
 
  is a constant in 
+\begin_inset Formula $|w|$
+\end_inset
+
+.
+ Parameter 
+\begin_inset Formula $j$
+\end_inset
+
+ is indeed double-logarithmic, and thus 
+\begin_inset Formula $s$
+\end_inset
+
+ is polynomially bounded in 
 \begin_inset Formula $|w|$
 \end_inset
 
@@ -2852,7 +2868,7 @@ It remains to show that
 \begin_inset Formula $j$
 \end_inset
 
- and therefore polynomial in 
+ and is therefore polynomially bounded in 
 \begin_inset Formula $|w|$
 \end_inset
 
@@ -2860,7 +2876,7 @@ It remains to show that
 \end_layout
 
 \begin_layout Subsection
-Implications of the Existence
+Implications of the Existence of Optimal Proof Systems
 \end_layout
 
 \begin_layout Standard
@@ -2872,7 +2888,8 @@ In this section, we will see some evidence suggesting optimal proof systems
 \end_inset
 
 , a consequence which we tend to believe is not true.
- This result is due to Köbler et al 
+ This result is due to Köbler, Meßner and Torán.
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "journals/iandc/KoblerMT03"
@@ -2904,8 +2921,8 @@ insert forward reference
 
 \end_inset
 
-, although oracles to which there are no optimal proof systems have been
- known even before that 
+, although oracles relative to which there are no optimal proof systems
+ have been known even before that 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "journals/jsyml/KrajicekP89,journals/iandc/KoblerMT03"
@@ -2946,23 +2963,23 @@ We define the set
 \begin{eqnarray*}
  & SP=\{\langle N,0^{l},0^{n}\rangle\mid & \text{(1)}\, N\,\text{is a non-deterministic Turing machine}\\
  &  & \text{\text{(2) there are at most \ensuremath{l}pairs \ensuremath{(x_{i},y_{i})}such that}}\\
- &  & \qquad\text{(a) all \ensuremath{x_{i}}are different}\\
- &  & \qquad\text{(b) all \ensuremath{y_{i}}are different }\\
+ &  & \qquad\text{(a) all \ensuremath{x_{i}}are pairwise different}\\
+ &  & \qquad\text{(b) all \ensuremath{y_{i}}are pairwise different }\\
  &  & \qquad\text{(c) }|x_{i}|\leq n,|y_{i}|\leq l\\
  &  & \qquad\text{(d) \ensuremath{N}accepts \ensuremath{x_{i}}on path \ensuremath{y_{i}}}\}
 \end{eqnarray*}
 
 \end_inset
 
- 
-\begin_inset Formula $\overline{SP}$
-\end_inset
-
- therefore holds all tuples 
+A tuple 
 \begin_inset Formula $\langle N,0^{l},0^{n}\rangle$
 \end_inset
 
- such that there exists 
+ does not belong to 
+\begin_inset Formula $SP$
+\end_inset
+
+ if and only if there exist 
 \begin_inset Formula $l+1$
 \end_inset
 
@@ -3029,7 +3046,7 @@ We will now define subsets of
 \end_inset
 
 -sparse.
- Note that the set 
+ Observe that the set 
 \begin_inset Formula $SP_{M}=\{\langle M,0^{q(n)},0^{n}\rangle\mid n\geq1\}$
 \end_inset
 
@@ -3037,7 +3054,23 @@ We will now define subsets of
 \begin_inset Formula $SP$
 \end_inset
 
-.
+, as there are at most 
+\begin_inset Formula $l=q(n)$
+\end_inset
+
+ pairwise different inputs accepted by 
+\begin_inset Formula $M$
+\end_inset
+
+ for each 
+\begin_inset Formula $n$
+\end_inset
+
+ (see condition (2)(a) in the definition of 
+\begin_inset Formula $SP$
+\end_inset
+
+).
  For every such 
 \begin_inset Formula $M$
 \end_inset
