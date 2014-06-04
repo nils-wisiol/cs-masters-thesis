@@ -481,7 +481,7 @@ conditions.
 
 To investigate further the question of whether optimal or even p-optimal
 proof systems exist, first Krají\v{c}ek and Pudlák \cite{journals/jsyml/KrajicekP89}
-and later Meßner and Torán prove sufficient conditions for the existence
+and later Meßner and Torán proved sufficient conditions for the existence
 of such proof systems. The results reveal a symmetry for sufficient
 conditions for optimal and p-optimal proof systems:
 
@@ -536,13 +536,13 @@ there exists a p-optimal propositional proof system.
 then there exists an optimal propositional proof system.
 \end{enumerate}
 \end{thm}
-The proof is based on constructing the almost-tally language $T$
-which is, by definition, in $\coNEE$. By the hypothesis, we can then
-assume $T\in\EE$ and $T\in\NEE$ respectively and define a proof
-system based on $T$.
-
 For the proof of \ref{thm:sufficient-cond-for-optimal-pps}.1, please
 refer to the original paper by Meßner and Torán \cite{journals/eccc/ECCC-TR97-026}.
+
+The proof of \ref{thm:sufficient-cond-for-optimal-pps}.2 is based
+on constructing the almost-tally language $T$ that belongs to $\coNEE$.
+By the hypothesis, we can then assume $T\in\EE$ and $T\in\NEE$ respectively
+and define a proof system based on $T$.
 \begin{proof}[Proof of \ref{thm:sufficient-cond-for-optimal-pps}.2]
 Let $M_{1},M_{2},...$ be an enumeration of deterministic Turing
 transducers such that there is a universal Turing transducer that
@@ -552,10 +552,10 @@ almost-tally language
 T=\{0^{j}10^{i} & \mid & \text{for all words \ensuremath{w}of length at most \ensuremath{2^{2^{j+1+i}}}:}\\
  &  & (\text{if \ensuremath{M_{i}}halts on \ensuremath{w}in at most \ensuremath{2^{2^{j+1+i}}}steps, then \ensuremath{M_{i}}outputs a tautology})\}.
 \end{eqnarray*}
-To see that $T$ is a $\coNEE$-language, we rewrite $T$ as 
+ To see that $T$ is a $\coNEE$-language, we rewrite $T$ as 
 \begin{eqnarray*}
 T=\{0^{j}10^{i} & \mid & \forall w,y\in\Sigma^{\leq2^{2^{j+1+i}}}:\\
- &  & \left[M_{i}(w)\text{ halts in \ensuremath{2^{2^{j+1+i}}}steps }\implies(M_{i}(w)=\varphi\wedge\varphi(y)=\true)\right]\},
+ &  & \left[M_{i}(w)\text{ halts in \ensuremath{2^{2^{j+1+i}}}steps with output }\varphi\implies\varphi(y)=\true)\right]\},
 \end{eqnarray*}
 where the condition written in square brackets can be decided in deterministic
 double-exponential time. By the hypothesis, we thus have $T\in\NEE$.
@@ -577,7 +577,7 @@ First, we will show that $f$ is a proof system. In both cases of
 the definition, $f$ only outputs tautologies. Also, for any given
 tautology $\varphi$, there is a $k$ such that $M_{k}$ outputs $\varphi$
 on any input with length at least $|\varphi|$, and true for all shorter
-inputs. Hence $10^{k}\in T$. Therefore, there is an $\alpha$ such
+inputs. Hence, $10^{k}\in T$. Therefore, there is an $\alpha$ such
 that $\langle10^{k},0^{2^{2^{k+1}}},\alpha,0^{|\varphi|}\rangle$
 is a $f$-proof for $\varphi$. This confirms $f(\Sigma^{*})=\TAUT$.
 As a last condition, we need to verify $f$ is polynomial-time computable:
@@ -599,9 +599,9 @@ j & = & \max(0,\left\lceil \log\log\left(|w|^{k}+k\right)\right\rceil -i-1)
 is an $f$-proof for the same tautology, because the string $w'$
 satisfies all conditions in the first case of the definition of $f$,
 and therefore $f(w')=M_{i}(w)=g(w)$: (a) is satisfied by the choice
-of $s$, (b) holds by the choice of $j$: We distinguish two cases.
+of $s$, (b) holds in both of the following cases by choice of $j$.
 \begin{eqnarray*}
-\text{If }j>0, &  & 2^{2^{l}}=2^{2^{\left\lceil \log\log\left(|w|^{k}+k\right)\right\rceil }}\geq2^{2^{\log\log\left(|w|^{k}+k\right)}}=|w|^{k}+k\geq|w|.\\
+\text{If }j>0, &  & 2^{2^{l}}\geq2^{2^{j}}=2^{2^{\left\lceil \log\log\left(|w|^{k}+k\right)\right\rceil }}\geq2^{2^{\log\log\left(|w|^{k}+k\right)}}=|w|^{k}+k\geq|w|.\\
 \text{If }j=0, &  & \left\lceil \log\log\left(|w|^{k}+k\right)\right\rceil -i-1\leq0\implies\left\lceil \log\log\left(|w|^{k}+k\right)\right\rceil \leq i+1\\
  &  & \implies\log\log\left(|w|^{k}+k\right)\leq i+1\implies|w|^{k}+k\leq2^{2^{i+1}}=2^{2^{l}}\implies|w|\leq|w|^{k}+k\leq2^{2^{l}}.
 \end{eqnarray*}
@@ -616,10 +616,12 @@ on input $0^{j}10^{i}$.
 It remains to show that $|w'|\leq p(|w|)$. To see this, it is sufficient
 to show that $j$, $i$, $s$ and $|\alpha|$ are polynomially bounded
 in $|w|$. The Gödel-number $i$ is a constant in $|w|$. Parameter
-$j$ is indeed double-logarithmic, and thus $s$ is polynomially bounded
+$j$ is double-logarithmic, and thus $s$ is polynomially bounded
 in $|w|$. The computation path $\alpha$ has double-exponential length
 in $i$ and $j$ and is therefore polynomially bounded in $|w|$.
 \end{proof}
+
+
 
 \subsection{Implications of the Existence of Optimal Proof Systems}
 

@@ -104,7 +104,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Sym}{\operatorname{Sym}}
+\renewcommand{\Sym}{\operatorname{Sym}}
 {\mathrm{Sym\text{ }}}
 \end_inset
 
@@ -113,7 +113,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Aut}{\operatorname{Aut}}
+\renewcommand{\Aut}{\operatorname{Aut}}
 {\mathrm{Aut\text{ }}}
 \end_inset
 
@@ -122,7 +122,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Ker}{\operatorname{Ker}}
+\renewcommand{\Ker}{\operatorname{Ker}}
 {\mathrm{Ker}}
 \end_inset
 
@@ -131,7 +131,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Img}{\operatorname{Im}}
+\renewcommand{\Img}{\operatorname{Im}}
 {\mathrm{Im}}
 \end_inset
 
@@ -140,7 +140,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Sep}{\operatorname{Sep}}
+\renewcommand{\Sep}{\operatorname{Sep}}
 {\mathrm{Sep}}
 \end_inset
 
@@ -149,7 +149,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\powerset}{\operatorname{\mathcal{P}}}
+\renewcommand{\powerset}{\operatorname{\mathcal{P}}}
 {\mathrm{\mathcal{P}}}
 \end_inset
 
@@ -171,7 +171,7 @@ Definition of function classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\functionclass}[1]{\mathcal{#1}}
+\renewcommand{\functionclass}[1]{\mathcal{#1}}
 {\mathcal{#1}}
 \end_inset
 
@@ -180,7 +180,7 @@ Definition of function classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\FP}{\functionclass{FP}}
+\renewcommand{\FP}{\functionclass{FP}}
 {\functionclass{FP}}
 \end_inset
 
@@ -202,7 +202,7 @@ Definition of complexity classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\complexityclass}[1]{\mathrm{#1}}
+\renewcommand{\complexityclass}[1]{\mathrm{#1}}
 {\mathrm{#1}}
 \end_inset
 
@@ -211,19 +211,19 @@ Definition of complexity classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\DTIME}{\complexityclass{DTIME}}
+\renewcommand{\DTIME}{\complexityclass{DTIME}}
 {\complexityclass{DTIME}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\NTIME}{\complexityclass{NTIME}}
+\renewcommand{\NTIME}{\complexityclass{NTIME}}
 {\complexityclass{NTIME}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\coNTIME}{\complexityclass{coNTIME}}
+\renewcommand{\coNTIME}{\complexityclass{coNTIME}}
 {\complexityclass{coNTIME}}
 \end_inset
 
@@ -232,19 +232,19 @@ Definition of complexity classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\P}{\complexityclass P}
+\renewcommand{\P}{\complexityclass P}
 {\complexityclass P}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\NP}{\complexityclass{NP}}
+\renewcommand{\NP}{\complexityclass{NP}}
 {\complexityclass{NP}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\coNP}{\complexityclass{coNP}}
+\renewcommand{\coNP}{\complexityclass{coNP}}
 {\complexityclass{coNP}}
 \end_inset
 
@@ -253,7 +253,7 @@ Definition of complexity classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\UP}{\complexityclass{UP}}
+\renewcommand{\UP}{\complexityclass{UP}}
 {\complexityclass{UP}}
 \end_inset
 
@@ -2106,7 +2106,7 @@ key "journals/jsyml/KrajicekP89"
 
 \end_inset
 
- and later Meßner and Torán prove sufficient conditions for the existence
+ and later Meßner and Torán proved sufficient conditions for the existence
  of such proof systems.
  The results reveal a symmetry for sufficient conditions for optimal and
  p-optimal proof systems:
@@ -2435,11 +2435,36 @@ If all almost-tally languages in
 
 \end_deeper
 \begin_layout Standard
-The proof is based on constructing the almost-tally language 
+For the proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:sufficient-cond-for-optimal-pps"
+
+\end_inset
+
+.1, please refer to the original paper by Meßner and Torán 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/eccc/ECCC-TR97-026"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:sufficient-cond-for-optimal-pps"
+
+\end_inset
+
+.2 is based on constructing the almost-tally language 
 \begin_inset Formula $T$
 \end_inset
 
- which is, by definition, in 
+ that belongs to 
 \begin_inset Formula $\coNEE$
 \end_inset
 
@@ -2454,24 +2479,6 @@ The proof is based on constructing the almost-tally language
 
  respectively and define a proof system based on 
 \begin_inset Formula $T$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-For the proof of 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "thm:sufficient-cond-for-optimal-pps"
-
-\end_inset
-
-.1, please refer to the original paper by Meßner and Torán 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "journals/eccc/ECCC-TR97-026"
-
 \end_inset
 
 .
@@ -2521,7 +2528,21 @@ T=\{0^{j}10^{i} & \mid & \text{for all words \ensuremath{w}of length at most \en
 
 \end_inset
 
-To see that 
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+mention that every proof system is sort of represented in 
+\begin_inset Formula $T$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ To see that 
 \begin_inset Formula $T$
 \end_inset
 
@@ -2537,7 +2558,7 @@ To see that
 \begin_inset Formula 
 \begin{eqnarray*}
 T=\{0^{j}10^{i} & \mid & \forall w,y\in\Sigma^{\leq2^{2^{j+1+i}}}:\\
- &  & \left[M_{i}(w)\text{ halts in \ensuremath{2^{2^{j+1+i}}}steps }\implies(M_{i}(w)=\varphi\wedge\varphi(y)=\true)\right]\},
+ &  & \left[M_{i}(w)\text{ halts in \ensuremath{2^{2^{j+1+i}}}steps with output }\varphi\implies\varphi(y)=\true)\right]\},
 \end{eqnarray*}
 
 \end_inset
@@ -2623,7 +2644,7 @@ First, we will show that
 \end_inset
 
 , and true for all shorter inputs.
- Hence 
+ Hence, 
 \begin_inset Formula $10^{k}\in T$
 \end_inset
 
@@ -2746,15 +2767,15 @@ is an
 \begin_inset Formula $s$
 \end_inset
 
-, (b) holds by the choice of 
+, (b) holds in both of the following cases by choice of 
 \begin_inset Formula $j$
 \end_inset
 
-: We distinguish two cases.
+.
  
 \begin_inset Formula 
 \begin{eqnarray*}
-\text{If }j>0, &  & 2^{2^{l}}=2^{2^{\left\lceil \log\log\left(|w|^{k}+k\right)\right\rceil }}\geq2^{2^{\log\log\left(|w|^{k}+k\right)}}=|w|^{k}+k\geq|w|.\\
+\text{If }j>0, &  & 2^{2^{l}}\geq2^{2^{j}}=2^{2^{\left\lceil \log\log\left(|w|^{k}+k\right)\right\rceil }}\geq2^{2^{\log\log\left(|w|^{k}+k\right)}}=|w|^{k}+k\geq|w|.\\
 \text{If }j=0, &  & \left\lceil \log\log\left(|w|^{k}+k\right)\right\rceil -i-1\leq0\implies\left\lceil \log\log\left(|w|^{k}+k\right)\right\rceil \leq i+1\\
  &  & \implies\log\log\left(|w|^{k}+k\right)\leq i+1\implies|w|^{k}+k\leq2^{2^{i+1}}=2^{2^{l}}\implies|w|\leq|w|^{k}+k\leq2^{2^{l}}.
 \end{eqnarray*}
@@ -2847,7 +2868,7 @@ It remains to show that
 \begin_inset Formula $j$
 \end_inset
 
- is indeed double-logarithmic, and thus 
+ is double-logarithmic, and thus 
 \begin_inset Formula $s$
 \end_inset
 
@@ -2873,6 +2894,33 @@ It remains to show that
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+explain why triple-exponential time is not working
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+try Mikes idea of using 
+\begin_inset Formula $2^{2^{i*2^{j}}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
