@@ -29,6 +29,10 @@
   \newtheorem{prop}[thm]{\protect\propositionname}
   \theoremstyle{plain}
   \newtheorem{conjecture}[thm]{\protect\conjecturename}
+  \theoremstyle{plain}
+  \newtheorem{lem}[thm]{\protect\lemmaname}
+  \theoremstyle{plain}
+  \newtheorem{cor}[thm]{\protect\corollaryname}
 
 \@ifundefined{date}{}{\date{}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
@@ -47,7 +51,9 @@
 \makeatother
 
   \providecommand{\conjecturename}{Conjecture}
+  \providecommand{\corollaryname}{Corollary}
   \providecommand{\definitionname}{Definition}
+  \providecommand{\lemmaname}{Lemma}
   \providecommand{\propositionname}{Proposition}
 \providecommand{\theoremname}{Theorem}
 
@@ -241,6 +247,30 @@ Razborov, ESY-Conjecture, Optimal Proof System for $\TAUT$?
 
 \subsection{Disjoint $\NP$-Pairs}
 
+The study of disjoint $\NP$-pairs originates in the study of public
+key crypto systems (PKCS). The interest in secure PKCS is fundamental
+to everyday life as well as to academia, as provably hard-to-crack
+PKCS would imply $\NP\neq\P$.
+
+To study the hardness of PKCS, Even, Selman and Yacobi used the notion
+of \emph{promise problems} rather than decision problems to model
+the problem of cracking a PKCS \cite{journals/iandc/EvenSY84}. In
+fact, promise problems are a generalization of decision problems.
+A machine working on a promise problem is not only given an input,
+but also a promise that for this input, a certain condition holds.
+The machine \emph{solves} the problem, if it gives the right answer
+on all inputs for which the promise holds. If the promised condition
+does in fact not hold for a given input, then the machine can act
+arbitrarily.
+
+We can define promise problems more formally, following Goldreich's
+survey \cite{DBLP:journals/eccc/ECCC-TR05-018}: A promise problem
+is a partition of the set of all strings into three subsets:
+\begin{enumerate}
+\item The set of strings representing Yes-Instances,
+\item the set of strings representing No-Instances,
+\item the set of disallowed strings.
+\end{enumerate}
 Disjoint NP-Pairs, Reductions
 
 ESY-conjectures, ESY-m implies ESY-tt implies ESY-T
@@ -426,6 +456,11 @@ $\NP$-pair such that all separators are many-one-hard for $\NP$.
 \subsection{Existence of Complete Pairs}
 
 if ESY does not hold, this implies the existence of complete pairs.
+
+
+\subsection{more}
+
+Are there $\P$-inseparable pairs? This implies $\P\neq\NP$.
 
 \pagebreak{}
 
@@ -645,8 +680,8 @@ a given length $n$, only $l$ different strings:
 \begin{eqnarray*}
  & SP=\{\langle N,0^{l},0^{n}\rangle\mid & \text{(1)}\, N\,\text{is a non-deterministic Turing machine}\\
  &  & \text{\text{(2) there are at most \ensuremath{l}pairs \ensuremath{(x_{i},y_{i})}such that}}\\
- &  & \qquad\text{(a) all \ensuremath{x_{i}}are pairwise different}\\
- &  & \qquad\text{(b) all \ensuremath{y_{i}}are pairwise different }\\
+ &  & \qquad\text{(a) all \ensuremath{x_{i}}are distinct}\\
+ &  & \qquad\text{(b) all \ensuremath{y_{i}}are distinct}\\
  &  & \qquad\text{(c) }|x_{i}|\leq n,|y_{i}|\leq l\\
  &  & \qquad\text{(d) \ensuremath{N}accepts \ensuremath{x_{i}}on path \ensuremath{y_{i}}}\}
 \end{eqnarray*}
@@ -670,11 +705,11 @@ We will use $SP_{M}$ later to show the completeness.
 We are going to define the set $S\in\NP\cap\SPARSE$, and prove it
 is complete for that class. The fact that there is an optimal proof
 system will yield the many-one reduction. So let $h$ be an optimal
-proof system and let $SP$ reduce to $TAUT$ via $\gamma,$ which
-gives us $z\in SP\iff\gamma(z)\in TAUT$. Then we define 
+proof system and let $SP$ reduce to $\TAUT$ via $\gamma,$ which
+gives us $z\in SP\iff\gamma(z)\in\TAUT$. Then we define 
 \begin{eqnarray*}
  & S=\{\langle0^{N},0^{j},x\rangle\mid & \text{(I) \ensuremath{N}is non-det. Turing machine}\\
- &  & \text{(II) there exists \ensuremath{w}, \ensuremath{|w|\leq j}},\\
+ &  & \text{(II) there exists \ensuremath{l}and \ensuremath{w}, \ensuremath{|w|\leq j}},\\
  &  & \qquad\text{(a) }h(w)=\gamma(\langle N,0^{l},0^{|x|}\rangle),\\
  &  & \qquad\text{(b) \ensuremath{N}accepts \ensuremath{x}in at most \ensuremath{l}steps}.\}
 \end{eqnarray*}
@@ -750,10 +785,33 @@ in the next section.
 
 \subsection{Canonical Pairs}
 
-Simulation of Proof Systems and Reduction of Canonical Pairs
+Razborov found a way to relate proof systems with disjoint $\NP$-pairs\cite{journals/eccc/ECCC-TR94-006}
+by defining a \emph{canonical pair $(\SATstar,\REF_{f})$} for every
+proof system $f$, where 
+\begin{eqnarray*}
+\SATstar & = & \{(\varphi,1^{m})\mid m\geq0\},\\
+\REF_{f} & = & \{(\varphi,1^{m})\mid\neg\varphi\in\TAUT\text{ and }\exists y,|y|\leq m\text{ such that }f(y)=x\}.
+\end{eqnarray*}
+Notice, if $\neg\varphi\in\TAUT$ then $\varphi$ cannot by satisfied
+by any assignment, and there exists an $f$-proof for $\varphi$.
+Hence, $\REF_{f}$ holds pairs $(\varphi,1^{m})$ for all unsatisfiable
+formulas $\varphi$ for sufficiently large $m$. It is thus disjoint
+from $\SATstar$, which holds $(\varphi,1^{m})$ only for satisfiable
+formulas $\varphi$. The set $\REF_{f}$ is in $\NP$ because $f$
+is polynomial-time computable. We can relate $\REF_{f}$ to the question
+of shortest proofs for tautologies by finding the minimum $m$ for
+a given tautology $\neg\varphi$.
 
-Razborov
-
+The notion of canonical pairs is closely related to the notion of
+simulation of proof systems and yields an corollary originally due
+to Razborov \cite{journals/eccc/ECCC-TR94-006}.
+\begin{lem}
+For two proof systems $f$ and $g$, if $f$ simulates $g$, then
+$(\SATstar,\REF_{g})\leq(\SATstar,\REF_{f})$. \end{lem}
+\begin{cor}
+For an optimal proof system $f$, the pair $(\SATstar,\REF_{f})$
+is complete for $\DisjNP$.
+\end{cor}
 
 \section{Relativized Worlds}
 

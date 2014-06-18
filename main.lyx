@@ -253,7 +253,7 @@ Definition of complexity classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\UP}{\complexityclass{UP}}
+\newcommand{\UP}{\complexityclass{UP}}
 {\complexityclass{UP}}
 \end_inset
 
@@ -835,6 +835,72 @@ Disjoint
 \end_inset
 
 -Pairs
+\end_layout
+
+\begin_layout Standard
+The study of disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pairs originates in the study of public key crypto systems (PKCS).
+ The interest in secure PKCS is fundamental to everyday life as well as
+ to academia, as provably hard-to-crack PKCS would imply 
+\begin_inset Formula $\NP\neq\P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To study the hardness of PKCS, Even, Selman and Yacobi used the notion of
+ 
+\emph on
+promise problems
+\emph default
+ rather than decision problems to model the problem of cracking a PKCS 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/iandc/EvenSY84"
+
+\end_inset
+
+.
+ In fact, promise problems are a generalization of decision problems.
+ A machine working on a promise problem is not only given an input, but
+ also a promise that for this input, a certain condition holds.
+ The machine 
+\emph on
+solves
+\emph default
+ the problem, if it gives the right answer on all inputs for which the promise
+ holds.
+ If the promised condition does in fact not hold for a given input, then
+ the machine can act arbitrarily.
+\end_layout
+
+\begin_layout Standard
+We can define promise problems more formally, following Goldreich's survey
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DBLP:journals/eccc/ECCC-TR05-018"
+
+\end_inset
+
+: A promise problem is a partition of the set of all strings into three
+ subsets:
+\end_layout
+
+\begin_layout Enumerate
+The set of strings representing Yes-Instances,
+\end_layout
+
+\begin_layout Enumerate
+the set of strings representing No-Instances,
+\end_layout
+
+\begin_layout Enumerate
+the set of disallowed strings.
 \end_layout
 
 \begin_layout Standard
@@ -1856,6 +1922,22 @@ Existence of Complete Pairs
 if ESY does not hold, this implies the existence of complete pairs.
 \end_layout
 
+\begin_layout Subsection
+more
+\end_layout
+
+\begin_layout Standard
+Are there 
+\begin_inset Formula $\P$
+\end_inset
+
+-inseparable pairs? This implies 
+\begin_inset Formula $\P\neq\NP$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
@@ -1940,7 +2022,7 @@ Assume
 \begin_inset Formula 
 \[
 f(\langle\varphi,w\rangle)=\begin{cases}
-\varphi & \text{if \ensuremath{w} is an accepting path of \ensuremath{M} on input \ensuremath{\varphi}},\\
+\varphi & \text{if \ensuremath{w}is an accepting path of \ensuremath{M}on input \ensuremath{\varphi}},\\
 \true & \text{otherwise}.
 \end{cases}
 \]
@@ -3011,8 +3093,8 @@ We define the set
 \begin{eqnarray*}
  & SP=\{\langle N,0^{l},0^{n}\rangle\mid & \text{(1)}\, N\,\text{is a non-deterministic Turing machine}\\
  &  & \text{\text{(2) there are at most \ensuremath{l}pairs \ensuremath{(x_{i},y_{i})}such that}}\\
- &  & \qquad\text{(a) all \ensuremath{x_{i}}are pairwise different}\\
- &  & \qquad\text{(b) all \ensuremath{y_{i}}are pairwise different }\\
+ &  & \qquad\text{(a) all \ensuremath{x_{i}}are distinct}\\
+ &  & \qquad\text{(b) all \ensuremath{y_{i}}are distinct}\\
  &  & \qquad\text{(c) }|x_{i}|\leq n,|y_{i}|\leq l\\
  &  & \qquad\text{(d) \ensuremath{N}accepts \ensuremath{x_{i}}on path \ensuremath{y_{i}}}\}
 \end{eqnarray*}
@@ -3180,7 +3262,7 @@ We are going to define the set
 \end_inset
 
  reduce to 
-\begin_inset Formula $TAUT$
+\begin_inset Formula $\TAUT$
 \end_inset
 
  via 
@@ -3188,7 +3270,7 @@ We are going to define the set
 \end_inset
 
  which gives us 
-\begin_inset Formula $z\in SP\iff\gamma(z)\in TAUT$
+\begin_inset Formula $z\in SP\iff\gamma(z)\in\TAUT$
 \end_inset
 
 .
@@ -3196,7 +3278,7 @@ We are going to define the set
 \begin_inset Formula 
 \begin{eqnarray*}
  & S=\{\langle0^{N},0^{j},x\rangle\mid & \text{(I) \ensuremath{N}is non-det. Turing machine}\\
- &  & \text{(II) there exists \ensuremath{w}, \ensuremath{|w|\leq j}},\\
+ &  & \text{(II) there exists \ensuremath{l}and \ensuremath{w}, \ensuremath{|w|\leq j}},\\
  &  & \qquad\text{(a) }h(w)=\gamma(\langle N,0^{l},0^{|x|}\rangle),\\
  &  & \qquad\text{(b) \ensuremath{N}accepts \ensuremath{x}in at most \ensuremath{l}steps}.\}
 \end{eqnarray*}
@@ -3378,6 +3460,20 @@ g_{M}(x)=\begin{cases}
 \perp & \text{otherwise}
 \end{cases}
 \]
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+maybe don't define 
+\begin_inset Formula $SP_{M}$
+\end_inset
+
+ at all and move all arguments in here
+\end_layout
 
 \end_inset
 
@@ -3584,6 +3680,16 @@ key "journals/iandc/KoblerMT03"
 \end_inset
 
 , it also contains results on 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+on what?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3629,11 +3735,175 @@ Canonical Pairs
 \end_layout
 
 \begin_layout Standard
-Simulation of Proof Systems and Reduction of Canonical Pairs
+Razborov found a way to relate proof systems with disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pairs
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/eccc/ECCC-TR94-006"
+
+\end_inset
+
+ by defining a 
+\emph on
+canonical pair 
+\begin_inset Formula $(\SATstar,\REF_{f})$
+\end_inset
+
+
+\emph default
+ for every proof system 
+\begin_inset Formula $f$
+\end_inset
+
+, where 
+\begin_inset Formula 
+\begin{eqnarray*}
+\SATstar & = & \{(\varphi,1^{m})\mid m\geq0\},\\
+\REF_{f} & = & \{(\varphi,1^{m})\mid\neg\varphi\in\TAUT\text{ and }\exists y,|y|\leq m\text{ such that }f(y)=x\}.
+\end{eqnarray*}
+
+\end_inset
+
+Notice, if 
+\begin_inset Formula $\neg\varphi\in\TAUT$
+\end_inset
+
+ then 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ cannot by satisfied by any assignment, and there exists an 
+\begin_inset Formula $f$
+\end_inset
+
+-proof for 
+\begin_inset Formula $\varphi$
+\end_inset
+
+.
+ Hence, 
+\begin_inset Formula $\REF_{f}$
+\end_inset
+
+ holds pairs 
+\begin_inset Formula $(\varphi,1^{m})$
+\end_inset
+
+ for all unsatisfiable formulas 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ for sufficiently large 
+\begin_inset Formula $m$
+\end_inset
+
+.
+ It is thus disjoint from 
+\begin_inset Formula $\SATstar$
+\end_inset
+
+, which holds 
+\begin_inset Formula $(\varphi,1^{m})$
+\end_inset
+
+ only for satisfiable formulas 
+\begin_inset Formula $\varphi$
+\end_inset
+
+.
+ The set 
+\begin_inset Formula $\REF_{f}$
+\end_inset
+
+ is in 
+\begin_inset Formula $\NP$
+\end_inset
+
+ because 
+\begin_inset Formula $f$
+\end_inset
+
+ is polynomial-time computable.
+ We can relate 
+\begin_inset Formula $\REF_{f}$
+\end_inset
+
+ to the question of shortest proofs for tautologies by finding the minimum
+ 
+\begin_inset Formula $m$
+\end_inset
+
+ for a given tautology 
+\begin_inset Formula $\neg\varphi$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-Razborov
+The notion of canonical pairs is closely related to the notion of simulation
+ of proof systems and yields an corollary originally due to Razborov 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/eccc/ECCC-TR94-006"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+For two proof systems 
+\begin_inset Formula $f$
+\end_inset
+
+ and 
+\begin_inset Formula $g$
+\end_inset
+
+, if 
+\begin_inset Formula $f$
+\end_inset
+
+ simulates 
+\begin_inset Formula $g$
+\end_inset
+
+, then 
+\begin_inset Formula $(\SATstar,\REF_{g})\leq(\SATstar,\REF_{f})$
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+check symbol for reduction
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Corollary
+For an optimal proof system 
+\begin_inset Formula $f$
+\end_inset
+
+, the pair 
+\begin_inset Formula $(\SATstar,\REF_{f})$
+\end_inset
+
+ is complete for 
+\begin_inset Formula $\DisjNP$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
