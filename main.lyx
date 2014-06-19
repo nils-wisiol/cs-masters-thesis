@@ -995,131 +995,168 @@ B & = & \{w\in\Sigma^{*}\mid Q(w)\wedge\neg R(w)\}
 \end_layout
 
 \begin_layout Standard
-Using this notation, we can model the problem of finding the plain text
- to a given PKCS cipher text.
- Notice that for promise problems as well as for decision problems the machine
- only gives a binary answer.
- Thus, instead of outputting the plain text directly, we will do a binary
- search on all plain texts up to a reasonable length (the length of the
- plain text is at most polynomial in the length of the cipher text).
- For a given plain text 
+Using this notation, we can define a promise problem that captures the hardness
+ of cracking the PKCS, that is, captures the hardness of finding the plain
+ text to a given cipher text 
+\begin_inset Formula $C$
+\end_inset
+
+ and public key 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ To crack the crypto system, we will conduct a binary search among all strings
+ up to a reasonable length
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The length of the plain text is polynomial in the length of the cipher text.
+\end_layout
+
+\end_inset
+
+.
+ The promise problem is defined as follows:
+\end_layout
+
+\begin_layout Enumerate
+The set of Yes-Instances will be the set of strings 
+\begin_inset Formula $\langle M',C,K\rangle$
+\end_inset
+
+ for which there exists a message 
 \begin_inset Formula $M$
 \end_inset
 
-, we will thus partition the set of all strings into the set of all strings
+, 
+\begin_inset Formula $M\leq M'$
+\end_inset
+
+, such that 
+\begin_inset Formula $M$
+\end_inset
+
+ encrypted with 
+\begin_inset Formula $K$
+\end_inset
+
+ yields cipher text 
+\begin_inset Formula $C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The set of No-Instances will be the set of strings 
+\begin_inset Formula $\langle M',C,K\rangle$
+\end_inset
+
+ for which there exists a message 
+\begin_inset Formula $M$
+\end_inset
+
+, 
+\begin_inset Formula $M>M'$
+\end_inset
+
+, such that 
+\begin_inset Formula $M$
+\end_inset
+
+ encrypted with 
+\begin_inset Formula $K$
+\end_inset
+
+ yields cipher text 
+\begin_inset Formula $C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The set of disallowed strings will be all triples 
+\begin_inset Formula $\langle M',C,K\rangle$
+\end_inset
+
+ such that for all plain texts 
+\begin_inset Formula $M$
+\end_inset
+
+, encryption with 
+\begin_inset Formula $K$
+\end_inset
+
+ does not yields 
+\begin_inset Formula $C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+With a machine solving this promise problem, we can find the plain text
+ to any given 
+\begin_inset Formula $C$
+\end_inset
+
+ and 
+\begin_inset Formula $K$
+\end_inset
+
+ by binary search over all messages 
+\begin_inset Formula $M'$
+\end_inset
+
+.
+ Thus, the runtime of cracking the PKCS is within a logarithmic factor of
+ the runtime of the machine solving the promise problem.
+ Therefore, we consider the hardness of the promise problem itself as a
+ good measurement for the hardness of the cracking problem.
+\end_layout
+
+\begin_layout Standard
+But why not model the cracking problem as a decision problem? To see why
+ a simple decision problem does not capture the cracking problem correctly,
+ assume we have a PKCS such that the 
+\emph on
+decision 
+\emph default
+problem 
+\begin_inset Formula $A$
+\end_inset
+
+ is not efficiently computable.
+ However, if there is an algorithm efficiently solving the promise problem
  
-\begin_inset Formula $\langle M,K_{1}\rangle$
-\end_inset
-
- into three partitions:
-\end_layout
-
-\begin_layout Enumerate
-the set of strings 
-\begin_inset Formula $\langle M',K_{1}\rangle$
-\end_inset
-
- such that encrypting 
-\begin_inset Formula $C$
-\end_inset
-
- with 
-\begin_inset Formula $K_{1}$
-\end_inset
-
- yields 
-\begin_inset Formula $M'$
-\end_inset
-
-, 
-\begin_inset Formula $M'<M$
-\end_inset
-
-,
-\end_layout
-
-\begin_layout Enumerate
-the set of strings 
-\begin_inset Formula $\langle M',K_{1}\rangle$
-\end_inset
-
- such that encrypting 
-\begin_inset Formula $C$
-\end_inset
-
- with 
-\begin_inset Formula $K_{1}$
-\end_inset
-
- yields 
-\begin_inset Formula $M'$
-\end_inset
-
-, 
-\begin_inset Formula $M'\geq M$
-\end_inset
-
-,
-\end_layout
-
-\begin_layout Enumerate
-the set of strings 
-\begin_inset Formula $\langle M',K_{1}\rangle$
-\end_inset
-
- such that 
-\begin_inset Formula $K_{1}$
-\end_inset
-
- is not a valid key or encrypting 
-\begin_inset Formula $C$
-\end_inset
-
- with 
-\begin_inset Formula $K_{1}$
-\end_inset
-
- does not result in 
-\begin_inset Formula $M'$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-A machine that can decide this promise problem in time 
-\begin_inset Formula $t(n)$
-\end_inset
-
- can be used to find the plain text in 
-\begin_inset Formula $t(n)\cdot\log(n)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-How is that superior of just defining a decision problem?
-\end_layout
-
-\begin_layout Standard
-For every promise problem 
 \begin_inset Formula $(A,B)$
 \end_inset
 
-, we define the 
-\emph on
-set of separators
-\emph default
- 
-\begin_inset Formula $\Sep(A,B)$
+, the crypto system would still be easy to crack.
+ On the other hand, if the promise problem is hard, the decision problem
+ will also be.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+why?
+\end_layout
+
 \end_inset
 
- to be the set of all languages 
+
+\end_layout
+
+\begin_layout Standard
+To capture the situation where we have hard a decision problem, but an easy
+ promise problem, we call a set 
 \begin_inset Formula $S$
 \end_inset
 
- such that 
+ for which 
 \begin_inset Formula $A\subseteq S$
 \end_inset
 
@@ -1127,29 +1164,75 @@ set of separators
 \begin_inset Formula $B\subseteq\overline{S}$
 \end_inset
 
-.
- This notion arises naturally as a machine that can solve the decision problem
  
-\begin_inset Formula $S$
+\emph on
+a separator.
+
+\emph default
+ Let the set 
+\begin_inset Formula $\Sep(A,B)$
 \end_inset
 
- can also solve the promise problem 
+ denote the set of all separators for a given pair 
 \begin_inset Formula $(A,B)$
+\end_inset
+
+.
+ A pair 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ that has no polynomial-time decidable set in 
+\begin_inset Formula $\Sep(A,B)$
+\end_inset
+
+ is called 
+\emph on
+
+\begin_inset Formula $\P$
+\end_inset
+
+-inseparable
+\emph default
+, otherwise it is called 
+\emph on
+
+\begin_inset Formula $\P$
+\end_inset
+
+-separable
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+The interesting class of promise problems 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ is the class with promises that are not polynomial-time decidable.
+ In the contrary case where 
+\begin_inset Formula $A\cup B$
+\end_inset
+
+ is efficiently computable, deciding the promise problem 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ is polynomial-time equivalent to solving the decision problems 
+\begin_inset Formula $A$
+\end_inset
+
+ or 
+\begin_inset Formula $B$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Standard
-For the study of PKCS, we are interested in polynomial-time algorithms.
- Since every PKCS uses a polynomial-time decryption algorithm that takes
- the cipher text and key as input, every PKCS can be cracked in nondeterministic
- polynomial time.
- Thus, we are interested in PKCS that are 
-\begin_inset Formula $\NP$
-\end_inset
-
--hard to crack.
+Assigning a hardness to PKCS immediately calls for a notion that compares
+ the hardness of two promise problems:
 \end_layout
 
 \begin_layout Standard

@@ -290,40 +290,55 @@ B & = & \{w\in\Sigma^{*}\mid Q(w)\wedge\neg R(w)\}
 %
 }
 
-Using this notation, we can model the problem of finding the plain
-text to a given PKCS cipher text. Notice that for promise problems
-as well as for decision problems the machine only gives a binary answer.
-Thus, instead of outputting the plain text directly, we will do a
-binary search on all plain texts up to a reasonable length (the length
-of the plain text is at most polynomial in the length of the cipher
-text). For a given plain text $M$, we will thus partition the set
-of all strings into the set of all strings $\langle M,K_{1}\rangle$
-into three partitions:
+Using this notation, we can define a promise problem that captures
+the hardness of cracking the PKCS, that is, captures the hardness
+of finding the plain text to a given cipher text $C$ and public key
+$K$. To crack the crypto system, we will conduct a binary search
+among all strings up to a reasonable length%
+\footnote{The length of the plain text is polynomial in the length of the cipher
+text.%
+}. The promise problem is defined as follows:
 \begin{enumerate}
-\item the set of strings $\langle M',K_{1}\rangle$ such that encrypting
-$C$ with $K_{1}$ yields $M'$, $M'<M$,
-\item the set of strings $\langle M',K_{1}\rangle$ such that encrypting
-$C$ with $K_{1}$ yields $M'$, $M'\geq M$,
-\item the set of strings $\langle M',K_{1}\rangle$ such that $K_{1}$ is
-not a valid key or encrypting $C$ with $K_{1}$ does not result in
-$M'$.
+\item The set of Yes-Instances will be the set of strings $\langle M',C,K\rangle$
+for which there exists a message $M$, $M\leq M'$, such that $M$
+encrypted with $K$ yields cipher text $C$.
+\item The set of No-Instances will be the set of strings $\langle M',C,K\rangle$
+for which there exists a message $M$, $M>M'$, such that $M$ encrypted
+with $K$ yields cipher text $C$.
+\item The set of disallowed strings will be all triples $\langle M',C,K\rangle$
+such that for all plain texts $M$, encryption with $K$ does not
+yields $C$.
 \end{enumerate}
-A machine that can decide this promise problem in time $t(n)$ can
-be used to find the plain text in $t(n)\cdot\log(n)$.
+With a machine solving this promise problem, we can find the plain
+text to any given $C$ and $K$ by binary search over all messages
+$M'$. Thus, the runtime of cracking the PKCS is within a logarithmic
+factor of the runtime of the machine solving the promise problem.
+Therefore, we consider the hardness of the promise problem itself
+as a good measurement for the hardness of the cracking problem.
 
-How is that superior of just defining a decision problem?
+But why not model the cracking problem as a decision problem? To see
+why a simple decision problem does not capture the cracking problem
+correctly, assume we have a PKCS such that the \emph{decision }problem
+$A$ is not efficiently computable. However, if there is an algorithm
+efficiently solving the promise problem $(A,B)$, the crypto system
+would still be easy to crack. On the other hand, if the promise problem
+is hard, the decision problem will also be.
 
-For every promise problem $(A,B)$, we define the \emph{set of separators}
-$\Sep(A,B)$ to be the set of all languages $S$ such that $A\subseteq S$
-and $B\subseteq\overline{S}$. This notion arises naturally as a machine
-that can solve the decision problem $S$ can also solve the promise
-problem $(A,B)$.
+To capture the situation where we have hard a decision problem, but
+an easy promise problem, we call a set $S$ for which $A\subseteq S$
+and $B\subseteq\overline{S}$ \emph{a separator.} Let the set $\Sep(A,B)$
+denote the set of all separators for a given pair $(A,B)$. A pair
+$(A,B)$ that has no polynomial-time decidable set in $\Sep(A,B)$
+is called \emph{$\P$-inseparable}, otherwise it is called \emph{$\P$-separable}.
 
-For the study of PKCS, we are interested in polynomial-time algorithms.
-Since every PKCS uses a polynomial-time decryption algorithm that
-takes the cipher text and key as input, every PKCS can be cracked
-in nondeterministic polynomial time. Thus, we are interested in PKCS
-that are $\NP$-hard to crack.
+The interesting class of promise problems $(A,B)$ is the class with
+promises that are not polynomial-time decidable. In the contrary case
+where $A\cup B$ is efficiently computable, deciding the promise problem
+$(A,B)$ is polynomial-time equivalent to solving the decision problems
+$A$ or $B$.
+
+Assigning a hardness to PKCS immediately calls for a notion that compares
+the hardness of two promise problems:
 
 Disjoint NP-Pairs, Reductions
 
