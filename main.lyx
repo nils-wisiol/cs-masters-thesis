@@ -904,6 +904,255 @@ the set of disallowed strings.
 \end_layout
 
 \begin_layout Standard
+We can write this partition as a pair of two disjoint sets 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+, where 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ represent Yes- and No-Instances, and the set of disallowed strings is 
+\begin_inset Formula $\overline{A\cup B}$
+\end_inset
+
+.
+ The 
+\emph on
+promise
+\emph default
+ in this setting is that a given input string either belongs to 
+\begin_inset Formula $A$
+\end_inset
+
+ or 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\overline{A\cup B}=\emptyset$
+\end_inset
+
+, then the promise problem has no disallowed strings and thus no promise,
+ it is a decision problem.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Even, Selman and Yacobi 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/iandc/EvenSY84"
+
+\end_inset
+
+ used a pair 
+\begin_inset Formula $(Q,R)$
+\end_inset
+
+ to represent promise problems, where 
+\begin_inset Formula $Q$
+\end_inset
+
+ is a predicate true for all 
+\emph on
+allowed 
+\emph default
+strings (the 
+\emph on
+promise
+\emph default
+) and 
+\begin_inset Formula $R$
+\end_inset
+
+ is a predicate true for all Yes-Instances (the 
+\emph on
+property
+\emph default
+).
+ This relates with Goldreich's definition as follows: 
+\begin_inset Formula 
+\begin{eqnarray*}
+A\cup B & = & \{w\in\Sigma^{*}\mid Q(w)\}\\
+A & = & \{w\in\Sigma^{*}\mid Q(w)\wedge R(w)\}\\
+B & = & \{w\in\Sigma^{*}\mid Q(w)\wedge\neg R(w)\}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using this notation, we can model the problem of finding the plain text
+ to a given PKCS cipher text.
+ Notice that for promise problems as well as for decision problems the machine
+ only gives a binary answer.
+ Thus, instead of outputting the plain text directly, we will do a binary
+ search on all plain texts up to a reasonable length (the length of the
+ plain text is at most polynomial in the length of the cipher text).
+ For a given plain text 
+\begin_inset Formula $M$
+\end_inset
+
+, we will thus partition the set of all strings into the set of all strings
+ 
+\begin_inset Formula $\langle M,K_{1}\rangle$
+\end_inset
+
+ into three partitions:
+\end_layout
+
+\begin_layout Enumerate
+the set of strings 
+\begin_inset Formula $\langle M',K_{1}\rangle$
+\end_inset
+
+ such that encrypting 
+\begin_inset Formula $C$
+\end_inset
+
+ with 
+\begin_inset Formula $K_{1}$
+\end_inset
+
+ yields 
+\begin_inset Formula $M'$
+\end_inset
+
+, 
+\begin_inset Formula $M'<M$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+the set of strings 
+\begin_inset Formula $\langle M',K_{1}\rangle$
+\end_inset
+
+ such that encrypting 
+\begin_inset Formula $C$
+\end_inset
+
+ with 
+\begin_inset Formula $K_{1}$
+\end_inset
+
+ yields 
+\begin_inset Formula $M'$
+\end_inset
+
+, 
+\begin_inset Formula $M'\geq M$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+the set of strings 
+\begin_inset Formula $\langle M',K_{1}\rangle$
+\end_inset
+
+ such that 
+\begin_inset Formula $K_{1}$
+\end_inset
+
+ is not a valid key or encrypting 
+\begin_inset Formula $C$
+\end_inset
+
+ with 
+\begin_inset Formula $K_{1}$
+\end_inset
+
+ does not result in 
+\begin_inset Formula $M'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A machine that can decide this promise problem in time 
+\begin_inset Formula $t(n)$
+\end_inset
+
+ can be used to find the plain text in 
+\begin_inset Formula $t(n)\cdot\log(n)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+How is that superior of just defining a decision problem?
+\end_layout
+
+\begin_layout Standard
+For every promise problem 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+, we define the 
+\emph on
+set of separators
+\emph default
+ 
+\begin_inset Formula $\Sep(A,B)$
+\end_inset
+
+ to be the set of all languages 
+\begin_inset Formula $S$
+\end_inset
+
+ such that 
+\begin_inset Formula $A\subseteq S$
+\end_inset
+
+ and 
+\begin_inset Formula $B\subseteq\overline{S}$
+\end_inset
+
+.
+ This notion arises naturally as a machine that can solve the decision problem
+ 
+\begin_inset Formula $S$
+\end_inset
+
+ can also solve the promise problem 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For the study of PKCS, we are interested in polynomial-time algorithms.
+ Since every PKCS uses a polynomial-time decryption algorithm that takes
+ the cipher text and key as input, every PKCS can be cracked in nondeterministic
+ polynomial time.
+ Thus, we are interested in PKCS that are 
+\begin_inset Formula $\NP$
+\end_inset
+
+-hard to crack.
+\end_layout
+
+\begin_layout Standard
 Disjoint NP-Pairs, Reductions
 \end_layout
 

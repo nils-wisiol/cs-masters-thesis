@@ -271,6 +271,60 @@ is a partition of the set of all strings into three subsets:
 \item the set of strings representing No-Instances,
 \item the set of disallowed strings.
 \end{enumerate}
+We can write this partition as a pair of two disjoint sets $(A,B)$,
+where $A$ and $B$ represent Yes- and No-Instances, and the set of
+disallowed strings is $\overline{A\cup B}$. The \emph{promise} in
+this setting is that a given input string either belongs to $A$ or
+$B$. If $\overline{A\cup B}=\emptyset$, then the promise problem
+has no disallowed strings and thus no promise, it is a decision problem.%
+\footnote{Even, Selman and Yacobi \cite{journals/iandc/EvenSY84} used a pair
+$(Q,R)$ to represent promise problems, where $Q$ is a predicate
+true for all \emph{allowed }strings (the \emph{promise}) and $R$
+is a predicate true for all Yes-Instances (the \emph{property}). This
+relates with Goldreich's definition as follows: 
+\begin{eqnarray*}
+A\cup B & = & \{w\in\Sigma^{*}\mid Q(w)\}\\
+A & = & \{w\in\Sigma^{*}\mid Q(w)\wedge R(w)\}\\
+B & = & \{w\in\Sigma^{*}\mid Q(w)\wedge\neg R(w)\}
+\end{eqnarray*}
+%
+}
+
+Using this notation, we can model the problem of finding the plain
+text to a given PKCS cipher text. Notice that for promise problems
+as well as for decision problems the machine only gives a binary answer.
+Thus, instead of outputting the plain text directly, we will do a
+binary search on all plain texts up to a reasonable length (the length
+of the plain text is at most polynomial in the length of the cipher
+text). For a given plain text $M$, we will thus partition the set
+of all strings into the set of all strings $\langle M,K_{1}\rangle$
+into three partitions:
+\begin{enumerate}
+\item the set of strings $\langle M',K_{1}\rangle$ such that encrypting
+$C$ with $K_{1}$ yields $M'$, $M'<M$,
+\item the set of strings $\langle M',K_{1}\rangle$ such that encrypting
+$C$ with $K_{1}$ yields $M'$, $M'\geq M$,
+\item the set of strings $\langle M',K_{1}\rangle$ such that $K_{1}$ is
+not a valid key or encrypting $C$ with $K_{1}$ does not result in
+$M'$.
+\end{enumerate}
+A machine that can decide this promise problem in time $t(n)$ can
+be used to find the plain text in $t(n)\cdot\log(n)$.
+
+How is that superior of just defining a decision problem?
+
+For every promise problem $(A,B)$, we define the \emph{set of separators}
+$\Sep(A,B)$ to be the set of all languages $S$ such that $A\subseteq S$
+and $B\subseteq\overline{S}$. This notion arises naturally as a machine
+that can solve the decision problem $S$ can also solve the promise
+problem $(A,B)$.
+
+For the study of PKCS, we are interested in polynomial-time algorithms.
+Since every PKCS uses a polynomial-time decryption algorithm that
+takes the cipher text and key as input, every PKCS can be cracked
+in nondeterministic polynomial time. Thus, we are interested in PKCS
+that are $\NP$-hard to crack.
+
 Disjoint NP-Pairs, Reductions
 
 ESY-conjectures, ESY-m implies ESY-tt implies ESY-T
