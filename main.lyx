@@ -84,7 +84,7 @@ algolyx
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -175,7 +175,7 @@ Definition of function classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\functionclass}[1]{\mathcal{#1}}
+\renewcommand{\functionclass}[1]{\mathcal{#1}}
 {\mathcal{#1}}
 \end_inset
 
@@ -184,7 +184,7 @@ Definition of function classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\FP}{\functionclass{FP}}
+\renewcommand{\FP}{\functionclass{FP}}
 {\functionclass{FP}}
 \end_inset
 
@@ -206,7 +206,7 @@ Definition of complexity classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\complexityclass}[1]{\mathrm{#1}}
+\renewcommand{\complexityclass}[1]{\mathrm{#1}}
 {\mathrm{#1}}
 \end_inset
 
@@ -1072,26 +1072,6 @@ Disjoint
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-At the beginning of the disjoint NP-pairs section we could add that the
- study of disjoint NP-pairs is also motivated by the study of disjoint recursive
-ly enumerable sets.
- The latter is closely related to the undecidability of first-order theories.
- For instance, the set A of first-order formulas provable in Peano arithmetic
- and the set B of first-order formulas refutable in Peano arithmetic are
- a pair of recursively enumerable sets that is recursively inseparable (see
- http://en.wikipedia.org/wiki/Recursively_inseparable_sets).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 The study of disjoint 
 \begin_inset Formula $\NP$
 \end_inset
@@ -1150,7 +1130,7 @@ The set of strings representing Yes-Instances,
 \end_layout
 
 \begin_layout Enumerate
-the set of strings representing No-Instances,
+the set of strings representing No-Instances, and
 \end_layout
 
 \begin_layout Enumerate
@@ -1261,33 +1241,22 @@ Using this notation, we can define a promise problem that captures the hardness
 
 .
  To crack the crypto system, we will conduct a binary search among all strings
- up to a reasonable length
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-The length of the plain text is polynomial in the length of the cipher text.
+ up to a reasonable length.
+ The scope for the binary search is limited, as the length of the plain
+ text is polynomial in the length of the cipher text.
+ Notice that this notion captures the hardness to crack 
+\emph on
+every
+\emph default
+ cipher text in a PKCS.
+ While we can conclude cryptographic insecureness from an easy cracking
+ problem, a hard cracking problem does not imply cryptographic security,
+ as a subset of cipher texts may be still easy to crack.
+ 
 \end_layout
 
-\end_inset
-
-.
- The promise problem is defined as follows:
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-In addition we could mention that the cracking-problem used in [ESY84] and
- [GS88] demands to crack _all_ encrypted messages.
- So a hard cracking problem does not imply cryptographic security (where
- one usually demands that cracking a random encrypted message is very unlikely).
- Conversely, if the cracking problem is easy, then the cryptosystem is not
- secure.
-\end_layout
-
-\end_inset
-
-
+\begin_layout Standard
+The promise problem is defined as follows:
 \end_layout
 
 \begin_layout Enumerate
@@ -1501,49 +1470,7 @@ The interesting class of promise problems
 
 \begin_layout Standard
 Assigning a hardness to PKCS immediately calls for a notion that compares
- the hardness of two promise problems:
-\end_layout
-
-\begin_layout Standard
-Disjoint NP-Pairs, Reductions
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-For relating promise problems to NP-pairs we can cite [GS88, Theorem 3].
- Alan, do you agree or is there an earlier reference for this?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-ESY-conjectures, ESY-m implies ESY-tt implies ESY-T
-\end_layout
-
-\begin_layout Standard
-For two sets 
-\begin_inset Formula $A,B\in\NP$
-\end_inset
-
- that are disjoint, we call 
-\begin_inset Formula $(A,B)$
-\end_inset
-
- a 
-\emph on
-disjoint 
-\begin_inset Formula $\NP$
-\end_inset
-
--pair
-\emph default
-.
+ the hardness of two promise problems.
  Following Grollmann and Selman 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1551,11 +1478,8 @@ key "journals/siamcomp/GrollmannS88"
 
 \end_inset
 
-, we use the following reductions of 
-\begin_inset Formula $\NP$
-\end_inset
-
--pairs, that naturally arise from the reductions of languages.
+, we use the following reductions for promise problems that naturally arise
+ from the reductions of languages.
 \end_layout
 
 \begin_layout Definition
@@ -1573,6 +1497,7 @@ status open
 
 \begin_deeper
 \begin_layout Enumerate
+A promise problem 
 \begin_inset Formula $(A,B)$
 \end_inset
 
@@ -1604,6 +1529,7 @@ many-one-reducible in polynomial time
 \end_layout
 
 \begin_layout Enumerate
+A promise problem 
 \begin_inset Formula $(A,B)$
 \end_inset
 
@@ -1634,75 +1560,57 @@ many-one-reducible in polynomial time
 .
 \end_layout
 
-\end_deeper
-\begin_layout Standard
-1-invertible, many-one, smart Turing, Turing, truth-table, bounded-truth-table
- reductions, strongly many-one reduction
-\end_layout
+\begin_layout Enumerate
+A promise problem 
+\begin_inset Formula $(A,B)$
+\end_inset
 
-\begin_layout Standard
-Analog to languages, we define completeness for disjoint 
+ is 
 \begin_inset Formula $\NP$
 \end_inset
 
--pairs.
-\end_layout
-
-\begin_layout Definition
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
+-hard, if for every Turing machine 
+\begin_inset Formula $M$
 \end_inset
 
-
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-A pair 
+ that solves 
 \begin_inset Formula $(A,B)$
 \end_inset
 
- is 
-\begin_inset Formula $\predmo$
-\end_inset
-
--complete, if for every 
-\begin_inset Formula $(C,D)\in\DisjNP$
-\end_inset
-
- we have 
-\begin_inset Formula $(C,D)\predmo(A,B)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-A pair 
-\begin_inset Formula $(A,B)$
+, the language accepted by 
+\begin_inset Formula $M$
 \end_inset
 
  is 
-\begin_inset Formula $\predt$
+\begin_inset Formula $\NP$
 \end_inset
 
--complete, if for every 
-\begin_inset Formula $(C,D)\in\DisjNP$
-\end_inset
-
- we have 
-\begin_inset Formula $(C,D)\redt(A,B)$
-\end_inset
-
-.
+-hard.
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+also mention 1-invertible, many-one, smart Turing, Turing, truth-table,
+ bounded-truth-table reductions, strongly many-one reduction
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+talk about uniform vs non-uniform? 
+\end_layout
+
 \begin_layout Proposition
 \begin_inset ERT
 status open
@@ -1756,35 +1664,145 @@ key "journals/eccc/ECCC-TR03-011"
 \end_layout
 
 \end_deeper
-\begin_layout Subsubsection
-ESY-conjectures
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-We state the original ESY-conjecture 
+A promise problem 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ with 
+\begin_inset Formula $A,B\in\NP$
+\end_inset
+
+ is a 
+\emph on
+disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pair
+\emph default
+.
+ For disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pairs, we also define completeness:
+\end_layout
+
+\begin_layout Definition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+A disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pair 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ is 
+\begin_inset Formula $\predmo$
+\end_inset
+
+-complete, if for every 
+\begin_inset Formula $(C,D)\in\DisjNP$
+\end_inset
+
+ we have 
+\begin_inset Formula $(C,D)\predmo(A,B)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+A disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pair 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ is 
+\begin_inset Formula $\predt$
+\end_inset
+
+-complete, if for every 
+\begin_inset Formula $(C,D)\in\DisjNP$
+\end_inset
+
+ we have 
+\begin_inset Formula $(C,D)\redt(A,B)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Evan, Selman and Yacobi found out that if disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pairs that are 
+\begin_inset Formula $\NP$
+\end_inset
+
+-hard do not exist, then there is exist no PKCS with 
+\begin_inset Formula $\NP$
+\end_inset
+
+-hard cracking problems.
+ This is additional motivation for the study of disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pairs, which also arise from the study of recursively inseparable sets.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+reference?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The assertion that there are no disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pairs that are 
+\begin_inset Formula $\NP$
+\end_inset
+
+-hard to solve has many more consequences and has been studied well since
+ it was formulated as conjecture by Even, Selman, and Yacobi 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "journals/iandc/EvenSY84"
-
-\end_inset
-
- as well as the many-one version 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "conf/icalp/HughesPRS12"
-
-\end_inset
-
- of it.
- The many-one version of the conjecture was proven to be equivalent to 
-\begin_inset Formula $\NP\neq\coNP$
-\end_inset
-
- by Glaßer et al.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "journals/eccc/ECCC-TR03-011"
 
 \end_inset
 
@@ -1810,6 +1828,14 @@ ESY
 \end_inset
 
 .
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/iandc/EvenSY84"
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout --Separator--
@@ -1835,6 +1861,43 @@ ESY-m
 \end_inset
 
 .
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "conf/icalp/HughesPRS12"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+The many-one version of the conjecture was proven to be equivalent to 
+\begin_inset Formula $\NP\neq\coNP$
+\end_inset
+
+ by Glaßer et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/eccc/ECCC-TR03-011"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ESY-conjectures, ESY-m implies ESY-tt implies ESY-T
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection

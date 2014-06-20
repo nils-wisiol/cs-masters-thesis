@@ -30,8 +30,6 @@
   \theoremstyle{definition}
   \newtheorem{defn}[thm]{\protect\definitionname}
   \theoremstyle{plain}
-  \newtheorem{prop}[thm]{\protect\propositionname}
-  \theoremstyle{plain}
   \newtheorem{conjecture}[thm]{\protect\conjecturename}
   \theoremstyle{plain}
   \newtheorem{lem}[thm]{\protect\lemmaname}
@@ -58,7 +56,6 @@
   \providecommand{\corollaryname}{Corollary}
   \providecommand{\definitionname}{Definition}
   \providecommand{\lemmaname}{Lemma}
-  \providecommand{\propositionname}{Proposition}
 \providecommand{\theoremname}{Theorem}
 
 \begin{document}
@@ -311,8 +308,6 @@ Razborov, ESY-Conjecture, Optimal Proof System for $\TAUT$?
 
 \subsection{Disjoint $\NP$-Pairs}
 
-
-
 The study of disjoint $\NP$-pairs originates in the study of public
 key crypto systems (PKCS). The interest in secure PKCS is fundamental
 to everyday life as well as to academia, as provably hard-to-crack
@@ -334,7 +329,7 @@ survey \cite{DBLP:journals/eccc/ECCC-TR05-018}: A promise problem
 is a partition of the set of all strings into three subsets:
 \begin{enumerate}
 \item The set of strings representing Yes-Instances,
-\item the set of strings representing No-Instances,
+\item the set of strings representing No-Instances, and
 \item the set of disallowed strings.
 \end{enumerate}
 We can write this partition as a pair of two disjoint sets $(A,B)$,
@@ -360,10 +355,15 @@ Using this notation, we can define a promise problem that captures
 the hardness of cracking the PKCS, that is, captures the hardness
 of finding the plain text to a given cipher text $C$ and public key
 $K$. To crack the crypto system, we will conduct a binary search
-among all strings up to a reasonable length%
-\footnote{The length of the plain text is polynomial in the length of the cipher
-text.%
-}. The promise problem is defined as follows:
+among all strings up to a reasonable length. The scope for the binary
+search is limited, as the length of the plain text is polynomial in
+the length of the cipher text. Notice that this notion captures the
+hardness to crack \emph{every} cipher text in a PKCS. While we can
+conclude cryptographic insecureness from an easy cracking problem,
+a hard cracking problem does not imply cryptographic security, as
+a subset of cipher texts may be still easy to crack. 
+
+The promise problem is defined as follows:
 \begin{enumerate}
 \item The set of Yes-Instances will be the set of strings $\langle M',C,K\rangle$
 for which there exists a message $M$, $M\leq M'$, such that $M$
@@ -404,65 +404,60 @@ $(A,B)$ is polynomial-time equivalent to solving the decision problems
 $A$ or $B$.
 
 Assigning a hardness to PKCS immediately calls for a notion that compares
-the hardness of two promise problems:
-
-Disjoint NP-Pairs, Reductions
-
-
-
-ESY-conjectures, ESY-m implies ESY-tt implies ESY-T
-
-For two sets $A,B\in\NP$ that are disjoint, we call $(A,B)$ a \emph{disjoint
-$\NP$-pair}. Following Grollmann and Selman \cite{journals/siamcomp/GrollmannS88},
-we use the following reductions of $\NP$-pairs, that naturally arise
-from the reductions of languages.
+the hardness of two promise problems. Following Grollmann and Selman
+\cite{journals/siamcomp/GrollmannS88}, we use the following reductions
+for promise problems that naturally arise from the reductions of languages.
 \begin{defn}
 
 \begin{enumerate}
-\item $(A,B)$ is \emph{many-one-reducible in polynomial time} to $(C,D)$,
-$(A,B)\predmo(C,D)$, if for every separator $T\in\Sep(C,D)$, there
-exists a separator $S\in\Sep(A,B)$ such that $S\redmo T$.
-\item $(A,B)$ is \emph{many-one-reducible in polynomial time} to $(C,D)$,
-$(A,B)\predt(C,D)$, if for every separator $T\in\Sep(C,D)$, there
-exists a separator $S\in\Sep(A,B)$ such that $S\redt T$.
+\item A promise problem $(A,B)$ is \emph{many-one-reducible in polynomial
+time} to $(C,D)$, $(A,B)\predmo(C,D)$, if for every separator $T\in\Sep(C,D)$,
+there exists a separator $S\in\Sep(A,B)$ such that $S\redmo T$.
+\item A promise problem $(A,B)$ is \emph{many-one-reducible in polynomial
+time} to $(C,D)$, $(A,B)\predt(C,D)$, if for every separator $T\in\Sep(C,D)$,
+there exists a separator $S\in\Sep(A,B)$ such that $S\redt T$.
+\item A promise problem $(A,B)$ is $\NP$-hard, if for every Turing machine
+$M$ that solves $(A,B)$, the language accepted by $M$ is $\NP$-hard.
 \end{enumerate}
 \end{defn}
-1-invertible, many-one, smart Turing, Turing, truth-table, bounded-truth-table
-reductions, strongly many-one reduction
 
-Analog to languages, we define completeness for disjoint $\NP$-pairs.
+
+
+
+A promise problem $(A,B)$ with $A,B\in\NP$ is a \emph{disjoint $\NP$-pair}.
+For disjoint $\NP$-pairs, we also define completeness:
 \begin{defn}
 
 \begin{enumerate}
-\item A pair $(A,B)$ is $\predmo$-complete, if for every $(C,D)\in\DisjNP$
-we have $(C,D)\predmo(A,B)$.
-\item A pair $(A,B)$ is $\predt$-complete, if for every $(C,D)\in\DisjNP$
-we have $(C,D)\redt(A,B)$.
+\item A disjoint $\NP$-pair $(A,B)$ is $\predmo$-complete, if for every
+$(C,D)\in\DisjNP$ we have $(C,D)\predmo(A,B)$.
+\item A disjoint $\NP$-pair $(A,B)$ is $\predt$-complete, if for every
+$(C,D)\in\DisjNP$ we have $(C,D)\redt(A,B)$.
 \end{enumerate}
 \end{defn}
-\begin{prop}
+Evan, Selman and Yacobi found out that if disjoint $\NP$-pairs that
+are $\NP$-hard do not exist, then there is exist no PKCS with $\NP$-hard
+cracking problems. This is additional motivation for the study of
+disjoint $\NP$-pairs, which also arise from the study of recursively
+inseparable sets. 
 
-\begin{enumerate}
-\item $(A,B)\redt(C,D)$ if and only if $(A,B)\predunit(C,D)$. \cite{journals/siamcomp/GrollmannS88}
-\item $(A,B)\redmo(C,D)$ if and only if $(A,B)\predunimo(C,D)$. \cite{journals/eccc/ECCC-TR03-011}
-\end{enumerate}
-\end{prop}
-
-\subsubsection{ESY-conjectures}
-
-We state the original ESY-conjecture \cite{journals/iandc/EvenSY84}
-as well as the many-one version \cite{conf/icalp/HughesPRS12} of
-it. The many-one version of the conjecture was proven to be equivalent
-to $\NP\neq\coNP$ by Glaﬂer et al. \cite{journals/eccc/ECCC-TR03-011}.
+The assertion that there are no disjoint $\NP$-pairs that are $\NP$-hard
+to solve has many more consequences and has been studied well since
+it was formulated as conjecture by Even, Selman, and Yacobi \cite{journals/iandc/EvenSY84}.
 \begin{conjecture}[ESY]
  For every pair of disjoint sets in $\NP$, there is a separator
-that is not Turing-hard for $\NP$.
+that is not Turing-hard for $\NP$. \cite{journals/iandc/EvenSY84} 
 \end{conjecture}
 
 \begin{conjecture}[ESY-m]
  For every pair of disjoint sets in $\NP$, there is a separator
-that is not many-one-hard for $\NP$.
+that is not many-one-hard for $\NP$. \cite{conf/icalp/HughesPRS12} 
 \end{conjecture}
+The many-one version of the conjecture was proven to be equivalent
+to $\NP\neq\coNP$ by Glaﬂer et al. \cite{journals/eccc/ECCC-TR03-011}.
+
+
+
 
 \subsection{Propositional Proof Systems}
 
