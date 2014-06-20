@@ -3,6 +3,8 @@
 \documentclass[english,11pt]{article}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
 \setlength{\parskip}{\medskipamount}
 \setlength{\parindent}{0pt}
 \usepackage{babel}
@@ -11,6 +13,8 @@
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{setspace}
+\doublespacing
 \usepackage[unicode=true,pdfusetitle,
  bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
  breaklinks=false,pdfborder={0 0 0},backref=false,colorlinks=false]
@@ -213,7 +217,7 @@
 
 \newcommand{\keyreturn}{return}
 
-\begin{titlepage}
+\pagebreak{}
 
 \vspace*{.5in}
 
@@ -252,9 +256,35 @@ Department of Computer Science and Engineering
 
 \thispagestyle{empty}
 
-\end{titlepage}
+\newpage{}
 
-\pagebreak{}
+\renewcommand{\thepage}{\roman{page}}
+
+\vspace*{1in}\vfill
+
+\noindent \begin{center}
+Copyright by\\
+Nils Wisiol\\
+2014
+\par\end{center}
+
+\newpage{}
+
+Acknowledgement: Alan, Andy, Christian, Ken, Mike
+
+\newpage{}
+
+\tableofcontents{}
+
+\newpage{}
+
+Abstract 300-400 words
+
+\newpage{}
+
+\setcounter{page}{1}
+
+\renewcommand{\thepage}{\arabic{page}}
 
 
 \section{Introduction}
@@ -956,7 +986,9 @@ and $\NP\neq\coNP$.
 \item Oracle for which converse of Razborov holds
 \item Oracle such that there is a optimal, but not a p-optimal proof system
 \end{enumerate}
-\bibliographystyle{alpha}
+\begin{singlespace}
+\noindent \bibliographystyle{alpha}
 \bibliography{bibliography}
+\end{singlespace}
 
 \end{document}

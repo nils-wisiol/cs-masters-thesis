@@ -45,7 +45,7 @@ algolyx
 \bibtex_command default
 \index_command default
 \paperfontsize default
-\spacing single
+\spacing double
 \use_hyperref true
 \pdf_bookmarks true
 \pdf_bookmarksnumbered false
@@ -57,7 +57,7 @@ algolyx
 \pdf_backref false
 \pdf_pdfusetitle true
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_amsmath 1
 \use_esint 1
 \use_mhchem 1
@@ -72,6 +72,10 @@ algolyx
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation skip
@@ -80,7 +84,7 @@ algolyx
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -171,7 +175,7 @@ Definition of function classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\functionclass}[1]{\mathcal{#1}}
+\newcommand{\functionclass}[1]{\mathcal{#1}}
 {\mathcal{#1}}
 \end_inset
 
@@ -180,7 +184,7 @@ Definition of function classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\FP}{\functionclass{FP}}
+\newcommand{\FP}{\functionclass{FP}}
 {\functionclass{FP}}
 \end_inset
 
@@ -724,16 +728,7 @@ keyreturn}{return}
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{titlepage}
-\end_layout
-
+\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -843,6 +838,13 @@ thispagestyle{empty}
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -850,7 +852,11 @@ status open
 
 
 \backslash
-end{titlepage}
+renewcommand{
+\backslash
+thepage}{
+\backslash
+roman{page}}
 \end_layout
 
 \end_inset
@@ -859,7 +865,113 @@ end{titlepage}
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage pagebreak
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{1in}
+\backslash
+vfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+Copyright by
+\begin_inset Newline newline
+\end_inset
+
+Nils Wisiol
+\begin_inset Newline newline
+\end_inset
+
+2014
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Acknowledgement: Alan, Andy, Christian, Ken, Mike
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Abstract 300-400 words
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{page}{1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+thepage}{
+\backslash
+arabic{page}}
+\end_layout
+
 \end_inset
 
 
@@ -4501,6 +4613,8 @@ Oracle such that there is a optimal, but not a p-optimal proof system
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing single
+\noindent
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "bibliography"
