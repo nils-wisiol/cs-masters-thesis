@@ -202,7 +202,7 @@ Definition of complexity classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\complexityclass}[1]{\mathrm{#1}}
+\newcommand{\complexityclass}[1]{\mathrm{#1}}
 {\mathrm{#1}}
 \end_inset
 
@@ -211,19 +211,19 @@ Definition of complexity classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\DTIME}{\complexityclass{DTIME}}
+\newcommand{\DTIME}{\complexityclass{DTIME}}
 {\complexityclass{DTIME}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\NTIME}{\complexityclass{NTIME}}
+\newcommand{\NTIME}{\complexityclass{NTIME}}
 {\complexityclass{NTIME}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\coNTIME}{\complexityclass{coNTIME}}
+\newcommand{\coNTIME}{\complexityclass{coNTIME}}
 {\complexityclass{coNTIME}}
 \end_inset
 
@@ -232,19 +232,19 @@ Definition of complexity classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\P}{\complexityclass P}
+\newcommand{\P}{\complexityclass P}
 {\complexityclass P}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\NP}{\complexityclass{NP}}
+\newcommand{\NP}{\complexityclass{NP}}
 {\complexityclass{NP}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\coNP}{\complexityclass{coNP}}
+\newcommand{\coNP}{\complexityclass{coNP}}
 {\complexityclass{coNP}}
 \end_inset
 
@@ -723,7 +723,44 @@ keyreturn}{return}
 
 \end_layout
 
-\begin_layout Title
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{titlepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{.5in}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+\size largest
 Survey of Disjoint 
 \begin_inset Formula $\NP$
 \end_inset
@@ -731,17 +768,98 @@ Survey of Disjoint
 -Pairs and Propositional Proof Systems 
 \end_layout
 
-\begin_layout Author
+\begin_layout Standard
+\noindent
+\align center
+by
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\size largest
 Nils Wisiol
-\begin_inset Foot
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+September, 1st 2014
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-University at Buffalo, New York, 
-\family typewriter
-mail@nils-wisiol.de
+
+
+\backslash
+vfill
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+A thesis submitted to the Faculty of the Graduate School of the University
+ at Buffalo, State University of New York in partial fulfillment of the
+ requirements for the degree of
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\size largest
+Master of Science
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+Department of Computer Science and Engineering
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{titlepage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -823,6 +941,10 @@ working draft, convert to LaTeX and check citations
 \end_inset
 
 
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -835,6 +957,26 @@ Disjoint
 \end_inset
 
 -Pairs
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+At the beginning of the disjoint NP-pairs section we could add that the
+ study of disjoint NP-pairs is also motivated by the study of disjoint recursive
+ly enumerable sets.
+ The latter is closely related to the undecidability of first-order theories.
+ For instance, the set A of first-order formulas provable in Peano arithmetic
+ and the set B of first-order formulas refutable in Peano arithmetic are
+ a pair of recursively enumerable sets that is recursively inseparable (see
+ http://en.wikipedia.org/wiki/Recursively_inseparable_sets).
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1019,6 +1161,21 @@ The length of the plain text is polynomial in the length of the cipher text.
 
 .
  The promise problem is defined as follows:
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+In addition we could mention that the cracking-problem used in [ESY84] and
+ [GS88] demands to crack _all_ encrypted messages.
+ So a hard cracking problem does not imply cryptographic security (where
+ one usually demands that cracking a random encrypted message is very unlikely).
+ Conversely, if the cracking problem is easy, then the cryptosystem is not
+ secure.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -1237,6 +1394,20 @@ Assigning a hardness to PKCS immediately calls for a notion that compares
 
 \begin_layout Standard
 Disjoint NP-Pairs, Reductions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+For relating promise problems to NP-pairs we can cite [GS88, Theorem 3].
+ Alan, do you agree or is there an earlier reference for this?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2268,6 +2439,22 @@ Are there
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Besides the relation to cryptography and proof systems, we can also mention
+ the relation of disjoint NP-pairs to multi-valued functions [Sel94].
+ I don't know whether you already mentioned this, since I don't have your
+ complete write-up.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
