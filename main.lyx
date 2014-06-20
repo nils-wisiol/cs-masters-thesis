@@ -904,10 +904,36 @@ Nils Wisiol
 \end_layout
 
 \begin_layout Standard
-Acknowledgement: Alan, Andy, Christian, Ken, Mike
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{2in}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing single
+\noindent
+\align center
+
+\emph on
+I wish to thank my advisors Alan Selman (University at Buffalo) and Christian
+ Glaßer (Universität Würzburg, Germany), committee member Ken Regan and
+ my friends and fellow students Andrew Hughes and Michael Wehar for their
+ great support, patience, knowledge and comments.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\noindent
 \begin_inset Newpage newpage
 \end_inset
 
