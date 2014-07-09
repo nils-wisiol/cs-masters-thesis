@@ -12,6 +12,7 @@
 \usepackage{rotfloat}
 \usepackage{amsthm}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{setspace}
 \doublespacing
@@ -152,6 +153,10 @@
 \global\long\def\redt{\leq_{T}^{p}}
 \global\long\def\equivt{\equiv_{T}^{p}}
 \global\long\def\redtneq{<_{T}^{p}}
+
+
+\global\long\def\redr{\leq_{r}^{p}}
+\global\long\def\nredr{\nleq_{r}^{p}}
 
 
 
@@ -348,7 +353,8 @@ where $A$ and $B$ represent Yes- and No-Instances, and the set of
 disallowed strings is $\overline{A\cup B}$. The \emph{promise} in
 this setting is that a given input string either belongs to $A$ or
 $B$. If $\overline{A\cup B}=\emptyset$, then the promise problem
-has no disallowed strings and thus no promise, it is a decision problem.%
+has no disallowed strings and thus no promise, it is in fact a decision
+problem.%
 \footnote{Even, Selman and Yacobi \cite{journals/iandc/EvenSY84} used a pair
 $(Q,R)$ to represent promise problems, where $Q$ is a predicate
 true for all \emph{allowed }strings (the \emph{promise}) and $R$
@@ -384,7 +390,7 @@ for which there exists a message $M$, $M>M'$, such that $M$ encrypted
 with $K$ yields cipher text $C$.
 \item The set of disallowed strings will be all triples $\langle M',C,K\rangle$
 such that for all plain texts $M$, encryption with $K$ does not
-yields $C$.
+yield $C$.
 \end{enumerate}
 With a machine solving this promise problem, we can find the plain
 text to any given $C$ and $K$ by binary search over all messages
@@ -401,7 +407,7 @@ efficiently solving the promise problem $(A,B)$, the crypto system
 would still be easy to crack. On the other hand, if the promise problem
 is hard, the decision problem will also be.
 
-To capture the situation where we have hard a decision problem, but
+To capture the situation where we have a hard decision problem, but
 an easy promise problem, we call a set $S$ for which $A\subseteq S$
 and $B\subseteq\overline{S}$ \emph{a separator.} Let the set $\Sep(A,B)$
 denote the set of all separators for a given pair $(A,B)$. A pair
@@ -419,7 +425,7 @@ the hardness of two promise problems. Following Grollmann and Selman
 \cite{journals/siamcomp/GrollmannS88}, we use the following reductions
 for promise problems that naturally arise from the reductions of languages.
 \begin{defn}
-
+\label{def:pair-reduction}
 \begin{enumerate}
 \item A promise problem $(A,B)$ is \emph{many-one-reducible in polynomial
 time} to $(C,D)$, $(A,B)\predmo(C,D)$, if for every separator $T\in\Sep(C,D)$,
@@ -448,24 +454,25 @@ $(C,D)\in\DisjNP$ we have $(C,D)\redt(A,B)$.
 \end{defn}
 Evan, Selman and Yacobi found out that if disjoint $\NP$-pairs that
 are $\NP$-hard do not exist, then there is exist no PKCS with $\NP$-hard
-cracking problems. This is additional motivation for the study of
-disjoint $\NP$-pairs, which also arise from the study of recursively
+cracking problems. This gives additional motivation for the study
+of disjoint $\NP$-pairs, which also arise from the study of recursively
 inseparable sets. 
 
 The assertion that there are no disjoint $\NP$-pairs that are $\NP$-hard
 to solve has many more consequences and has been studied well since
-it was formulated as conjecture by Even, Selman, and Yacobi \cite{journals/iandc/EvenSY84}.
+it was formulated as a conjecture by Even, Selman, and Yacobi \cite{journals/iandc/EvenSY84}.
 \begin{conjecture}[ESY]
  For every pair of disjoint sets in $\NP$, there is a separator
 that is not Turing-hard for $\NP$. \cite{journals/iandc/EvenSY84} 
 \end{conjecture}
-
+If the conjecture holds, then no PKCS is $\NP$-hard to crack. The
+following refined version of the ESY-conjecture can be proven to be
+equivalent to $\NP\neq\coNP$, see Theorem \ref{thm:equiv-esymfails-np=00003Dconp-polyboundpps}.
 \begin{conjecture}[ESY-m]
  For every pair of disjoint sets in $\NP$, there is a separator
 that is not many-one-hard for $\NP$. \cite{conf/icalp/HughesPRS12} 
 \end{conjecture}
-The many-one version of the conjecture was proven to be equivalent
-to $\NP\neq\coNP$ by Glaﬂer et al. \cite{journals/eccc/ECCC-TR03-011}.
+We will study the consequences of the ESY-conjectures in section \ref{sub:ESY-conjectures}.
 
 
 
@@ -584,8 +591,118 @@ under much weaker hypotheses.
 
 \section{Disjoint $\NP$-Pairs}
 
+One of the most interesting open questions about disjoint $\NP$-pairs
+is whether there are complete pairs, either $\predmo$- or $\predt$-complete.
+A proof of the non-existence of either one would prove $\NP\neq\coNP$
+and $\P\neq\NP$, but we can also relate complete pairs to propositional
+proof systems. Using the ESY-conjectures, we can also relate disjoint
+$\NP$-pairs to the $\NP$ vs. $\coNP$ questions.
 
-\subsection{Characterization of $\NP=\coNP$}
+
+\subsection{Reducibility of disjoint pairs}
+
+In the literature exist several different definitions for the reducibility
+of pairs. Notice that results from this section apply to all disjoint
+pairs $(A,B)$; the sets are \emph{not} required to be in $\NP$.
+Additionally to the definition \ref{def:pair-reduction} given above
+in the introduction, Grollmann and Selman \cite{journals/siamcomp/GrollmannS88}
+also define the notion of \emph{uniform} reductions of pairs:
+\begin{defn}
+Let $(A,B)$ and $(C,D)$ be disjoint pairs. \label{def:uniform-pair-reduction}
+\begin{enumerate}
+\item $(A,B)$ is \emph{uniformly many-one reducible in polynomial time}
+to $(C,D)$, $(A,B)\predunimo(C,D)$, if there exists a polynomial-time
+computable function $f$ such that for every separator $T\in\Sep(C,D)$,
+there exists a separator $S\in\Sep(A,B)$ such that $S\redmo T$ via
+$f$.
+\item $(A,B)$ is \emph{uniformly Turing reducible in polynomial time} to
+$(C,D)$, $(A,B)\predunit(C,D)$, if there exists a polynomial-time
+oracle Turing machine $M$ such that for every separator $T\in\Sep(C,D)$,
+there exists a separator $S\in\Sep(A,B)$ such that $S\redt T$ via
+$M$.
+\end{enumerate}
+\end{defn}
+Notice that this definition requires that all separators reduce via
+the same function or machine. Definition \ref{def:pair-reduction},
+the definition of nonuniform reducibility, does not require this.
+In spite of this, surprisingly, it turns out that the uniform and
+nonuniform variant of the definition are equivalent.
+
+Razborov uses yet another definition of many-one reducibility of pairs:
+\begin{defn}
+Let $(A,B)$ and $(C,D)$ be disjoint pairs. $(A,B)$ is Razborov
+reducible to $(C,D)$, if there exists a polynomial-time computable
+function $f$ such that $f(A)\subseteq C$ and $f(B)\subseteq D$.
+\end{defn}
+It turns out that this is equivalent to the many-one reducibility
+defined above as well. As a summary of all these definitions, we obtain
+the following lemma. A comprehensive proof of it can be found Glaﬂer,
+Selman, Sengupta and Zhang \cite[Theorems 2.8, 2.10, 2.14]{journals/eccc/ECCC-TR03-011}.
+\begin{lem}
+Let $(A,B)$ and $(C,D)$ be disjoint pairs. Then the following assertions
+are equivalent:
+\begin{enumerate}
+\item $(A,B)\predmo(C,D)$
+\item $(A,B)\predunimo(C,D)$
+\item There exists a polynomial-time computable function $f$ such that
+$f(A)\subseteq C$ and $f(B)\subseteq D$.
+\end{enumerate}
+The assertions above imply the following equivalent statements:
+\begin{enumerate}
+\item $(A,B)\predt(C,D)$
+\item $(A,B)\predunit(C,D)$
+\end{enumerate}
+\end{lem}
+Therefore, for the rest of this thesis, we will only use many-one
+and Turing reducibility.
+
+
+\subsection{ESY-conjectures\label{sub:ESY-conjectures}}
+
+The original ESY-conjecture \cite{journals/iandc/EvenSY84} is that
+for every pair of disjoint sets in $\NP$, there is a separator that
+is not Turing-hard for $\NP$. This can easily be refined by using
+many-one hardness instead of Turing-hardness.
+\begin{defn}
+For a reduction $r$, we define the ESY-$r$ conjecture as follows:
+For every pair of disjoints sets in $\NP$, there is a separator that
+is not $r$-hard for $\NP$,
+\[
+\forall_{(A,B)\in\DisjNP}\exists_{S\in\Sep(A,B)}\exists_{L\in\NP}L\nredr S.
+\]
+Notice, ESY-$T$ is the original ESY conjecture.
+\end{defn}
+The negation of the ESY-$r$ conjecture is 
+\[
+\exists_{(A,B)\in\DisjNP}\forall_{S\in\Sep(A,B)}\forall_{L\in\NP}L\redr S,
+\]
+that is, there exists a disjoint $\NP$-pair $(A,B)$ such that all
+separators are $r$-hard for $\NP$. Since the different reductions
+imply each other, we obtain a implication chain of ESY-conjectures:
+\begin{lem}
+Each item implies the following item in the list:
+\begin{enumerate}
+\item ESY-$m$ does not hold.
+\item ESY-$tt$ does not hold.
+\item ESY-$T$ (the original ESY conjecture) does not hold.
+\end{enumerate}
+\end{lem}
+This list can, of course, be extended to a lot more reductions of
+languages. In this thesis, we mention these specific reductions because
+there are known results that relate to these assertions.
+
+The ESY-conjectures immediately relate to the existence of complete
+pairs, as we can see from the negated ESY-$r$ statement.
+\begin{thm}
+If ESY-$r$ does not hold, then there exists a $r$-complete disjoint
+$\NP$ pair.\end{thm}
+\begin{proof}
+
+\end{proof}
+As mentioned above, the refinements of the (original) ESY-$T$ have
+interesting relations to computational complexity as well. ESY-$m$
+connects to the $\NP$ vs. $\coNP$ question, and ESY-$tt$ relates
+to the question whether $\NP=\UP$.
 \begin{thm}
 \cite{journals/eccc/ECCC-TR03-011}\label{thm:equiv-esymfails-np=00003Dconp-polyboundpps}The
 following assertions are equivalent.
@@ -595,13 +712,21 @@ $\NP$-pair such that all separators are many-one-hard for $\NP$.
 \item $\NP=\coNP$
 \end{enumerate}
 \end{thm}
+\begin{proof}
+\end{proof}
+\begin{thm}
+If $\NP=\UP$, then ESY-$tt$ does not hold, that is there exists
+a disjoint $\NP$-pair such that all separators are truth-table-hard
+for $\NP$.\end{thm}
+\begin{proof}
 
-\subsection{Existence of Complete Pairs}
-
-if ESY does not hold, this implies the existence of complete pairs.
-
+\end{proof}
 
 \subsection{more}
+
+Razborov \cite{journals/eccc/ECCC-TR94-006} discovered that the existence
+of optimal proof systems implies the existence of complete pairs,
+as we will see in Corollary \ref{cor:razborov}.
 
 Are there $\P$-inseparable pairs? This implies $\P\neq\NP$.
 
@@ -954,7 +1079,7 @@ to Razborov \cite{journals/eccc/ECCC-TR94-006}.
 For two proof systems $f$ and $g$, if $f$ simulates $g$, then
 $(\SATstar,\REF_{g})\leq(\SATstar,\REF_{f})$. \end{lem}
 \begin{cor}
-For an optimal proof system $f$, the pair $(\SATstar,\REF_{f})$
+\label{cor:razborov}For an optimal proof system $f$, the pair $(\SATstar,\REF_{f})$
 is complete for $\DisjNP$.
 \end{cor}
 

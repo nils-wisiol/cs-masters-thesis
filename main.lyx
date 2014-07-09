@@ -108,7 +108,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Sym}{\operatorname{Sym}}
 {\mathrm{Sym\text{ }}}
 \end_inset
 
@@ -117,7 +117,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Aut}{\operatorname{Aut}}
 {\mathrm{Aut\text{ }}}
 \end_inset
 
@@ -126,7 +126,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Ker}{\operatorname{Ker}}
 {\mathrm{Ker}}
 \end_inset
 
@@ -135,7 +135,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Img}{\operatorname{Im}}
+\newcommand{\Img}{\operatorname{Im}}
 {\mathrm{Im}}
 \end_inset
 
@@ -144,7 +144,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Sep}{\operatorname{Sep}}
+\newcommand{\Sep}{\operatorname{Sep}}
 {\mathrm{Sep}}
 \end_inset
 
@@ -153,7 +153,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\powerset}{\operatorname{\mathcal{P}}}
+\newcommand{\powerset}{\operatorname{\mathcal{P}}}
 {\mathrm{\mathcal{P}}}
 \end_inset
 
@@ -175,7 +175,7 @@ Definition of function classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\functionclass}[1]{\mathcal{#1}}
+\newcommand{\functionclass}[1]{\mathcal{#1}}
 {\mathcal{#1}}
 \end_inset
 
@@ -184,7 +184,7 @@ Definition of function classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\FP}{\functionclass{FP}}
+\newcommand{\FP}{\functionclass{FP}}
 {\functionclass{FP}}
 \end_inset
 
@@ -206,7 +206,7 @@ Definition of complexity classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\complexityclass}[1]{\mathrm{#1}}
+\newcommand{\complexityclass}[1]{\mathrm{#1}}
 {\mathrm{#1}}
 \end_inset
 
@@ -377,13 +377,13 @@ Definition of complexity classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\GI}{\complexityclass{GI}}
+\renewcommand{\GI}{\complexityclass{GI}}
 {\complexityclass{GI}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\GNI}{\complexityclass{GNI}}
+\renewcommand{\GNI}{\complexityclass{GNI}}
 {\complexityclass{GNI}}
 \end_inset
 
@@ -392,13 +392,13 @@ Definition of complexity classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\AM}{\complexityclass{AM}}
+\renewcommand{\AM}{\complexityclass{AM}}
 {\complexityclass{AM}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\coAM}{\complexityclass{coAM}}
+\renewcommand{\coAM}{\complexityclass{coAM}}
 {\complexityclass{coAM}}
 \end_inset
 
@@ -420,19 +420,19 @@ Definition of reductions (languages)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\redmo}{\leq_{m}^{p}}
+\renewcommand{\redmo}{\leq_{m}^{p}}
 {\leq_{m}^{p}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\equivmo}{\equiv_{m}^{p}}
+\renewcommand{\equivmo}{\equiv_{m}^{p}}
 {\equiv_{m}^{p}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\redmoneq}{<_{m}^{p}}
+\renewcommand{\redmoneq}{<_{m}^{p}}
 {<_{m}^{p}}
 \end_inset
 
@@ -441,20 +441,35 @@ Definition of reductions (languages)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\redt}{\leq_{T}^{p}}
+\renewcommand{\redt}{\leq_{T}^{p}}
 {\leq_{T}^{p}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\equivt}{\equiv_{T}^{p}}
+\renewcommand{\equivt}{\equiv_{T}^{p}}
 {\equiv_{T}^{p}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\redtneq}{<_{T}^{p}}
+\renewcommand{\redtneq}{<_{T}^{p}}
 {<_{T}^{p}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\redr}{\leq_{r}^{p}}
+{\leq_{r}^{p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\nredr}{\nleq_{r}^{p}}
+{\nleq_{r}^{p}}
 \end_inset
 
 
@@ -475,19 +490,19 @@ Definition of reductions (pairs)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\predmo}{\leq_{m}^{pp}}
+\renewcommand{\predmo}{\leq_{m}^{pp}}
 {\leq_{m}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\pequivmo}{\equiv_{m}^{pp}}
+\renewcommand{\pequivmo}{\equiv_{m}^{pp}}
 {\equiv_{m}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\predmoneq}{<_{m}^{pp}}
+\renewcommand{\predmoneq}{<_{m}^{pp}}
 {<_{m}^{pp}}
 \end_inset
 
@@ -496,19 +511,19 @@ Definition of reductions (pairs)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\predsmo}{\leq_{sm}^{pp}}
+\renewcommand{\predsmo}{\leq_{sm}^{pp}}
 {\leq_{sm}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\pequivsmo}{\equiv_{sm}^{pp}}
+\renewcommand{\pequivsmo}{\equiv_{sm}^{pp}}
 {\equiv_{sm}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\predsmoneq}{<_{sm}^{pp}}
+\renewcommand{\predsmoneq}{<_{sm}^{pp}}
 {<_{sm}^{pp}}
 \end_inset
 
@@ -517,19 +532,19 @@ Definition of reductions (pairs)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\predt}{\leq_{T}^{pp}}
+\renewcommand{\predt}{\leq_{T}^{pp}}
 {\leq_{T}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\pequivt}{\equiv_{T}^{pp}}
+\renewcommand{\pequivt}{\equiv_{T}^{pp}}
 {\equiv_{T}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\predtneq}{<_{T}^{pp}}
+\renewcommand{\predtneq}{<_{T}^{pp}}
 {<_{T}^{pp}}
 \end_inset
 
@@ -538,19 +553,19 @@ Definition of reductions (pairs)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\predunimo}{\leq_{um}^{pp}}
+\renewcommand{\predunimo}{\leq_{um}^{pp}}
 {\leq_{um}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\pequivunimo}{\equiv_{um}^{pp}}
+\renewcommand{\pequivunimo}{\equiv_{um}^{pp}}
 {\equiv_{um}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\predunimoneq}{<_{um}^{pp}}
+\renewcommand{\predunimoneq}{<_{um}^{pp}}
 {<_{um}^{pp}}
 \end_inset
 
@@ -559,19 +574,19 @@ Definition of reductions (pairs)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\predunit}{\leq_{uT}^{pp}}
+\renewcommand{\predunit}{\leq_{uT}^{pp}}
 {\leq_{uT}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\pequivunit}{\equiv_{uT}^{pp}}
+\renewcommand{\pequivunit}{\equiv_{uT}^{pp}}
 {\equiv_{uT}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\predunitneq}{<_{uT}^{pp}}
+\renewcommand{\predunitneq}{<_{uT}^{pp}}
 {<_{uT}^{pp}}
 \end_inset
 
@@ -1199,7 +1214,7 @@ promise
 \end_inset
 
 , then the promise problem has no disallowed strings and thus no promise,
- it is a decision problem.
+ it is in fact a decision problem.
 \begin_inset Foot
 status open
 
@@ -1354,7 +1369,7 @@ The set of disallowed strings will be all triples
 \begin_inset Formula $K$
 \end_inset
 
- does not yields 
+ does not yield 
 \begin_inset Formula $C$
 \end_inset
 
@@ -1415,7 +1430,7 @@ why?
 \end_layout
 
 \begin_layout Standard
-To capture the situation where we have hard a decision problem, but an easy
+To capture the situation where we have a hard decision problem, but an easy
  promise problem, we call a set 
 \begin_inset Formula $S$
 \end_inset
@@ -1515,6 +1530,13 @@ status open
 \begin_layout Plain Layout
 
 \end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "def:pair-reduction"
 
 \end_inset
 
@@ -1797,7 +1819,7 @@ Evan, Selman and Yacobi found out that if disjoint
 \end_inset
 
 -hard cracking problems.
- This is additional motivation for the study of disjoint 
+ This gives additional motivation for the study of disjoint 
 \begin_inset Formula $\NP$
 \end_inset
 
@@ -1825,7 +1847,7 @@ The assertion that there are no disjoint
 \end_inset
 
 -hard to solve has many more consequences and has been studied well since
- it was formulated as conjecture by Even, Selman, and Yacobi 
+ it was formulated as a conjecture by Even, Selman, and Yacobi 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "journals/iandc/EvenSY84"
@@ -1864,8 +1886,25 @@ key "journals/iandc/EvenSY84"
  
 \end_layout
 
-\begin_layout --Separator--
+\begin_layout Standard
+If the conjecture holds, then no PKCS is 
+\begin_inset Formula $\NP$
+\end_inset
 
+-hard to crack.
+ The following refined version of the ESY-conjecture can be proven to be
+ equivalent to 
+\begin_inset Formula $\NP\neq\coNP$
+\end_inset
+
+, see Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:equiv-esymfails-np=conp-polyboundpps"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Conjecture
@@ -1898,15 +1937,10 @@ key "conf/icalp/HughesPRS12"
 \end_layout
 
 \begin_layout Standard
-The many-one version of the conjecture was proven to be equivalent to 
-\begin_inset Formula $\NP\neq\coNP$
-\end_inset
-
- by Glaßer et al.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "journals/eccc/ECCC-TR03-011"
+We will study the consequences of the ESY-conjectures in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:ESY-conjectures"
 
 \end_inset
 
@@ -1918,7 +1952,7 @@ key "journals/eccc/ECCC-TR03-011"
 status open
 
 \begin_layout Plain Layout
-ESY-conjectures, ESY-m implies ESY-tt implies ESY-T
+ESY-m implies ESY-tt implies ESY-T
 \end_layout
 
 \end_inset
@@ -2572,12 +2606,528 @@ Disjoint
 -Pairs
 \end_layout
 
+\begin_layout Standard
+One of the most interesting open questions about disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pairs is whether there are complete pairs, either 
+\begin_inset Formula $\predmo$
+\end_inset
+
+- or 
+\begin_inset Formula $\predt$
+\end_inset
+
+-complete.
+ A proof of the non-existence of either one would prove 
+\begin_inset Formula $\NP\neq\coNP$
+\end_inset
+
+ and 
+\begin_inset Formula $\P\neq\NP$
+\end_inset
+
+, but we can also relate complete pairs to propositional proof systems.
+ Using the ESY-conjectures, we can also relate disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pairs to the 
+\begin_inset Formula $\NP$
+\end_inset
+
+ vs.
+ 
+\begin_inset Formula $\coNP$
+\end_inset
+
+ questions.
+\end_layout
+
 \begin_layout Subsection
-Characterization of 
-\begin_inset Formula $\NP=\coNP$
+Reducibility of disjoint pairs
+\end_layout
+
+\begin_layout Standard
+In the literature exist several different definitions for the reducibility
+ of pairs.
+ Notice that results from this section apply to all disjoint pairs 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+; the sets are 
+\emph on
+not
+\emph default
+ required to be in 
+\begin_inset Formula $\NP$
+\end_inset
+
+.
+ Additionally to the definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:pair-reduction"
+
+\end_inset
+
+ given above in the introduction, Grollmann and Selman 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/siamcomp/GrollmannS88"
+
+\end_inset
+
+ also define the notion of 
+\emph on
+uniform
+\emph default
+ reductions of pairs:
+\end_layout
+
+\begin_layout Definition
+Let 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ and 
+\begin_inset Formula $(C,D)$
+\end_inset
+
+ be disjoint pairs.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "def:uniform-pair-reduction"
+
 \end_inset
 
 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ is 
+\emph on
+uniformly many-one reducible in polynomial time
+\emph default
+ to 
+\begin_inset Formula $(C,D)$
+\end_inset
+
+, 
+\begin_inset Formula $(A,B)\predunimo(C,D)$
+\end_inset
+
+, if there exists a polynomial-time computable function 
+\begin_inset Formula $f$
+\end_inset
+
+ such that for every separator 
+\begin_inset Formula $T\in\Sep(C,D)$
+\end_inset
+
+, there exists a separator 
+\begin_inset Formula $S\in\Sep(A,B)$
+\end_inset
+
+ such that 
+\begin_inset Formula $S\redmo T$
+\end_inset
+
+ via 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ is 
+\emph on
+uniformly Turing reducible in polynomial time
+\emph default
+ to 
+\begin_inset Formula $(C,D)$
+\end_inset
+
+, 
+\begin_inset Formula $(A,B)\predunit(C,D)$
+\end_inset
+
+, if there exists a polynomial-time oracle Turing machine 
+\begin_inset Formula $M$
+\end_inset
+
+ such that for every separator 
+\begin_inset Formula $T\in\Sep(C,D)$
+\end_inset
+
+, there exists a separator 
+\begin_inset Formula $S\in\Sep(A,B)$
+\end_inset
+
+ such that 
+\begin_inset Formula $S\redt T$
+\end_inset
+
+ via 
+\begin_inset Formula $M$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Notice that this definition requires that all separators reduce via the
+ same function or machine.
+ Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:pair-reduction"
+
+\end_inset
+
+, the definition of nonuniform reducibility, does not require this.
+ In spite of this, surprisingly, it turns out that the uniform and nonuniform
+ variant of the definition are equivalent.
+\end_layout
+
+\begin_layout Standard
+Razborov uses yet another definition of many-one reducibility of pairs:
+\end_layout
+
+\begin_layout Definition
+Let 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ and 
+\begin_inset Formula $(C,D)$
+\end_inset
+
+ be disjoint pairs.
+ 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ is Razborov reducible to 
+\begin_inset Formula $(C,D)$
+\end_inset
+
+, if there exists a polynomial-time computable function 
+\begin_inset Formula $f$
+\end_inset
+
+ such that 
+\begin_inset Formula $f(A)\subseteq C$
+\end_inset
+
+ and 
+\begin_inset Formula $f(B)\subseteq D$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+It turns out that this is equivalent to the many-one reducibility defined
+ above as well.
+ As a summary of all these definitions, we obtain the following lemma.
+ A comprehensive proof of it can be found Glaßer, Selman, Sengupta and Zhang
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Theorems 2.8, 2.10, 2.14"
+key "journals/eccc/ECCC-TR03-011"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+Let 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ and 
+\begin_inset Formula $(C,D)$
+\end_inset
+
+ be disjoint pairs.
+ Then the following assertions are equivalent:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $(A,B)\predmo(C,D)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(A,B)\predunimo(C,D)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+There exists a polynomial-time computable function 
+\begin_inset Formula $f$
+\end_inset
+
+ such that 
+\begin_inset Formula $f(A)\subseteq C$
+\end_inset
+
+ and 
+\begin_inset Formula $f(B)\subseteq D$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Lemma
+The assertions above imply the following equivalent statements:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $(A,B)\predt(C,D)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(A,B)\predunit(C,D)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Therefore, for the rest of this thesis, we will only use many-one and Turing
+ reducibility.
+\end_layout
+
+\begin_layout Subsection
+ESY-conjectures
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:ESY-conjectures"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The original ESY-conjecture 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/iandc/EvenSY84"
+
+\end_inset
+
+ is that for every pair of disjoint sets in 
+\begin_inset Formula $\NP$
+\end_inset
+
+, there is a separator that is not Turing-hard for 
+\begin_inset Formula $\NP$
+\end_inset
+
+.
+ This can easily be refined by using many-one hardness instead of Turing-hardnes
+s.
+\end_layout
+
+\begin_layout Definition
+For a reduction 
+\begin_inset Formula $r$
+\end_inset
+
+, we define the ESY-
+\begin_inset Formula $r$
+\end_inset
+
+ conjecture as follows: For every pair of disjoints sets in 
+\begin_inset Formula $\NP$
+\end_inset
+
+, there is a separator that is not 
+\begin_inset Formula $r$
+\end_inset
+
+-hard for 
+\begin_inset Formula $\NP$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\forall_{(A,B)\in\DisjNP}\exists_{S\in\Sep(A,B)}\exists_{L\in\NP}L\nredr S.
+\]
+
+\end_inset
+
+Notice, ESY-
+\begin_inset Formula $T$
+\end_inset
+
+ is the original ESY conjecture.
+\end_layout
+
+\begin_layout Standard
+The negation of the ESY-
+\begin_inset Formula $r$
+\end_inset
+
+ conjecture is 
+\begin_inset Formula 
+\[
+\exists_{(A,B)\in\DisjNP}\forall_{S\in\Sep(A,B)}\forall_{L\in\NP}L\redr S,
+\]
+
+\end_inset
+
+that is, there exists a disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pair 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ such that all separators are 
+\begin_inset Formula $r$
+\end_inset
+
+-hard for 
+\begin_inset Formula $\NP$
+\end_inset
+
+.
+ Since the different reductions imply each other, we obtain a implication
+ chain of ESY-conjectures:
+\end_layout
+
+\begin_layout Lemma
+Each item implies the following item in the list:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+ESY-
+\begin_inset Formula $m$
+\end_inset
+
+ does not hold.
+\end_layout
+
+\begin_layout Enumerate
+ESY-
+\begin_inset Formula $tt$
+\end_inset
+
+ does not hold.
+\end_layout
+
+\begin_layout Enumerate
+ESY-
+\begin_inset Formula $T$
+\end_inset
+
+ (the original ESY conjecture) does not hold.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+This list can, of course, be extended to a lot more reductions of languages.
+ In this thesis, we mention these specific reductions because there are
+ known results that relate to these assertions.
+\end_layout
+
+\begin_layout Standard
+The ESY-conjectures immediately relate to the existence of complete pairs,
+ as we can see from the negated ESY-
+\begin_inset Formula $r$
+\end_inset
+
+ statement.
+\end_layout
+
+\begin_layout Theorem
+If ESY-
+\begin_inset Formula $r$
+\end_inset
+
+ does not hold, then there exists a 
+\begin_inset Formula $r$
+\end_inset
+
+-complete disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+ pair.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+how to proof?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As mentioned above, the refinements of the (original) ESY-
+\begin_inset Formula $T$
+\end_inset
+
+ have interesting relations to computational complexity as well.
+ ESY-
+\begin_inset Formula $m$
+\end_inset
+
+ connects to the 
+\begin_inset Formula $\NP$
+\end_inset
+
+ vs.
+ 
+\begin_inset Formula $\coNP$
+\end_inset
+
+ question, and ESY-
+\begin_inset Formula $tt$
+\end_inset
+
+ relates to the question whether 
+\begin_inset Formula $\NP=\UP$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Theorem
@@ -2618,16 +3168,73 @@ The ESY-m conjecture does not hold, that is, there exists a disjoint
 \end_layout
 
 \end_deeper
-\begin_layout Subsection
-Existence of Complete Pairs
+\begin_layout Proof
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+insert proof
 \end_layout
 
-\begin_layout Standard
-if ESY does not hold, this implies the existence of complete pairs.
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+If 
+\begin_inset Formula $\NP=\UP$
+\end_inset
+
+, then ESY-
+\begin_inset Formula $tt$
+\end_inset
+
+ does not hold, that is there exists a disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pair such that all separators are truth-table-hard for 
+\begin_inset Formula $\NP$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+insert proof?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 more
+\end_layout
+
+\begin_layout Standard
+Razborov 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/eccc/ECCC-TR94-006"
+
+\end_inset
+
+ discovered that the existence of optimal proof systems implies the existence
+ of complete pairs, as we will see in Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:razborov"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -4611,6 +5218,12 @@ check symbol for reduction
 \end_layout
 
 \begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:razborov"
+
+\end_inset
+
 For an optimal proof system 
 \begin_inset Formula $f$
 \end_inset
