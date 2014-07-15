@@ -377,13 +377,13 @@ Definition of complexity classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\GI}{\complexityclass{GI}}
+\newcommand{\GI}{\complexityclass{GI}}
 {\complexityclass{GI}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\GNI}{\complexityclass{GNI}}
+\newcommand{\GNI}{\complexityclass{GNI}}
 {\complexityclass{GNI}}
 \end_inset
 
@@ -392,13 +392,13 @@ Definition of complexity classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\AM}{\complexityclass{AM}}
+\newcommand{\AM}{\complexityclass{AM}}
 {\complexityclass{AM}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\coAM}{\complexityclass{coAM}}
+\newcommand{\coAM}{\complexityclass{coAM}}
 {\complexityclass{coAM}}
 \end_inset
 
@@ -420,19 +420,19 @@ Definition of reductions (languages)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\redmo}{\leq_{m}^{p}}
+\newcommand{\redmo}{\leq_{m}^{p}}
 {\leq_{m}^{p}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\equivmo}{\equiv_{m}^{p}}
+\newcommand{\equivmo}{\equiv_{m}^{p}}
 {\equiv_{m}^{p}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\redmoneq}{<_{m}^{p}}
+\newcommand{\redmoneq}{<_{m}^{p}}
 {<_{m}^{p}}
 \end_inset
 
@@ -441,19 +441,19 @@ Definition of reductions (languages)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\redt}{\leq_{T}^{p}}
+\newcommand{\redt}{\leq_{T}^{p}}
 {\leq_{T}^{p}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\equivt}{\equiv_{T}^{p}}
+\newcommand{\equivt}{\equiv_{T}^{p}}
 {\equiv_{T}^{p}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\redtneq}{<_{T}^{p}}
+\newcommand{\redtneq}{<_{T}^{p}}
 {<_{T}^{p}}
 \end_inset
 
@@ -462,13 +462,13 @@ Definition of reductions (languages)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\redr}{\leq_{r}^{p}}
+\newcommand{\redr}{\leq_{r}^{p}}
 {\leq_{r}^{p}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\nredr}{\nleq_{r}^{p}}
+\newcommand{\nredr}{\nleq_{r}^{p}}
 {\nleq_{r}^{p}}
 \end_inset
 
@@ -490,19 +490,19 @@ Definition of reductions (pairs)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\predmo}{\leq_{m}^{pp}}
+\newcommand{\predmo}{\leq_{m}^{pp}}
 {\leq_{m}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\pequivmo}{\equiv_{m}^{pp}}
+\newcommand{\pequivmo}{\equiv_{m}^{pp}}
 {\equiv_{m}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\predmoneq}{<_{m}^{pp}}
+\newcommand{\predmoneq}{<_{m}^{pp}}
 {<_{m}^{pp}}
 \end_inset
 
@@ -511,19 +511,19 @@ Definition of reductions (pairs)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\predsmo}{\leq_{sm}^{pp}}
+\newcommand{\predsmo}{\leq_{sm}^{pp}}
 {\leq_{sm}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\pequivsmo}{\equiv_{sm}^{pp}}
+\newcommand{\pequivsmo}{\equiv_{sm}^{pp}}
 {\equiv_{sm}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\predsmoneq}{<_{sm}^{pp}}
+\newcommand{\predsmoneq}{<_{sm}^{pp}}
 {<_{sm}^{pp}}
 \end_inset
 
@@ -532,19 +532,19 @@ Definition of reductions (pairs)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\predt}{\leq_{T}^{pp}}
+\newcommand{\predt}{\leq_{T}^{pp}}
 {\leq_{T}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\pequivt}{\equiv_{T}^{pp}}
+\newcommand{\pequivt}{\equiv_{T}^{pp}}
 {\equiv_{T}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\predtneq}{<_{T}^{pp}}
+\newcommand{\predtneq}{<_{T}^{pp}}
 {<_{T}^{pp}}
 \end_inset
 
@@ -553,19 +553,19 @@ Definition of reductions (pairs)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\predunimo}{\leq_{um}^{pp}}
+\newcommand{\predunimo}{\leq_{um}^{pp}}
 {\leq_{um}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\pequivunimo}{\equiv_{um}^{pp}}
+\newcommand{\pequivunimo}{\equiv_{um}^{pp}}
 {\equiv_{um}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\predunimoneq}{<_{um}^{pp}}
+\newcommand{\predunimoneq}{<_{um}^{pp}}
 {<_{um}^{pp}}
 \end_inset
 
@@ -574,19 +574,19 @@ Definition of reductions (pairs)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\predunit}{\leq_{uT}^{pp}}
+\newcommand{\predunit}{\leq_{uT}^{pp}}
 {\leq_{uT}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\pequivunit}{\equiv_{uT}^{pp}}
+\newcommand{\pequivunit}{\equiv_{uT}^{pp}}
 {\equiv_{uT}^{pp}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\predunitneq}{<_{uT}^{pp}}
+\newcommand{\predunitneq}{<_{uT}^{pp}}
 {<_{uT}^{pp}}
 \end_inset
 
@@ -2819,20 +2819,39 @@ Let
 \begin_inset Formula $(A,B)$
 \end_inset
 
- is Razborov reducible to 
+ is Razborov reducible
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Razborov reducible is not a term commonly used in the literature.
+ We will use it only to prove equivalence to many-one reducibility in Lemma
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:reducibilities"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ to 
 \begin_inset Formula $(C,D)$
 \end_inset
 
 , if there exists a polynomial-time computable function 
-\begin_inset Formula $f$
+\begin_inset Formula $\lambda$
 \end_inset
 
  such that 
-\begin_inset Formula $f(A)\subseteq C$
+\begin_inset Formula $\lambda(A)\subseteq C$
 \end_inset
 
  and 
-\begin_inset Formula $f(B)\subseteq D$
+\begin_inset Formula $\lambda(B)\subseteq D$
 \end_inset
 
 .
@@ -2855,6 +2874,12 @@ key "journals/eccc/ECCC-TR03-011"
 \end_layout
 
 \begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:reducibilities"
+
+\end_inset
+
 Let 
 \begin_inset Formula $(A,B)$
 \end_inset
@@ -2884,15 +2909,15 @@ Let
 
 \begin_layout Enumerate
 There exists a polynomial-time computable function 
-\begin_inset Formula $f$
+\begin_inset Formula $\lambda$
 \end_inset
 
  such that 
-\begin_inset Formula $f(A)\subseteq C$
+\begin_inset Formula $\lambda(A)\subseteq C$
 \end_inset
 
  and 
-\begin_inset Formula $f(B)\subseteq D$
+\begin_inset Formula $\lambda(B)\subseteq D$
 \end_inset
 
 .
@@ -5045,28 +5070,11 @@ Propositional Proof Systems and
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-grad handbook: solution of the problem 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Canonical Pairs
-\end_layout
-
-\begin_layout Standard
 Razborov found a way to relate proof systems with disjoint 
 \begin_inset Formula $\NP$
 \end_inset
 
--pairs
+-pairs 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "journals/eccc/ECCC-TR94-006"
@@ -5089,7 +5097,7 @@ canonical pair
 \begin_inset Formula 
 \begin{eqnarray*}
 \SATstar & = & \{(\varphi,1^{m})\mid m\geq0\},\\
-\REF_{f} & = & \{(\varphi,1^{m})\mid\neg\varphi\in\TAUT\text{ and }\exists y,|y|\leq m\text{ such that }f(y)=x\}.
+\REF_{f} & = & \{(\varphi,1^{m})\mid\neg\varphi\in\TAUT\text{ and }\exists y,|y|\leq m\text{ such that }f(y)=\neg\varphi\}.
 \end{eqnarray*}
 
 \end_inset
@@ -5183,6 +5191,12 @@ key "journals/eccc/ECCC-TR94-006"
 \end_layout
 
 \begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:simulation-implies-red-pairs"
+
+\end_inset
+
 For two proof systems 
 \begin_inset Formula $f$
 \end_inset
@@ -5200,21 +5214,131 @@ For two proof systems
 \end_inset
 
 , then 
-\begin_inset Formula $(\SATstar,\REF_{g})\leq(\SATstar,\REF_{f})$
+\begin_inset Formula $(\SATstar,\REF_{g})\predmo(\SATstar,\REF_{f})$
 \end_inset
 
 .
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-check symbol for reduction
 \end_layout
+
+\begin_layout Proof
+Since 
+\begin_inset Formula $f$
+\end_inset
+
+ simulates 
+\begin_inset Formula $g$
+\end_inset
+
+, there is a function 
+\begin_inset Formula $h$
+\end_inset
+
+ such that for all strings 
+\begin_inset Formula $w$
+\end_inset
+
+, 
+\begin_inset Formula $g(w)=f(h(w))$
+\end_inset
+
+ and 
+\begin_inset Formula $|h(w)|\leq p(|w|)$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\lambda:\Sigma^{*}\to\Sigma^{*}$
+\end_inset
+
+ be a function mapping 
+\begin_inset Formula $(w,0^{n})$
+\end_inset
+
+ to 
+\begin_inset Formula $(w,0^{p(n)})$
+\end_inset
+
+.
+ We claim that for 
+\begin_inset Formula $\lambda,$
+\end_inset
+
+ we have 
+\begin_inset Formula $\lambda(\SATstar)\subseteq\SATstar$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda(\REF_{g})\subseteq\lambda(\REF_{f})$
+\end_inset
+
+.
+ For the first claim, if 
+\begin_inset Formula $(w,0^{n})\in\SATstar$
+\end_inset
+
+, then for any 
+\begin_inset Formula $m\in\mathbb{N}$
+\end_inset
+
+ we have 
+\begin_inset Formula $(w,0^{m})\in\SATstar$
+\end_inset
+
+ by definition.
+ For the second claim, if 
+\begin_inset Formula $(w,0^{n})\in\REF_{g}$
+\end_inset
+
+, then 
+\begin_inset Formula $\neg w$
+\end_inset
+
+ is a tautology and there exists a 
+\begin_inset Formula $y$
+\end_inset
+
+, 
+\begin_inset Formula $|y|\leq n$
+\end_inset
+
+, such that 
+\begin_inset Formula $g(y)=\neg w$
+\end_inset
+
+.
+ Applying 
+\begin_inset Formula $h$
+\end_inset
+
+ to 
+\begin_inset Formula $y$
+\end_inset
+
+ yields 
+\begin_inset Formula $\neg w=g(y)=f(h(y))$
+\end_inset
+
+ and 
+\begin_inset Formula $|h(y)|\leq p(|y|)$
+\end_inset
+
+ and therefore 
+\begin_inset Formula $(w,0^{p(n)})\in\REF_{f}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+With Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:simulation-implies-red-pairs"
 
 \end_inset
 
-
+, we can immediately prove the following Corollary.
 \end_layout
 
 \begin_layout Corollary
@@ -5239,8 +5363,50 @@ For an optimal proof system
 .
 \end_layout
 
+\begin_layout Standard
+This result is an important connection of the theory of proof systems and
+ the theory of disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pairs.
+ It gives us insight in more sufficient conditions for the existence of
+ complete pairs.
+ An important open question is whether the converse holds.
+ Does the existence of a many-one complete disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pair imply the existence of an optimal proof system? While the answer remains
+ unknown, oracles for both possibilities
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+check if this is really true
+\end_layout
+
+\end_inset
+
+ are known (see Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Relativized-Worlds"
+
+\end_inset
+
+).
+\end_layout
+
 \begin_layout Section
 Relativized Worlds
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Relativized-Worlds"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection

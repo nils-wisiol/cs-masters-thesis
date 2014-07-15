@@ -631,21 +631,25 @@ nonuniform variant of the definition are equivalent.
 Razborov uses yet another definition of many-one reducibility of pairs:
 \begin{defn}
 Let $(A,B)$ and $(C,D)$ be disjoint pairs. $(A,B)$ is Razborov
-reducible to $(C,D)$, if there exists a polynomial-time computable
-function $f$ such that $f(A)\subseteq C$ and $f(B)\subseteq D$.
+reducible%
+\footnote{Razborov reducible is not a term commonly used in the literature.
+We will use it only to prove equivalence to many-one reducibility
+in Lemma \ref{lem:reducibilities}.%
+} to $(C,D)$, if there exists a polynomial-time computable function
+$\lambda$ such that $\lambda(A)\subseteq C$ and $\lambda(B)\subseteq D$.
 \end{defn}
 It turns out that this is equivalent to the many-one reducibility
 defined above as well. As a summary of all these definitions, we obtain
 the following lemma. A comprehensive proof of it can be found Glaﬂer,
 Selman, Sengupta and Zhang \cite[Theorems 2.8, 2.10, 2.14]{journals/eccc/ECCC-TR03-011}.
 \begin{lem}
-Let $(A,B)$ and $(C,D)$ be disjoint pairs. Then the following assertions
-are equivalent:
+\label{lem:reducibilities}Let $(A,B)$ and $(C,D)$ be disjoint pairs.
+Then the following assertions are equivalent:
 \begin{enumerate}
 \item $(A,B)\predmo(C,D)$
 \item $(A,B)\predunimo(C,D)$
-\item There exists a polynomial-time computable function $f$ such that
-$f(A)\subseteq C$ and $f(B)\subseteq D$.
+\item There exists a polynomial-time computable function $\lambda$ such
+that $\lambda(A)\subseteq C$ and $\lambda(B)\subseteq D$.
 \end{enumerate}
 The assertions above imply the following equivalent statements:
 \begin{enumerate}
@@ -1050,17 +1054,12 @@ in the next section.
 
 \section{Propositional Proof Systems and $\NP$-Pairs}
 
-
-
-
-\subsection{Canonical Pairs}
-
-Razborov found a way to relate proof systems with disjoint $\NP$-pairs\cite{journals/eccc/ECCC-TR94-006}
-by defining a \emph{canonical pair $(\SATstar,\REF_{f})$} for every
-proof system $f$, where 
+Razborov found a way to relate proof systems with disjoint $\NP$-pairs
+\cite{journals/eccc/ECCC-TR94-006} by defining a \emph{canonical
+pair $(\SATstar,\REF_{f})$} for every proof system $f$, where 
 \begin{eqnarray*}
 \SATstar & = & \{(\varphi,1^{m})\mid m\geq0\},\\
-\REF_{f} & = & \{(\varphi,1^{m})\mid\neg\varphi\in\TAUT\text{ and }\exists y,|y|\leq m\text{ such that }f(y)=x\}.
+\REF_{f} & = & \{(\varphi,1^{m})\mid\neg\varphi\in\TAUT\text{ and }\exists y,|y|\leq m\text{ such that }f(y)=\neg\varphi\}.
 \end{eqnarray*}
 Notice, if $\neg\varphi\in\TAUT$ then $\varphi$ cannot by satisfied
 by any assignment, and there exists an $f$-proof for $\varphi$.
@@ -1076,14 +1075,36 @@ The notion of canonical pairs is closely related to the notion of
 simulation of proof systems and yields an corollary originally due
 to Razborov \cite{journals/eccc/ECCC-TR94-006}.
 \begin{lem}
-For two proof systems $f$ and $g$, if $f$ simulates $g$, then
-$(\SATstar,\REF_{g})\leq(\SATstar,\REF_{f})$. \end{lem}
+\label{lem:simulation-implies-red-pairs}For two proof systems $f$
+and $g$, if $f$ simulates $g$, then $(\SATstar,\REF_{g})\predmo(\SATstar,\REF_{f})$. \end{lem}
+\begin{proof}
+Since $f$ simulates $g$, there is a function $h$ such that for
+all strings $w$, $g(w)=f(h(w))$ and $|h(w)|\leq p(|w|)$. Let $\lambda:\Sigma^{*}\to\Sigma^{*}$
+be a function mapping $(w,0^{n})$ to $(w,0^{p(n)})$. We claim that
+for $\lambda,$ we have $\lambda(\SATstar)\subseteq\SATstar$ and
+$\lambda(\REF_{g})\subseteq\lambda(\REF_{f})$. For the first claim,
+if $(w,0^{n})\in\SATstar$, then for any $m\in\mathbb{N}$ we have
+$(w,0^{m})\in\SATstar$ by definition. For the second claim, if $(w,0^{n})\in\REF_{g}$,
+then $\neg w$ is a tautology and there exists a $y$, $|y|\leq n$,
+such that $g(y)=\neg w$. Applying $h$ to $y$ yields $\neg w=g(y)=f(h(y))$
+and $|h(y)|\leq p(|y|)$ and therefore $(w,0^{p(n)})\in\REF_{f}$.
+\end{proof}
+With Lemma \ref{lem:simulation-implies-red-pairs}, we can immediately
+prove the following Corollary.
 \begin{cor}
 \label{cor:razborov}For an optimal proof system $f$, the pair $(\SATstar,\REF_{f})$
 is complete for $\DisjNP$.
 \end{cor}
+This result is an important connection of the theory of proof systems
+and the theory of disjoint $\NP$-pairs. It gives us insight in more
+sufficient conditions for the existence of complete pairs. An important
+open question is whether the converse holds. Does the existence of
+a many-one complete disjoint $\NP$-pair imply the existence of an
+optimal proof system? While the answer remains unknown, oracles for
+both possibilities are known (see Section \ref{sec:Relativized-Worlds}).
 
-\section{Relativized Worlds}
+
+\section{Relativized Worlds\label{sec:Relativized-Worlds}}
 
 
 \subsection{No Optimal/p-Optimal Proof System}
