@@ -4359,6 +4359,13 @@ try Mikes idea of using
 
 \begin_layout Subsection
 Implications of the Existence of Optimal Proof Systems
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Implications-of-the-existence-of-optimal-proof-systems"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4997,11 +5004,18 @@ status open
 \end_inset
 
 
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:optimal-pps-imply-complete-sets-for-up"
+
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
-If there is an p-optimal proof system, then 
+If there is a p-optimal proof system, then 
 \begin_inset Formula $\UP$
 \end_inset
 
@@ -5409,12 +5423,149 @@ name "sec:Relativized-Worlds"
 
 \end_layout
 
+\begin_layout Standard
+Lacking the ability to prove unrelativized results, a lot of open questions
+ have been studied in detail using oracle Turing machines.
+ This provides some evidence for possible solutions of open problems as
+ well as gives a hint which proof techniques to use to study unresolved
+ problems.
+\end_layout
+
 \begin_layout Subsection
-No Optimal/p-Optimal Proof System
+Existence Optimal and p-Optimal Proof Systems
 \end_layout
 
 \begin_layout Standard
-Optimal: paper by Fortnow et al; p-optimal: paper by Meßner Torán 
+Fortnow and respectively Meßner and Torán found oracles relative to which
+ there is no optimal respectively no p-optimal proof system.
+ Previously, Meßner and Toran proved 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/eccc/ECCC-TR97-026"
+
+\end_inset
+
+ that the existence of p-optimal proof systems implies the existence of
+ complete sets in 
+\begin_inset Formula $\UP$
+\end_inset
+
+.
+ They also showed that the weaker assumption of the existence of an optimal
+ proof system is sufficient for the existence of log-space complete set
+ in 
+\begin_inset Formula $\NP\cap\SPARSE$
+\end_inset
+
+ (see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Implications-of-the-existence-of-optimal-proof-systems"
+
+\end_inset
+
+, in particular Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:optimal-pps-imply-complete-sets-for-up"
+
+\end_inset
+
+ as well as 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/eccc/ECCC-TR97-026,journals/iandc/KoblerMT03"
+
+\end_inset
+
+).
+ We summarize their results as follows.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:pps-consequences-for-oracles"
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If there is a p-optimal proof system, then 
+\begin_inset Formula $\UP$
+\end_inset
+
+ has a many-one complete set.
+\end_layout
+
+\begin_layout Enumerate
+If there is an optimal proof system, then complete sets for 
+\begin_inset Formula $\NP\cap\SPARSE$
+\end_inset
+
+ exist.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Since Hartmanis and Hemachandra exhibited an oracle relative to which 
+\begin_inset Formula $\UP$
+\end_inset
+
+ does not have a many-one complete set 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hartmanis:1988:CCW:55096.55103"
+
+\end_inset
+
+, this immediately gives us an oracle relative to which p-optimal proof
+ systems do not exist.
+ By the results we mentioned earlier for p-optimal proof systems, this also
+ means that relative to this oracle, 
+\begin_inset Formula $\E\neq\NE$
+\end_inset
+
+ and 
+\begin_inset Formula $\P\neq\NP$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Buhrman, Fenner, Fortnow and van Melkebeek found an oracle relative to which
+ 
+\begin_inset Formula $\NP\cap\SPARSE$
+\end_inset
+
+ does not have complete sets.
+ Together with Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:pps-consequences-for-oracles"
+
+\end_inset
+
+, this gives a relativized world where optimal proof systems do not exist.
+\end_layout
+
+\begin_layout Standard
+We also know oracles relative to which optimal proof systems exist.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+do we? insert more info and citation
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection

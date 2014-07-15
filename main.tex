@@ -36,6 +36,8 @@
   \newtheorem{lem}[thm]{\protect\lemmaname}
   \theoremstyle{plain}
   \newtheorem{cor}[thm]{\protect\corollaryname}
+  \theoremstyle{plain}
+  \newtheorem{prop}[thm]{\protect\propositionname}
 
 \@ifundefined{date}{}{\date{}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
@@ -57,6 +59,7 @@
   \providecommand{\corollaryname}{Corollary}
   \providecommand{\definitionname}{Definition}
   \providecommand{\lemmaname}{Lemma}
+  \providecommand{\propositionname}{Proposition}
 \providecommand{\theoremname}{Theorem}
 
 \begin{document}
@@ -932,7 +935,7 @@ in $i$ and $j$ and is therefore polynomially bounded in $|w|$.
 
 
 
-\subsection{Implications of the Existence of Optimal Proof Systems}
+\subsection{Implications of the Existence of Optimal Proof Systems\label{sub:Implications-of-the-existence-of-optimal-proof-systems}}
 
 In this section, we will see some evidence suggesting optimal proof
 systems do not exist. One of the implications given by optimal proof
@@ -1032,10 +1035,10 @@ converse follows immediately from (II)(b).
 The technique of this proof can be generalized and extended to a lot
 of promise classes, most interestingly $\UP$:
 \begin{thm}
-
+\label{thm:optimal-pps-imply-complete-sets-for-up}
 \begin{enumerate}
-\item If there is an p-optimal proof system, then $\UP$ has a many-one
-complete set.
+\item If there is a p-optimal proof system, then $\UP$ has a many-one complete
+set.
 \item If there is an optimal proof system, then $\UP$ has a complete set
 under non-uniform many-one reducibility.
 \end{enumerate}
@@ -1106,10 +1109,48 @@ both possibilities are known (see Section \ref{sec:Relativized-Worlds}).
 
 \section{Relativized Worlds\label{sec:Relativized-Worlds}}
 
+Lacking the ability to prove unrelativized results, a lot of open
+questions have been studied in detail using oracle Turing machines.
+This provides some evidence for possible solutions of open problems
+as well as gives a hint which proof techniques to use to study unresolved
+problems.
 
-\subsection{No Optimal/p-Optimal Proof System}
 
-Optimal: paper by Fortnow et al; p-optimal: paper by Meﬂner Tor·n 
+\subsection{Existence Optimal and p-Optimal Proof Systems}
+
+Fortnow and respectively Meﬂner and Tor·n found oracles relative to
+which there is no optimal respectively no p-optimal proof system.
+Previously, Meﬂner and Toran proved \cite{journals/eccc/ECCC-TR97-026}
+that the existence of p-optimal proof systems implies the existence
+of complete sets in $\UP$. They also showed that the weaker assumption
+of the existence of an optimal proof system is sufficient for the
+existence of log-space complete set in $\NP\cap\SPARSE$ (see \ref{sub:Implications-of-the-existence-of-optimal-proof-systems},
+in particular Theorem \ref{thm:optimal-pps-imply-complete-sets-for-up}
+as well as \cite{journals/eccc/ECCC-TR97-026,journals/iandc/KoblerMT03}).
+We summarize their results as follows.
+\begin{prop}
+\label{prop:pps-consequences-for-oracles}
+\begin{enumerate}
+\item If there is a p-optimal proof system, then $\UP$ has a many-one complete
+set.
+\item If there is an optimal proof system, then complete sets for $\NP\cap\SPARSE$
+exist.
+\end{enumerate}
+\end{prop}
+Since Hartmanis and Hemachandra exhibited an oracle relative to which
+$\UP$ does not have a many-one complete set \cite{Hartmanis:1988:CCW:55096.55103},
+this immediately gives us an oracle relative to which p-optimal proof
+systems do not exist. By the results we mentioned earlier for p-optimal
+proof systems, this also means that relative to this oracle, $\E\neq\NE$
+and $\P\neq\NP$.
+
+Buhrman, Fenner, Fortnow and van Melkebeek found an oracle relative
+to which $\NP\cap\SPARSE$ does not have complete sets. Together with
+Proposition \ref{prop:pps-consequences-for-oracles}, this gives a
+relativized world where optimal proof systems do not exist.
+
+We also know oracles relative to which optimal proof systems exist.
+
 
 
 \subsection{Converse of Razborov does not Hold}
