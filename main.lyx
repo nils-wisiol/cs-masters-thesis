@@ -431,12 +431,6 @@ Definition of reductions (languages)
 \end_inset
 
 
-\begin_inset FormulaMacro
-\newcommand{\redmoneq}{<_{m}^{p}}
-{<_{m}^{p}}
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -452,24 +446,18 @@ Definition of reductions (languages)
 \end_inset
 
 
-\begin_inset FormulaMacro
-\newcommand{\redtneq}{<_{T}^{p}}
-{<_{T}^{p}}
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\redr}{\leq_{r}^{p}}
-{\leq_{r}^{p}}
+\newcommand{\redr}{\leq_{r}}
+{\leq_{r}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\nredr}{\nleq_{r}^{p}}
-{\nleq_{r}^{p}}
+\newcommand{\nredr}{\nleq_{r}}
+{\nleq_{r}}
 \end_inset
 
 
@@ -501,12 +489,6 @@ Definition of reductions (pairs)
 \end_inset
 
 
-\begin_inset FormulaMacro
-\newcommand{\predmoneq}{<_{m}^{pp}}
-{<_{m}^{pp}}
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -519,12 +501,6 @@ Definition of reductions (pairs)
 \begin_inset FormulaMacro
 \newcommand{\pequivsmo}{\equiv_{sm}^{pp}}
 {\equiv_{sm}^{pp}}
-\end_inset
-
-
-\begin_inset FormulaMacro
-\newcommand{\predsmoneq}{<_{sm}^{pp}}
-{<_{sm}^{pp}}
 \end_inset
 
 
@@ -543,12 +519,6 @@ Definition of reductions (pairs)
 \end_inset
 
 
-\begin_inset FormulaMacro
-\newcommand{\predtneq}{<_{T}^{pp}}
-{<_{T}^{pp}}
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -561,12 +531,6 @@ Definition of reductions (pairs)
 \begin_inset FormulaMacro
 \newcommand{\pequivunimo}{\equiv_{um}^{pp}}
 {\equiv_{um}^{pp}}
-\end_inset
-
-
-\begin_inset FormulaMacro
-\newcommand{\predunimoneq}{<_{um}^{pp}}
-{<_{um}^{pp}}
 \end_inset
 
 
@@ -585,9 +549,18 @@ Definition of reductions (pairs)
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\predunitneq}{<_{uT}^{pp}}
-{<_{uT}^{pp}}
+\newcommand{\predr}{\leq_{r}^{pp}}
+{\leq_{r}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pequivr}{\equiv_{r}^{pp}}
+{\equiv_{r}^{pp}}
 \end_inset
 
 
@@ -1609,6 +1582,42 @@ many-one-reducible in polynomial time
 \end_layout
 
 \begin_layout Enumerate
+As a generalization of the previous two, we define a promise problem 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ to be 
+\begin_inset Formula $r$
+\end_inset
+
+-
+\emph on
+reducible
+\emph default
+ to 
+\begin_inset Formula $(C,D)$
+\end_inset
+
+, 
+\begin_inset Formula $(A,B)\predr(C,D)$
+\end_inset
+
+, if for every separator 
+\begin_inset Formula $T\in\Sep(C,D)$
+\end_inset
+
+, there exists a separator 
+\begin_inset Formula $S\in\Sep(A,B)$
+\end_inset
+
+ such that 
+\begin_inset Formula $S\redr T$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
 A promise problem 
 \begin_inset Formula $(A,B)$
 \end_inset
@@ -1652,72 +1661,6 @@ also mention 1-invertible, many-one, smart Turing, Turing, truth-table,
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-talk about uniform vs non-uniform? 
-\end_layout
-
-\begin_layout Proposition
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-\begin_inset Formula $(A,B)\redt(C,D)$
-\end_inset
-
- if and only if 
-\begin_inset Formula $(A,B)\predunit(C,D)$
-\end_inset
-
-.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "journals/siamcomp/GrollmannS88"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $(A,B)\redmo(C,D)$
-\end_inset
-
- if and only if 
-\begin_inset Formula $(A,B)\predunimo(C,D)$
-\end_inset
-
-.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "journals/eccc/ECCC-TR03-011"
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 A promise problem 
 \begin_inset Formula $(A,B)$
 \end_inset
@@ -1735,11 +1678,16 @@ disjoint
 -pair
 \emph default
 .
- For disjoint 
+ We define 
+\begin_inset Formula $\DisjNP$
+\end_inset
+
+ to be the set of all disjoint 
 \begin_inset Formula $\NP$
 \end_inset
 
--pairs, we also define completeness:
+-pairs.
+ For this class, we define completeness:
 \end_layout
 
 \begin_layout Definition
@@ -1805,6 +1753,14 @@ A disjoint
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+We define 
+\begin_inset Formula $\predr$
+\end_inset
+
+-completeness analogously.
+\end_layout
+
 \begin_layout Standard
 Evan, Selman and Yacobi found out that if disjoint 
 \begin_inset Formula $\NP$
@@ -3113,16 +3069,111 @@ If ESY-
 \end_layout
 
 \begin_layout Proof
-\begin_inset Note Note
-status open
+Assume that ESY-
+\begin_inset Formula $r$
+\end_inset
 
-\begin_layout Plain Layout
-how to proof?
-\end_layout
+ does not hold, then there is a pair 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ of disjoint sets in 
+\begin_inset Formula $\NP$
+\end_inset
+
+ such that every separator is 
+\begin_inset Formula $r$
+\end_inset
+
+-hard for 
+\begin_inset Formula $\NP$
+\end_inset
+
+.
+ We claim 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ is 
+\begin_inset Formula $r$
+\end_inset
+
+-complete for 
+\begin_inset Formula $\DisjNP$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $(C,D)\in\DisjNP$
+\end_inset
+
+, and let 
+\begin_inset Formula $S$
+\end_inset
+
+ be any separator for 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $C\in\NP$
+\end_inset
+
+ and 
+\begin_inset Formula $S$
+\end_inset
+
+ is 
+\begin_inset Formula $r$
+\end_inset
+
+-hard for 
+\begin_inset Formula $\NP$
+\end_inset
+
+, 
+\begin_inset Formula $C\redr S$
+\end_inset
+
+.
+ This proves 
+\begin_inset Formula $C$
+\end_inset
+
+, which is a separator of 
+\begin_inset Formula $(C,D)$
+\end_inset
+
+, reduces to any separator of 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+.
+ By definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:pair-reduction"
 
 \end_inset
 
+, we have 
+\begin_inset Formula $(C,D)\predr(A,B)$
+\end_inset
 
+ and thus 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ is 
+\begin_inset Formula $r$
+\end_inset
+
+-complete for 
+\begin_inset Formula $\DisjNP$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -5554,18 +5605,35 @@ reference "prop:pps-consequences-for-oracles"
 \end_layout
 
 \begin_layout Standard
-We also know oracles relative to which optimal proof systems exist.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-do we? insert more info and citation
-\end_layout
+Glaßer, Selman, Sengupta and Zhang 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Chapter 6"
+key "journals/eccc/ECCC-TR03-011"
 
 \end_inset
 
+ construct an oracle 
+\begin_inset Formula $O_{1}$
+\end_inset
 
+ relative to which 
+\begin_inset Formula $\NE=\coNE$
+\end_inset
+
+ and therefore, by Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:sufficient-cond-for-optimal-pps"
+
+\end_inset
+
+, optimal proof systems do exist.
+ This and the oracle 
+\begin_inset Formula $O_{2}$
+\end_inset
+
+ from the same paper are also interesting for the next section.
 \end_layout
 
 \begin_layout Subsection
@@ -5573,8 +5641,49 @@ Converse of Razborov does not Hold
 \end_layout
 
 \begin_layout Standard
-paper by Glaßer et al.
- (GSSZ section 6)
+The oracles 
+\begin_inset Formula $O_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $O_{2}$
+\end_inset
+
+ by Glaßer, Selman, Sengupta and Zhang 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Chapter 6"
+key "journals/eccc/ECCC-TR03-011"
+
+\end_inset
+
+ provide insight into the question of whether the converse of Razborov's
+ Theorem holds.
+ That is, does the existence of a complete pair in 
+\begin_inset Formula $\DisjNP$
+\end_inset
+
+ imply the existence of an optimal proof system? The question remains open,
+ but Glaßer et al.
+ proved that it cannot be answered with a relativizable proof.
+ In particular, for both 
+\begin_inset Formula $O_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $O_{2}$
+\end_inset
+
+ complete pairs exist, but optimal proof systems exists only for 
+\begin_inset Formula $O_{1}$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $O_{2}$
+\end_inset
+
+, there are no optimal proof systems.
 \end_layout
 
 \begin_layout Subsection

@@ -150,43 +150,40 @@
 
 \global\long\def\redmo{\leq_{m}^{p}}
 \global\long\def\equivmo{\equiv_{m}^{p}}
-\global\long\def\redmoneq{<_{m}^{p}}
 
 
 \global\long\def\redt{\leq_{T}^{p}}
 \global\long\def\equivt{\equiv_{T}^{p}}
-\global\long\def\redtneq{<_{T}^{p}}
 
 
-\global\long\def\redr{\leq_{r}^{p}}
-\global\long\def\nredr{\nleq_{r}^{p}}
+\global\long\def\redr{\leq_{r}}
+\global\long\def\nredr{\nleq_{r}}
 
 
 
 
 \global\long\def\predmo{\leq_{m}^{pp}}
 \global\long\def\pequivmo{\equiv_{m}^{pp}}
-\global\long\def\predmoneq{<_{m}^{pp}}
 
 
 \global\long\def\predsmo{\leq_{sm}^{pp}}
 \global\long\def\pequivsmo{\equiv_{sm}^{pp}}
-\global\long\def\predsmoneq{<_{sm}^{pp}}
 
 
 \global\long\def\predt{\leq_{T}^{pp}}
 \global\long\def\pequivt{\equiv_{T}^{pp}}
-\global\long\def\predtneq{<_{T}^{pp}}
 
 
 \global\long\def\predunimo{\leq_{um}^{pp}}
 \global\long\def\pequivunimo{\equiv_{um}^{pp}}
-\global\long\def\predunimoneq{<_{um}^{pp}}
 
 
 \global\long\def\predunit{\leq_{uT}^{pp}}
 \global\long\def\pequivunit{\equiv_{uT}^{pp}}
-\global\long\def\predunitneq{<_{uT}^{pp}}
+
+
+\global\long\def\predr{\leq_{r}^{pp}}
+\global\long\def\pequivr{\equiv_{r}^{pp}}
 
 
 
@@ -436,16 +433,19 @@ there exists a separator $S\in\Sep(A,B)$ such that $S\redmo T$.
 \item A promise problem $(A,B)$ is \emph{many-one-reducible in polynomial
 time} to $(C,D)$, $(A,B)\predt(C,D)$, if for every separator $T\in\Sep(C,D)$,
 there exists a separator $S\in\Sep(A,B)$ such that $S\redt T$.
+\item As a generalization of the previous two, we define a promise problem
+$(A,B)$ to be $r$-\emph{reducible} to $(C,D)$, $(A,B)\predr(C,D)$,
+if for every separator $T\in\Sep(C,D)$, there exists a separator
+$S\in\Sep(A,B)$ such that $S\redr T$.
 \item A promise problem $(A,B)$ is $\NP$-hard, if for every Turing machine
 $M$ that solves $(A,B)$, the language accepted by $M$ is $\NP$-hard.
 \end{enumerate}
 \end{defn}
 
 
-
-
 A promise problem $(A,B)$ with $A,B\in\NP$ is a \emph{disjoint $\NP$-pair}.
-For disjoint $\NP$-pairs, we also define completeness:
+We define $\DisjNP$ to be the set of all disjoint $\NP$-pairs. For
+this class, we define completeness:
 \begin{defn}
 
 \begin{enumerate}
@@ -455,6 +455,8 @@ $(C,D)\in\DisjNP$ we have $(C,D)\predmo(A,B)$.
 $(C,D)\in\DisjNP$ we have $(C,D)\redt(A,B)$.
 \end{enumerate}
 \end{defn}
+We define $\predr$-completeness analogously.
+
 Evan, Selman and Yacobi found out that if disjoint $\NP$-pairs that
 are $\NP$-hard do not exist, then there is exist no PKCS with $\NP$-hard
 cracking problems. This gives additional motivation for the study
@@ -704,7 +706,14 @@ pairs, as we can see from the negated ESY-$r$ statement.
 If ESY-$r$ does not hold, then there exists a $r$-complete disjoint
 $\NP$ pair.\end{thm}
 \begin{proof}
-
+Assume that ESY-$r$ does not hold, then there is a pair $(A,B)$
+of disjoint sets in $\NP$ such that every separator is $r$-hard
+for $\NP$. We claim $(A,B)$ is $r$-complete for $\DisjNP$. Let
+$(C,D)\in\DisjNP$, and let $S$ be any separator for $(A,B)$. Then
+$C\in\NP$ and $S$ is $r$-hard for $\NP$, $C\redr S$. This proves
+$C$, which is a separator of $(C,D)$, reduces to any separator of
+$(A,B)$. By definition \ref{def:pair-reduction}, we have $(C,D)\predr(A,B)$
+and thus $(A,B)$ is $r$-complete for $\DisjNP$.
 \end{proof}
 As mentioned above, the refinements of the (original) ESY-$T$ have
 interesting relations to computational complexity as well. ESY-$m$
@@ -1149,13 +1158,24 @@ to which $\NP\cap\SPARSE$ does not have complete sets. Together with
 Proposition \ref{prop:pps-consequences-for-oracles}, this gives a
 relativized world where optimal proof systems do not exist.
 
-We also know oracles relative to which optimal proof systems exist.
-
+Glaßer, Selman, Sengupta and Zhang \cite[Chapter 6]{journals/eccc/ECCC-TR03-011}
+construct an oracle $O_{1}$ relative to which $\NE=\coNE$ and therefore,
+by Theorem \ref{thm:sufficient-cond-for-optimal-pps}, optimal proof
+systems do exist. This and the oracle $O_{2}$ from the same paper
+are also interesting for the next section.
 
 
 \subsection{Converse of Razborov does not Hold}
 
-paper by Glaßer et al. (GSSZ section 6)
+The oracles $O_{1}$ and $O_{2}$ by Glaßer, Selman, Sengupta and
+Zhang \cite[Chapter 6]{journals/eccc/ECCC-TR03-011} provide insight
+into the question of whether the converse of Razborov's Theorem holds.
+That is, does the existence of a complete pair in $\DisjNP$ imply
+the existence of an optimal proof system? The question remains open,
+but Glaßer et al. proved that it cannot be answered with a relativizable
+proof. In particular, for both $O_{1}$ and $O_{2}$ complete pairs
+exist, but optimal proof systems exists only for $O_{1}$. For $O_{2}$,
+there are no optimal proof systems.
 
 
 \subsection{ESY holds}
