@@ -1647,20 +1647,6 @@ A promise problem
 
 \end_deeper
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-also mention 1-invertible, many-one, smart Turing, Turing, truth-table,
- bounded-truth-table reductions, strongly many-one reduction
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 A promise problem 
 \begin_inset Formula $(A,B)$
 \end_inset
@@ -3258,6 +3244,12 @@ insert proof
 \end_layout
 
 \begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:NP=UP-implies-ESY-tt-does-not-hold"
+
+\end_inset
+
 If 
 \begin_inset Formula $\NP=\UP$
 \end_inset
@@ -5132,6 +5124,23 @@ Propositional Proof Systems and
 \end_inset
 
 -Pairs
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+canonical pairs
+\begin_inset Quotes erd
+\end_inset
+
+?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5463,6 +5472,31 @@ reference "sec:Relativized-Worlds"
 ).
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Add(?): for every np-pair, there is a poly-time equivalent canonical pair
+ of some proof system.
+ (see GSZ06, section 5)
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Add(?): same degree structure (see GSZ06, section 5)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Relativized Worlds
 \begin_inset CommandInset label
@@ -5684,14 +5718,8 @@ key "journals/eccc/ECCC-TR03-011"
 \end_inset
 
 , there are no optimal proof systems.
-\end_layout
-
-\begin_layout Subsection
-ESY holds
-\end_layout
-
-\begin_layout Standard
-paper by GSSZ section 3
+ It is also worth to mention that relative to both oracles, the ESY-conjectures
+ holds.
 \end_layout
 
 \begin_layout Subsection
@@ -5699,15 +5727,74 @@ Separation of ESY refinements
 \end_layout
 
 \begin_layout Standard
-ask Andy (meeting with Lance: there is an oracle such that 
-\begin_inset Formula $\NP=\UP$
+Glaßer and Wechsung constructed an oracle 
+\begin_inset Formula $D$
+\end_inset
+
+ relative to which 
+\begin_inset Formula $\UP=\NP$
 \end_inset
 
  and 
 \begin_inset Formula $\NP\neq\coNP$
 \end_inset
 
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DBLP:journals/jucs/GlasserW03"
+
+\end_inset
+
 .
+ Along with the results we know about ESY-
+\begin_inset Formula $tt$
+\end_inset
+
+, which does not hold if 
+\begin_inset Formula $\UP=\NP$
+\end_inset
+
+ (see Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:NP=UP-implies-ESY-tt-does-not-hold"
+
+\end_inset
+
+), and Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:equiv-esymfails-np=conp-polyboundpps"
+
+\end_inset
+
+, where we prove that 
+\begin_inset Formula $\NP\neq\coNP$
+\end_inset
+
+ is equivalent to ESY-
+\begin_inset Formula $m$
+\end_inset
+
+, this oracle separates ESY-
+\begin_inset Formula $tt$
+\end_inset
+
+ from ESY-
+\begin_inset Formula $m$
+\end_inset
+
+.
+ Notice that therefore, relative to 
+\begin_inset Formula $D$
+\end_inset
+
+, ESY does not hold, but ESY-
+\begin_inset Formula $m$
+\end_inset
+
+ does.
 \end_layout
 
 \begin_layout Section

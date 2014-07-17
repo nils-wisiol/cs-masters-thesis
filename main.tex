@@ -441,8 +441,6 @@ $S\in\Sep(A,B)$ such that $S\redr T$.
 $M$ that solves $(A,B)$, the language accepted by $M$ is $\NP$-hard.
 \end{enumerate}
 \end{defn}
-
-
 A promise problem $(A,B)$ with $A,B\in\NP$ is a \emph{disjoint $\NP$-pair}.
 We define $\DisjNP$ to be the set of all disjoint $\NP$-pairs. For
 this class, we define completeness:
@@ -731,9 +729,9 @@ $\NP$-pair such that all separators are many-one-hard for $\NP$.
 \begin{proof}
 \end{proof}
 \begin{thm}
-If $\NP=\UP$, then ESY-$tt$ does not hold, that is there exists
-a disjoint $\NP$-pair such that all separators are truth-table-hard
-for $\NP$.\end{thm}
+\label{thm:NP=00003DUP-implies-ESY-tt-does-not-hold}If $\NP=\UP$,
+then ESY-$tt$ does not hold, that is there exists a disjoint $\NP$-pair
+such that all separators are truth-table-hard for $\NP$.\end{thm}
 \begin{proof}
 
 \end{proof}
@@ -1116,6 +1114,8 @@ optimal proof system? While the answer remains unknown, oracles for
 both possibilities are known (see Section \ref{sec:Relativized-Worlds}).
 
 
+
+
 \section{Relativized Worlds\label{sec:Relativized-Worlds}}
 
 Lacking the ability to prove unrelativized results, a lot of open
@@ -1175,18 +1175,20 @@ the existence of an optimal proof system? The question remains open,
 but Glaﬂer et al. proved that it cannot be answered with a relativizable
 proof. In particular, for both $O_{1}$ and $O_{2}$ complete pairs
 exist, but optimal proof systems exists only for $O_{1}$. For $O_{2}$,
-there are no optimal proof systems.
-
-
-\subsection{ESY holds}
-
-paper by GSSZ section 3
+there are no optimal proof systems. It is also worth to mention that
+relative to both oracles, the ESY-conjectures holds.
 
 
 \subsection{Separation of ESY refinements}
 
-ask Andy (meeting with Lance: there is an oracle such that $\NP=\UP$
-and $\NP\neq\coNP$.
+Glaﬂer and Wechsung constructed an oracle $D$ relative to which $\UP=\NP$
+and $\NP\neq\coNP$ \cite{DBLP:journals/jucs/GlasserW03}. Along with
+the results we know about ESY-$tt$, which does not hold if $\UP=\NP$
+(see Theorem \ref{thm:NP=00003DUP-implies-ESY-tt-does-not-hold}),
+and Theorem \ref{thm:equiv-esymfails-np=00003Dconp-polyboundpps},
+where we prove that $\NP\neq\coNP$ is equivalent to ESY-$m$, this
+oracle separates ESY-$tt$ from ESY-$m$. Notice that therefore, relative
+to $D$, ESY does not hold, but ESY-$m$ does.
 
 
 \section{Conclusion}
