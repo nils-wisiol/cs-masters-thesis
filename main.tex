@@ -146,6 +146,12 @@
 \global\long\def\coAM{\complexityclass{coAM}}
 
 
+\global\long\def\Few{\complexityclass{Few}}
+
+
+\global\long\def\FewP{\complexityclass{FewP}}
+
+
 
 
 \global\long\def\redmo{\leq_{m}^{p}}
@@ -300,29 +306,68 @@ Abstract 300-400 words
 \renewcommand{\thepage}{\arabic{page}}
 
 
-\section{Introduction}
+\section{Introduction\label{sec:Introduction}}
 
+This thesis aims at readers that do not have a strong background in
+the theories of propositional proof systems and disjoint $\NP$ pairs.
+It surveys important results from both and points out important connections
+in between these two theories. Core of the thesis is the implication
+chart in Figure \ref{fig:implication-chart}, that summarizes virtually
+all results mentioned in this thesis.
 
+In Section \ref{sec:Preliminaries} is split into two pieces. In \ref{sub:Disjoint--Pairs},
+we introduce the reader to the theory of disjoint $\NP$-pairs based
+on the notion of promise problems. In \ref{sub:Propositional-Proof-Systems},
+we familiarize ourselves with propositional proof systems. Both introductions
+contain history, motivation and notions of the theories. In Section
+\ref{sub:Propositional-Proof-Systems}, we give basic results and
+proofs that help the reader understanding the introduced notions.
+Readers familiar with notions from both fields can safely skip this
+Section.
 
-History of NP-Pairs and Propositional Proof Systems
+Section \ref{sec:Disjoint--Pairs} covers important results from the
+field of disjoint $\NP$-pairs. We will study the earlier introduced
+reducibility of pairs in greater detail. It turns out that various
+definitions of reducibility available in the literature are equivalent.
+Subsequently, we study refinements of the ESY-conjecture and connections
+to open questions of complexity class separation.
 
-CR79 program, ESY, ... ?
+Greater details of the theory of propositional proof systems will
+be covered in Section \ref{sec:Propositional-Proof-Systems}. We will
+justify the motivation to study proof systems by establishing an equivalent
+formulation of $\NP=\coNP$, before we look into sufficient and necessary
+conditions for their existence. These conditions will lay the foundation
+for the study of different oracles in Section \ref{sec:Relativized-Worlds}.
 
-Razborov, ESY-Conjecture, Optimal Proof System for $\TAUT$?
+Section \ref{sec:Canonical-Disjoint--pairs} finally covers the connection
+in between both theories that was discovered by Razborov. It presents
+a proof for Razborov's theorem that uses the notion of complexity
+theory.
+
+We also take a look on relativized worlds in Section \ref{sec:Relativized-Worlds}.
+We point the reader to oracles relative to which optimal proof systems
+exist respectively do not exist. Section \ref{sub:Converse-of-Razborov}
+studies the converse of Razborov's theorem, for which we know oracles
+relative to which it holds, and relative to which it does not hold.
+Finally we refer the reader to a oracle that separates different refinements
+of the ESY-conjecture from each other.
+
+We conclude the thesis with a summary of open questions and future
+work on the field in Section \ref{sec:Conclusion}.
 
 \begin{sidewaysfigure}
 \includegraphics[width=1\textwidth]{implicationchart}
 
 \caption{Known Implications for proof systems, disjoint pairs and the ESY conjecture
-}
+\label{fig:implication-chart}}
 \end{sidewaysfigure}
 \newpage{}
 
 
-\section{Preliminaries}
+\section{Preliminaries\label{sec:Preliminaries}}
 
 
-\subsection{Disjoint $\NP$-Pairs}
+\subsection{Disjoint $\NP$-Pairs\label{sub:Disjoint--Pairs}}
 
 The study of disjoint $\NP$-pairs originates in the study of public
 key crypto systems (PKCS). The interest in secure PKCS is fundamental
@@ -475,12 +520,10 @@ equivalent to $\NP\neq\coNP$, see Theorem \ref{thm:equiv-esymfails-np=00003Dconp
  For every pair of disjoint sets in $\NP$, there is a separator
 that is not many-one-hard for $\NP$. \cite{conf/icalp/HughesPRS12} 
 \end{conjecture}
-We will study the consequences of the ESY-conjectures in section \ref{sub:ESY-conjectures}.
+We will study the consequences of the ESY-conjectures in Section \ref{sub:ESY-conjectures}.
 
 
-
-
-\subsection{Propositional Proof Systems}
+\subsection{Propositional Proof Systems\label{sub:Propositional-Proof-Systems}}
 
 A propositional proof system is a fast method of verifying proofs.
 
@@ -539,7 +582,7 @@ a propositional tautology relative to the length of the tautology
 is. The interest in the length of the proof is motivated by the fact
 that the existence of polynomial-length proofs for all tautologies
 characterizes the question of whether $\NP=\coNP$. (A fact we will
-prove in section \ref{sec:Propositional-Proof-Systems}.) However,
+prove in Section \ref{sec:Propositional-Proof-Systems}.) However,
 no known proof system could be proven to have proofs with length bounded
 by a polynomial. To tackle the problem, Cook and Reckhow introduced
 the notion of simulation of proof systems.
@@ -561,7 +604,7 @@ However, it is not only unknown whether polynomially-bounded proof
 systems exist, it is also unknown if optimal or even p-optimal proof
 systems exist. To study the existence of optimal and p-optimal proof
 systems, we will therefore study sufficient conditions and implications
-in section \ref{sec:Propositional-Proof-Systems}. To become familiar
+in Section \ref{sec:Propositional-Proof-Systems}. To become familiar
 with the notions, we present a strong sufficient condition for the
 existence of optimal proof systems:
 \begin{thm}
@@ -587,12 +630,12 @@ but is polynomially length bounded. Let now $w$ be a $f'$-proof
 for $x$. With $g$, we can translate $w$ into $\langle g(w),f'(w)\rangle$,
 which is a $f$-proof for $x$.
 \end{proof}
-As we will see in section \ref{sec:Propositional-Proof-Systems},
+As we will see in Section \ref{sec:Propositional-Proof-Systems},
 the existence of both optimal and p-optimal proof systems can be proven
 under much weaker hypotheses.
 
 
-\section{Disjoint $\NP$-Pairs}
+\section{Disjoint $\NP$-Pairs\label{sec:Disjoint--Pairs}}
 
 One of the most interesting open questions about disjoint $\NP$-pairs
 is whether there are complete pairs, either $\predmo$- or $\predt$-complete.
@@ -602,7 +645,7 @@ proof systems. Using the ESY-conjectures, we can also relate disjoint
 $\NP$-pairs to the $\NP$ vs. $\coNP$ questions.
 
 
-\subsection{Reducibility of disjoint pairs}
+\subsection{Reducibility of disjoint pairs\label{sub:Reducibility-of-disjoint}}
 
 In the literature exist several different definitions for the reducibility
 of pairs. Notice that results from this section apply to all disjoint
@@ -752,7 +795,7 @@ Are there $\P$-inseparable pairs? This implies $\P\neq\NP$.
 \section{Propositional Proof Systems\label{sec:Propositional-Proof-Systems}}
 
 
-\subsection{Polynomially-bounded proof systems and $\NP=\coNP$}
+\subsection{Polynomially-bounded proof systems and $\NP=\coNP$\label{sub:Polynomially-bounded-proof-syste}}
 
 We will show that the existence of polynomially-bounded proof systems
 characterizes the statement $\NP=\coNP$. The proof is due to Cook
@@ -796,7 +839,7 @@ is unknown. However, we are able to prove some necessary and sufficient
 conditions.  
 
 
-\subsection{Sufficient Conditions for the Existence of Optimal Proof Systems}
+\subsection{Sufficient Conditions for the Existence of Optimal Proof Systems\label{sub:Sufficient-Conditions-for}}
 
 To investigate further the question of whether optimal or even p-optimal
 proof systems exist, first KrajÌ\v{c}ek and Pudl·k \cite{journals/jsyml/KrajicekP89}
@@ -951,9 +994,9 @@ consequence which we tend to believe is not true. This result is due
 to Kˆbler, Meﬂner and Tor·n. \cite{journals/iandc/KoblerMT03}. However
 our interest in this result goes beyond this evidence, as Buhrman
 et al. \cite{conf/stacs/BuhrmanFFM00} showed that there is an oracle
-such that there are no complete sets for $\NP\cap\SPARSE$, although
-oracles relative to which there are no optimal proof systems have
-been known even before that \cite{journals/jsyml/KrajicekP89,journals/iandc/KoblerMT03}.
+such that there are no complete sets for $\NP\cap\SPARSE$ (see \ref{sub:Existence-Optimal-and-p-optimal-ps}),
+although oracles relative to which there are no optimal proof systems
+have been known even before that \cite{journals/jsyml/KrajicekP89,journals/iandc/KoblerMT03}.
 \begin{thm}
 If there is an optimal proof system, then complete sets for $\NP\cap\SPARSE$
 exist.\end{thm}
@@ -1052,7 +1095,7 @@ under non-uniform many-one reducibility.
 \end{thm}
 For the proof, we refer the reader to the work of Kˆbler, Meﬂner and
 Tor·n \cite{journals/iandc/KoblerMT03}. Among $\UP$, it also contains
-results on 
+completeness results on $\Few,$$\FewP$, $\NP\cap\SPARSE$ and $\NP\cap\coNP$.
 
 One of the most outstanding consequence of the existence of optimal
 proof systems is the existence of complete $\NP$-pairs, first proven
@@ -1062,7 +1105,7 @@ in the next section.
 \pagebreak{}
 
 
-\section{Propositional Proof Systems and $\NP$-Pairs}
+\section{Canonical Disjoint $\NP$-pairs for Proof Systems\label{sec:Canonical-Disjoint--pairs}}
 
 Razborov found a way to relate proof systems with disjoint $\NP$-pairs
 \cite{journals/eccc/ECCC-TR94-006} by defining a \emph{canonical
@@ -1111,7 +1154,7 @@ sufficient conditions for the existence of complete pairs. An important
 open question is whether the converse holds. Does the existence of
 a many-one complete disjoint $\NP$-pair imply the existence of an
 optimal proof system? While the answer remains unknown, oracles for
-both possibilities are known (see Section \ref{sec:Relativized-Worlds}).
+both options are known (see Section \ref{sub:Converse-of-Razborov}).
 
 
 
@@ -1125,11 +1168,11 @@ as well as gives a hint which proof techniques to use to study unresolved
 problems.
 
 
-\subsection{Existence Optimal and p-Optimal Proof Systems}
+\subsection{Existence Optimal and p-Optimal Proof Systems\label{sub:Existence-Optimal-and-p-optimal-ps}}
 
 Fortnow and respectively Meﬂner and Tor·n found oracles relative to
 which there is no optimal respectively no p-optimal proof system.
-Previously, Meﬂner and Toran proved \cite{journals/eccc/ECCC-TR97-026}
+Previously, Meﬂner and Tor·n proved \cite{journals/eccc/ECCC-TR97-026}
 that the existence of p-optimal proof systems implies the existence
 of complete sets in $\UP$. They also showed that the weaker assumption
 of the existence of an optimal proof system is sufficient for the
@@ -1165,7 +1208,7 @@ systems do exist. This and the oracle $O_{2}$ from the same paper
 are also interesting for the next section.
 
 
-\subsection{Converse of Razborov does not Hold}
+\subsection{Converse of Razborov\label{sub:Converse-of-Razborov}}
 
 The oracles $O_{1}$ and $O_{2}$ by Glaﬂer, Selman, Sengupta and
 Zhang \cite[Chapter 6]{journals/eccc/ECCC-TR03-011} provide insight
@@ -1179,7 +1222,7 @@ there are no optimal proof systems. It is also worth to mention that
 relative to both oracles, the ESY-conjectures holds.
 
 
-\subsection{Separation of ESY refinements}
+\subsection{Separation of ESY refinements\label{sub:Separation-of-ESY}}
 
 Glaﬂer and Wechsung constructed an oracle $D$ relative to which $\UP=\NP$
 and $\NP\neq\coNP$ \cite{DBLP:journals/jucs/GlasserW03}. Along with
@@ -1191,7 +1234,7 @@ oracle separates ESY-$tt$ from ESY-$m$. Notice that therefore, relative
 to $D$, ESY does not hold, but ESY-$m$ does.
 
 
-\section{Conclusion}
+\section{Conclusion\label{sec:Conclusion}}
 
 
 

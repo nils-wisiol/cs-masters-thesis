@@ -406,6 +406,24 @@ Definition of complexity classes
 \end_layout
 
 \begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Few}{\complexityclass{Few}}
+{\complexityclass{Few}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\FewP}{\complexityclass{FewP}}
+{\complexityclass{FewP}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -993,15 +1011,9 @@ arabic{page}}
 
 \begin_layout Section
 Introduction
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-grad handbook: definition of the problem, its importance 
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Introduction"
 
 \end_inset
 
@@ -1009,20 +1021,161 @@ grad handbook: definition of the problem, its importance
 \end_layout
 
 \begin_layout Standard
-History of NP-Pairs and Propositional Proof Systems
-\end_layout
-
-\begin_layout Standard
-CR79 program, ESY, ...
- ?
-\end_layout
-
-\begin_layout Standard
-Razborov, ESY-Conjecture, Optimal Proof System for 
-\begin_inset Formula $\TAUT$
+This thesis aims at readers that do not have a strong background in the
+ theories of propositional proof systems and disjoint 
+\begin_inset Formula $\NP$
 \end_inset
 
-?
+ pairs.
+ It surveys important results from both and points out important connections
+ in between these two theories.
+ Core of the thesis is the implication chart in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:implication-chart"
+
+\end_inset
+
+, that summarizes virtually all results mentioned in this thesis.
+\end_layout
+
+\begin_layout Standard
+In Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Preliminaries"
+
+\end_inset
+
+ is split into two pieces.
+ In 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Disjoint--Pairs"
+
+\end_inset
+
+, we introduce the reader to the theory of disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pairs based on the notion of promise problems.
+ In 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Propositional-Proof-Systems"
+
+\end_inset
+
+, we familiarize ourselves with propositional proof systems.
+ Both introductions contain history, motivation and notions of the theories.
+ In Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Propositional-Proof-Systems"
+
+\end_inset
+
+, we give basic results and proofs that help the reader understanding the
+ introduced notions.
+ Readers familiar with notions from both fields can safely skip this Section.
+\end_layout
+
+\begin_layout Standard
+Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Disjoint--Pairs"
+
+\end_inset
+
+ covers important results from the field of disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pairs.
+ We will study the earlier introduced reducibility of pairs in greater detail.
+ It turns out that various definitions of reducibility available in the
+ literature are equivalent.
+ Subsequently, we study refinements of the ESY-conjecture and connections
+ to open questions of complexity class separation.
+\end_layout
+
+\begin_layout Standard
+Greater details of the theory of propositional proof systems will be covered
+ in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Propositional-Proof-Systems"
+
+\end_inset
+
+.
+ We will justify the motivation to study proof systems by establishing an
+ equivalent formulation of 
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+, before we look into sufficient and necessary conditions for their existence.
+ These conditions will lay the foundation for the study of different oracles
+ in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Relativized-Worlds"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Canonical-Disjoint--pairs"
+
+\end_inset
+
+ finally covers the connection in between both theories that was discovered
+ by Razborov.
+ It presents a proof for Razborov's theorem that uses the notion of complexity
+ theory.
+\end_layout
+
+\begin_layout Standard
+We also take a look on relativized worlds in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Relativized-Worlds"
+
+\end_inset
+
+.
+ We point the reader to oracles relative to which optimal proof systems
+ exist respectively do not exist.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Converse-of-Razborov"
+
+\end_inset
+
+ studies the converse of Razborov's theorem, for which we know oracles relative
+ to which it holds, and relative to which it does not hold.
+ Finally we refer the reader to a oracle that separates different refinements
+ of the ESY-conjecture from each other.
+\end_layout
+
+\begin_layout Standard
+We conclude the thesis with a summary of open questions and future work
+ on the field in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Conclusion"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1057,6 +1210,13 @@ working draft, convert to LaTeX and check citations
 \end_inset
 
 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:implication-chart"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1075,6 +1235,13 @@ working draft, convert to LaTeX and check citations
 
 \begin_layout Section
 Preliminaries
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Preliminaries"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1083,6 +1250,13 @@ Disjoint
 \end_inset
 
 -Pairs
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Disjoint--Pairs"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1879,7 +2053,7 @@ key "conf/icalp/HughesPRS12"
 \end_layout
 
 \begin_layout Standard
-We will study the consequences of the ESY-conjectures in section 
+We will study the consequences of the ESY-conjectures in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:ESY-conjectures"
@@ -1889,21 +2063,15 @@ reference "sub:ESY-conjectures"
 .
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ESY-m implies ESY-tt implies ESY-T
-\end_layout
+\begin_layout Subsection
+Propositional Proof Systems
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Propositional-Proof-Systems"
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-Propositional Proof Systems
 \end_layout
 
 \begin_layout Standard
@@ -2226,7 +2394,7 @@ restructure previous sentence
 \end_inset
 
 .
- (A fact we will prove in section 
+ (A fact we will prove in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Propositional-Proof-Systems"
@@ -2375,7 +2543,7 @@ An more intuitive (and informal) way to give a definition for
 However, it is not only unknown whether polynomially-bounded proof systems
  exist, it is also unknown if optimal or even p-optimal proof systems exist.
  To study the existence of optimal and p-optimal proof systems, we will
- therefore study sufficient conditions and implications in section 
+ therefore study sufficient conditions and implications in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Propositional-Proof-Systems"
@@ -2529,7 +2697,7 @@ To see
 \end_layout
 
 \begin_layout Standard
-As we will see in section 
+As we will see in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Propositional-Proof-Systems"
@@ -2546,6 +2714,13 @@ Disjoint
 \end_inset
 
 -Pairs
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Disjoint--Pairs"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2589,6 +2764,13 @@ One of the most interesting open questions about disjoint
 
 \begin_layout Subsection
 Reducibility of disjoint pairs
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Reducibility-of-disjoint"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3357,6 +3539,13 @@ Polynomially-bounded proof systems and
 \end_inset
 
 
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Polynomially-bounded-proof-syste"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3572,6 +3761,13 @@ citation of oracles? Anything known for that?
 
 \begin_layout Subsection
 Sufficient Conditions for the Existence of Optimal Proof Systems
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Sufficient-Conditions-for"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4443,17 +4639,14 @@ key "conf/stacs/BuhrmanFFM00"
 \begin_inset Formula $\NP\cap\SPARSE$
 \end_inset
 
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-insert forward reference
-\end_layout
+ (see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Existence-Optimal-and-p-optimal-ps"
 
 \end_inset
 
-, although oracles relative to which there are no optimal proof systems
+), although oracles relative to which there are no optimal proof systems
  have been known even before that 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -5088,17 +5281,23 @@ key "journals/iandc/KoblerMT03"
 \begin_inset Formula $\UP$
 \end_inset
 
-, it also contains results on 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-on what?
-\end_layout
-
+, it also contains completeness results on 
+\begin_inset Formula $\Few,$
 \end_inset
 
 
+\begin_inset Formula $\FewP$
+\end_inset
+
+, 
+\begin_inset Formula $\NP\cap\SPARSE$
+\end_inset
+
+ and 
+\begin_inset Formula $\NP\cap\coNP$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -5119,24 +5318,14 @@ One of the most outstanding consequence of the existence of optimal proof
 \end_layout
 
 \begin_layout Section
-Propositional Proof Systems and 
+Canonical Disjoint 
 \begin_inset Formula $\NP$
 \end_inset
 
--Pairs
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Quotes eld
-\end_inset
-
-canonical pairs
-\begin_inset Quotes erd
-\end_inset
-
-?
-\end_layout
+-pairs for Proof Systems
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Canonical-Disjoint--pairs"
 
 \end_inset
 
@@ -5452,20 +5641,10 @@ This result is an important connection of the theory of proof systems and
 \end_inset
 
 -pair imply the existence of an optimal proof system? While the answer remains
- unknown, oracles for both possibilities
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-check if this is really true
-\end_layout
-
-\end_inset
-
- are known (see Section 
+ unknown, oracles for both options are known (see Section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Relativized-Worlds"
+reference "sub:Converse-of-Razborov"
 
 \end_inset
 
@@ -5518,12 +5697,19 @@ Lacking the ability to prove unrelativized results, a lot of open questions
 
 \begin_layout Subsection
 Existence Optimal and p-Optimal Proof Systems
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Existence-Optimal-and-p-optimal-ps"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Fortnow and respectively Meßner and Torán found oracles relative to which
  there is no optimal respectively no p-optimal proof system.
- Previously, Meßner and Toran proved 
+ Previously, Meßner and Torán proved 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "journals/eccc/ECCC-TR97-026"
@@ -5671,7 +5857,14 @@ reference "thm:sufficient-cond-for-optimal-pps"
 \end_layout
 
 \begin_layout Subsection
-Converse of Razborov does not Hold
+Converse of Razborov
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Converse-of-Razborov"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5724,6 +5917,13 @@ key "journals/eccc/ECCC-TR03-011"
 
 \begin_layout Subsection
 Separation of ESY refinements
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Separation-of-ESY"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5799,6 +5999,13 @@ reference "thm:equiv-esymfails-np=conp-polyboundpps"
 
 \begin_layout Section
 Conclusion
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Conclusion"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
