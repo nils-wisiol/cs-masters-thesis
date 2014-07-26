@@ -762,7 +762,7 @@ vspace*{.5in}
 
 \series bold
 \size largest
-Survey of Disjoint 
+Disjoint 
 \begin_inset Formula $\NP$
 \end_inset
 
@@ -3428,16 +3428,68 @@ The ESY-m conjecture does not hold, that is, there exists a disjoint
 
 \end_deeper
 \begin_layout Proof
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-insert proof
-\end_layout
-
+Assume ESY-
+\begin_inset Formula $m$
 \end_inset
 
+ does not hold.
+ Let 
+\begin_inset Formula $(A,B)\in\DisjNP$
+\end_inset
 
+ such that all separators are many-one-hard for 
+\begin_inset Formula $\NP$
+\end_inset
+
+.
+ The set 
+\begin_inset Formula $\overline{B}$
+\end_inset
+
+ is a separator of 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+, and therefore 
+\begin_inset Formula $\SAT\redmo\overline{B}$
+\end_inset
+
+.
+ Thus, 
+\begin_inset Formula $\overline{SAT}\redmo B$
+\end_inset
+
+ which means that 
+\begin_inset Formula $\overline{SAT}\in\NP$
+\end_inset
+
+.
+ It follows by the completeness of 
+\begin_inset Formula $\SAT$
+\end_inset
+
+ that 
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Now assume 
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+.
+ The pair 
+\begin_inset Formula $(SAT,\overline{SAT})$
+\end_inset
+
+ only has separators that are many-one-hard for 
+\begin_inset Formula $\NP$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Theorem
@@ -3455,7 +3507,7 @@ If
 \begin_inset Formula $tt$
 \end_inset
 
- does not hold, that is there exists a disjoint 
+ does not hold, that is, there exists a disjoint 
 \begin_inset Formula $\NP$
 \end_inset
 
@@ -3466,68 +3518,16 @@ If
 .
 \end_layout
 
-\begin_layout Proof
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-insert proof?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-more
-\end_layout
-
 \begin_layout Standard
-Razborov 
+For a proof please refer to the work of Hughes, Mandal, Pavan, Russell and
+ Selman 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "journals/eccc/ECCC-TR94-006"
-
-\end_inset
-
- discovered that the existence of optimal proof systems implies the existence
- of complete pairs, as we will see in Corollary 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cor:razborov"
+key "conf/icalp/HughesPRS12"
 
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Are there 
-\begin_inset Formula $\P$
-\end_inset
-
--inseparable pairs? This implies 
-\begin_inset Formula $\P\neq\NP$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Besides the relation to cryptography and proof systems, we can also mention
- the relation of disjoint NP-pairs to multi-valued functions [Sel94].
- I don't know whether you already mentioned this, since I don't have your
- complete write-up.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -4189,6 +4189,20 @@ reference "thm:sufficient-cond-for-optimal-pps"
 
 \end_inset
 
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Define 
+\begin_inset Formula $\EE$
+\end_inset
+
+!
+\end_layout
+
+\end_inset
+
 Let 
 \begin_inset Formula $M_{1},M_{2},...$
 \end_inset
@@ -4623,16 +4637,7 @@ name "sub:Implications-of-the-existence-of-optimal-proof-systems"
 \end_layout
 
 \begin_layout Standard
-In this section, we will see some evidence suggesting optimal proof systems
- do not exist.
- One of the implications given by optimal proof systems is the existence
- of complete sets for 
-\begin_inset Formula $\NP\cap\SPARSE$
-\end_inset
-
-, a consequence which we tend to believe is not true.
- This result is due to Köbler, Meßner and Torán.
- 
+In this section, we will present a result of Köbler, Meßner and Torán 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "journals/iandc/KoblerMT03"
@@ -4640,36 +4645,36 @@ key "journals/iandc/KoblerMT03"
 \end_inset
 
 .
- However our interest in this result goes beyond this evidence, as Buhrman
- et al.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "conf/stacs/BuhrmanFFM00"
-
-\end_inset
-
- showed that there is an oracle such that there are no complete sets for
- 
+ In particular, we will show that the existence of an optimal proof system
+ implies the existence of a complete set of 
 \begin_inset Formula $\NP\cap\SPARSE$
 \end_inset
 
- (see 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Existence-Optimal-and-p-optimal-ps"
-
+.
+ Since Buhrman et al.
+ showed the existence of an oracle such that there are no complete sets
+ for 
+\begin_inset Formula $\NP\cap\SPARSE$
 \end_inset
 
-), although oracles relative to which there are no optimal proof systems
- have been known even before that 
+, it follows that there are no optimal proof systems relative to this oracle.
+ As a further note, Krajíček and Pudlák 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "journals/jsyml/KrajicekP89,journals/iandc/KoblerMT03"
 
 \end_inset
 
-.
+ directly constructed an oracle such that there are no optimal proof systems.
+\end_layout
+
+\begin_layout Standard
+We tend to believe that there are no complete sets for 
+\begin_inset Formula $\NP\cap\SPARSE$
+\end_inset
+
+, therefore the result by Köbler, Meßner and Torán provides evidence that
+ there are no optimal proof systems.
 \end_layout
 
 \begin_layout Theorem

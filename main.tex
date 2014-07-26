@@ -230,8 +230,7 @@
 \vspace*{.5in}
 
 \noindent \begin{center}
-\textbf{\LARGE Survey of Disjoint $\NP$-Pairs and Propositional Proof
-Systems }
+\textbf{\LARGE Disjoint $\NP$-Pairs and Propositional Proof Systems }
 \par\end{center}{\LARGE \par}
 
 \noindent \begin{center}
@@ -316,7 +315,7 @@ look into open questions and suggest future work on both fields.
 \renewcommand{\thepage}{\arabic{page}}
 
 
-\section{Introduction\label{sec:Introduction}}
+\section{\protect\marginpar{}Introduction\label{sec:Introduction}}
 
 This thesis aims at readers that do not have a strong background in
 the theories of propositional proof systems and disjoint $\NP$ pairs.
@@ -780,24 +779,21 @@ $\NP$-pair such that all separators are many-one-hard for $\NP$.
 \end{enumerate}
 \end{thm}
 \begin{proof}
-\end{proof}
+Assume ESY-$m$ does not hold. Let $(A,B)\in\DisjNP$ such that all
+separators are many-one-hard for $\NP$. The set $\overline{B}$ is
+a separator of $(A,B)$, and therefore $\SAT\redmo\overline{B}$.
+Thus, $\overline{SAT}\redmo B$ which means that $\overline{SAT}\in\NP$.
+It follows by the completeness of $\SAT$ that $\NP=\coNP$.
+
+Now assume $\NP=\coNP$. The pair $(SAT,\overline{SAT})$ only has
+separators that are many-one-hard for $\NP$.\end{proof}
 \begin{thm}
 \label{thm:NP=00003DUP-implies-ESY-tt-does-not-hold}If $\NP=\UP$,
-then ESY-$tt$ does not hold, that is there exists a disjoint $\NP$-pair
-such that all separators are truth-table-hard for $\NP$.\end{thm}
-\begin{proof}
-
-\end{proof}
-
-\subsection{more}
-
-Razborov \cite{journals/eccc/ECCC-TR94-006} discovered that the existence
-of optimal proof systems implies the existence of complete pairs,
-as we will see in Corollary \ref{cor:razborov}.
-
-Are there $\P$-inseparable pairs? This implies $\P\neq\NP$.
-
-
+then ESY-$tt$ does not hold, that is, there exists a disjoint $\NP$-pair
+such that all separators are truth-table-hard for $\NP$.
+\end{thm}
+For a proof please refer to the work of Hughes, Mandal, Pavan, Russell
+and Selman \cite{conf/icalp/HughesPRS12}.
 
 \pagebreak{}
 
@@ -997,16 +993,19 @@ in $i$ and $j$ and is therefore polynomially bounded in $|w|$.
 
 \subsection{Implications of the Existence of Optimal Proof Systems\label{sub:Implications-of-the-existence-of-optimal-proof-systems}}
 
-In this section, we will see some evidence suggesting optimal proof
-systems do not exist. One of the implications given by optimal proof
-systems is the existence of complete sets for $\NP\cap\SPARSE$, a
-consequence which we tend to believe is not true. This result is due
-to Köbler, Meßner and Torán. \cite{journals/iandc/KoblerMT03}. However
-our interest in this result goes beyond this evidence, as Buhrman
-et al. \cite{conf/stacs/BuhrmanFFM00} showed that there is an oracle
-such that there are no complete sets for $\NP\cap\SPARSE$ (see \ref{sub:Existence-Optimal-and-p-optimal-ps}),
-although oracles relative to which there are no optimal proof systems
-have been known even before that \cite{journals/jsyml/KrajicekP89,journals/iandc/KoblerMT03}.
+In this section, we will present a result of Köbler, Meßner and Torán
+\cite{journals/iandc/KoblerMT03}. In particular, we will show that
+the existence of an optimal proof system implies the existence of
+a complete set of $\NP\cap\SPARSE$. Since Buhrman et al. showed the
+existence of an oracle such that there are no complete sets for $\NP\cap\SPARSE$,
+it follows that there are no optimal proof systems relative to this
+oracle. As a further note, Krají\v{c}ek and Pudlák \cite{journals/jsyml/KrajicekP89,journals/iandc/KoblerMT03}
+directly constructed an oracle such that there are no optimal proof
+systems.
+
+We tend to believe that there are no complete sets for $\NP\cap\SPARSE$,
+therefore the result by Köbler, Meßner and Torán provides evidence
+that there are no optimal proof systems.
 \begin{thm}
 If there is an optimal proof system, then complete sets for $\NP\cap\SPARSE$
 exist.\end{thm}
