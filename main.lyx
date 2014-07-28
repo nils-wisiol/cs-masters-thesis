@@ -47,8 +47,10 @@ algolyx
 \paperfontsize default
 \spacing double
 \use_hyperref true
+\pdf_title "Disjoint NP-Pairs and Propositional Proof Systems"
+\pdf_author "Nils wisiol"
 \pdf_bookmarks true
-\pdf_bookmarksnumbered false
+\pdf_bookmarksnumbered true
 \pdf_bookmarksopen false
 \pdf_bookmarksopenlevel 1
 \pdf_breaklinks false
@@ -1209,9 +1211,437 @@ sideways true
 status open
 
 \begin_layout Plain Layout
-\begin_inset Graphics
-	filename implicationchart.pdf
-	width 100text%
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[->,>=stealth',shorten >=1pt,node distance=3.0cm,     
+  semithick, /tikz/initial text=]   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{every state}=[fill=none,draw=black,text=black]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path
+\end_layout
+
+\begin_layout Plain Layout
+
+(4,-2.5)   node(PeqNP)    {$
+\backslash
+P=
+\backslash
+NP$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(0,-5)  node(NPeqcoNP) [align=center]
+\end_layout
+
+\begin_layout Plain Layout
+
+                 {ESY-m fails
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+                  $
+\backslash
+iff$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+                  $
+\backslash
+NP=
+\backslash
+coNP$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+                  $
+\backslash
+iff$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+                  $
+\backslash
+exists$ poly bound proof system}
+\end_layout
+
+\begin_layout Plain Layout
+
+(0,-13)  node(mComPair) {$
+\backslash
+exists$ m-complete pair}
+\end_layout
+
+\begin_layout Plain Layout
+
+(8,-4)   node(EeqNE) {$
+\backslash
+E=
+\backslash
+NE$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(3,-8)   node(NEeqcoNE) {$
+\backslash
+NE=
+\backslash
+coNE$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(8,-7)   node(EEeqNEE) {$
+\backslash
+EE=
+\backslash
+NEE$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(6.5,-8.5)   node(NEEeqcoNEE) {$
+\backslash
+NEE=
+\backslash
+coNEE$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(6,-11)  node(optimalPS) {$
+\backslash
+exists$ optimal ps}
+\end_layout
+
+\begin_layout Plain Layout
+
+(11,-8)  node(poptimalPS) {$
+\backslash
+exists$ p-optimal ps}
+\end_layout
+
+\begin_layout Plain Layout
+
+(6,-14)  node(NPcapSPARSEcom) [align=center]
+\end_layout
+
+\begin_layout Plain Layout
+
+                  {$
+\backslash
+exists$ log-space complete
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+                   set in $
+\backslash
+NP
+\backslash
+cap
+\backslash
+SPARSE$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(11,-12) node(UPcom) [align=center]
+\end_layout
+
+\begin_layout Plain Layout
+
+                  {$
+\backslash
+exists$ m-complete set in
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+                   $
+\backslash
+UP$, $
+\backslash
+Few$, $
+\backslash
+FewP$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(-4,-7) node(ESYttfails) {ESY-tt fails}
+\end_layout
+
+\begin_layout Plain Layout
+
+(-7,-8.5) node(ESYTfails) {ESY-T fails}
+\end_layout
+
+\begin_layout Plain Layout
+
+(-7,-5) node(NPeqUP) {$
+\backslash
+NP=
+\backslash
+UP$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(-4,-14.5) node(ttComPair) {$
+\backslash
+exists$ tt-complete pair} 
+\end_layout
+
+\begin_layout Plain Layout
+
+(-7,-16) node(TComPair) {$
+\backslash
+exists$ T-complete pair}
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path[every node/.style={sloped,anchor=south,auto=false}]
+\end_layout
+
+\begin_layout Plain Layout
+
+  (PeqNP) edge (NPeqcoNP)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (PeqNP) edge (EeqNE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (NPeqcoNP) edge node{
+\backslash
+footnotesize
+\backslash
+cite{journals/eccc/ECCC-TR03-011}} (mComPair)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (NPeqcoNP) edge (NEeqcoNE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (NPeqcoNP) edge (ESYttfails)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (EeqNE) edge (NEeqcoNE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (EeqNE) edge (EEeqNEE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (NEeqcoNE) edge (NEEeqcoNEE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (EEeqNEE) edge (NEEeqcoNEE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (NEeqcoNE) edge node{
+\backslash
+footnotesize
+\backslash
+cite{journals/jsyml/KrajicekP89, journals/logiccoll/Pudlak86}} (optimalPS)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (NEEeqcoNEE) edge node{
+\backslash
+footnotesize
+\backslash
+cite{journals/eccc/ECCC-TR97-026}} (optimalPS)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (EeqNE) edge node {
+\backslash
+footnotesize
+\backslash
+cite{journals/jsyml/KrajicekP89}} (poptimalPS)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (EEeqNEE) edge node{
+\backslash
+footnotesize
+\backslash
+cite{journals/eccc/ECCC-TR97-026}} (poptimalPS)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (poptimalPS) edge (optimalPS)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (poptimalPS) edge node{
+\backslash
+footnotesize
+\backslash
+cite{journals/eccc/ECCC-TR97-026}} (UPcom)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (optimalPS) edge node{
+\backslash
+footnotesize
+\backslash
+cite{journals/eccc/ECCC-TR94-006}} (mComPair)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (optimalPS) edge node{
+\backslash
+footnotesize
+\backslash
+cite{journals/eccc/ECCC-TR97-026}} (NPcapSPARSEcom)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (mComPair) edge (ttComPair)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (ttComPair) edge (TComPair)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (ESYttfails) edge (ESYTfails)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (NPeqUP) edge node{
+\backslash
+footnotesize
+\backslash
+cite{conf/icalp/HughesPRS12}} (ESYttfails)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (ESYttfails) edge (ttComPair)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (ESYTfails) edge (TComPair)
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
 
 \end_inset
 
@@ -3125,8 +3555,7 @@ key "journals/iandc/EvenSY84"
 \end_inset
 
 .
- This can easily be refined by using many-one hardness instead of Turing-hardnes
-s.
+ This can be refined by using many-one hardness instead of Turing-hardness.
 \end_layout
 
 \begin_layout Definition
@@ -3465,11 +3894,11 @@ Assume ESY-
 
 .
  Thus, 
-\begin_inset Formula $\overline{SAT}\redmo B$
+\begin_inset Formula $\overline{\SAT}\redmo B$
 \end_inset
 
  which means that 
-\begin_inset Formula $\overline{SAT}\in\NP$
+\begin_inset Formula $\overline{\SAT}\in\NP$
 \end_inset
 
 .
@@ -3491,7 +3920,7 @@ Now assume
 
 .
  The pair 
-\begin_inset Formula $(SAT,\overline{SAT})$
+\begin_inset Formula $(\SAT,\overline{\SAT})$
 \end_inset
 
  only has separators that are many-one-hard for 

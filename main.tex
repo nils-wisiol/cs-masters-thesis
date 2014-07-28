@@ -13,13 +13,14 @@
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{graphicx}
 \usepackage{setspace}
 \doublespacing
-\usepackage[unicode=true,pdfusetitle,
- bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
  breaklinks=false,pdfborder={0 0 0},backref=false,colorlinks=false]
  {hyperref}
+\hypersetup{pdftitle={Disjoint NP-Pairs and Propositional Proof Systems},
+ pdfauthor={Nils wisiol}}
 \usepackage{breakurl}
 
 \makeatletter
@@ -365,7 +366,65 @@ We conclude the thesis with a summary of open questions and future
 work on the field in Section \ref{sec:Conclusion}.
 
 \begin{sidewaysfigure}
-\includegraphics[width=1\textwidth]{implicationchart}
+\begin{center}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,node distance=3.0cm,       semithick, /tikz/initial text=]   
+\tikzstyle{every state}=[fill=none,draw=black,text=black]
+  
+\path
+(4,-2.5)   node(PeqNP)    {$\P=\NP$}
+(0,-5)  node(NPeqcoNP) [align=center]
+                 {ESY-m fails\\
+                  $\iff$\\
+                  $\NP=\coNP$\\
+                  $\iff$\\
+                  $\exists$ poly bound proof system}
+(0,-13)  node(mComPair) {$\exists$ m-complete pair}
+(8,-4)   node(EeqNE) {$\E=\NE$}
+(3,-8)   node(NEeqcoNE) {$\NE=\coNE$}
+(8,-7)   node(EEeqNEE) {$\EE=\NEE$}
+(6.5,-8.5)   node(NEEeqcoNEE) {$\NEE=\coNEE$}
+(6,-11)  node(optimalPS) {$\exists$ optimal ps}
+(11,-8)  node(poptimalPS) {$\exists$ p-optimal ps}
+(6,-14)  node(NPcapSPARSEcom) [align=center]
+                  {$\exists$ log-space complete\\
+                   set in $\NP\cap\SPARSE$}
+(11,-12) node(UPcom) [align=center]
+                  {$\exists$ m-complete set in\\
+                   $\UP$, $\Few$, $\FewP$}
+(-4,-7) node(ESYttfails) {ESY-tt fails}
+(-7,-8.5) node(ESYTfails) {ESY-T fails}
+(-7,-5) node(NPeqUP) {$\NP=\UP$}
+(-4,-14.5) node(ttComPair) {$\exists$ tt-complete pair} 
+(-7,-16) node(TComPair) {$\exists$ T-complete pair}
+;
+
+\path[every node/.style={sloped,anchor=south,auto=false}]
+  (PeqNP) edge (NPeqcoNP)
+  (PeqNP) edge (EeqNE)
+  (NPeqcoNP) edge node{\footnotesize\cite{journals/eccc/ECCC-TR03-011}} (mComPair)
+  (NPeqcoNP) edge (NEeqcoNE)
+  (NPeqcoNP) edge (ESYttfails)
+  (EeqNE) edge (NEeqcoNE)
+  (EeqNE) edge (EEeqNEE)
+  (NEeqcoNE) edge (NEEeqcoNEE)
+  (EEeqNEE) edge (NEEeqcoNEE)
+  (NEeqcoNE) edge node{\footnotesize\cite{journals/jsyml/KrajicekP89, journals/logiccoll/Pudlak86}} (optimalPS)
+  (NEEeqcoNEE) edge node{\footnotesize\cite{journals/eccc/ECCC-TR97-026}} (optimalPS)
+  (EeqNE) edge node {\footnotesize\cite{journals/jsyml/KrajicekP89}} (poptimalPS)
+  (EEeqNEE) edge node{\footnotesize\cite{journals/eccc/ECCC-TR97-026}} (poptimalPS)
+  (poptimalPS) edge (optimalPS)
+  (poptimalPS) edge node{\footnotesize\cite{journals/eccc/ECCC-TR97-026}} (UPcom)
+  (optimalPS) edge node{\footnotesize\cite{journals/eccc/ECCC-TR94-006}} (mComPair)
+  (optimalPS) edge node{\footnotesize\cite{journals/eccc/ECCC-TR97-026}} (NPcapSPARSEcom)
+  (mComPair) edge (ttComPair)
+  (ttComPair) edge (TComPair)
+  (ESYttfails) edge (ESYTfails)
+  (NPeqUP) edge node{\footnotesize\cite{conf/icalp/HughesPRS12}} (ESYttfails)
+  (ESYttfails) edge (ttComPair)
+  (ESYTfails) edge (TComPair)
+;
+\end{tikzpicture}
+\end{center}
 
 \caption{Known Implications for proof systems, disjoint pairs and the ESY conjecture
 \label{fig:implication-chart}}
@@ -720,8 +779,8 @@ and Turing reducibility.
 
 The original ESY-conjecture \cite{journals/iandc/EvenSY84} is that
 for every pair of disjoint sets in $\NP$, there is a separator that
-is not Turing-hard for $\NP$. This can easily be refined by using
-many-one hardness instead of Turing-hardness.
+is not Turing-hard for $\NP$. This can be refined by using many-one
+hardness instead of Turing-hardness.
 \begin{defn}
 For a reduction $r$, we define the ESY-$r$ conjecture as follows:
 For every pair of disjoints sets in $\NP$, there is a separator that
@@ -782,10 +841,10 @@ $\NP$-pair such that all separators are many-one-hard for $\NP$.
 Assume ESY-$m$ does not hold. Let $(A,B)\in\DisjNP$ such that all
 separators are many-one-hard for $\NP$. The set $\overline{B}$ is
 a separator of $(A,B)$, and therefore $\SAT\redmo\overline{B}$.
-Thus, $\overline{SAT}\redmo B$ which means that $\overline{SAT}\in\NP$.
+Thus, $\overline{\SAT}\redmo B$ which means that $\overline{\SAT}\in\NP$.
 It follows by the completeness of $\SAT$ that $\NP=\coNP$.
 
-Now assume $\NP=\coNP$. The pair $(SAT,\overline{SAT})$ only has
+Now assume $\NP=\coNP$. The pair $(\SAT,\overline{\SAT})$ only has
 separators that are many-one-hard for $\NP$.\end{proof}
 \begin{thm}
 \label{thm:NP=00003DUP-implies-ESY-tt-does-not-hold}If $\NP=\UP$,
