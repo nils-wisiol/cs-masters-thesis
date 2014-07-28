@@ -1,0 +1,4296 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\usepackage{listings}
+\usetheme{Warsaw}
+% or ...
+%\usetheme{Antibes}	% tree outline, neat
+%\usetheme{JuanLesPins}	% like Antibes, with shading
+%\usetheme{Bergen}	% outline on side
+%\usetheme{Luebeck}	% like Warsaw, square sides
+%\usetheme{Berkeley}	% interesting left bar outline
+%\usetheme{Madrid}	% clean, nice.  7/12 page numbers
+%\usetheme{Berlin}	% dots show slide number
+%\usetheme{Malmoe}	% OK, plain, unshaded
+%\usetheme{Boadilla}	% nice, white bg, no top bar
+%\usetheme{Marburg}	% nice, outline on right
+%\usetheme{boxes}	% ???
+%\usetheme{Montpellier}	% tree outline on top, plainish white
+%\usetheme{Copenhagen}	% like Warsaw
+%\usetheme{PaloAlto}	% looks good
+%\usetheme{Darmstadt}	% like Warsaw with circle outline
+%\usetheme{Pittsburgh}
+%\usetheme{default}
+%\usetheme{Rochester}	% like boxy, unshaded warsaw
+%\usetheme{Dresden}	% circle outline on top
+%\usetheme{Singapore}	% purple gradient top
+%\usetheme{Frankfurt}	% like Warsaw with circle outline on top
+%\usetheme{Szeged}
+%\usetheme{Goettingen}	% light purple right bar outline
+%\usetheme{Warsaw}
+%\usetheme{Hannover}	% like Goett with bar on left
+%\usetheme{compatibility}
+%\usetheme{Ilmenau}
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+
+%\usecolortheme{seahorse}
+%\usecolortheme{rose}
+
+% seems to fix typewriter font in outline header:
+\usepackage{ae,aecompl}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows,automata,shapes,chains,positioning}
+
+\usepackage{amsfonts}
+\end_preamble
+\options handout
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of operators
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Sym}{\operatorname{Sym}}
+{\mathrm{Sym\text{ }}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Aut}{\operatorname{Aut}}
+{\mathrm{Aut\text{ }}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Ker}{\operatorname{Ker}}
+{\mathrm{Ker}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Img}{\operatorname{Im}}
+{\mathrm{Im}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Sep}{\operatorname{Sep}}
+{\mathrm{Sep}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\powerset}{\operatorname{\mathcal{P}}}
+{\mathrm{\mathcal{P}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of function classes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\functionclass}[1]{\mathcal{#1}}
+{\mathcal{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\FP}{\functionclass{FP}}
+{\functionclass{FP}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of complexity classes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\complexityclass}[1]{\mathrm{#1}}
+{\mathrm{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\DTIME}{\complexityclass{DTIME}}
+{\complexityclass{DTIME}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NTIME}{\complexityclass{NTIME}}
+{\complexityclass{NTIME}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNTIME}{\complexityclass{coNTIME}}
+{\complexityclass{coNTIME}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\P}{\complexityclass P}
+{\complexityclass P}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NP}{\complexityclass{NP}}
+{\complexityclass{NP}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNP}{\complexityclass{coNP}}
+{\complexityclass{coNP}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\UP}{\complexityclass{UP}}
+{\complexityclass{UP}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\E}{\complexityclass E}
+{\complexityclass E}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NE}{\complexityclass{NE}}
+{\complexityclass{NE}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNE}{\complexityclass{coNE}}
+{\complexityclass{coNE}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\EE}{\complexityclass{EE}}
+{\complexityclass{EE}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NEE}{\complexityclass{NEE}}
+{\complexityclass{NEE}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNEE}{\complexityclass{coNEE}}
+{\complexityclass{coNEE}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\EEE}{\complexityclass{EEE}}
+{\complexityclass{EEE}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NEEE}{\complexityclass{NEEE}}
+{\complexityclass{NEEE}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNEEE}{\complexityclass{coNEEE}}
+{\complexityclass{coNEEE}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\EXP}{\complexityclass{EXP}}
+{\complexityclass{EXP}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NEXP}{\complexityclass{NEXP}}
+{\complexityclass{NEXP}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coNEXP}{\complexityclass{coNEXP}}
+{\complexityclass{coNEXP}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\DisjNP}{\complexityclass{DisjNP}}
+{\complexityclass{DisjNP}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\SPARSE}{\complexityclass{SPARSE}}
+{\complexityclass{SPARSE}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\degree}{\operatorname{d}}
+{\mathrm{d}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\GI}{\complexityclass{GI}}
+{\complexityclass{GI}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\GNI}{\complexityclass{GNI}}
+{\complexityclass{GNI}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\AM}{\complexityclass{AM}}
+{\complexityclass{AM}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coAM}{\complexityclass{coAM}}
+{\complexityclass{coAM}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Few}{\complexityclass{Few}}
+{\complexityclass{Few}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\FewP}{\complexityclass{FewP}}
+{\complexityclass{FewP}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of reductions (languages)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\redmo}{\leq_{m}^{p}}
+{\leq_{m}^{p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\equivmo}{\equiv_{m}^{p}}
+{\equiv_{m}^{p}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\redt}{\leq_{T}^{p}}
+{\leq_{T}^{p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\equivt}{\equiv_{T}^{p}}
+{\equiv_{T}^{p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\nredt}{\nleq_{T}^{p}}
+{\nleq_{T}^{p}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\redr}{\leq_{r}}
+{\leq_{r}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\nredr}{\nleq_{r}}
+{\nleq_{r}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of reductions (pairs)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\predmo}{\leq_{m}^{pp}}
+{\leq_{m}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pequivmo}{\equiv_{m}^{pp}}
+{\equiv_{m}^{pp}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\predsmo}{\leq_{sm}^{pp}}
+{\leq_{sm}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pequivsmo}{\equiv_{sm}^{pp}}
+{\equiv_{sm}^{pp}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\predt}{\leq_{T}^{pp}}
+{\leq_{T}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pequivt}{\equiv_{T}^{pp}}
+{\equiv_{T}^{pp}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\predunimo}{\leq_{um}^{pp}}
+{\leq_{um}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pequivunimo}{\equiv_{um}^{pp}}
+{\equiv_{um}^{pp}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\predunit}{\leq_{uT}^{pp}}
+{\leq_{uT}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pequivunit}{\equiv_{uT}^{pp}}
+{\equiv_{uT}^{pp}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\predr}{\leq_{r}^{pp}}
+{\leq_{r}^{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pequivr}{\equiv_{r}^{pp}}
+{\equiv_{r}^{pp}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of simulations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\simp}{\leq_{p}}
+{\leq_{p}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Definition of languages
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\lang}[1]{\mathrm{#1}}
+{\mathrm{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\SAT}{\lang{SAT}}
+{\lang{SAT}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\SATstar}{\lang{SAT}^{*}}
+{\lang{SAT}^{*}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\REF}{\lang{REF}}
+{\lang{REF}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\TAUT}{\lang{TAUT}}
+{\lang{TAUT}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\TALLY}{\lang{TALLY}}
+{\lang{TALLY}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+misc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\true}{\text{true}}
+{\text{true}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\false}{\text{false}}
+{\text{false}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Additional statements for algorithms 
+\begin_inset Newline newline
+\end_inset
+
+(Note: changes to lyxalgo.sty are needed every time a new statement is added.)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand{
+\backslash
+keyreturn}{return}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-Pairs and Propositional Proof Systems
+\end_layout
+
+\begin_layout Author
+Nils Wisiol
+\end_layout
+
+\begin_layout Institute
+University at Buffalo
+\end_layout
+
+\begin_layout Date
+July 31st, 2014
+\end_layout
+
+\begin_layout BeginFrame
+Outline
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Section
+Disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-Pairs
+\end_layout
+
+\begin_layout Subsection
+Preliminaries
+\end_layout
+
+\begin_layout BeginFrame
+When Decision Problems Fail
+\end_layout
+
+\begin_layout Example
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+What is the time complexity of the following problem?
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+Given a Hamiltonian Graph, determine whether or not it is complete.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Decision Problem: 
+\begin_inset Formula $\{G\mid G\text{ is hamiltonian and }G\text{ is complete}\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+is 
+\begin_inset Formula $\NP$
+\end_inset
+
+-complete.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+Does not capture the complexity of 
+\begin_inset Quotes eld
+\end_inset
+
+complete
+\begin_inset Quotes erd
+\end_inset
+
+ very well.
+\end_layout
+
+\end_deeper
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Promise Problems
+\end_layout
+
+\begin_layout Only
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1-5>{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Decision Problems vs.
+ Promise Problems
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Decision problems divide 
+\begin_inset Formula $\Sigma^{*}$
+\end_inset
+
+ into 2 sets: Yes- and No-Instances
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Promise problems divide 
+\begin_inset Formula $\Sigma^{*}$
+\end_inset
+
+ into 3 sets:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Yes instances
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+No instances
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<5->
+\end_layout
+
+\end_inset
+
+disallowed strings
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Only
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<6->{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+
+\end_layout
+
+\begin_layout Definition
+A tuple 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ is called a promise problem, if 
+\begin_inset Formula $A\cap B=\emptyset$
+\end_inset
+
+.
+ The set of disallowed strings is 
+\begin_inset Formula $\overline{A\cup B}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<7->
+\end_layout
+
+\end_inset
+
+Hamiltonian graphs that are complete
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Yes: Graphs that are Hamiltonian and complete
+\end_layout
+
+\begin_layout Itemize
+No: Graphs that are Hamiltonian and not complete
+\end_layout
+
+\begin_layout Itemize
+disallowed strings: Graphs that are not Hamiltonian
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Reductions of Promise Problems
+\end_layout
+
+\begin_layout Definitions
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+We define a promise problem 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ to be 
+\begin_inset Formula $r$
+\end_inset
+
+-
+\emph on
+reducible
+\emph default
+ to 
+\begin_inset Formula $(C,D)$
+\end_inset
+
+, 
+\begin_inset Formula $(A,B)\predr(C,D)$
+\end_inset
+
+, if for every separator 
+\begin_inset Formula $T\in\Sep(C,D)$
+\end_inset
+
+, there exists a separator 
+\begin_inset Formula $S\in\Sep(A,B)$
+\end_inset
+
+ such that 
+\begin_inset Formula $S\redr T$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\predmo$
+\end_inset
+
+, 
+\begin_inset Formula $\predt$
+\end_inset
+
+, ...
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Example
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Decision problems are promise problems.
+ For 
+\begin_inset Formula $A\in\NP$
+\end_inset
+
+: 
+\begin_inset Formula $(A,\overline{A})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\Sep(A,\overline{A})=\{A\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<5->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $A\redmo\SAT$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<6->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $(A,\overline{A})\predmo(\SAT,\overline{\SAT})$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-Pairs and Completeness
+\end_layout
+
+\begin_layout Definitions
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A promise problem 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ with 
+\begin_inset Formula $A,B\in\NP$
+\end_inset
+
+ is a 
+\emph on
+Disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-Pair
+\emph default
+.
+ The set 
+\begin_inset Formula $\DisjNP$
+\end_inset
+
+ is the set of all Disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pairs.
+\end_layout
+
+\begin_layout Itemize
+A disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pair 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ is 
+\begin_inset Formula $\predmo$
+\end_inset
+
+-complete, if for every 
+\begin_inset Formula $(C,D)\in\DisjNP$
+\end_inset
+
+ we have 
+\begin_inset Formula $(C,D)\predmo(A,B)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Example
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\SAT$
+\end_inset
+
+ is the only separator of 
+\begin_inset Formula $(\SAT,\overline{\SAT}$
+\end_inset
+
+): 
+\begin_inset Formula $\Sep(\SAT,\overline{\SAT})=\{\SAT\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $A\in\DisjNP$
+\end_inset
+
+ is separator of 
+\begin_inset Formula $(A,B)\in\DisjNP$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $(A,B)\predmo(\SAT,\overline{\SAT})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $(\SAT,\overline{\SAT})$
+\end_inset
+
+ is 
+\begin_inset Formula $\predmo$
+\end_inset
+
+-complete
+\end_layout
+
+\end_deeper
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+ESY-Conjecture
+\end_layout
+
+\begin_layout Only
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+ESY-Conjecture
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+For every pair of disjoints sets in 
+\begin_inset Formula $\NP$
+\end_inset
+
+, there is a separator that is not 
+\begin_inset Formula $T$
+\end_inset
+
+-hard for 
+\begin_inset Formula $\NP$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\forall_{(A,B)\in\DisjNP}\exists_{S\in\Sep(A,B)}\exists_{L\in\NP}\quad L\nredt S.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Only
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+ESY-Conjecture refinements
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+For every pair of disjoints sets in 
+\begin_inset Formula $\NP$
+\end_inset
+
+, there is a separator that is not 
+\begin_inset Formula $r$
+\end_inset
+
+-hard for 
+\begin_inset Formula $\NP$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\forall_{(A,B)\in\DisjNP}\exists_{S\in\Sep(A,B)}\exists_{L\in\NP}\quad L\nredr S.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Only
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+ESY-
+\begin_inset Formula $T$
+\end_inset
+
+ implies ESY-
+\begin_inset Formula $tt$
+\end_inset
+
+ implies ESY-
+\begin_inset Formula $m$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Subsection
+Complete Disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-Pairs
+\end_layout
+
+\begin_layout BeginFrame
+Complete 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pairs
+\end_layout
+
+\begin_layout Theorem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+If ESY-
+\begin_inset Formula $r$
+\end_inset
+
+ does not hold, then there exists a 
+\begin_inset Formula $r$
+\end_inset
+
+-complete disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+ pair.
+\end_layout
+
+\begin_layout Proof
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[
+\end_layout
+
+\end_inset
+
+Proof sketch
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+By negation of ESY-
+\begin_inset Formula $r$
+\end_inset
+
+: 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ only has 
+\begin_inset Formula $r$
+\end_inset
+
+-hard separators
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $C\in S$
+\end_inset
+
+ is a separator of 
+\begin_inset Formula $(C,D)\in\DisjNP$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+any separator of 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ reduces to 
+\begin_inset Formula $C$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $(C,D)\predr(A,B)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Subsection
+Results on ESY-Conjectures
+\end_layout
+
+\begin_layout BeginFrame
+ESY-T Conjecture
+\end_layout
+
+\begin_layout Theorem
+If the ESY-
+\begin_inset Formula $T$
+\end_inset
+
+ conjecture is true, there are no public-key crypto systems with 
+\begin_inset Formula $\NP$
+\end_inset
+
+-hard cracking problems.
+\end_layout
+
+\begin_layout Proof
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[
+\end_layout
+
+\end_inset
+
+Proof sketch
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Cracking Problems can be models as a promise problem 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+By the conjecture, there is a separator that is not 
+\begin_inset Formula $\NP$
+\end_inset
+
+-hard
+\end_layout
+
+\end_deeper
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+ESY-tt Conjecture
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset citation
+LatexCommand cite
+key "conf/icalp/HughesPRS12"
+
+\end_inset
+
+If 
+\begin_inset Formula $\NP=\UP$
+\end_inset
+
+, then ESY-
+\begin_inset Formula $tt$
+\end_inset
+
+ does not hold, that is, there exists a disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pair such that all separators are truth-table-hard for 
+\begin_inset Formula $\NP$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+ESY-m Conjecture
+\end_layout
+
+\begin_layout Theorem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+ if and only if the ESY-
+\begin_inset Formula $m$
+\end_inset
+
+ conjecture does not hold.
+\end_layout
+
+\begin_layout Proof
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[
+\end_layout
+
+\end_inset
+
+Proof sketch
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+: Let 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ such that all separators are many-one-hard
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\overline{B}$
+\end_inset
+
+ is separator of 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+, therefore 
+\begin_inset Formula $\SAT\redmo\overline{B}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\overline{\SAT}\redmo B$
+\end_inset
+
+, therefore 
+\begin_inset Formula $\overline{\SAT}\in\NP$
+\end_inset
+
+ and 
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+: Let 
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+, then 
+\begin_inset Formula $(\SAT,\overline{\SAT})$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Subsection
+Summary
+\end_layout
+
+\begin_layout BeginFrame
+Summary
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[->,>=stealth',shorten >=1pt,node distance=4.2cm, semithick,
+ /tikz/initial text=]   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{every state}=[fill=none,draw=black,text=black]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (PKCS)     [align=center]                 {$
+\backslash
+exists$ hard PKCS};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (NPeqUP)   [right of=PKCS,align=center]   {$
+\backslash
+NP=
+\backslash
+UP$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (NPeqcoNP) [right of=NPeqUP,align=center] {$
+\backslash
+NP=
+\backslash
+coNP$};
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (ESYT)  [below=1.1cm of PKCS,align=center] {ESY-$T$
+\backslash
+
+\backslash
+does not hold};   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (ESYtt) [right of=ESYT,align=center]     {ESY-$tt$
+\backslash
+
+\backslash
+does not hold};   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (ESYm)  [right of=ESYtt,align=center]    {ESY-$m$
+\backslash
+
+\backslash
+does not hold};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (Tcom)  [below=1.3cm of ESYT,align=center] {$
+\backslash
+exists$ $T$-complete
+\backslash
+
+\backslash
+$
+\backslash
+NP$ pair};   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (ttcom) [right of=Tcom,align=center]     {$
+\backslash
+exists$ $tt$-complete
+\backslash
+
+\backslash
+$
+\backslash
+NP$ pair};   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (mcom)  [right of=ttcom,align=center]    {$
+\backslash
+exists$ $m$-complete
+\backslash
+
+\backslash
+$
+\backslash
+NP$ pair};   
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path[every node/.style={sloped,anchor=south,auto=false}]
+\end_layout
+
+\begin_layout Plain Layout
+
+ (PKCS) edge (ESYT)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (NPeqUP) edge (ESYtt)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (NPeqcoNP) edge[<->] (ESYm)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ (ESYm) edge (ESYtt)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (ESYtt) edge (ESYT)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ (ESYm) edge (mcom)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (ESYtt) edge (ttcom)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (ESYT) edge (Tcom)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ (mcom) edge (ttcom)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (ttcom) edge (Tcom)
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Summary of shown ESY conjecture results
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Section
+Propositional Proof Systems
+\end_layout
+
+\begin_layout Subsection
+Preliminaries
+\end_layout
+
+\begin_layout BeginFrame
+Definition
+\end_layout
+
+\begin_layout Definition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+A polynomial-time computable function 
+\begin_inset Formula $f$
+\end_inset
+
+ that is onto the set of tautologies is called a 
+\emph on
+propositional proof system
+\emph default
+ or 
+\emph on
+proof system
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+For any 
+\begin_inset Formula $w$
+\end_inset
+
+, we say 
+\begin_inset Formula $w$
+\end_inset
+
+ is a 
+\emph on
+
+\begin_inset Formula $f$
+\end_inset
+
+-proof for 
+\begin_inset Formula $x$
+\end_inset
+
+
+\emph default
+ if 
+\begin_inset Formula $f(w)=x$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+If there is a polynomial 
+\begin_inset Formula $p$
+\end_inset
+
+, such that for all 
+\begin_inset Formula $x$
+\end_inset
+
+, and all 
+\begin_inset Formula $f$
+\end_inset
+
+-proofs 
+\begin_inset Formula $w$
+\end_inset
+
+ of 
+\begin_inset Formula $x$
+\end_inset
+
+, we have 
+\begin_inset Formula $|w|\leq p(|x|)$
+\end_inset
+
+, then 
+\begin_inset Formula $f$
+\end_inset
+
+ is 
+\emph on
+polynomially-bounded
+\emph default
+.
+\end_layout
+
+\end_deeper
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Subsection
+Motivation
+\end_layout
+
+\begin_layout BeginFrame
+Polynomially Bounded and 
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+There is a polynomially-bounded propositional proof system if and only if
+ 
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Only
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1-4>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Proof
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2-5>
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+: If 
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+, then 
+\begin_inset Formula $\TAUT\in\NP$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $M$
+\end_inset
+
+ be non-det machine accepting 
+\begin_inset Formula $\TAUT$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3-5>
+\end_layout
+
+\end_inset
+
+Given the computation path, a tautology can be computed in poly time
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4-5>
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+: If 
+\begin_inset Formula $f$
+\end_inset
+
+ is poly bounded, then a 
+\begin_inset Formula $\NP$
+\end_inset
+
+-machine can guess proofs and thus 
+\begin_inset Formula $\TAUT\in\NP$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Only
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<5->
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<6->
+\end_layout
+
+\end_inset
+
+No polynomially bounded proof system is known
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<7->
+\end_layout
+
+\end_inset
+
+Cook and Reckhow tried to answer 
+\begin_inset Formula $\NP$
+\end_inset
+
+ vs 
+\begin_inset Formula $\coNP$
+\end_inset
+
+ by studying and comparing proof systems
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<8->
+\end_layout
+
+\end_inset
+
+Notion of comparison for proof systems needed
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Simulation of Proof Systems
+\end_layout
+
+\begin_layout Definitions
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $f$
+\end_inset
+
+ and 
+\begin_inset Formula $g$
+\end_inset
+
+ be proof systems.
+ We say 
+\begin_inset Formula $f$
+\end_inset
+
+ 
+\emph on
+simulates
+\emph default
+ 
+\begin_inset Formula $g$
+\end_inset
+
+, if there is a function 
+\begin_inset Formula $h$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $w$
+\end_inset
+
+, it holds 
+\begin_inset Formula $f(h(w))=g(w)$
+\end_inset
+
+ and 
+\begin_inset Formula $|h(w)|\leq p(|w|)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+If 
+\begin_inset Formula $h$
+\end_inset
+
+ is polynomial-time computable, we say 
+\begin_inset Formula $f$
+\end_inset
+
+ 
+\emph on
+p-simulates
+\emph default
+ 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+A proof system that simulates (p-simulates) every other proof system is
+ called 
+\emph on
+optimal
+\emph default
+ (
+\emph on
+p-optimal
+\emph default
+).
+\end_layout
+
+\end_deeper
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Subsection
+Sufficient Condition and Consequences
+\end_layout
+
+\begin_layout BeginFrame
+Sufficient Condition for Optimal Proof Systems
+\end_layout
+
+\begin_layout Block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\NP=\coNP$
+\end_inset
+
+, because every poly-bounded proof system is optimal
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\NE=\coNE$
+\end_inset
+
+ by Krajíček and Pudlák 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/jsyml/KrajicekP89"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\NEE=\coNEE$
+\end_inset
+
+ by Meßner and Torán 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/eccc/ECCC-TR97-026"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<4->
+\end_layout
+
+\end_inset
+
+ Analog conditions for p-Optimality are 
+\begin_inset Formula $\P=\NP$
+\end_inset
+
+, 
+\begin_inset Formula $\E=\NE$
+\end_inset
+
+, 
+\begin_inset Formula $\EE=\NEE$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Consequences of Optimal Proof Systems
+\end_layout
+
+\begin_layout Block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+If there is an optimal proof system, then complete sets for 
+\begin_inset Formula $\NP\cap\SPARSE$
+\end_inset
+
+ exist.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+If there is an optimal proof system, then 
+\begin_inset Formula $\UP$
+\end_inset
+
+ has a complete set under non-uniform many-one reducibility.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/iandc/KoblerMT03"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<3->
+\end_layout
+
+\end_inset
+
+Similar results exist for P-Optimality
+\end_layout
+
+\end_deeper
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Subsection
+Summary
+\end_layout
+
+\begin_layout BeginFrame
+Summary of Sufficient Conditions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[->,>=stealth',shorten >=1pt,node distance=3.0cm,     
+  semithick, /tikz/initial text=]   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{every state}=[fill=none,draw=black,text=black]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (A0)               {$
+\backslash
+P=
+\backslash
+NP$};   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (B0) [right of=A0] {$
+\backslash
+E=
+\backslash
+NE$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (C0) [right of=B0] {$
+\backslash
+EE=
+\backslash
+NEE$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (D0) [right of=C0,align=center] {$
+\backslash
+exists$ an p-optimal
+\backslash
+
+\backslash
+proof system};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (A1) [below=1cm of A0] {$
+\backslash
+NP=
+\backslash
+coNP$};   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (B1) [right of=A1] {$
+\backslash
+NE=
+\backslash
+coNE$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (C1) [right of=B1] {$
+\backslash
+NEE=
+\backslash
+coNEE$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (D1) [right of=C1,align=center] {$
+\backslash
+exists$ an optimal
+\backslash
+
+\backslash
+proof system};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (A2) [below=1cm of A1,align=center] {$
+\backslash
+exists$ poly bounded 
+\backslash
+
+\backslash
+ proof system};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path[every node/.style={sloped,anchor=south,auto=false}]
+\end_layout
+
+\begin_layout Plain Layout
+
+ (A0) edge (B0)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (B0) edge (C0)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (C0) edge (D0)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ (A1) edge (B1)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (B1) edge (C1)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (C1) edge (D1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ (A0) edge (A1)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (B0) edge (B1)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (C0) edge (C1)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (D0) edge (D1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ (A1) edge (A2)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (A2) edge (A1)
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The symmetric structure of sufficient conditions for optimal and p-optimal
+ propositional proof systems.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Summary of Consequences
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[->,>=stealth',shorten >=1pt,node distance=6.0cm,     
+  semithick, /tikz/initial text=]   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{every state}=[fill=none,draw=black,text=black]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (D0) [align=center] {$
+\backslash
+exists$ an p-optimal
+\backslash
+
+\backslash
+proof system};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (E0) [right of=D0,align=center] {$
+\backslash
+exists$ m-complete
+\backslash
+
+\backslash
+set in $
+\backslash
+UP$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (D1) [below=1cm of D0,align=center] {$
+\backslash
+exists$ an optimal
+\backslash
+
+\backslash
+proof system};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (E1) [right of=D1,align=center] {$
+\backslash
+exists$ m-complete
+\backslash
+
+\backslash
+set in $
+\backslash
+NP
+\backslash
+cap
+\backslash
+SPARSE$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path[every node/.style={sloped,anchor=south,auto=false}]
+\end_layout
+
+\begin_layout Plain Layout
+
+ (D0) edge (E0)
+\end_layout
+
+\begin_layout Plain Layout
+
+ (D1) edge (E1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ (D0) edge (D1)
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Summary of consequences of the existence of optimal and p-optimal proof
+ systems
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Section
+Relation of Disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-Pairs and Proof Systems
+\end_layout
+
+\begin_layout Subsection
+Canonical Pairs
+\end_layout
+
+\begin_layout BeginFrame
+Canonical Disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-Pairs
+\end_layout
+
+\begin_layout Definition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+We define the 
+\emph on
+canonical pair 
+\begin_inset Formula $(\SATstar,\REF_{f})$
+\end_inset
+
+
+\emph default
+ for every proof system 
+\begin_inset Formula $f$
+\end_inset
+
+, where 
+\begin_inset Formula 
+\begin{eqnarray*}
+\SATstar & = & \{(\varphi,1^{m})\mid m\geq0\},\\
+\REF_{f} & = & \{(\varphi,1^{m})\mid\neg\varphi\in\TAUT\text{ and }\exists y,|y|\leq m\text{ such that }f(y)=\neg\varphi\}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+For two proof systems 
+\begin_inset Formula $f$
+\end_inset
+
+ and 
+\begin_inset Formula $g$
+\end_inset
+
+, if 
+\begin_inset Formula $f$
+\end_inset
+
+ simulates 
+\begin_inset Formula $g$
+\end_inset
+
+, then 
+\begin_inset Formula $(\SATstar,\REF_{g})\predmo(\SATstar,\REF_{f})$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/iandc/GlasserSS05"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Subsection
+Razborov's Result
+\end_layout
+
+\begin_layout BeginFrame
+Razborov's Result
+\end_layout
+
+\begin_layout Corollary
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+For an optimal proof system 
+\begin_inset Formula $f$
+\end_inset
+
+, the pair 
+\begin_inset Formula $(\SATstar,\REF_{f})$
+\end_inset
+
+ is complete for 
+\begin_inset Formula $\DisjNP$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/eccc/ECCC-TR94-006"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Subsection
+Converse?
+\end_layout
+
+\begin_layout BeginFrame
+Converse?
+\end_layout
+
+\begin_layout Theorem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+For every disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-Pair 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+, there is a proof system 
+\begin_inset Formula $f$
+\end_inset
+
+ such that 
+\begin_inset Formula $(\SATstar,\REF_{f})\pequivmo(A,B)$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "conf/birthday/GlasserSZ06"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+The set of all disjoint pairs and the 
+\begin_inset Formula $\predmo$
+\end_inset
+
+-relation has the same degree structure as the set of all proof systems
+ and the simulation-relation.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "conf/birthday/GlasserSZ06"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Section
+Relativized Worlds
+\end_layout
+
+\begin_layout Subsection
+Summary
+\end_layout
+
+\begin_layout BeginFrame
+Implications from Disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-Pairs and Proof Systems
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[->,>=stealth',shorten >=1pt,node distance=3.0cm,     
+  semithick, /tikz/initial text=,scale=.4,transform shape]   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{every state}=[fill=none,draw=black,text=black]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path
+\end_layout
+
+\begin_layout Plain Layout
+
+(4,-2.5)   node(PeqNP)    {$
+\backslash
+P=
+\backslash
+NP$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(0,-5)  node(NPeqcoNP) [align=center]
+\end_layout
+
+\begin_layout Plain Layout
+
+                 {ESY-m fails
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+                  $
+\backslash
+iff$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+                  $
+\backslash
+NP=
+\backslash
+coNP$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+                  $
+\backslash
+iff$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+                  $
+\backslash
+exists$ poly bound proof system}
+\end_layout
+
+\begin_layout Plain Layout
+
+(0,-13)  node(mComPair) {$
+\backslash
+exists$ m-complete pair}
+\end_layout
+
+\begin_layout Plain Layout
+
+(8,-4)   node(EeqNE) {$
+\backslash
+E=
+\backslash
+NE$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(3,-8)   node(NEeqcoNE) {$
+\backslash
+NE=
+\backslash
+coNE$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(8,-7)   node(EEeqNEE) {$
+\backslash
+EE=
+\backslash
+NEE$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(6.5,-8.5)   node(NEEeqcoNEE) {$
+\backslash
+NEE=
+\backslash
+coNEE$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(6,-11)  node(optimalPS) {$
+\backslash
+exists$ optimal ps}
+\end_layout
+
+\begin_layout Plain Layout
+
+(11,-8)  node(poptimalPS) {$
+\backslash
+exists$ p-optimal ps}
+\end_layout
+
+\begin_layout Plain Layout
+
+(6,-14)  node(NPcapSPARSEcom) [align=center]
+\end_layout
+
+\begin_layout Plain Layout
+
+                  {$
+\backslash
+exists$ log-space complete
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+                   set in $
+\backslash
+NP
+\backslash
+cap
+\backslash
+SPARSE$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(11,-12) node(UPcom) [align=center]
+\end_layout
+
+\begin_layout Plain Layout
+
+                  {$
+\backslash
+exists$ m-complete set in
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+                   $
+\backslash
+UP$, $
+\backslash
+Few$, $
+\backslash
+FewP$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(-4,-7) node(ESYttfails) {ESY-tt fails}
+\end_layout
+
+\begin_layout Plain Layout
+
+(-7,-8.5) node(ESYTfails) {ESY-T fails}
+\end_layout
+
+\begin_layout Plain Layout
+
+(-7,-5) node(NPeqUP) {$
+\backslash
+NP=
+\backslash
+UP$}
+\end_layout
+
+\begin_layout Plain Layout
+
+(-4,-14.5) node(ttComPair) {$
+\backslash
+exists$ tt-complete pair} 
+\end_layout
+
+\begin_layout Plain Layout
+
+(-7,-16) node(TComPair) {$
+\backslash
+exists$ T-complete pair}
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path[every node/.style={sloped,anchor=south,auto=false}]
+\end_layout
+
+\begin_layout Plain Layout
+
+  (PeqNP) edge (NPeqcoNP)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (PeqNP) edge (EeqNE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (NPeqcoNP) edge node{
+\backslash
+footnotesize
+\backslash
+cite{journals/eccc/ECCC-TR03-011}} (mComPair)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (NPeqcoNP) edge (NEeqcoNE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (NPeqcoNP) edge (ESYttfails)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (EeqNE) edge (NEeqcoNE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (EeqNE) edge (EEeqNEE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (NEeqcoNE) edge (NEEeqcoNEE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (EEeqNEE) edge (NEEeqcoNEE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (NEeqcoNE) edge node{
+\backslash
+footnotesize
+\backslash
+cite{journals/jsyml/KrajicekP89, journals/logiccoll/Pudlak86}} (optimalPS)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (NEEeqcoNEE) edge node{
+\backslash
+footnotesize
+\backslash
+cite{journals/eccc/ECCC-TR97-026}} (optimalPS)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (EeqNE) edge node {
+\backslash
+footnotesize
+\backslash
+cite{journals/jsyml/KrajicekP89}} (poptimalPS)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (EEeqNEE) edge node{
+\backslash
+footnotesize
+\backslash
+cite{journals/eccc/ECCC-TR97-026}} (poptimalPS)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (poptimalPS) edge (optimalPS)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (poptimalPS) edge node{
+\backslash
+footnotesize
+\backslash
+cite{journals/eccc/ECCC-TR97-026}} (UPcom)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (optimalPS) edge node{
+\backslash
+footnotesize
+\backslash
+cite{journals/eccc/ECCC-TR94-006}} (mComPair)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (optimalPS) edge node{
+\backslash
+footnotesize
+\backslash
+cite{journals/eccc/ECCC-TR97-026}} (NPcapSPARSEcom)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (mComPair) edge (ttComPair)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (ttComPair) edge (TComPair)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (ESYttfails) edge (ESYTfails)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (NPeqUP) edge node{
+\backslash
+footnotesize
+\backslash
+cite{conf/icalp/HughesPRS12}} (ESYttfails)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (ESYttfails) edge (ttComPair)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (ESYTfails) edge (TComPair)
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Known Implications for proof systems, disjoint pairs and the ESY conjecture
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+working draft, convert to LaTeX and check citations
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:implication-chart"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Subsection
+On Existence of Optimal Proof Systems
+\end_layout
+
+\begin_layout Subsection
+On the Converse Of Razborov's Theorem
+\end_layout
+
+\begin_layout Subsection
+On the Separation of ESY refinements
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "bibliography"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
