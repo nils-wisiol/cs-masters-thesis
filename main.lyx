@@ -1459,6 +1459,27 @@ exists$ T-complete pair}
 
 \begin_layout Plain Layout
 
+(-9,-6.5) node(PKCS) [align=center] 
+\end_layout
+
+\begin_layout Plain Layout
+
+                  {$
+\backslash
+exists$ PKCS with 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+                   hard cracking problem}
+\end_layout
+
+\begin_layout Plain Layout
+
 ;
 \end_layout
 
@@ -1622,6 +1643,15 @@ cite{conf/icalp/HughesPRS12}} (ESYttfails)
 \begin_layout Plain Layout
 
   (ESYTfails) edge (TComPair)
+\end_layout
+
+\begin_layout Plain Layout
+
+  (PKCS) edge node{
+\backslash
+footnotesize
+\backslash
+cite{journals/siamcomp/GrollmannS88}} (ESYTfails)
 \end_layout
 
 \begin_layout Plain Layout

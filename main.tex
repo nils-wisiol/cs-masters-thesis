@@ -396,6 +396,9 @@ work on the field in Section \ref{sec:Conclusion}.
 (-7,-5) node(NPeqUP) {$\NP=\UP$}
 (-4,-14.5) node(ttComPair) {$\exists$ tt-complete pair} 
 (-7,-16) node(TComPair) {$\exists$ T-complete pair}
+(-9,-6.5) node(PKCS) [align=center] 
+                  {$\exists$ PKCS with \\
+                   hard cracking problem}
 ;
 
 \path[every node/.style={sloped,anchor=south,auto=false}]
@@ -422,6 +425,7 @@ work on the field in Section \ref{sec:Conclusion}.
   (NPeqUP) edge node{\footnotesize\cite{conf/icalp/HughesPRS12}} (ESYttfails)
   (ESYttfails) edge (ttComPair)
   (ESYTfails) edge (TComPair)
+  (PKCS) edge node{\footnotesize\cite{journals/siamcomp/GrollmannS88}} (ESYTfails)
 ;
 \end{tikzpicture}
 \end{center}
