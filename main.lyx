@@ -1654,16 +1654,6 @@ end{center}
 \begin_layout Plain Layout
 Known Implications for proof systems, disjoint pairs and the ESY conjecture
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-working draft, convert to LaTeX and check citations
-\end_layout
-
-\end_inset
-
-
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:implication-chart"
@@ -2018,16 +2008,6 @@ problem
 , the crypto system would still be easy to crack.
  On the other hand, if the promise problem is hard, the decision problem
  will also be.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-why?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2389,22 +2369,6 @@ Evan, Selman and Yacobi found out that if disjoint
 \end_inset
 
 -hard cracking problems.
- This gives additional motivation for the study of disjoint 
-\begin_inset Formula $\NP$
-\end_inset
-
--pairs, which also arise from the study of recursively inseparable sets.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-reference?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2633,16 +2597,6 @@ f(\langle\varphi,w\rangle)=\begin{cases}
 
 \end_inset
 
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Emphasize on mapping onto TAUT, in contrast to SAT
-\end_layout
-
-\end_inset
-
 Intuitively, 
 \begin_inset Formula $f$
 \end_inset
@@ -2706,17 +2660,7 @@ Given a combination sequence
 \end_layout
 
 \begin_layout Definition
-A polynomial-time computable function
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-explicitly say if it is required to be total or if partial is okay
-\end_layout
-
-\end_inset
-
- 
+A polynomial-time computable function 
 \begin_inset Formula $f$
 \end_inset
 
@@ -2787,15 +2731,47 @@ proof system
 polynomially-bounded
 \emph default
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-Generalization to proof systems for any language.
- (Only if needed.)
+At this point it is worth to mention that most literature uses a generalization
+ of this term of proof systems.
+ A function 
+\begin_inset Formula $f$
+\end_inset
+
+ is a 
+\emph on
+proof system for 
+\begin_inset Formula $L$
+\end_inset
+
+
+\emph default
+, if 
+\begin_inset Formula $f$
+\end_inset
+
+ is onto 
+\begin_inset Formula $L$
+\end_inset
+
+ and polynomial-time computable.
+ Notion from the definition above can be used accordingly.
+ This thesis only uses the 
+\emph on
+propositional proof systems for 
+\begin_inset Formula $\TAUT$
+\end_inset
+
+
+\emph default
+, or short, 
+\emph on
+proof systems
+\emph default
+.
 \end_layout
 
 \end_inset
@@ -2804,15 +2780,6 @@ Generalization to proof systems for any language.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-add comment about length for a fixed tautology (which is not meaningful)
-\end_layout
-
-\end_inset
-
 Cook and Reckhow started a line of research 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2822,15 +2789,6 @@ key "journals/jsyml/CookR79"
 
  that tries to investigate what the length of the shortest proof of a propositio
 nal tautology relative to the length of the tautology is.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-restructure previous sentence
-\end_layout
-
-\end_inset
-
  The interest in the length of the proof is motivated by the fact that the
  existence of polynomial-length proofs for all tautologies characterizes
  the question of whether 
@@ -2877,29 +2835,7 @@ simulates
 \begin_inset Formula $h$
 \end_inset
 
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-maybe introduce the name 
-\begin_inset Quotes eld
-\end_inset
-
-translation function
-\begin_inset Quotes erd
-\end_inset
-
- for 
-\begin_inset Formula $h$
-\end_inset
-
-?
-\end_layout
-
-\end_inset
-
-such that for all 
+ such that for all 
 \begin_inset Formula $w$
 \end_inset
 
@@ -2911,6 +2847,15 @@ such that for all
 \begin_inset Formula $|h(w)|\leq p(|w|)$
 \end_inset
 
+.
+ We call 
+\begin_inset Formula $h$
+\end_inset
+
+ a 
+\emph on
+translation function
+\emph default
 .
  If 
 \begin_inset Formula $h$
@@ -3014,15 +2959,6 @@ If
 \end_layout
 
 \begin_layout Proof
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-introduce TAUT (somewhere)
-\end_layout
-
-\end_inset
-
 Let 
 \begin_inset Formula $N$
 \end_inset
@@ -3031,7 +2967,7 @@ Let
 \begin_inset Formula $\NP$
 \end_inset
 
--machine deciding 
+-machine deciding the set of tautologies, 
 \begin_inset Formula $\TAUT\in\coNP$
 \end_inset
 
@@ -4179,27 +4115,17 @@ Cook and Reckhow introduced the notion of optimal proof systems in order
 \begin_layout Standard
 The existence of both polynomially bounded and optimal proof systems is
  unknown.
- However, we are able to prove some necessary and sufficient conditions.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-maybe rephrase
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-citation of oracles? Anything known for that?
-\end_layout
+ However, we are able to prove some necessary and sufficient conditions
+ for the existence of optimal proof systems.
+ There are oracles relative to which optimal proof systems exist and relative
+ to which optimal proof systems do not exist, see Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Existence-Optimal-and-p-optimal-ps"
 
 \end_inset
 
- 
+.
 \end_layout
 
 \begin_layout Subsection
@@ -4474,11 +4400,20 @@ The symmetric structure of sufficient conditions for optimal and p-optimal
 \end_layout
 
 \begin_layout Standard
-We call a language 
+We define 
+\begin_inset Formula $\EE$
+\end_inset
+
+ to be the class of languages that can be decided in time 
+\begin_inset Formula $2^{O(2^{n})}$
+\end_inset
+
+.
+ A language 
 \begin_inset Formula $L$
 \end_inset
 
- 
+ is called 
 \emph on
 almost-tally
 \emph default
@@ -4498,20 +4433,6 @@ almost-tally
  we denote the class of all almost-tally languages.
  Meßner and Torán use the notion of almost-tally languages to obtain an
  even weaker sufficient condition than mentioned in the chart:
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-is 
-\begin_inset Formula $\coNEE=\NEE$
-\end_inset
-
- for tally languages?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Theorem
@@ -4617,20 +4538,6 @@ reference "thm:sufficient-cond-for-optimal-pps"
 
 \end_inset
 
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Define 
-\begin_inset Formula $\EE$
-\end_inset
-
-!
-\end_layout
-
-\end_inset
-
 Let 
 \begin_inset Formula $M_{1},M_{2},...$
 \end_inset
@@ -4655,20 +4562,6 @@ Let
 T=\{0^{j}10^{i} & \mid & \text{for all words \ensuremath{w}of length at most \ensuremath{2^{2^{j+1+i}}}:}\\
  &  & (\text{if \ensuremath{M_{i}}halts on \ensuremath{w}in at most \ensuremath{2^{2^{j+1+i}}}steps, then \ensuremath{M_{i}}outputs a tautology})\}.
 \end{eqnarray*}
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-mention that every proof system is sort of represented in 
-\begin_inset Formula $T$
-\end_inset
-
-
-\end_layout
 
 \end_inset
 
@@ -5027,26 +4920,29 @@ It remains to show that
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-explain why triple-exponential time is not working
-\end_layout
-
+Some might wonder if the same proof technique is working for the assumption
+ of 
+\begin_inset Formula $\NEEE=\coNEEE$
 \end_inset
 
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-try Mikes idea of using 
-\begin_inset Formula $2^{2^{i*2^{j}}}$
+.
+ However, in the case of triple exponential time, the output 
+\begin_inset Formula $w'$
 \end_inset
 
+ of the translation function is not within polynomial bounds of 
+\begin_inset Formula $w$
+\end_inset
 
-\end_layout
+, as the length of the computation path 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+2^{c2^{2^{i+j+1}}}=2^{c2^{2^{(i+1)+\log\log\log|w|}}}=2^{c\cdot(\log|w|)^{2^{i+1}}}>\text{poly }|w|.
+\]
 
 \end_inset
 
@@ -5503,20 +5399,6 @@ g_{M}(x)=\begin{cases}
 \perp & \text{otherwise}
 \end{cases}
 \]
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-maybe don't define 
-\begin_inset Formula $SP_{M}$
-\end_inset
-
- at all and move all arguments in here
-\end_layout
 
 \end_inset
 
@@ -6164,19 +6046,18 @@ reference "sub:Converse-of-Razborov"
 \end_inset
 
 ).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Add(?): same degree structure (see GSZ06, section 5)
-\end_layout
+ We refer the reader to Glaßer, Selman and Zhang 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "conf/birthday/GlasserSZ06"
 
 \end_inset
 
+ who provide a proof that disjoint 
+\begin_inset Formula $\NP$
+\end_inset
 
+-pairs and canonical pairs for proof systems have the same degree structure.
 \end_layout
 
 \begin_layout Section
@@ -6505,20 +6386,6 @@ Conclusion
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Conclusion"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-grad handbook: how much of the whole problem area was solved, suggestions
- for future work 
-\end_layout
 
 \end_inset
 

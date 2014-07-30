@@ -570,9 +570,7 @@ We define $\predr$-completeness analogously.
 
 Evan, Selman and Yacobi found out that if disjoint $\NP$-pairs that
 are $\NP$-hard do not exist, then there is exist no PKCS with $\NP$-hard
-cracking problems. This gives additional motivation for the study
-of disjoint $\NP$-pairs, which also arise from the study of recursively
-inseparable sets. 
+cracking problems.
 
 The assertion that there are no disjoint $\NP$-pairs that are $\NP$-hard
 to solve has many more consequences and has been studied well since
@@ -640,10 +638,15 @@ tautologies is called a \emph{propositional proof system} or \emph{proof
 system}. For any $w$, we say $w$ is a \emph{$f$-proof for $x$}
 if $f(w)=x$. If there is a polynomial $p$, such that for all $x$,
 and all $f$-proofs $w$ of $x$, we have $|w|\leq p(|x|)$, then
-$f$ is \emph{polynomially-bounded}.
+$f$ is \emph{polynomially-bounded}.%
+\footnote{At this point it is worth to mention that most literature uses a generalization
+of this term of proof systems. A function $f$ is a \emph{proof system
+for $L$}, if $f$ is onto $L$ and polynomial-time computable. Notion
+from the definition above can be used accordingly. This thesis only
+uses the \emph{propositional proof systems for $\TAUT$}, or short,
+\emph{proof systems}.%
+}
 \end{defn}
-
-
 Cook and Reckhow started a line of research \cite{journals/jsyml/CookR79}
 that tries to investigate what the length of the shortest proof of
 a propositional tautology relative to the length of the tautology
@@ -657,9 +660,10 @@ the notion of simulation of proof systems.
 \begin{defn}
 Let $f$ and $g$ be proof systems. We say $f$ \emph{simulates} $g$,
 if there is a function $h$ such that for all $w$, it holds $f(h(w))=g(w)$
-and $|h(w)|\leq p(|w|)$. If $h$ is polynomial-time computable, we
-say $f$ \emph{p-simulates} $g$. A proof system that simulates (p-simulates)
-every other proof system is called \emph{optimal} (\emph{p-optimal}).
+and $|h(w)|\leq p(|w|)$. We call $h$ a \emph{translation function}.
+If $h$ is polynomial-time computable, we say $f$ \emph{p-simulates}
+$g$. A proof system that simulates (p-simulates) every other proof
+system is called \emph{optimal} (\emph{p-optimal}).
 \end{defn}
 An more intuitive (and informal) way to give a definition for ``$f$
 simulates $g$'' is to say that for every tautology $\varphi$, the
@@ -679,8 +683,8 @@ existence of optimal proof systems:
 \label{thm:np-eq-conp-implies-optimalpps}If $\NP=\coNP$, then there
 is an optimal proof system.\end{thm}
 \begin{proof}
-Let $N$ be a $\NP$-machine deciding $\TAUT\in\coNP$. We define
-$f$ by 
+Let $N$ be a $\NP$-machine deciding the set of tautologies, $\TAUT\in\coNP$.
+We define $f$ by 
 \[
 f(\langle i,x\rangle)=\begin{cases}
 x & \text{if \ensuremath{N}accepts \ensuremath{w}along path \ensuremath{i},}\\
@@ -901,7 +905,9 @@ with proofs that are not within polynomial length shows $\NP\neq\coNP$.
 
 The existence of both polynomially bounded and optimal proof systems
 is unknown. However, we are able to prove some necessary and sufficient
-conditions.  
+conditions for the existence of optimal proof systems. There are oracles
+relative to which optimal proof systems exist and relative to which
+optimal proof systems do not exist, see Section \ref{sub:Existence-Optimal-and-p-optimal-ps}.
 
 
 \subsection{Sufficient Conditions for the Existence of Optimal Proof Systems\label{sub:Sufficient-Conditions-for}}
@@ -949,11 +955,12 @@ propositional proof systems.}
 \end{figure}
 
 
-We call a language $L$ \emph{almost-tally}, if every string in $L$
-is of the form $0^{*}10^{*}$. By $\powerset(0^{*}10^{*})$ we denote
-the class of all almost-tally languages. Meﬂner and Tor·n use the
-notion of almost-tally languages to obtain an even weaker sufficient
-condition than mentioned in the chart:
+We define $\EE$ to be the class of languages that can be decided
+in time $2^{O(2^{n})}$. A language $L$ is called \emph{almost-tally},
+if every string in $L$ is of the form $0^{*}10^{*}$. By $\powerset(0^{*}10^{*})$
+we denote the class of all almost-tally languages. Meﬂner and Tor·n
+use the notion of almost-tally languages to obtain an even weaker
+sufficient condition than mentioned in the chart:
 \begin{thm}
 \label{thm:sufficient-cond-for-optimal-pps}
 \begin{enumerate}
@@ -1047,6 +1054,13 @@ $j$ is double-logarithmic, and thus $s$ is polynomially bounded
 in $|w|$. The computation path $\alpha$ has double-exponential length
 in $i$ and $j$ and is therefore polynomially bounded in $|w|$.
 \end{proof}
+Some might wonder if the same proof technique is working for the assumption
+of $\NEEE=\coNEEE$. However, in the case of triple exponential time,
+the output $w'$ of the translation function is not within polynomial
+bounds of $w$, as the length of the computation path $\alpha$ is
+\[
+2^{c2^{2^{i+j+1}}}=2^{c2^{2^{(i+1)+\log\log\log|w|}}}=2^{c\cdot(\log|w|)^{2^{i+1}}}>\text{poly }|w|.
+\]
 
 
 
@@ -1233,8 +1247,9 @@ open question is whether the converse holds. Does the existence of
 a many-one complete disjoint $\NP$-pair imply the existence of an
 optimal proof system? While the answer remains unknown, oracles for
 both options are known (see Section \ref{sub:Converse-of-Razborov}).
-
-
+We refer the reader to Glaﬂer, Selman and Zhang \cite{conf/birthday/GlasserSZ06}
+who provide a proof that disjoint $\NP$-pairs and canonical pairs
+for proof systems have the same degree structure.
 
 
 \section{Relativized Worlds\label{sec:Relativized-Worlds}}
@@ -1313,8 +1328,6 @@ to $D$, ESY does not hold, but ESY-$m$ does.
 
 
 \section{Conclusion\label{sec:Conclusion}}
-
-
 
 
 \subsection{Open Questions and Future Work}
