@@ -2762,17 +2762,7 @@ proof system
 \begin_inset Formula $x$
 \end_inset
 
-, and all
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-really for all? Doesn't do just one short proof the deal?
-\end_layout
-
-\end_inset
-
- 
+, and all 
 \begin_inset Formula $f$
 \end_inset
 
@@ -5817,7 +5807,7 @@ canonical pair
 , where 
 \begin_inset Formula 
 \begin{eqnarray*}
-\SATstar & = & \{(\varphi,1^{m})\mid m\geq0\},\\
+\SATstar & = & \{(\varphi,1^{m})\mid\varphi\in\SAT\text{ and }m\geq0\},\\
 \REF_{f} & = & \{(\varphi,1^{m})\mid\neg\varphi\in\TAUT\text{ and }\exists y,|y|\leq m\text{ such that }f(y)=\neg\varphi\}.
 \end{eqnarray*}
 
@@ -6052,14 +6042,52 @@ Since
 \end_layout
 
 \begin_layout Standard
-With Lemma 
+Furthermore, for any given disjoint pair 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+, we can always find a proof system such that the canonical pair is polynomial-t
+ime equivalent.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:canonical-pair-for-arbitrary-pair"
+
+\end_inset
+
+For any 
+\begin_inset Formula $(A,B)\in\DisjNP$
+\end_inset
+
+, there exists a proof system 
+\begin_inset Formula $f$
+\end_inset
+
+ such that 
+\begin_inset Formula $(A,B)\pequivmo(\SATstar,\REF_{f})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:simulation-implies-red-pairs"
 
 \end_inset
 
-, we can immediately prove the following Corollary.
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:canonical-pair-for-arbitrary-pair"
+
+\end_inset
+
+ together result in the following Corollary.
 \end_layout
 
 \begin_layout Corollary
@@ -6079,6 +6107,35 @@ For an optimal proof system
 
  is complete for 
 \begin_inset Formula $\DisjNP$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+For any given 
+\begin_inset Formula $(A,B)\in\DisjNP$
+\end_inset
+
+, there is a proof system 
+\begin_inset Formula $g$
+\end_inset
+
+ such that 
+\begin_inset Formula $(A,B)\pequivmo(\SATstar,\REF_{g})$
+\end_inset
+
+ and 
+\begin_inset Formula $(\SATstar,\REF_{g})\predmo(\SATstar,\REF_{f})$
+\end_inset
+
+.
+ Thus, all disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+ reduce to 
+\begin_inset Formula $(\SATstar,\REF_{f})$
 \end_inset
 
 .
@@ -6110,18 +6167,6 @@ reference "sub:Converse-of-Razborov"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Add(?): for every np-pair, there is a poly-time equivalent canonical pair
- of some proof system.
- (see GSZ06, section 5)
-\end_layout
-
-\end_inset
-
-
 \begin_inset Note Note
 status open
 

@@ -1179,7 +1179,7 @@ Razborov found a way to relate proof systems with disjoint $\NP$-pairs
 \cite{journals/eccc/ECCC-TR94-006} by defining a \emph{canonical
 pair $(\SATstar,\REF_{f})$} for every proof system $f$, where 
 \begin{eqnarray*}
-\SATstar & = & \{(\varphi,1^{m})\mid m\geq0\},\\
+\SATstar & = & \{(\varphi,1^{m})\mid\varphi\in\SAT\text{ and }m\geq0\},\\
 \REF_{f} & = & \{(\varphi,1^{m})\mid\neg\varphi\in\TAUT\text{ and }\exists y,|y|\leq m\text{ such that }f(y)=\neg\varphi\}.
 \end{eqnarray*}
 Notice, if $\neg\varphi\in\TAUT$ then $\varphi$ cannot by satisfied
@@ -1210,12 +1210,22 @@ then $\neg w$ is a tautology and there exists a $y$, $|y|\leq n$,
 such that $g(y)=\neg w$. Applying $h$ to $y$ yields $\neg w=g(y)=f(h(y))$
 and $|h(y)|\leq p(|y|)$ and therefore $(w,0^{p(n)})\in\REF_{f}$.
 \end{proof}
-With Lemma \ref{lem:simulation-implies-red-pairs}, we can immediately
-prove the following Corollary.
+Furthermore, for any given disjoint pair $(A,B)$, we can always find
+a proof system such that the canonical pair is polynomial-time equivalent.
+\begin{lem}
+\label{lem:canonical-pair-for-arbitrary-pair}For any $(A,B)\in\DisjNP$,
+there exists a proof system $f$ such that $(A,B)\pequivmo(\SATstar,\REF_{f})$.
+\end{lem}
+Lemma \ref{lem:simulation-implies-red-pairs} and \ref{lem:canonical-pair-for-arbitrary-pair}
+together result in the following Corollary.
 \begin{cor}
 \label{cor:razborov}For an optimal proof system $f$, the pair $(\SATstar,\REF_{f})$
-is complete for $\DisjNP$.
-\end{cor}
+is complete for $\DisjNP$.\end{cor}
+\begin{proof}
+For any given $(A,B)\in\DisjNP$, there is a proof system $g$ such
+that $(A,B)\pequivmo(\SATstar,\REF_{g})$ and $(\SATstar,\REF_{g})\predmo(\SATstar,\REF_{f})$.
+Thus, all disjoint $\NP$ reduce to $(\SATstar,\REF_{f})$.
+\end{proof}
 This result is an important connection of the theory of proof systems
 and the theory of disjoint $\NP$-pairs. It gives us insight in more
 sufficient conditions for the existence of complete pairs. An important
