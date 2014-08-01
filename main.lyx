@@ -1055,18 +1055,18 @@ This thesis aims at readers that do not have a strong background in the
  pairs.
  It surveys important results from both and points out important connections
  in between these two theories.
- Core of the thesis is the implication chart in Figure 
+ The core of the thesis is the implication chart in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:implication-chart"
 
 \end_inset
 
-, that summarizes virtually all results mentioned in this thesis.
+ that summarizes virtually all results mentioned in this thesis.
 \end_layout
 
 \begin_layout Standard
-In Section 
+Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Preliminaries"
@@ -1162,14 +1162,14 @@ reference "sec:Canonical-Disjoint--pairs"
 
 \end_inset
 
- finally covers the connection in between both theories that was discovered
+ finally covers the connection between both theories that was discovered
  by Razborov.
- It presents a proof for Razborov's theorem that uses the notion of complexity
+ It presents a proof for Razborov's theorem that uses notions of complexity
  theory.
 \end_layout
 
 \begin_layout Standard
-We also take a look on relativized worlds in Section 
+We also take a look at relativized worlds in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Relativized-Worlds"
@@ -1178,7 +1178,7 @@ reference "sec:Relativized-Worlds"
 
 .
  We point the reader to oracles relative to which optimal proof systems
- exist respectively do not exist.
+ exist, and respectively, do not exist.
  Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1188,7 +1188,7 @@ reference "sub:Converse-of-Razborov"
 
  studies the converse of Razborov's theorem, for which we know oracles relative
  to which it holds, and relative to which it does not hold.
- Finally we refer the reader to a oracle that separates different refinements
+ Finally we refer the reader to an oracle that separates different refinements
  of the ESY-conjecture from each other.
 \end_layout
 
@@ -1701,10 +1701,6 @@ name "fig:implication-chart"
 \end_inset
 
 
-\begin_inset Newpage newpage
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -1738,7 +1734,7 @@ The study of disjoint
 \begin_inset Formula $\NP$
 \end_inset
 
--pairs originates in the study of public key crypto systems (PKCS).
+-pairs originates in the study of public-key cryptosystems (PKCS).
  The interest in secure PKCS is fundamental to everyday life as well as
  to academia, as provably hard-to-crack PKCS would imply 
 \begin_inset Formula $\NP\neq\P$
@@ -1748,19 +1744,18 @@ The study of disjoint
 \end_layout
 
 \begin_layout Standard
-To study the hardness of PKCS, Even, Selman and Yacobi used the notion of
- 
-\emph on
-promise problems
-\emph default
- rather than decision problems to model the problem of cracking a PKCS 
+To study the hardness of PKCS, Even, Selman and Yacobi 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "journals/iandc/EvenSY84"
 
 \end_inset
 
-.
+ used the notion of 
+\emph on
+promise problems
+\emph default
+ rather than decision problems to model the problem of cracking a PKCS.
  In fact, promise problems are a generalization of decision problems.
  A machine working on a promise problem is not only given an input, but
  also a promise that for this input, a certain condition holds.
@@ -1797,6 +1792,16 @@ the set of strings representing No-Instances, and
 
 \begin_layout Enumerate
 the set of disallowed strings.
+\end_layout
+
+\begin_layout Standard
+A machine that 
+\emph on
+solves
+\emph default
+ such a promise problem has to accept on all Yes-Instances, to reject on
+ all No-Instances and act arbitrarily on all other strings.
+ This includes that the machine might not halt at all.
 \end_layout
 
 \begin_layout Standard
@@ -1892,8 +1897,8 @@ B & = & \{w\in\Sigma^{*}\mid Q(w)\wedge\neg R(w)\}
 
 \begin_layout Standard
 Using this notation, we can define a promise problem that captures the hardness
- of cracking the PKCS, that is, captures the hardness of finding the plain
- text to a given cipher text 
+ of cracking PKCS, that is, captures the hardness of finding the plain text
+ to a given cipher text 
 \begin_inset Formula $C$
 \end_inset
 
@@ -1902,7 +1907,7 @@ Using this notation, we can define a promise problem that captures the hardness
 \end_inset
 
 .
- To crack the crypto system, we will conduct a binary search among all strings
+ To crack the cryptosystem, we will conduct a binary search among all strings
  up to a reasonable length.
  The scope for the binary search is limited, as the length of the plain
  text is polynomial in the length of the cipher text.
@@ -1910,10 +1915,10 @@ Using this notation, we can define a promise problem that captures the hardness
 \emph on
 every
 \emph default
- cipher text in a PKCS.
- While we can conclude cryptographic insecureness from an easy cracking
- problem, a hard cracking problem does not imply cryptographic security,
- as a subset of cipher texts may be still easy to crack.
+ cipher text in a cryptosystem.
+ While we can conclude cryptographic insecurity from an easy cracking problem,
+ a hard cracking problem does not imply cryptographic security, as a subset
+ of cipher texts may be still easy to crack.
  
 \end_layout
 
@@ -2012,16 +2017,16 @@ With a machine solving this promise problem, we can find the plain text
 \end_inset
 
 .
- Thus, the runtime of cracking the PKCS is within a logarithmic factor of
- the runtime of the machine solving the promise problem.
- Therefore, we consider the hardness of the promise problem itself as a
- good measurement for the hardness of the cracking problem.
+ Thus, the runtime of cracking the public-key cryptosystem is within a logarithm
+ic factor of the runtime of the machine solving the promise problem.
+ Therefore, we consider the hardness of the promise problem as a good measuremen
+t for the hardness of the cracking problem.
 \end_layout
 
 \begin_layout Standard
 But why not model the cracking problem as a decision problem? To see why
  a simple decision problem does not capture the cracking problem correctly,
- assume we have a PKCS such that the 
+ assume we have a cryptosystem such that the 
 \emph on
 decision 
 \emph default
@@ -2041,8 +2046,7 @@ problem
 \end_layout
 
 \begin_layout Standard
-To capture the situation where we have a hard decision problem, but an easy
- promise problem, we call a set 
+We call a set 
 \begin_inset Formula $S$
 \end_inset
 
@@ -2289,7 +2293,11 @@ A promise problem
 \begin_inset Formula $(A,B)$
 \end_inset
 
- with 
+, with 
+\begin_inset Formula $A,B$
+\end_inset
+
+ non-empty and 
 \begin_inset Formula $A,B\in\NP$
 \end_inset
 
@@ -2399,6 +2407,17 @@ Evan, Selman and Yacobi found out that if disjoint
 \end_inset
 
 -hard cracking problems.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+mention recursively inseparable sets?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2451,7 +2470,7 @@ key "journals/iandc/EvenSY84"
 \end_layout
 
 \begin_layout Standard
-If the conjecture holds, then no PKCS is 
+If the conjecture holds, then no public-key cryptosystem is 
 \begin_inset Formula $\NP$
 \end_inset
 
@@ -2501,7 +2520,7 @@ key "conf/icalp/HughesPRS12"
 \end_layout
 
 \begin_layout Standard
-We will study the consequences of the ESY-conjectures in Section 
+We will study consequences of the ESY-conjectures in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:ESY-conjectures"
@@ -2523,11 +2542,7 @@ name "sub:Propositional-Proof-Systems"
 \end_layout
 
 \begin_layout Standard
-A propositional proof system is a fast method of verifying proofs.
-\end_layout
-
-\begin_layout Standard
-To give an example, we will have a look at the 
+To start with an example, we will have a look at the 
 \emph on
 resolution principle
 \emph default
@@ -2539,7 +2554,7 @@ key "journals/jacm/Robinson65"
 \end_inset
 
 .
- Consider a boolean formula 
+ Consider a Boolean formula 
 \begin_inset Formula $\varphi$
 \end_inset
 
@@ -2627,7 +2642,7 @@ f(\langle\varphi,w\rangle)=\begin{cases}
 
 \end_inset
 
-Intuitively, 
+The function 
 \begin_inset Formula $f$
 \end_inset
 
@@ -2670,7 +2685,7 @@ Given a combination sequence
 \end_inset
 
  is a tautology.
- We thus call 
+ We call 
 \begin_inset Formula $f$
 \end_inset
 
@@ -2678,7 +2693,7 @@ Given a combination sequence
 \begin_inset Formula $\langle\varphi,w\rangle$
 \end_inset
 
- a 
+ an 
 \begin_inset Formula $f$
 \end_inset
 
@@ -2833,7 +2848,7 @@ reference "sec:Propositional-Proof-Systems"
 
 \end_inset
 
-.) However, no known proof system could be proven to have proofs with length
+.) However, no known proof system has been proven to have proofs with length
  bounded by a polynomial.
  To tackle the problem, Cook and Reckhow introduced the notion of simulation
  of proof systems.
@@ -2869,7 +2884,7 @@ simulates
 \begin_inset Formula $w$
 \end_inset
 
-, it holds 
+, it holds that 
 \begin_inset Formula $f(h(w))=g(w)$
 \end_inset
 
@@ -2960,7 +2975,8 @@ An more intuitive (and informal) way to give a definition for
 
 \begin_layout Standard
 However, it is not only unknown whether polynomially-bounded proof systems
- exist, it is also unknown if optimal or even p-optimal proof systems exist.
+ exist, it is also unknown whether optimal or even p-optimal proof systems
+ exist.
  To study the existence of optimal and p-optimal proof systems, we will
  therefore study sufficient conditions and implications in Section 
 \begin_inset CommandInset ref
@@ -2970,7 +2986,7 @@ reference "sec:Propositional-Proof-Systems"
 \end_inset
 
 .
- To become familiar with the notions, we present a strong sufficient condition
+ To become familiar with these notions, we present a strong sufficient condition
  for the existence of optimal proof systems:
 \end_layout
 
@@ -3017,7 +3033,7 @@ x & \text{if \ensuremath{N}accepts \ensuremath{w}along path \ensuremath{i},}\\
 
 \end_inset
 
-Notice, a proof system does not have to be a total function.
+Notice that a proof system does not have to be a total function.
  By definition, 
 \begin_inset Formula $f$
 \end_inset
@@ -3065,16 +3081,16 @@ To see
 \end_inset
 
 .
- Notice, 
+ Notice that 
 \begin_inset Formula $g$
 \end_inset
 
- might not by polynomial-time computable, but is polynomially length bounded.
- Let now 
+ might not by polynomial-time computable, but is polynomially length-bounded.
+ Let 
 \begin_inset Formula $w$
 \end_inset
 
- be a 
+ be an 
 \begin_inset Formula $f'$
 \end_inset
 
@@ -3095,7 +3111,7 @@ To see
 \begin_inset Formula $\langle g(w),f'(w)\rangle$
 \end_inset
 
-, which is a 
+, which is an 
 \begin_inset Formula $f$
 \end_inset
 
@@ -3184,7 +3200,7 @@ name "sub:Reducibility-of-disjoint"
 \end_layout
 
 \begin_layout Standard
-In the literature exist several different definitions for the reducibility
+The literature contains several different definitions for the reducibility
  of pairs.
  Notice that results from this section apply to all disjoint pairs 
 \begin_inset Formula $(A,B)$
@@ -3394,8 +3410,8 @@ reference "lem:reducibilities"
 \begin_layout Standard
 It turns out that this is equivalent to the many-one reducibility defined
  above as well.
- As a summary of all these definitions, we obtain the following lemma.
- A comprehensive proof of it can be found Glaßer, Selman, Sengupta and Zhang
+ As a summary of all these definitions, we obtain the following Lemmas.
+ A comprehensive proof in in the paper of Glaßer, Selman, Sengupta and Zhang
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3458,8 +3474,34 @@ There exists a polynomial-time computable function
 \end_layout
 
 \end_deeper
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+The following result shows that uniform and non-uniform Turing-reductions
+ are equivalent.
+ This result was first proven by Grollmann and Selman 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "journals/siamcomp/GrollmannS88"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Lemma
-The assertions above imply the following equivalent statements:
+Let 
+\begin_inset Formula $(A,B)$
+\end_inset
+
+ and 
+\begin_inset Formula $(C,D)$
+\end_inset
+
+ be disjoint pairs.
+ Then the following assertions are equivalent:
 \end_layout
 
 \begin_deeper
@@ -3479,8 +3521,8 @@ The assertions above imply the following equivalent statements:
 
 \end_deeper
 \begin_layout Standard
-Therefore, for the rest of this thesis, we will only use many-one and Turing
- reducibility.
+Therefore, for the rest of this thesis, we will only use the notions of
+ many-one and Turing reducibility.
 \end_layout
 
 \begin_layout Subsection
@@ -3615,7 +3657,7 @@ ESY-
 
 \end_deeper
 \begin_layout Standard
-This list can, of course, be extended to a lot more reductions of languages.
+This list can be extended to other reductions as well.
  In this thesis, we mention these specific reductions because there are
  known results that relate to these assertions.
 \end_layout
@@ -3693,7 +3735,7 @@ Assume that ESY-
 \end_inset
 
 .
- Then 
+ Then since 
 \begin_inset Formula $C\in\NP$
 \end_inset
 
@@ -3709,7 +3751,7 @@ Assume that ESY-
 \begin_inset Formula $\NP$
 \end_inset
 
-, 
+, we have 
 \begin_inset Formula $C\redr S$
 \end_inset
 
@@ -3781,6 +3823,16 @@ As mentioned above, the refinements of the (original) ESY-
 \end_inset
 
 .
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+be precise
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Theorem
@@ -3922,13 +3974,6 @@ key "conf/icalp/HughesPRS12"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -4128,7 +4173,11 @@ Cook and Reckhow introduced the notion of optimal proof systems in order
 \begin_inset Formula $f$
 \end_inset
 
- optimal, if 
+ 
+\emph on
+optimal
+\emph default
+, if 
 \begin_inset Formula $f$
 \end_inset
 
@@ -5670,13 +5719,6 @@ One of the most outstanding consequence of the existence of optimal proof
  The proof requires some preparation and is demonstrated in the next section.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Canonical Disjoint 
 \begin_inset Formula $\NP$
@@ -6412,7 +6454,7 @@ reference "thm:equiv-esymfails-np=conp-polyboundpps"
 \end_layout
 
 \begin_layout Section
-Conclusion
+Open Questions and Future Work
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Conclusion"
@@ -6422,16 +6464,17 @@ name "sec:Conclusion"
 
 \end_layout
 
-\begin_layout Subsection
-Open Questions and Future Work
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+open problems
 \end_layout
 
-\begin_layout Enumerate
-Oracle for which converse of Razborov holds
-\end_layout
+\end_inset
 
-\begin_layout Enumerate
-Oracle such that there is a optimal, but not a p-optimal proof system
+
 \end_layout
 
 \begin_layout Standard

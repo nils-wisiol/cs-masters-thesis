@@ -49,6 +49,9 @@
 \usetikzlibrary{arrows,automata,shapes,chains,positioning}
 
 \usepackage{amsfonts}
+
+% make natbib work
+\def\newblock{\hskip .11em plus .33em minus .07em}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -80,7 +83,7 @@
 \use_esint 1
 \use_mhchem 1
 \use_mathdots 1
-\cite_engine basic
+\cite_engine natbib_numerical
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -905,7 +908,7 @@ status open
 
 \begin_layout Plain Layout
 
-<1-5>{}
+<1-6>{}
 \end_layout
 
 \end_inset
@@ -956,9 +959,19 @@ Decision problems divide
 \begin_inset Formula $\Sigma^{*}$
 \end_inset
 
- into 2 sets: Yes- and No-Instances
+ into 2 sets: 
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+Yes-Instances
+\end_layout
+
+\begin_layout Itemize
+No-Instances
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 \begin_inset ERT
 status open
@@ -989,7 +1002,7 @@ status open
 
 \end_inset
 
-Yes instances
+Yes-Instances
 \end_layout
 
 \begin_layout Itemize
@@ -1003,7 +1016,7 @@ status open
 
 \end_inset
 
-No instances
+No-Instances
 \end_layout
 
 \begin_layout Itemize
@@ -1021,6 +1034,23 @@ disallowed strings
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<6->
+\end_layout
+
+\end_inset
+
+A machine that solves a promise problem has to accept all Yes-Instances
+ and reject all No-Instances.
+ On disallowed strings, the machine can act arbitrarily, including not to
+ halt at all.
+\end_layout
+
 \end_deeper
 \end_deeper
 \begin_layout Separator
@@ -1033,7 +1063,7 @@ status open
 
 \begin_layout Plain Layout
 
-<6->{}
+<7->{}
 \end_layout
 
 \end_inset
@@ -1062,7 +1092,7 @@ status open
 
 \begin_layout Plain Layout
 
-<6->
+<7->
 \end_layout
 
 \end_inset
@@ -1089,7 +1119,7 @@ status open
 
 \begin_layout Plain Layout
 
-<7->
+<8->
 \end_layout
 
 \end_inset
@@ -1126,26 +1156,16 @@ status open
 
 \begin_layout Plain Layout
 
-<8->
-\end_layout
-
-\end_inset
-
-Yes: Graphs that are Hamiltonian and complete
-\end_layout
-
-\begin_layout Itemize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
 <9->
 \end_layout
 
 \end_inset
 
-No: Graphs that are Hamiltonian and not complete
+
+\begin_inset Formula $A$
+\end_inset
+
+: Graphs that are Hamiltonian and complete
 \end_layout
 
 \begin_layout Itemize
@@ -1159,7 +1179,29 @@ status open
 
 \end_inset
 
-disallowed strings: Graphs that are not Hamiltonian
+
+\begin_inset Formula $B$
+\end_inset
+
+: Graphs that are Hamiltonian and not complete
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<11->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\overline{A\cap B}$
+\end_inset
+
+: Graphs that are not Hamiltonian
 \end_layout
 
 \end_deeper
@@ -1878,7 +1920,7 @@ If ESY-
 \begin_inset Formula $r$
 \end_inset
 
- does not hold, then there exists a 
+ does not hold, then there exists an 
 \begin_inset Formula $r$
 \end_inset
 
@@ -5780,8 +5822,8 @@ status open
 
 \begin_deeper
 \begin_layout Corollary
-The converse of Razborov's Theorem can not be proved or disproved by relativizab
-le techniques.
+The converse of Razborov's Theorem cannot be proved or disproved by relativizabl
+e techniques.
 \end_layout
 
 \end_deeper
@@ -6334,14 +6376,32 @@ Known Implications for proof systems, disjoint pairs and the ESY conjecture
 
 \end_layout
 
+\begin_layout BeginFrame
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[allowframebreaks]
+\end_layout
+
+\end_inset
+
+References
+\end_layout
+
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "bibliography"
-options "plain"
+options "alpha"
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout EndFrame
 
 \end_layout
 

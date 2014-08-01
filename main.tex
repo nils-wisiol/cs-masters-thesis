@@ -321,11 +321,11 @@ look into open questions and suggest future work on both fields.
 This thesis aims at readers that do not have a strong background in
 the theories of propositional proof systems and disjoint $\NP$ pairs.
 It surveys important results from both and points out important connections
-in between these two theories. Core of the thesis is the implication
-chart in Figure \ref{fig:implication-chart}, that summarizes virtually
+in between these two theories. The core of the thesis is the implication
+chart in Figure \ref{fig:implication-chart} that summarizes virtually
 all results mentioned in this thesis.
 
-In Section \ref{sec:Preliminaries} is split into two pieces. In \ref{sub:Disjoint--Pairs},
+Section \ref{sec:Preliminaries} is split into two pieces. In \ref{sub:Disjoint--Pairs},
 we introduce the reader to the theory of disjoint $\NP$-pairs based
 on the notion of promise problems. In \ref{sub:Propositional-Proof-Systems},
 we familiarize ourselves with propositional proof systems. Both introductions
@@ -350,17 +350,16 @@ conditions for their existence. These conditions will lay the foundation
 for the study of different oracles in Section \ref{sec:Relativized-Worlds}.
 
 Section \ref{sec:Canonical-Disjoint--pairs} finally covers the connection
-in between both theories that was discovered by Razborov. It presents
-a proof for Razborov's theorem that uses the notion of complexity
-theory.
+between both theories that was discovered by Razborov. It presents
+a proof for Razborov's theorem that uses notions of complexity theory.
 
-We also take a look on relativized worlds in Section \ref{sec:Relativized-Worlds}.
+We also take a look at relativized worlds in Section \ref{sec:Relativized-Worlds}.
 We point the reader to oracles relative to which optimal proof systems
-exist respectively do not exist. Section \ref{sub:Converse-of-Razborov}
+exist, and respectively, do not exist. Section \ref{sub:Converse-of-Razborov}
 studies the converse of Razborov's theorem, for which we know oracles
 relative to which it holds, and relative to which it does not hold.
-Finally we refer the reader to a oracle that separates different refinements
-of the ESY-conjecture from each other.
+Finally we refer the reader to an oracle that separates different
+refinements of the ESY-conjecture from each other.
 
 We conclude the thesis with a summary of open questions and future
 work on the field in Section \ref{sec:Conclusion}.
@@ -433,7 +432,7 @@ work on the field in Section \ref{sec:Conclusion}.
 \caption{Known Implications for proof systems, disjoint pairs and the ESY conjecture
 \label{fig:implication-chart}}
 \end{sidewaysfigure}
-\newpage{}
+
 
 
 \section{Preliminaries\label{sec:Preliminaries}}
@@ -441,21 +440,20 @@ work on the field in Section \ref{sec:Conclusion}.
 
 \subsection{Disjoint $\NP$-Pairs\label{sub:Disjoint--Pairs}}
 
-The study of disjoint $\NP$-pairs originates in the study of public
-key crypto systems (PKCS). The interest in secure PKCS is fundamental
-to everyday life as well as to academia, as provably hard-to-crack
-PKCS would imply $\NP\neq\P$.
+The study of disjoint $\NP$-pairs originates in the study of public-key
+cryptosystems (PKCS). The interest in secure PKCS is fundamental to
+everyday life as well as to academia, as provably hard-to-crack PKCS
+would imply $\NP\neq\P$.
 
-To study the hardness of PKCS, Even, Selman and Yacobi used the notion
-of \emph{promise problems} rather than decision problems to model
-the problem of cracking a PKCS \cite{journals/iandc/EvenSY84}. In
-fact, promise problems are a generalization of decision problems.
-A machine working on a promise problem is not only given an input,
-but also a promise that for this input, a certain condition holds.
-The machine \emph{solves} the problem, if it gives the right answer
-on all inputs for which the promise holds. If the promised condition
-does in fact not hold for a given input, then the machine can act
-arbitrarily.
+To study the hardness of PKCS, Even, Selman and Yacobi \cite{journals/iandc/EvenSY84}
+used the notion of \emph{promise problems} rather than decision problems
+to model the problem of cracking a PKCS. In fact, promise problems
+are a generalization of decision problems. A machine working on a
+promise problem is not only given an input, but also a promise that
+for this input, a certain condition holds. The machine \emph{solves}
+the problem, if it gives the right answer on all inputs for which
+the promise holds. If the promised condition does in fact not hold
+for a given input, then the machine can act arbitrarily.
 
 We can define promise problems more formally, following Goldreich's
 survey \cite{DBLP:journals/eccc/ECCC-TR05-018}: A promise problem
@@ -465,6 +463,11 @@ is a partition of the set of all strings into three subsets:
 \item the set of strings representing No-Instances, and
 \item the set of disallowed strings.
 \end{enumerate}
+A machine that \emph{solves} such a promise problem has to accept
+on all Yes-Instances, to reject on all No-Instances and act arbitrarily
+on all other strings. This includes that the machine might not halt
+at all.
+
 We can write this partition as a pair of two disjoint sets $(A,B)$,
 where $A$ and $B$ represent Yes- and No-Instances, and the set of
 disallowed strings is $\overline{A\cup B}$. The \emph{promise} in
@@ -486,16 +489,16 @@ B & = & \{w\in\Sigma^{*}\mid Q(w)\wedge\neg R(w)\}
 }
 
 Using this notation, we can define a promise problem that captures
-the hardness of cracking the PKCS, that is, captures the hardness
-of finding the plain text to a given cipher text $C$ and public key
-$K$. To crack the crypto system, we will conduct a binary search
-among all strings up to a reasonable length. The scope for the binary
-search is limited, as the length of the plain text is polynomial in
-the length of the cipher text. Notice that this notion captures the
-hardness to crack \emph{every} cipher text in a PKCS. While we can
-conclude cryptographic insecureness from an easy cracking problem,
-a hard cracking problem does not imply cryptographic security, as
-a subset of cipher texts may be still easy to crack. 
+the hardness of cracking PKCS, that is, captures the hardness of finding
+the plain text to a given cipher text $C$ and public key $K$. To
+crack the cryptosystem, we will conduct a binary search among all
+strings up to a reasonable length. The scope for the binary search
+is limited, as the length of the plain text is polynomial in the length
+of the cipher text. Notice that this notion captures the hardness
+to crack \emph{every} cipher text in a cryptosystem. While we can
+conclude cryptographic insecurity from an easy cracking problem, a
+hard cracking problem does not imply cryptographic security, as a
+subset of cipher texts may be still easy to crack. 
 
 The promise problem is defined as follows:
 \begin{enumerate}
@@ -511,25 +514,24 @@ yield $C$.
 \end{enumerate}
 With a machine solving this promise problem, we can find the plain
 text to any given $C$ and $K$ by binary search over all messages
-$M'$. Thus, the runtime of cracking the PKCS is within a logarithmic
-factor of the runtime of the machine solving the promise problem.
-Therefore, we consider the hardness of the promise problem itself
-as a good measurement for the hardness of the cracking problem.
+$M'$. Thus, the runtime of cracking the public-key cryptosystem is
+within a logarithmic factor of the runtime of the machine solving
+the promise problem. Therefore, we consider the hardness of the promise
+problem as a good measurement for the hardness of the cracking problem.
 
 But why not model the cracking problem as a decision problem? To see
 why a simple decision problem does not capture the cracking problem
-correctly, assume we have a PKCS such that the \emph{decision }problem
-$A$ is not efficiently computable. However, if there is an algorithm
-efficiently solving the promise problem $(A,B)$, the crypto system
-would still be easy to crack. On the other hand, if the promise problem
-is hard, the decision problem will also be.
+correctly, assume we have a cryptosystem such that the \emph{decision
+}problem $A$ is not efficiently computable. However, if there is
+an algorithm efficiently solving the promise problem $(A,B)$, the
+crypto system would still be easy to crack. On the other hand, if
+the promise problem is hard, the decision problem will also be.
 
-To capture the situation where we have a hard decision problem, but
-an easy promise problem, we call a set $S$ for which $A\subseteq S$
-and $B\subseteq\overline{S}$ \emph{a separator.} Let the set $\Sep(A,B)$
-denote the set of all separators for a given pair $(A,B)$. A pair
-$(A,B)$ that has no polynomial-time decidable set in $\Sep(A,B)$
-is called \emph{$\P$-inseparable}, otherwise it is called \emph{$\P$-separable}.
+We call a set $S$ for which $A\subseteq S$ and $B\subseteq\overline{S}$
+\emph{a separator.} Let the set $\Sep(A,B)$ denote the set of all
+separators for a given pair $(A,B)$. A pair $(A,B)$ that has no
+polynomial-time decidable set in $\Sep(A,B)$ is called \emph{$\P$-inseparable},
+otherwise it is called \emph{$\P$-separable}.
 
 The interesting class of promise problems $(A,B)$ is the class with
 promises that are not polynomial-time decidable. In the contrary case
@@ -558,9 +560,9 @@ $S\in\Sep(A,B)$ such that $S\redr T$.
 $M$ that solves $(A,B)$, the language accepted by $M$ is $\NP$-hard.
 \end{enumerate}
 \end{defn}
-A promise problem $(A,B)$ with $A,B\in\NP$ is a \emph{disjoint $\NP$-pair}.
-We define $\DisjNP$ to be the set of all disjoint $\NP$-pairs. For
-this class, we define completeness:
+A promise problem $(A,B)$, with $A,B$ non-empty and $A,B\in\NP$
+is a \emph{disjoint $\NP$-pair}. We define $\DisjNP$ to be the set
+of all disjoint $\NP$-pairs. For this class, we define completeness:
 \begin{defn}
 
 \begin{enumerate}
@@ -574,7 +576,7 @@ We define $\predr$-completeness analogously.
 
 Evan, Selman and Yacobi found out that if disjoint $\NP$-pairs that
 are $\NP$-hard do not exist, then there is exist no PKCS with $\NP$-hard
-cracking problems.
+cracking problems. 
 
 The assertion that there are no disjoint $\NP$-pairs that are $\NP$-hard
 to solve has many more consequences and has been studied well since
@@ -583,23 +585,21 @@ it was formulated as a conjecture by Even, Selman, and Yacobi \cite{journals/ian
  For every pair of disjoint sets in $\NP$, there is a separator
 that is not Turing-hard for $\NP$. \cite{journals/iandc/EvenSY84} 
 \end{conjecture}
-If the conjecture holds, then no PKCS is $\NP$-hard to crack. The
-following refined version of the ESY-conjecture can be proven to be
-equivalent to $\NP\neq\coNP$, see Theorem \ref{thm:equiv-esymfails-np=00003Dconp-polyboundpps}.
+If the conjecture holds, then no public-key cryptosystem is $\NP$-hard
+to crack. The following refined version of the ESY-conjecture can
+be proven to be equivalent to $\NP\neq\coNP$, see Theorem \ref{thm:equiv-esymfails-np=00003Dconp-polyboundpps}.
 \begin{conjecture}[ESY-m]
  For every pair of disjoint sets in $\NP$, there is a separator
 that is not many-one-hard for $\NP$. \cite{conf/icalp/HughesPRS12} 
 \end{conjecture}
-We will study the consequences of the ESY-conjectures in Section \ref{sub:ESY-conjectures}.
+We will study consequences of the ESY-conjectures in Section \ref{sub:ESY-conjectures}.
 
 
 \subsection{Propositional Proof Systems\label{sub:Propositional-Proof-Systems}}
 
-A propositional proof system is a fast method of verifying proofs.
-
-To give an example, we will have a look at the \emph{resolution principle},
-which was introduced by Robinson \cite{journals/jacm/Robinson65}.
-Consider a boolean formula $\varphi$ in conjunctive normal form.
+To start with an example, we will have a look at the \emph{resolution
+principle}, which was introduced by Robinson \cite{journals/jacm/Robinson65}.
+Consider a Boolean formula $\varphi$ in conjunctive normal form.
 If $\varphi$ is not satisfiable, the resolution principle provides
 a way to find a proof for this fact. To find a proof, the resolution
 principle iteratively combines two existing clauses into a new and
@@ -628,14 +628,14 @@ f(\langle\varphi,w\rangle)=\begin{cases}
 \perp & \text{otherwise.}
 \end{cases}
 \]
-Intuitively, $f$ is polynomial-time computable. By the Resolution
+The function $f$ is polynomial-time computable. By the Resolution
 Theorem, $f$ only outputs tautologies, and for every tautology $\neg\varphi$,
 there is an input $\langle\varphi,w\rangle$ such that $f(\langle\varphi,w\rangle)=\neg\varphi$. 
 
 Given a combination sequence $w$ that yields the empty clause for
 $\varphi$, the function $f$ provides a fast way to verify $\neg\varphi$
-is a tautology. We thus call $f$ a propositional proof system, and
-we call $\langle\varphi,w\rangle$ a $f$-proof for $\neg\varphi$.
+is a tautology. We call $f$ a propositional proof system, and we
+call $\langle\varphi,w\rangle$ an $f$-proof for $\neg\varphi$.
 \begin{defn}
 A polynomial-time computable function $f$ that is onto the set of
 tautologies is called a \emph{propositional proof system} or \emph{proof
@@ -658,14 +658,14 @@ is. The interest in the length of the proof is motivated by the fact
 that the existence of polynomial-length proofs for all tautologies
 characterizes the question of whether $\NP=\coNP$. (A fact we will
 prove in Section \ref{sec:Propositional-Proof-Systems}.) However,
-no known proof system could be proven to have proofs with length bounded
+no known proof system has been proven to have proofs with length bounded
 by a polynomial. To tackle the problem, Cook and Reckhow introduced
 the notion of simulation of proof systems.
 \begin{defn}
 Let $f$ and $g$ be proof systems. We say $f$ \emph{simulates} $g$,
-if there is a function $h$ such that for all $w$, it holds $f(h(w))=g(w)$
-and $|h(w)|\leq p(|w|)$. We call $h$ a \emph{translation function}.
-If $h$ is polynomial-time computable, we say $f$ \emph{p-simulates}
+if there is a function $h$ such that for all $w$, it holds that
+$f(h(w))=g(w)$ and $|h(w)|\leq p(|w|)$. We call $h$ a \emph{translation
+function}. If $h$ is polynomial-time computable, we say $f$ \emph{p-simulates}
 $g$. A proof system that simulates (p-simulates) every other proof
 system is called \emph{optimal} (\emph{p-optimal}).
 \end{defn}
@@ -677,11 +677,11 @@ proofs for tautologies among all proof systems, within a polynomial
 factor.
 
 However, it is not only unknown whether polynomially-bounded proof
-systems exist, it is also unknown if optimal or even p-optimal proof
-systems exist. To study the existence of optimal and p-optimal proof
-systems, we will therefore study sufficient conditions and implications
+systems exist, it is also unknown whether optimal or even p-optimal
+proof systems exist. To study the existence of optimal and p-optimal
+proof systems, we will therefore study sufficient conditions and implications
 in Section \ref{sec:Propositional-Proof-Systems}. To become familiar
-with the notions, we present a strong sufficient condition for the
+with these notions, we present a strong sufficient condition for the
 existence of optimal proof systems:
 \begin{thm}
 \label{thm:np-eq-conp-implies-optimalpps}If $\NP=\coNP$, then there
@@ -695,16 +695,16 @@ x & \text{if \ensuremath{N}accepts \ensuremath{w}along path \ensuremath{i},}\\
 \perp & \text{otherwise}.
 \end{cases}
 \]
-Notice, a proof system does not have to be a total function. By definition,
-$f$ outputs only tautologies, and for every tautology there is an
-accepting path of $N$, so $f$ is onto $\TAUT$.
+Notice that a proof system does not have to be a total function. By
+definition, $f$ outputs only tautologies, and for every tautology
+there is an accepting path of $N$, so $f$ is onto $\TAUT$.
 
 To see $f$ is optimal, let $f'$ be an arbitrary proof system. There
 is a function $g$ mapping each tautology $w$ to an accepting path
-$i$ of $N$. Notice, $g$ might not by polynomial-time computable,
-but is polynomially length bounded. Let now $w$ be a $f'$-proof
-for $x$. With $g$, we can translate $w$ into $\langle g(w),f'(w)\rangle$,
-which is a $f$-proof for $x$.
+$i$ of $N$. Notice that $g$ might not by polynomial-time computable,
+but is polynomially length-bounded. Let $w$ be an $f'$-proof for
+$x$. With $g$, we can translate $w$ into $\langle g(w),f'(w)\rangle$,
+which is an $f$-proof for $x$.
 \end{proof}
 As we will see in Section \ref{sec:Propositional-Proof-Systems},
 the existence of both optimal and p-optimal proof systems can be proven
@@ -723,7 +723,7 @@ $\NP$-pairs to the $\NP$ vs. $\coNP$ questions.
 
 \subsection{Reducibility of disjoint pairs\label{sub:Reducibility-of-disjoint}}
 
-In the literature exist several different definitions for the reducibility
+The literature contains several different definitions for the reducibility
 of pairs. Notice that results from this section apply to all disjoint
 pairs $(A,B)$; the sets are \emph{not} required to be in $\NP$.
 Additionally to the definition \ref{def:pair-reduction} given above
@@ -762,7 +762,7 @@ $\lambda$ such that $\lambda(A)\subseteq C$ and $\lambda(B)\subseteq D$.
 \end{defn}
 It turns out that this is equivalent to the many-one reducibility
 defined above as well. As a summary of all these definitions, we obtain
-the following lemma. A comprehensive proof of it can be found Glaﬂer,
+the following Lemmas. A comprehensive proof in in the paper of Glaﬂer,
 Selman, Sengupta and Zhang \cite[Theorems 2.8, 2.10, 2.14]{journals/eccc/ECCC-TR03-011}.
 \begin{lem}
 \label{lem:reducibilities}Let $(A,B)$ and $(C,D)$ be disjoint pairs.
@@ -773,14 +773,22 @@ Then the following assertions are equivalent:
 \item There exists a polynomial-time computable function $\lambda$ such
 that $\lambda(A)\subseteq C$ and $\lambda(B)\subseteq D$.
 \end{enumerate}
-The assertions above imply the following equivalent statements:
+\end{lem}
+
+
+The following result shows that uniform and non-uniform Turing-reductions
+are equivalent. This result was first proven by Grollmann and Selman
+\cite{journals/siamcomp/GrollmannS88}.
+\begin{lem}
+Let $(A,B)$ and $(C,D)$ be disjoint pairs. Then the following assertions
+are equivalent:
 \begin{enumerate}
 \item $(A,B)\predt(C,D)$
 \item $(A,B)\predunit(C,D)$
 \end{enumerate}
 \end{lem}
-Therefore, for the rest of this thesis, we will only use many-one
-and Turing reducibility.
+Therefore, for the rest of this thesis, we will only use the notions
+of many-one and Turing reducibility.
 
 
 \subsection{ESY-conjectures\label{sub:ESY-conjectures}}
@@ -813,9 +821,9 @@ Each item implies the following item in the list:
 \item ESY-$T$ (the original ESY conjecture) does not hold.
 \end{enumerate}
 \end{lem}
-This list can, of course, be extended to a lot more reductions of
-languages. In this thesis, we mention these specific reductions because
-there are known results that relate to these assertions.
+This list can be extended to other reductions as well. In this thesis,
+we mention these specific reductions because there are known results
+that relate to these assertions.
 
 The ESY-conjectures immediately relate to the existence of complete
 pairs, as we can see from the negated ESY-$r$ statement.
@@ -827,10 +835,10 @@ Assume that ESY-$r$ does not hold, then there is a pair $(A,B)$
 of disjoint sets in $\NP$ such that every separator is $r$-hard
 for $\NP$. We claim $(A,B)$ is $r$-complete for $\DisjNP$. Let
 $(C,D)\in\DisjNP$, and let $S$ be any separator for $(A,B)$. Then
-$C\in\NP$ and $S$ is $r$-hard for $\NP$, $C\redr S$. This proves
-$C$, which is a separator of $(C,D)$, reduces to any separator of
-$(A,B)$. By definition \ref{def:pair-reduction}, we have $(C,D)\predr(A,B)$
-and thus $(A,B)$ is $r$-complete for $\DisjNP$.
+since $C\in\NP$ and $S$ is $r$-hard for $\NP$, we have $C\redr S$.
+This proves $C$, which is a separator of $(C,D)$, reduces to any
+separator of $(A,B)$. By definition \ref{def:pair-reduction}, we
+have $(C,D)\predr(A,B)$ and thus $(A,B)$ is $r$-complete for $\DisjNP$.
 \end{proof}
 As mentioned above, the refinements of the (original) ESY-$T$ have
 interesting relations to computational complexity as well. ESY-$m$
@@ -861,8 +869,6 @@ such that all separators are truth-table-hard for $\NP$.
 \end{thm}
 For a proof please refer to the work of Hughes, Mandal, Pavan, Russell
 and Selman \cite{conf/icalp/HughesPRS12}.
-
-\pagebreak{}
 
 
 \section{Propositional Proof Systems\label{sec:Propositional-Proof-Systems}}
@@ -902,7 +908,7 @@ accepting $\TAUT$.
 \end{proof}
 Cook and Reckhow introduced the notion of optimal proof systems in
 order to prove $\NP\neq\coNP$, that is, to prove there is no polynomially-bounded
-proof system. We call a proof system $f$ optimal, if $f$-proofs
+proof system. We call a proof system $f$ \emph{optimal}, if $f$-proofs
 are the shortest proofs among all proof systems (with respect to a
 polynomial factor). Proving the existence of an optimal proof system
 with proofs that are not within polynomial length shows $\NP\neq\coNP$.
@@ -1188,8 +1194,6 @@ proof systems is the existence of complete $\NP$-pairs, first proven
 by Razborov in 1994. The proof requires some preparation and is demonstrated
 in the next section.
 
-\pagebreak{}
-
 
 \section{Canonical Disjoint $\NP$-pairs for Proof Systems\label{sec:Canonical-Disjoint--pairs}}
 
@@ -1331,14 +1335,10 @@ oracle separates ESY-$tt$ from ESY-$m$. Notice that therefore, relative
 to $D$, ESY does not hold, but ESY-$m$ does.
 
 
-\section{Conclusion\label{sec:Conclusion}}
+\section{Open Questions and Future Work\label{sec:Conclusion}}
 
 
-\subsection{Open Questions and Future Work}
-\begin{enumerate}
-\item Oracle for which converse of Razborov holds
-\item Oracle such that there is a optimal, but not a p-optimal proof system
-\end{enumerate}
+
 \begin{singlespace}
 \noindent \bibliographystyle{alpha}
 \bibliography{bibliography}
