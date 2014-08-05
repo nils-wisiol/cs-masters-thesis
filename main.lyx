@@ -110,7 +110,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Sym}{\operatorname{Sym}}
 {\mathrm{Sym\text{ }}}
 \end_inset
 
@@ -119,7 +119,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Aut}{\operatorname{Aut}}
 {\mathrm{Aut\text{ }}}
 \end_inset
 
@@ -128,7 +128,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Ker}{\operatorname{Ker}}
 {\mathrm{Ker}}
 \end_inset
 
@@ -137,7 +137,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Img}{\operatorname{Im}}
+\newcommand{\Img}{\operatorname{Im}}
 {\mathrm{Im}}
 \end_inset
 
@@ -146,7 +146,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Sep}{\operatorname{Sep}}
+\newcommand{\Sep}{\operatorname{Sep}}
 {\mathrm{Sep}}
 \end_inset
 
@@ -155,7 +155,7 @@ Definition of operators
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\powerset}{\operatorname{\mathcal{P}}}
+\newcommand{\powerset}{\operatorname{\mathcal{P}}}
 {\mathrm{\mathcal{P}}}
 \end_inset
 
@@ -177,7 +177,7 @@ Definition of function classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\functionclass}[1]{\mathcal{#1}}
+\newcommand{\functionclass}[1]{\mathcal{#1}}
 {\mathcal{#1}}
 \end_inset
 
@@ -186,7 +186,7 @@ Definition of function classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\FP}{\functionclass{FP}}
+\newcommand{\FP}{\functionclass{FP}}
 {\functionclass{FP}}
 \end_inset
 
@@ -208,7 +208,7 @@ Definition of complexity classes
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\complexityclass}[1]{\mathrm{#1}}
+\newcommand{\complexityclass}[1]{\mathrm{#1}}
 {\mathrm{#1}}
 \end_inset
 
@@ -6450,16 +6450,42 @@ name "sec:Conclusion"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-open problems
-\end_layout
+All major questions raised in this thesis remain unsolved.
+ In particular, for all assertions shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:implication-chart"
 
 \end_inset
 
+ it is not known if they are true or false.
+ For any of the implications shown in the chart, it is interesting to find
+ oracles such that the converse of an implication holds or does not hold.
+ For the previously mentioned oracle 
+\begin_inset Formula $D$
+\end_inset
 
+ by Glaßer and Weichsung 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DBLP:journals/jucs/GlasserW03"
+
+\end_inset
+
+, it is an interesting question to see if there exists many-one complete
+ pairs relative to 
+\begin_inset Formula $D$
+\end_inset
+
+, since oracle 
+\begin_inset Formula $D$
+\end_inset
+
+ implies that 
+\begin_inset Formula $\NP\neq\text{\coNP}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
