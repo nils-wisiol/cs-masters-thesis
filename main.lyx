@@ -6465,14 +6465,14 @@ reference "fig:implication-chart"
 \begin_inset Formula $D$
 \end_inset
 
- by Glaßer and Weichsung 
+ by Glaßer and Wechsung 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "DBLP:journals/jucs/GlasserW03"
 
 \end_inset
 
-, it is an interesting question to see if there exists many-one complete
+, it is an interesting question to see if there exist many-one complete
  pairs relative to 
 \begin_inset Formula $D$
 \end_inset
@@ -6486,6 +6486,20 @@ key "DBLP:journals/jucs/GlasserW03"
 \end_inset
 
 .
+ The most significant converse to study is the question whether the existence
+ of many-one complete disjoint 
+\begin_inset Formula $\NP$
+\end_inset
+
+-pairs implies the existence of optimal proof systems.
+ As stated in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Converse-of-Razborov"
+
+\end_inset
+
+, this question can not be answered with a relativizable proof.
 \end_layout
 
 \begin_layout Standard
